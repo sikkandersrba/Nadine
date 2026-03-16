@@ -194,25 +194,324 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
 .btn-white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.4); }
 .btn-white-outline:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); }
 
-/* ═══ SCROLL REVEAL ═══ */
-.sr { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
-.sr.d1 { transition-delay: .08s; }
-.sr.d2 { transition-delay: .16s; }
-.sr.d3 { transition-delay: .24s; }
-.sr.d4 { transition-delay: .32s; }
-.sr.in { opacity: 1; transform: none; }
 
-/* ═══ HOME HERO ═══ */
+
+/* ═══════════════════════════════════════════════
+   3D SCROLL REVEAL SYSTEM
+   perspective-based transforms for real depth.
+   GPU-composited via will-change + transform.
+═══════════════════════════════════════════════ */
+
+/* Perspective context on every section wrap */
+.wrap { transform-style: preserve-3d; }
+
+/* ── Base state: all reveal elements start hidden ── */
+.sr, .sr-up, .sr-down,
+.sr-left, .sr-right,
+.sr-scale, .sr-fade,
+.sr-3d-up, .sr-3d-left, .sr-3d-right,
+.sr-3d-flip, .sr-3d-scale, .sr-3d-depth {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity   .72s cubic-bezier(.16, 1, .3, 1),
+    transform .72s cubic-bezier(.16, 1, .3, 1);
+  backface-visibility: hidden;
+}
+
+/* ── 2D fallbacks (keep for backward compat) ── */
+.sr, .sr-up   { transform: translateY(28px); }
+.sr-down      { transform: translateY(-20px); }
+.sr-left      { transform: translateX(36px); }
+.sr-right     { transform: translateX(-36px); }
+.sr-scale     { transform: scale(.93) translateY(14px); }
+.sr-fade      { transform: none; }
+
+/* ── 3D variants ── */
+
+/* Card rises up with perspective tilt — top edge tilts away as it ascends */
+.sr-3d-up {
+  transform: perspective(900px) rotateX(14deg) translateY(48px) scale(.97);
+  transform-origin: center bottom;
+}
+
+/* Slide from right + Y-axis tilt (right face comes forward) */
+.sr-3d-left {
+  transform: perspective(900px) rotateY(-18deg) translateX(60px);
+  transform-origin: right center;
+}
+
+/* Slide from left + Y-axis tilt (left face comes forward) */
+.sr-3d-right {
+  transform: perspective(900px) rotateY(18deg) translateX(-60px);
+  transform-origin: left center;
+}
+
+/* Flip up — like a playing card being turned face-up */
+.sr-3d-flip {
+  transform: perspective(900px) rotateX(32deg) translateY(40px) scale(.96);
+  transform-origin: center bottom;
+}
+
+/* Pull forward from depth — zooms from behind */
+.sr-3d-scale {
+  transform: perspective(900px) translateZ(-80px) scale(.88);
+}
+
+/* Subtle depth entry — barely perceptible Z + slight Y */
+.sr-3d-depth {
+  transform: perspective(1200px) translateZ(-40px) translateY(20px) scale(.95);
+}
+
+/* ── Visible state — all converge to identity ── */
+.sr.in, .sr-up.in, .sr-down.in,
+.sr-left.in, .sr-right.in,
+.sr-scale.in, .sr-fade.in,
+.sr-3d-up.in, .sr-3d-left.in, .sr-3d-right.in,
+.sr-3d-flip.in, .sr-3d-scale.in, .sr-3d-depth.in {
+  opacity: 1;
+  transform: perspective(900px) rotateX(0deg) rotateY(0deg)
+             translateX(0) translateY(0) translateZ(0) scale(1);
+}
+
+/* ── Stagger delays (all variants) ── */
+.d1 { transition-delay: .07s; }
+.d2 { transition-delay: .16s; }
+.d3 { transition-delay: .25s; }
+.d4 { transition-delay: .34s; }
+.d5 { transition-delay: .43s; }
+.d6 { transition-delay: .52s; }
+
+/* ── Duration modifiers ── */
+.sr-slow, .sr-3d-up.sr-slow,
+.sr-3d-flip.sr-slow { transition-duration: 1.0s; }
+.sr-fast { transition-duration: .42s; }
+
+/* ── Reduced motion: instant appearance ── */
+@media (prefers-reduced-motion: reduce) {
+  .sr, .sr-up, .sr-down, .sr-left, .sr-right,
+  .sr-scale, .sr-fade,
+  .sr-3d-up, .sr-3d-left, .sr-3d-right,
+  .sr-3d-flip, .sr-3d-scale, .sr-3d-depth {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   PAGE TRANSITIONS — pure opacity crossfade
+   Both pages co-exist briefly during the fade.
+   No display flips, no paint flashes.
+═══════════════════════════════════════════════ */
+
+/* All pages hidden by default */
+.page {
+  display: none;
+}
+
+/* Active page fully visible */
+.page.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Outgoing page — fade out in place */
+.page.pt-exit {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 1;
+  animation: ptFadeOut .38s ease forwards;
+}
+
+/* Incoming page — fade in from slightly below */
+.page.pt-enter {
+  display: block;
+  opacity: 0;
+  animation: ptFadeIn .50s cubic-bezier(.16, 1, .3, 1) forwards;
+}
+
+@keyframes ptFadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes ptFadeIn {
+  0%   { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+/* Reduced motion — instant swap */
+@media (prefers-reduced-motion: reduce) {
+  .page.pt-exit  { animation: none !important; opacity: 0 !important; }
+  .page.pt-enter { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   Thin red line at very top of viewport
+═══════════════════════════════════════════════ */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--red);
+  z-index: 1001;
+  transition: width .08s linear;
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════
+   GO-TO-TOP BUTTON — floating scroll-to-top
+═══════════════════════════════════════════════ */
+#go-top {
+  position: fixed;
+  bottom: 36px;
+  right: 36px;
+  z-index: 998;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--red);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Hidden by default */
+  opacity: 0;
+  transform: translateY(16px) scale(.88);
+  pointer-events: none;
+  transition:
+    opacity   .35s cubic-bezier(.16, 1, .3, 1),
+    transform .35s cubic-bezier(.16, 1, .3, 1),
+    background .18s;
+  will-change: opacity, transform;
+
+  /* Subtle shadow */
+  box-shadow: 0 4px 20px rgba(211, 47, 47, .35), 0 2px 6px rgba(0,0,0,.18);
+}
+
+/* Visible state */
+#go-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* Hover */
+#go-top:hover {
+  background: var(--red-dark);
+  box-shadow: 0 6px 28px rgba(211, 47, 47, .45), 0 2px 8px rgba(0,0,0,.2);
+  transform: translateY(-3px) scale(1.06);
+}
+
+/* Active / click */
+#go-top:active {
+  transform: translateY(0) scale(.96);
+  box-shadow: 0 2px 12px rgba(211, 47, 47, .3);
+}
+
+/* Arrow icon */
+#go-top svg {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  stroke-width: 2.5px;
+  flex-shrink: 0;
+  transition: transform .2s cubic-bezier(.16, 1, .3, 1);
+}
+#go-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* Pulse ring on hover — subtle attention effect */
+#go-top::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  opacity: 0;
+  transform: scale(.85);
+  transition:
+    opacity  .28s ease,
+    transform .28s cubic-bezier(.16, 1, .3, 1);
+}
+#go-top:hover::before {
+  opacity: .35;
+  transform: scale(1.12);
+}
+
+/* Tooltip */
+#go-top::after {
+  content: 'Back to top';
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  white-space: nowrap;
+  background: var(--ink);
+  color: rgba(255,255,255,.85);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+}
+#go-top:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Mobile — smaller, closer to edge */
+@media (max-width: 640px) {
+  #go-top {
+    bottom: 24px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+  #go-top::after { display: none; } /* hide tooltip on mobile */
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #go-top {
+    transition: opacity .2s ease !important;
+    transform: none !important;
+  }
+  #go-top.visible { transform: none !important; }
+  #go-top:hover   { transform: none !important; }
+  #go-top::before { display: none; }
+}
 #hero {
   min-height: 100vh; padding-top: var(--nav-h);
   background: var(--ink2);
   position: relative; overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end;
+  /* Perspective context for all child layers */
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
 }
 
-/* Video background */
+/* ── VIDEO — deepest layer ── */
 .hero-video-wrap {
-  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+  position: absolute; inset: -12% 0;  /* overshoot so scroll doesn't expose edges */
+  z-index: 0; overflow: hidden;
+  will-change: transform;
+  transform: translateZ(-40px) scale(1.06);  /* pushed back in Z */
+  transform-style: preserve-3d;
 }
 .hero-video-wrap video {
   position: absolute;
@@ -221,43 +520,88 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   min-width: 100%; min-height: 100%;
   width: auto; height: auto;
   object-fit: cover;
-  /* slow pan effect */
-  animation: videoPan 30s ease-in-out infinite alternate;
-}
-@keyframes videoPan {
-  0%   { transform: translate(-50%, -50%) scale(1.08); }
-  100% { transform: translate(-48%, -52%) scale(1.12); }
 }
 
-/* Gradient overlay on top of video */
-.hero-overlay {
+/* ── NOISE GRAIN TEXTURE — sits just above video ── */
+.hero-noise {
   position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+  opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  animation: grainShift 0.8s steps(1) infinite;
+}
+@keyframes grainShift {
+  0%   { background-position:  0px   0px; }
+  25%  { background-position: -42px -18px; }
+  50%  { background-position:  18px -36px; }
+  75%  { background-position: -60px  12px; }
+  100% { background-position:  24px  48px; }
+}
+
+/* ── FLOATING PARTICLES — midground depth layer ── */
+.hero-particles {
+  position: absolute; inset: 0; z-index: 2;
+  pointer-events: none; overflow: hidden;
+  will-change: transform;
+}
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleDrift linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes particleDrift {
+  0%   { transform: translateY(0px) translateX(0px) scale(1); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: .6; }
+  100% { transform: translateY(-120px) translateX(var(--drift, 20px)) scale(.6); opacity: 0; }
+}
+
+/* ── VIGNETTE — framing layer ── */
+.hero-vignette {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background:
+    radial-gradient(ellipse 100% 100% at 50% 50%,
+      transparent 40%,
+      rgba(0,0,0,.55) 100%);
+}
+
+/* ── DARK GRADIENT OVERLAY ── */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 4;
+  will-change: transform;
   background:
     linear-gradient(
       to bottom,
-      rgba(10,10,10,.45)  0%,
-      rgba(10,10,10,.55) 40%,
-      rgba(10,10,10,.82) 80%,
-      rgba(10,10,10,.95) 100%
+      rgba(10,10,10,.3)  0%,
+      rgba(10,10,10,.45) 35%,
+      rgba(10,10,10,.78) 72%,
+      rgba(10,10,10,.96) 100%
     );
 }
-/* Subtle red brand tint on left */
+/* Brand red tint */
 .hero-overlay::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
-    105deg,
-    rgba(180,20,20,.1) 0%,
-    transparent 55%
+    115deg,
+    rgba(180,20,20,.14) 0%,
+    rgba(180,20,20,.04) 40%,
+    transparent 65%
   );
 }
 
+/* ── HERO CONTENT — foreground layer ── */
 .hero-content {
-  position: relative; z-index: 2;
+  position: relative; z-index: 6;
   max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
   padding-top: clamp(48px, 10vh, 120px);
   padding-bottom: 0;
   width: 100%;
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .hero-content h1 {
@@ -265,6 +609,8 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   max-width: 560px;
   margin-bottom: 20px;
   font-weight: 400;
+  /* Text subtle 3D pop */
+  text-shadow: 0 2px 32px rgba(0,0,0,.6), 0 0 80px rgba(0,0,0,.3);
 }
 
 .hero-pills {
@@ -275,14 +621,23 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   border: 1px solid rgba(255,255,255,.22);
   font-size: 12px; font-weight: 400; color: rgba(255,255,255,.65);
   background: rgba(255,255,255,.05);
+  backdrop-filter: blur(4px);
+  transition: background .2s, border-color .2s, color .2s;
+}
+.hero-pill:hover {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.9);
 }
 
 /* Hero stats band — integrated into hero bottom */
 .hero-stats-band {
-  position: relative; z-index: 2;
+  position: relative; z-index: 6;
   background: rgba(255,255,255,.06);
   border-top: 1px solid rgba(255,255,255,.1);
   margin-top: 72px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .hero-stats-inner {
   max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
@@ -323,67 +678,175 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
 .services-grid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
 }
+/* ═══════════════════════════════════════════════
+   3D CARD SYSTEM — perspective tilt on hover
+   All interactive cards share the base rule.
+   JS mouse-tracking drives rotateX/rotateY per card.
+═══════════════════════════════════════════════ */
+
+/* Perspective wrapper applied by JS per card */
+.card-3d-wrap {
+  perspective: 800px;
+  perspective-origin: center center;
+}
+
+/* All cards get smooth 3D transform */
+.svc-card, .tcard, .sec-card, .cs-card, .diff-card {
+  transform-style: preserve-3d;
+  transition:
+    transform   .55s cubic-bezier(.16, 1, .3, 1),
+    box-shadow  .55s cubic-bezier(.16, 1, .3, 1),
+    border-color .25s,
+    background  .25s;
+  will-change: transform;
+  cursor: pointer;
+}
+
+/* ── SERVICE CARDS ── */
 .svc-card {
-  border: 1px solid var(--border); border-radius: 10px;
-  padding: 36px 32px; background: var(--white);
-  transition: border-color .2s, box-shadow .2s, transform .2s;
-  position: relative; overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px 32px;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
 }
+
+/* Animated red accent bar */
 .svc-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 2px; background: var(--red);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .3s;
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red-dark), var(--red));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1);
 }
-.svc-card:hover { border-color: #ccc; box-shadow: 0 8px 28px rgba(0,0,0,.07); transform: translateY(-3px); }
+
+/* Glow orb — visible on hover */
+.svc-card::after {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(211,47,47,.10) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity .4s ease, transform .4s ease;
+  transform: scale(.7);
+  pointer-events: none;
+}
+
+.svc-card:hover {
+  border-color: rgba(211,47,47,.35);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,.12),
+    0 4px 14px rgba(211,47,47,.12),
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
 .svc-card:hover::before { transform: scaleX(1); }
+.svc-card:hover::after  { opacity: 1; transform: scale(1); }
+
+.svc-card:hover .svc-icon {
+  transform: translateZ(12px) scale(1.12);
+  background: var(--red-light);
+}
+.svc-card:hover h4 { color: var(--red); }
 
 .svc-icon {
-  width: 40px; height: 40px; margin-bottom: 18px;
+  width: 48px; height: 48px; margin-bottom: 20px;
   display: flex; align-items: center; justify-content: center;
+  background: var(--bg); border-radius: 12px;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1), background .25s;
+  transform-style: preserve-3d;
 }
-.svc-icon svg { width: 28px; height: 28px; color: var(--red); }
-.svc-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; color: var(--ink); }
+.svc-icon svg { width: 26px; height: 26px; color: var(--red); }
+.svc-card h4 {
+  font-size: 15px; font-weight: 700; margin-bottom: 10px;
+  line-height: 1.3; color: var(--ink);
+  transition: color .2s;
+}
 .svc-card p { font-size: 13.5px; line-height: 1.65; }
 .svc-link {
   display: inline-flex; align-items: center; gap: 5px;
   margin-top: 18px; font-size: 12.5px; font-weight: 600;
-  color: var(--red); text-decoration: none; transition: gap .18s;
+  color: var(--red); text-decoration: none;
+  transition: gap .2s, letter-spacing .2s;
 }
-.svc-link:hover { gap: 9px; }
+.svc-link:hover { gap: 10px; letter-spacing: .01em; }
 
-/* ═══ METHODOLOGY ═══ */
+/* ═══ METHODOLOGY STEPS ═══ */
 .method-steps {
   display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
   margin-top: 0;
-  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); border-radius: 14px;
+  overflow: visible; /* must be visible so arrow circles aren't clipped */
+  position: relative;
+  /* Recreate rounded corners via box-shadow outline since overflow:visible can't clip */
+  box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 0 0 1px var(--border);
+  border: none; /* border replaced by box-shadow outline above */
 }
 .mstep {
-  padding: 32px 24px; position: relative;
+  padding: 36px 28px; position: relative;
   border-right: 1px solid var(--border);
-  transition: background .2s;
+  transition: background .3s, transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .3s;
+  cursor: pointer;
+  overflow: hidden;
+  background: var(--white);
+}
+/* Round outer corners since parent overflow is now visible */
+.mstep:first-child { border-radius: 14px 0 0 14px; }
+.mstep:last-child  { border-radius: 0 14px 14px 0; }
+.mstep::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(211,47,47,.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
 }
 .mstep:last-child { border-right: none; }
-.mstep:hover { background: #fafafa; }
+.mstep:hover {
+  background: #f8f8f8;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+  z-index: 1;
+}
+.mstep:hover::before { opacity: 1; }
 .mstep-icon {
-  width: 44px; height: 44px; border-radius: 50%;
+  width: 48px; height: 48px; border-radius: 50%;
   border: 1.5px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 14px; background: var(--white);
-  transition: border-color .2s, background .2s;
+  margin-bottom: 16px; background: var(--white);
+  transition: border-color .3s, background .3s, transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .3s;
 }
-.mstep:hover .mstep-icon { border-color: var(--red); background: var(--red-light); }
-.mstep-icon svg { width: 20px; height: 20px; color: var(--red); }
+.mstep:hover .mstep-icon {
+  border-color: var(--red);
+  background: var(--red-light);
+  transform: scale(1.14) rotate(-5deg);
+  box-shadow: 0 4px 16px rgba(211,47,47,.2);
+}
+.mstep-icon svg { width: 21px; height: 21px; color: var(--red); }
 .mstep-title {
   font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px;
+  transition: color .2s;
 }
+.mstep:hover .mstep-title { color: var(--red); }
 .mstep-body { font-size: 12.5px; color: var(--gray-lt); line-height: 1.6; }
 .mstep-arrow {
-  position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
-  z-index: 2; width: 20px; height: 20px;
-  background: var(--white); border: 1px solid var(--border);
+  position: absolute; right: -12px; top: 50%; transform: translateY(-50%);
+  z-index: 10; width: 24px; height: 24px;
+  background: var(--white); border: 1.5px solid var(--red);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 10px; color: var(--red);
+  font-size: 11px; color: var(--red); line-height: 1;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(211,47,47,.18);
+  transition: background .2s, border-color .2s, color .2s, transform .3s, box-shadow .2s;
+}
+.mstep:hover .mstep-arrow {
+  background: var(--red); border-color: var(--red);
+  color: white; transform: translateY(-50%) scale(1.18);
+  box-shadow: 0 4px 14px rgba(211,47,47,.35);
 }
 .mstep:last-child .mstep-arrow { display: none; }
 
@@ -448,39 +911,112 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
   margin-top: 48px;
 }
+
+/* ── TECH CARDS ── */
 .tcard {
   display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
-  padding: 28px; border-radius: 8px;
-  background: rgb(64 44 44);
-  border: 1px solid rgba(133,39,39,.58);
-  transition: background .2s, border-color .2s;
+  padding: 32px 28px; border-radius: 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(211,47,47,.22);
+  position: relative; overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,.15);
 }
-.tcard:hover { background: rgba(52,255,255,.07); border-color: rgba(255,255,255,.12); }
+
+/* Shimmer sweep on hover */
+.tcard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255,255,255,.04) 50%,
+    transparent 100%
+  );
+  transition: left .6s cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+}
+.tcard:hover::before { left: 150%; }
+
+/* Bottom glow line */
+.tcard::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  opacity: 0;
+  transition: opacity .35s;
+}
+.tcard:hover::after { opacity: 1; }
+
+.tcard:hover {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(211,47,47,.55);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.25),
+    0 0 0 1px rgba(211,47,47,.2),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  transform: translateY(-6px) translateZ(0);
+}
+.tcard:hover .tcard-icon {
+  background: rgba(211,47,47,.25);
+  transform: scale(1.15) rotate(-8deg);
+  box-shadow: 0 4px 18px rgba(211,47,47,.3);
+}
 .tcard-icon {
-  width: 42px; height: 42px; border-radius: 8px;
+  width: 46px; height: 46px; border-radius: 10px;
   background: rgba(211,47,47,.12);
   display: flex; align-items: center; justify-content: center;
+  transition: background .3s, transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .3s;
 }
-.tcard-icon svg { width: 20px; height: 20px; color: var(--red); }
-.tcard h4 { font-size: 14px; color: var(--white); }
+.tcard-icon svg { width: 22px; height: 22px; color: var(--red); }
+.tcard h4 { font-size: 14.5px; color: var(--white); transition: color .2s; }
+.tcard:hover h4 { color: rgba(255,255,255,.95); }
 .tcard p { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.65; }
 
-/* ═══ SECTORS ═══ */
+/* ── SECTOR CARDS ── */
 .sectors-row {
   display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
   margin-top: 0;
 }
 .sec-card {
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  padding: 28px 20px; border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 32px 20px; border-radius: 14px;
   border: 1px solid var(--border);
   text-align: center; text-decoration: none;
-  transition: border-color .2s, box-shadow .2s, transform .2s;
   background: var(--white);
+  position: relative; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
-.sec-card:hover { border-color: var(--red); box-shadow: 0 6px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
-.sec-icon { font-size: 32px; }
-.sec-title { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+
+/* Radial glow from center */
+.sec-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(211,47,47,.08) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity .35s;
+}
+.sec-card:hover::before { opacity: 1; }
+
+.sec-card:hover {
+  border-color: var(--red);
+  box-shadow:
+    0 16px 36px rgba(0,0,0,.1),
+    0 0 0 1px rgba(211,47,47,.15);
+  transform: translateY(-6px) scale(1.02);
+}
+.sec-card:hover .sec-icon { transform: scale(1.22) translateY(-3px) rotate(5deg); }
+.sec-icon {
+  font-size: 34px;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+  display: block;
+}
+.sec-title {
+  font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.3;
+  transition: color .2s;
+}
+.sec-card:hover .sec-title { color: var(--red); }
 
 /* ═══ OUTCOMES BAND ═══ */
 .outcomes-band { background: var(--white); border-top: 1px solid var(--border); }
@@ -650,37 +1186,77 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
 .int-step h4 { font-size: 13.5px; color: var(--white); margin-bottom: 6px; }
 .int-step p { font-size: 12px; color: rgba(255,255,255,.38); line-height: 1.6; }
 
-/* Case study cards */
-.cs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+/* ── CASE STUDY CARDS ── */
+.cs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 .cs-card {
-  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-  background: var(--white); transition: transform .2s, box-shadow .2s, border-color .2s;
+  border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
+  position: relative;
 }
-.cs-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.09); border-color: #bbb; }
-.cs-top { height: 3px; background: var(--red); }
-.cs-body { padding: 24px; }
+.cs-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(211,47,47,.03) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity .35s;
+  pointer-events: none;
+}
+.cs-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 52px rgba(0,0,0,.12), 0 0 0 1px rgba(211,47,47,.1);
+  border-color: rgba(211,47,47,.3);
+}
+.cs-card:hover::after { opacity: 1; }
+.cs-card:hover .cs-top { background: var(--red-dark); }
+.cs-top { height: 4px; background: var(--red); transition: background .25s; }
+.cs-body { padding: 28px; }
 .cs-tag {
-  display: inline-block; padding: 3px 10px; border-radius: 3px;
+  display: inline-block; padding: 4px 12px; border-radius: 20px;
   background: var(--bg); font-size: 10.5px; font-weight: 600;
-  letter-spacing: .07em; text-transform: uppercase; color: var(--slate); margin-bottom: 12px;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px;
 }
-.cs-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+.cs-card h4 {
+  font-size: 15.5px; font-weight: 700; margin-bottom: 10px; line-height: 1.3;
+  transition: color .2s;
+}
+.cs-card:hover h4 { color: var(--red); }
 .cs-card p { font-size: 13px; line-height: 1.65; margin-bottom: 14px; }
 .cs-metrics { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-.cs-metric { padding: 3px 10px; border-radius: 3px; background: var(--bg); font-size: 11.5px; color: var(--slate); font-weight: 500; }
-.cs-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 600; color: var(--red); text-decoration: none; transition: gap .18s; }
-.cs-link:hover { gap: 9px; }
+.cs-metric { padding: 4px 12px; border-radius: 20px; background: var(--bg); font-size: 11.5px; color: var(--slate); font-weight: 500; }
+.cs-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 600; color: var(--red); text-decoration: none; transition: gap .2s; }
+.cs-link:hover { gap: 10px; }
 
-/* Diff grid */
+/* ── DIFF / ABOUT CARDS ── */
 .diff-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .diff-card {
-  border: 1px solid var(--border); border-radius: 8px; padding: 28px;
-  background: var(--white); transition: border-color .2s;
+  border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px;
+  background: var(--white);
+  position: relative; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
-.diff-card:hover { border-color: #bbb; }
-.diff-icon { font-size: 24px; margin-bottom: 16px; display: block; }
-.diff-card h4 { font-size: 14px; margin-bottom: 8px; }
-.diff-card p { font-size: 13px; line-height: 1.65; }
+.diff-card::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red-dark), var(--red));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+}
+.diff-card:hover {
+  border-color: rgba(211,47,47,.2);
+  box-shadow: 0 16px 36px rgba(0,0,0,.08), 0 0 0 1px rgba(211,47,47,.08);
+  transform: translateY(-4px);
+}
+.diff-card:hover::before { transform: scaleX(1); }
+.diff-card:hover .diff-icon { transform: scale(1.15) rotate(-6deg); }
+.diff-icon {
+  font-size: 26px; margin-bottom: 18px; display: block;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+}
+.diff-card h4 { font-size: 14.5px; margin-bottom: 10px; transition: color .2s; }
+.diff-card:hover h4 { color: var(--red); }
+.diff-card p { font-size: 13.5px; line-height: 1.65; }
 
 /* Contact */
 .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
@@ -907,6 +1483,16 @@ footer { background: #111; padding: 60px 0 0; }
 </head>
 <body>
 
+<!-- Scroll progress indicator -->
+<div id="scroll-progress" aria-hidden="true" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- Go-to-top floating button -->
+<button id="go-top" aria-label="Scroll back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
 <!-- ═══ NAVIGATION ═══ -->
 <nav id="nav">
   <div class="nav-inner">
@@ -959,8 +1545,8 @@ footer { background: #111; padding: 60px 0 0; }
   <!-- HERO -->
   <section id="hero">
 
-    <!-- Video background -->
-    <div class="hero-video-wrap">
+    <!-- Video background — deepest Z layer -->
+    <div class="hero-video-wrap" id="heroVideoWrap">
       <video
         id="heroVideo"
         autoplay
@@ -974,8 +1560,17 @@ footer { background: #111; padding: 60px 0 0; }
       </video>
     </div>
 
+    <!-- Animated grain noise -->
+    <div class="hero-noise" aria-hidden="true"></div>
+
+    <!-- Floating depth particles -->
+    <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+
+    <!-- Radial vignette framing -->
+    <div class="hero-vignette" aria-hidden="true"></div>
+
     <!-- Dark + red gradient overlay -->
-    <div class="hero-overlay"></div>
+    <div class="hero-overlay" id="heroOverlay"></div>
 
     <div class="hero-content">
       <h1>Engineering Intelligence<br>That Drives Smarter<br>Capital Decisions</h1>
@@ -992,7 +1587,7 @@ footer { background: #111; padding: 60px 0 0; }
       <div class="hero-stats-inner">
         <div class="hstat"><div class="hstat-n" data-count="30" data-suffix="+">30+</div><div class="hstat-l">Years in Operation</div></div>
         <div class="hstat"><div class="hstat-n" data-count="1200" data-suffix="+" data-format="comma">1,200+</div><div class="hstat-l">Facilities Assessed</div></div>
-        <div class="hstat"><div class="hstat-n" data-count="15" data-prefix="" data-suffix="+">15</div><div class="hstat-l">Years in Capital Forecast Models</div></div>
+        <div class="hstat"><div class="hstat-n" data-count="15" data-prefix="" data-suffix="-Year">15-Year</div><div class="hstat-l">Capital Forecast Models</div></div>
         <div class="hstat"><div class="hstat-n" data-count="95" data-suffix="%">95%</div><div class="hstat-l">Client Retention</div></div>
       </div>
     </div>
@@ -1001,12 +1596,12 @@ footer { background: #111; padding: 60px 0 0; }
   <!-- CORE SERVICES -->
   <section class="section bg-white">
     <div class="wrap">
-      <div class="sec-head sr">
+      <div class="sec-head sr-3d-up sr-slow">
         <h2>Our Core Services</h2>
         <p>Nadine's integrated framework combines engineering evaluation, lifecycle modeling, and governance-aligned prioritization to deliver structured capital intelligence.</p>
       </div>
       <div class="services-grid">
-        <div class="svc-card sr d1">
+        <div class="svc-card sr-3d-left d1">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg>
           </div>
@@ -1014,7 +1609,7 @@ footer { background: #111; padding: 60px 0 0; }
           <p>Engineering-grade evaluations & FCI benchmarking across distributed portfolios nationwide.</p>
           <a class="svc-link" href="#" onclick="go('fca')">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-        <div class="svc-card sr d2">
+        <div class="svc-card sr-3d-up d2">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
@@ -1022,7 +1617,7 @@ footer { background: #111; padding: 60px 0 0; }
           <p>Multi-year capital models & funding scenarios aligned with institutional governance cycles.</p>
           <a class="svc-link" href="#" onclick="go('capital')">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-        <div class="svc-card sr d3">
+        <div class="svc-card sr-3d-right d3">
           <div class="svc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
           </div>
@@ -1037,11 +1632,11 @@ footer { background: #111; padding: 60px 0 0; }
   <!-- METHODOLOGY -->
   <section class="section bg-light">
     <div class="wrap">
-      <div class="sec-head sr">
+      <div class="sec-head sr-3d-up sr-slow">
         <h2>Our Structured Methodology</h2>
         <p>A defensible, engineering-driven approach ensuring transparency, repeatability, and governance alignment across complex portfolios.</p>
       </div>
-      <div class="method-steps sr d1">
+      <div class="method-steps sr-3d-flip d1">
         <div class="mstep">
           <div class="mstep-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1081,29 +1676,29 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section tech-section">
     <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sec-head sr" style="text-align:left;">
+      <div class="sec-head sr-3d-up" style="text-align:left;">
         <span class="eyebrow" style="color:rgba(211,47,47,.8);">Technology</span>
         <h2 style="color:var(--white);">Infrastructure Intelligence Platform</h2>
         <p style="color:rgba(255,255,255,.5);margin-left:0px;">Built to support complex institutional portfolios. Our cloud-based platform transforms assessment data into real-time portfolio visibility and defensible capital scenarios.</p>
       </div>
-      <div class="tech-grid sr d1">
-        <div class="tcard">
+      <div class="tech-grid">
+        <div class="tcard sr-3d-scale d1">
           <div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
           <h4>Data Integration</h4>
           <p>Transit Engineering Integration — real-time field data sync directly into portfolio dashboards.</p>
         </div>
-        <div class="tcard">
+        <div class="tcard sr-3d-scale d2">
           <div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <h4>Predictive Analytics</h4>
           <p>Integration-form alignment — multi-year funding scenario modeling generated in minutes.</p>
         </div>
-        <div class="tcard">
+        <div class="tcard sr-3d-scale d3">
           <div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
           <h4>Secure Collaboration</h4>
-          <p>Fastesting-ive solutions — role-based access control with institutional-grade cloud security.</p>
+          <p>Role-based access control with institutional-grade cloud security.</p>
         </div>
       </div>
-      <div style="margin-top:36px;text-align:left;" class="sr d2">
+      <div style="margin-top:36px;text-align:left;" class="sr-3d-depth d2">
         <a class="btn btn-white-outline" href="#" onclick="go('technology')">Explore Our Technology <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
@@ -1112,21 +1707,21 @@ footer { background: #111; padding: 60px 0 0; }
   <!-- SECTORS -->
   <section class="section bg-white">
     <div class="wrap">
-      <div class="sec-head sr"><h2>Sectors We Serve</h2></div>
-      <div class="sectors-row sr d1">
-        <a class="sec-card" href="#" onclick="go('industries')">
+      <div class="sec-head sr-3d-up"><h2>Sectors We Serve</h2></div>
+      <div class="sectors-row">
+        <a class="sec-card sr-3d-flip d1" href="#" onclick="go('industries')">
           <span class="sec-icon">🏛️</span>
           <span class="sec-title">Government</span>
         </a>
-        <a class="sec-card" href="#" onclick="go('industries')">
+        <a class="sec-card sr-3d-flip d2" href="#" onclick="go('industries')">
           <span class="sec-icon">🚨</span>
           <span class="sec-title">Public Safety</span>
         </a>
-        <a class="sec-card" href="#" onclick="go('industries')">
+        <a class="sec-card sr-3d-flip d3" href="#" onclick="go('industries')">
           <span class="sec-icon">🏥</span>
           <span class="sec-title">Healthcare & Education</span>
         </a>
-        <a class="sec-card" href="#" onclick="go('industries')">
+        <a class="sec-card sr-3d-flip d4" href="#" onclick="go('industries')">
           <span class="sec-icon">🏢</span>
           <span class="sec-title">Commercial & Institutional</span>
         </a>
@@ -1135,7 +1730,7 @@ footer { background: #111; padding: 60px 0 0; }
   </section>
 
   <!-- OUTCOMES BAND -->
-  <div class="outcomes-band sr">
+  <div class="outcomes-band sr-3d-depth">
     <div class="outcomes-inner">
       <div class="outcomes-stats">
         <div class="ostat">
@@ -1174,8 +1769,8 @@ footer { background: #111; padding: 60px 0 0; }
 
   <section class="section bg-white">
     <div class="wrap">
-      <div class="sec-head sr"><h2>Our Integrated Framework</h2><p>Assessment → Modeling → Risk-Informed Capital Strategy. Each pillar builds upon the next to create a complete infrastructure intelligence system.</p></div>
-      <div class="int-flow sr d1">
+      <div class="sec-head sr-3d-up"><h2>Our Integrated Framework</h2><p>Assessment → Modeling → Risk-Informed Capital Strategy. Each pillar builds upon the next to create a complete infrastructure intelligence system.</p></div>
+      <div class="int-flow sr-3d-flip d1">
         <div class="int-step"><div class="int-lbl">Step 01</div><h4>Facility Condition Assessment</h4><p>Engineering-grade portfolio visibility with standardized FCI scoring across all asset classes.</p></div>
         <div class="int-step"><div class="int-lbl">Step 02</div><h4>Capital Planning & Forecasting</h4><p>Lifecycle intelligence translating assessment data into 10–20 year capital models.</p></div>
         <div class="int-step"><div class="int-lbl">Step 03</div><h4>Risk-Informed Strategy</h4><p>Governance-aligned prioritization ensuring defensible, transparent capital decisions.</p></div>
@@ -1186,7 +1781,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-light">
     <div class="wrap">
       <div class="services-grid">
-        <div class="svc-card sr">
+        <div class="svc-card sr-3d-up">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg></div>
           <h4>Facility Condition Assessment</h4>
           <p>Comprehensive multi-discipline assessments across distributed portfolios — asset inventory, system classification, FCI modeling, and regulatory compliance observation.</p>
@@ -1214,8 +1809,8 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section tech-section">
     <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sec-head sr" style="text-align:left;"><h2 style="color:var(--white);">Measurable Capital Impact</h2></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="sr d1">
+      <div class="sec-head sr-3d-up" style="text-align:left;"><h2 style="color:var(--white);">Measurable Capital Impact</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="sr-3d-up d1">
         <div class="tcard"><div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h4>1,200+</h4><p>Facility portfolio assessments delivered nationwide across all major sectors.</p></div>
         <div class="tcard"><div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>18% Reduction</h4><p>In reactive repair expenditures following structured capital planning implementation.</p></div>
         <div class="tcard"><div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>15-Year Forecasts</h4><p>Capital roadmaps developed with standardized FCI modeling aligned with governance cycles.</p></div>
@@ -1244,14 +1839,14 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Why FCA Matters</span>
           <h2>From Reactive Repairs to Strategic Capital Performance</h2>
           <p style="margin-top:14px;">Aging infrastructure, funding constraints, and governance scrutiny require structured decision-making. A structured FCA program provides portfolio-wide visibility with standardized condition scoring and transparent capital need identification aligned with funding strategy.</p>
           <p style="margin-top:12px;">Facility Condition Assessment is not an inspection exercise — it is a capital intelligence tool.</p>
           <ul class="checklist"><li>Portfolio-wide visibility and standardized condition scoring</li><li>Transparent capital need identification</li><li>Alignment with funding strategy and governance cycles</li><li>Defensible documentation for audit and board review</li></ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <div class="stat-panel">
             <div class="stat-panel-label">FCA Program Outcomes</div>
             <div class="sp-row"><span class="sp-label">Facilities Assessed</span><span class="sp-val">1,000+</span></div>
@@ -1267,7 +1862,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <section class="section bg-light">
     <div class="wrap">
-      <div class="sec-head sr"><h2>Our Engineering Approach</h2><p>Multi-discipline, structured, and defensible assessments across all major building systems.</p></div>
+      <div class="sec-head sr-3d-up"><h2>Our Engineering Approach</h2><p>Multi-discipline, structured, and defensible assessments across all major building systems.</p></div>
       <div class="services-grid sr d1">
         <div class="svc-card"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="9" width="18" height="13" rx="2"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/></svg></div><h4>Structural Systems</h4><p>Foundation, framing, roofing, and envelope integrity assessment across all facility types and ages.</p></div>
         <div class="svc-card"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h4>Mechanical & Electrical</h4><p>HVAC, plumbing, electrical distribution, and life safety system evaluation and lifecycle assessment.</p></div>
@@ -1279,13 +1874,13 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col flip">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Technology Integration</span>
           <h2>Technology-Enabled Data Collection</h2>
           <p style="margin-top:14px;">Our FCA process integrates directly with Nadine's Infrastructure Intelligence Platform, ensuring digitized field data capture, real-time synchronization, and portfolio-level dashboards. Assessments are not static reports — they become living data assets.</p>
           <ul class="checklist"><li>Digitized field data capture and real-time sync</li><li>Portfolio-level dashboards and criticality mapping</li><li>Scenario-ready capital modeling integration</li></ul>
         </div>
-        <div class="sr d1">
+        <div class="sr-3d-up d1">
           <div class="fci-panel">
             <div class="fci-panel-label">Condition Index Distribution — Sample Portfolio</div>
             <div class="fci-row"><div class="fci-top"><span class="fci-name">Good (FCI 0.80–1.00)</span><span class="fci-pct">34%</span></div><div class="fci-track"><div class="fci-bar" style="width:34%"></div></div></div>
@@ -1319,14 +1914,14 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">The Challenge</span>
           <h2>Moving Beyond Reactive Budgeting</h2>
           <p style="margin-top:14px;">Infrastructure portfolios face increasing pressure from aging assets, funding constraints, governance scrutiny, and regulatory expectations. Without structured capital modeling, budgets become reactive and deferred maintenance compounds.</p>
           <p style="margin-top:12px;font-weight:600;color:var(--ink);">Capital planning must be engineered — not improvised.</p>
           <ul class="checklist"><li>Multi-year lifecycle cost forecasting</li><li>Funding scenario modeling and trade-off analysis</li><li>Target FCI optimization aligned to budget capacity</li><li>Board-ready reporting for governance review</li></ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <div class="stat-panel">
             <div class="stat-panel-label">Capital Intelligence Framework</div>
             <div class="sp-row"><span class="sp-label">Forecast Horizon</span><span class="sp-val">10–20 yr</span></div>
@@ -1341,7 +1936,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <section class="section bg-light">
     <div class="wrap">
-      <div class="sec-head sr"><h2>Funding Scenario Modeling</h2><p>Leadership can simulate baseline projections, accelerated reinvestment, deferred impacts, and target FCI timelines before committing capital.</p></div>
+      <div class="sec-head sr-3d-up"><h2>Funding Scenario Modeling</h2><p>Leadership can simulate baseline projections, accelerated reinvestment, deferred impacts, and target FCI timelines before committing capital.</p></div>
       <div class="services-grid sr d1">
         <div class="svc-card"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h4>Scenario Modeling</h4><p>Compare baseline vs optimized funding, simulate deferral impacts, and visualize risk implications across multiple timelines.</p></div>
         <div class="svc-card"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Target FCI Optimization</h4><p>Establish measurable portfolio targets, quantify funding requirements, and track performance improvement over time.</p></div>
@@ -1353,8 +1948,8 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section tech-section">
     <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sr"><span class="eyebrow" style="color:rgba(211,47,47,.8);">Integration</span><h2 style="color:var(--white);">Capital Planning Does Not Operate in Isolation</h2></div>
-      <div class="int-flow sr d1">
+      <div class="sr-3d-depth"><span class="eyebrow" style="color:rgba(211,47,47,.8);">Integration</span><h2 style="color:var(--white);">Capital Planning Does Not Operate in Isolation</h2></div>
+      <div class="int-flow sr-3d-flip d1">
         <div class="int-step"><div class="int-lbl">Foundation</div><h4>Facility Condition Assessment</h4><p>Standardized visibility and FCI data that capital planning models are built upon.</p></div>
         <div class="int-step"><div class="int-lbl">Core Service</div><h4>Capital Modeling</h4><p>Transforms visibility into structured multi-year funding strategy and defensible forecasts.</p></div>
         <div class="int-step"><div class="int-lbl">Enhancement</div><h4>Risk-Informed Strategy</h4><p>Ensures prioritization aligns with safety, regulatory requirements, and governance scrutiny.</p></div>
@@ -1382,7 +1977,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <section class="section bg-white">
     <div class="wrap">
-      <div class="sec-head sr"><h2>Why Risk Matters in Capital Planning</h2><p>Condition alone does not determine urgency. Two assets with similar scores may present very different levels of life-safety exposure, regulatory risk, and operational disruption impact.</p></div>
+      <div class="sec-head sr-3d-up"><h2>Why Risk Matters in Capital Planning</h2><p>Condition alone does not determine urgency. Two assets with similar scores may present very different levels of life-safety exposure, regulatory risk, and operational disruption impact.</p></div>
       <div class="services-grid sr d1">
         <div class="svc-card"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h4>Critical System Identification</h4><p>Structured classification of systems by operational criticality, life-safety impact, and regulatory exposure.</p></div>
         <div class="svc-card"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg></div><h4>Criticality & Prioritization Modeling</h4><p>Risk-weighted capital prioritization that weighs life-safety consequences, operational continuity, and funding alignment.</p></div>
@@ -1411,8 +2006,8 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr"><span class="eyebrow">Government & Public Sector</span><h2>Multi-Jurisdictional Infrastructure Governance</h2><p style="margin-top:14px;">Federal agencies, provincial ministries, and municipal governments manage diverse asset portfolios under strict governance and funding scrutiny. Nadine provides structured FCA and capital forecasting models aligned with public-sector governance frameworks.</p><ul class="checklist"><li>Multi-year capital planning alignment</li><li>Public accountability and audit oversight support</li><li>Budget transparency and standardized FCI benchmarking</li><li>Funding submissions and board reporting support</li></ul></div>
-        <div class="sr d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🏛️</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Government & Public Sector</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Federal · Provincial · Municipal</div></div></div>
+        <div class="sr-3d-depth"><span class="eyebrow">Government & Public Sector</span><h2>Multi-Jurisdictional Infrastructure Governance</h2><p style="margin-top:14px;">Federal agencies, provincial ministries, and municipal governments manage diverse asset portfolios under strict governance and funding scrutiny. Nadine provides structured FCA and capital forecasting models aligned with public-sector governance frameworks.</p><ul class="checklist"><li>Multi-year capital planning alignment</li><li>Public accountability and audit oversight support</li><li>Budget transparency and standardized FCI benchmarking</li><li>Funding submissions and board reporting support</li></ul></div>
+        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🏛️</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Government & Public Sector</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Federal · Provincial · Municipal</div></div></div>
       </div>
     </div>
   </section>
@@ -1420,8 +2015,8 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-light">
     <div class="wrap">
       <div class="two-col flip">
-        <div class="sr"><span class="eyebrow">Public Safety & Emergency Services</span><h2>Mission-Critical Infrastructure Performance</h2><p style="margin-top:14px;">Public safety facilities require uninterrupted operational performance. Nadine integrates structured risk evaluation into capital modeling to ensure prioritization reflects criticality and exposure. Infrastructure reliability cannot be reactive — it must be engineered.</p><ul class="checklist"><li>High system reliability assurance</li><li>Life-safety prioritization frameworks</li><li>Risk-informed capital allocation</li><li>Operational continuity planning</li></ul></div>
-        <div class="sr d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🚨</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Public Safety</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Police · Fire · Emergency Services</div></div></div>
+        <div class="sr-3d-depth"><span class="eyebrow">Public Safety & Emergency Services</span><h2>Mission-Critical Infrastructure Performance</h2><p style="margin-top:14px;">Public safety facilities require uninterrupted operational performance. Nadine integrates structured risk evaluation into capital modeling to ensure prioritization reflects criticality and exposure. Infrastructure reliability cannot be reactive — it must be engineered.</p><ul class="checklist"><li>High system reliability assurance</li><li>Life-safety prioritization frameworks</li><li>Risk-informed capital allocation</li><li>Operational continuity planning</li></ul></div>
+        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🚨</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Public Safety</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Police · Fire · Emergency Services</div></div></div>
       </div>
     </div>
   </section>
@@ -1429,8 +2024,8 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr"><span class="eyebrow">Healthcare & Education</span><h2>Essential Community Infrastructure</h2><p style="margin-top:14px;">Healthcare and educational institutions operate complex facility networks under funding constraints and regulatory oversight. Nadine supports hospitals, healthcare networks, schools, and post-secondary institutions with structured assessments and long-term capital forecasting.</p><ul class="checklist"><li>Aging infrastructure and deferred maintenance management</li><li>Multi-campus portfolio management</li><li>Lifecycle funding alignment with governance cycles</li></ul></div>
-        <div class="sr d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🏥</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Healthcare & Education</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Hospitals · Schools · Post-Secondary</div></div></div>
+        <div class="sr-3d-depth"><span class="eyebrow">Healthcare & Education</span><h2>Essential Community Infrastructure</h2><p style="margin-top:14px;">Healthcare and educational institutions operate complex facility networks under funding constraints and regulatory oversight. Nadine supports hospitals, healthcare networks, schools, and post-secondary institutions with structured assessments and long-term capital forecasting.</p><ul class="checklist"><li>Aging infrastructure and deferred maintenance management</li><li>Multi-campus portfolio management</li><li>Lifecycle funding alignment with governance cycles</li></ul></div>
+        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🏥</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Healthcare & Education</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Hospitals · Schools · Post-Secondary</div></div></div>
       </div>
     </div>
   </section>
@@ -1459,7 +2054,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Beyond Static Reporting</span>
           <h2>From Reports to Living Infrastructure Data</h2>
           <p style="margin-top:14px;">Traditional Facility Condition Assessments often result in static PDF reports that become outdated shortly after delivery. Nadine's platform converts assessment outputs into a living portfolio system — enabling continuous data visibility, dynamic capital scenario modeling, and real-time portfolio performance monitoring.</p>
@@ -1471,7 +2066,7 @@ footer { background: #111; padding: 60px 0 0; }
             <li>Structured risk prioritization — not manual spreadsheet management</li>
           </ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <div class="stat-panel">
             <div class="stat-panel-label">Platform vs. Traditional Reporting</div>
             <div class="sp-row"><span class="sp-label">Scenario Evaluation Time</span><span class="sp-val">Minutes</span></div>
@@ -1489,7 +2084,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-light">
     <div class="wrap">
       <div class="two-col flip">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Portfolio-Level Visibility</span>
           <h2>Executive Dashboards for Strategic Oversight</h2>
           <p style="margin-top:14px;">Leadership requires clear, portfolio-level insight — not isolated facility summaries. Our platform provides portfolio performance dashboards that enable decision-makers to quickly identify high-risk assets, underperforming facilities, funding gaps, and improvement trends over time.</p>
@@ -1500,7 +2095,7 @@ footer { background: #111; padding: 60px 0 0; }
             <li>Cross-facility performance comparison to identify outliers</li>
           </ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <!-- Dashboard visualization -->
           <div style="background:var(--ink);border-radius:10px;padding:28px;overflow:hidden;position:relative;">
             <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(211,47,47,.12),transparent 70%);"></div>
@@ -1547,7 +2142,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Criticality Heatmaps</span>
           <h2>Visual Prioritization Across Distributed Assets</h2>
           <p style="margin-top:14px;">Understanding condition alone is insufficient. Criticality matters. Our criticality heatmaps visualize asset risk exposure, highlight life-safety priorities, map funding urgency, and support risk-informed capital decisions — allowing leadership to immediately identify where capital investment delivers the highest impact.</p>
@@ -1559,7 +2154,7 @@ footer { background: #111; padding: 60px 0 0; }
             <li>Risk-weighted prioritization supporting defensible decisions</li>
           </ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <!-- Heatmap visualization -->
           <div style="background:var(--ink);border-radius:10px;padding:28px;">
             <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">Criticality Heatmap — Sample Portfolio</div>
@@ -1602,7 +2197,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-light">
     <div class="wrap">
       <div class="two-col flip">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Funding Scenario Modeling</span>
           <h2>Evaluate Capital Trade-Offs Before Committing Investment</h2>
           <p style="margin-top:14px;">One of the platform's most powerful capabilities is multi-year funding scenario modeling. Leadership can simulate baseline funding projections, accelerated reinvestment strategies, deferred investment impacts, target FCI optimization timelines, and risk-reduction prioritization — all before committing a single dollar.</p>
@@ -1614,7 +2209,7 @@ footer { background: #111; padding: 60px 0 0; }
             <li>Asset replacement acceleration strategy analysis</li>
           </ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <!-- Scenario chart visualization -->
           <div style="background:var(--ink);border-radius:10px;padding:28px;">
             <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">Scenario Comparison — 15-Year Capital Horizon</div>
@@ -1662,7 +2257,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Target FCI Optimization</span>
           <h2>Quantifying Long-Term Portfolio Performance</h2>
           <p style="margin-top:14px;">Facility Condition Index is integrated directly into our forecasting tools. The platform enables portfolio-level FCI benchmarking, target condition modeling, funding gap quantification, and long-term improvement tracking — ensuring capital strategy is tied to measurable performance objectives.</p>
@@ -1674,7 +2269,7 @@ footer { background: #111; padding: 60px 0 0; }
             <li>Long-term FCI improvement trajectory tracking</li>
           </ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <div style="background:var(--ink);border-radius:10px;padding:28px;">
             <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">Target FCI Achievement — 10-Year Trajectory</div>
             <!-- Area chart simulation -->
@@ -1713,7 +2308,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-light">
     <div class="wrap">
       <div class="two-col flip">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Secure & Scalable Cloud Infrastructure</span>
           <h2>Built for Institutional Environments</h2>
           <p style="margin-top:14px;">The platform is designed to support multi-jurisdictional portfolios and distributed facility networks at any scale. Role-based access control ensures that the right stakeholders see the right data — from field assessors to board executives. Secure cloud hosting and data integrity standards meet public-sector governance requirements.</p>
@@ -1725,7 +2320,7 @@ footer { background: #111; padding: 60px 0 0; }
             <li>Public-sector governance compliance and institutional data protection</li>
           </ul>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <div style="background:var(--ink);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:0;">
             <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">Access Control Architecture</div>
             <!-- Role tiers -->
@@ -1783,12 +2378,12 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section tech-section">
     <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="sr">
+      <div class="sr-3d-depth">
         <span class="eyebrow" style="color:rgba(211,47,47,.8);">Integration</span>
         <h2 style="color:var(--white);">Technology Does Not Replace Engineering — It Enhances It</h2>
         <p style="color:rgba(255,255,255,.5);margin-top:14px;">The result is a unified infrastructure intelligence ecosystem — not separate tools. Each service feeds structured data into the platform, creating a closed loop of assessment, modeling, and strategic decision-making.</p>
       </div>
-      <div class="int-flow sr d1">
+      <div class="int-flow sr-3d-flip d1">
         <div class="int-step">
           <div class="int-lbl">Data Foundation</div>
           <h4>Facility Condition Assessment</h4>
@@ -1811,7 +2406,7 @@ footer { background: #111; padding: 60px 0 0; }
   <!-- SECTION 9 — MEASURABLE PLATFORM IMPACT -->
   <section class="section bg-white">
     <div class="wrap">
-      <div class="sec-head sr">
+      <div class="sec-head sr-3d-up">
         <span class="eyebrow">Platform Impact</span>
         <h2>Measurable Platform Impact</h2>
         <p>Organizations leveraging the platform have achieved faster capital scenario evaluation, improved funding transparency, and increased governance defensibility.</p>
@@ -1884,12 +2479,12 @@ footer { background: #111; padding: 60px 0 0; }
 
   <section class="section bg-white">
     <div class="wrap">
-      <div class="sec-head sr"><h2>Infrastructure Intelligence Must Deliver Outcomes <br>Not Just Reports</h2></div>
+      <div class="sec-head sr-3d-up"><h2>Infrastructure Intelligence Must Deliver Outcomes <br>Not Just Reports</h2></div>
       <div class="cs-grid">
-        <div class="cs-card sr"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Provincial Agency</span><h4>Multi-Year Capital Strategy for Provincial Infrastructure Portfolio</h4><p>1,200+ facilities across a multi-jurisdictional network requiring standardized portfolio visibility aligned with multi-year funding cycles and governance reporting.</p><div class="cs-metrics"><span class="cs-metric">1,200+ Facilities</span><span class="cs-metric">15-Year Forecast</span><span class="cs-metric">18% Cost Reduction</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+        <div class="cs-card sr-3d-flip"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Provincial Agency</span><h4>Multi-Year Capital Strategy for Provincial Infrastructure Portfolio</h4><p>1,200+ facilities across a multi-jurisdictional network requiring standardized portfolio visibility aligned with multi-year funding cycles and governance reporting.</p><div class="cs-metrics"><span class="cs-metric">1,200+ Facilities</span><span class="cs-metric">15-Year Forecast</span><span class="cs-metric">18% Cost Reduction</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
         <div class="cs-card sr d1"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Municipal Government</span><h4>Capital Prioritization Framework for Distributed Public Facilities</h4><p>Municipal infrastructure portfolio requiring deferred maintenance quantification and risk-based prioritization across multiple departments and asset classes.</p><div class="cs-metrics"><span class="cs-metric">Deferred Maintenance Quantified</span><span class="cs-metric">Risk-Based Priority</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
         <div class="cs-card sr d2"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Public Safety</span><h4>Lifecycle Capital Modeling for Mission-Critical Facility Network</h4><p>Public safety facility network requiring criticality heatmap implementation, lifecycle-based capital modeling, and enhanced governance documentation.</p><div class="cs-metrics"><span class="cs-metric">Criticality Heatmaps</span><span class="cs-metric">Lifecycle Modeling</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
-        <div class="cs-card sr"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Healthcare</span><h4>FCA & Capital Forecasting for Regional Healthcare Network</h4><p>Multi-campus healthcare institution with aging infrastructure requiring standardized FCI scoring and a defensible 15-year capital roadmap aligned with funding cycles.</p><div class="cs-metrics"><span class="cs-metric">Multi-Campus</span><span class="cs-metric">15-yr Roadmap</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+        <div class="cs-card sr-3d-flip"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Healthcare</span><h4>FCA & Capital Forecasting for Regional Healthcare Network</h4><p>Multi-campus healthcare institution with aging infrastructure requiring standardized FCI scoring and a defensible 15-year capital roadmap aligned with funding cycles.</p><div class="cs-metrics"><span class="cs-metric">Multi-Campus</span><span class="cs-metric">15-yr Roadmap</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
         <div class="cs-card sr d1"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Education</span><h4>Infrastructure Intelligence Platform — Regional School Board</h4><p>School board with 200+ facilities requiring structured asset visibility, FCI benchmarking, and technology-enabled capital scenario modeling.</p><div class="cs-metrics"><span class="cs-metric">200+ Facilities</span><span class="cs-metric">Platform Integration</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
         <div class="cs-card sr d2"><div class="cs-top"></div><div class="cs-body"><span class="cs-tag">Federal Agency</span><h4>National Portfolio Assessment & Risk-Informed Capital Strategy</h4><p>Federal agency with distributed national infrastructure requiring risk-weighted capital prioritization aligned with federal budget submission cycles.</p><div class="cs-metrics"><span class="cs-metric">National Scope</span><span class="cs-metric">Federal Compliance</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
       </div>
@@ -1916,8 +2511,8 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="two-col">
-        <div class="sr"><span class="eyebrow">Our Purpose</span><h2>Bringing Structure to Capital Planning</h2><p style="margin-top:14px;">Infrastructure portfolios face increasing complexity — aging facilities, funding constraints, governance oversight, risk exposure, and multi-jurisdictional coordination. Nadine exists to bring structure, transparency, and engineering discipline to capital planning environments where clarity is essential.</p><p style="margin-top:12px;">We do not provide isolated inspection services. We deliver structured infrastructure intelligence frameworks aligned with long-term portfolio performance.</p></div>
-        <div class="sr d2">
+        <div class="sr-3d-depth"><span class="eyebrow">Our Purpose</span><h2>Bringing Structure to Capital Planning</h2><p style="margin-top:14px;">Infrastructure portfolios face increasing complexity — aging facilities, funding constraints, governance oversight, risk exposure, and multi-jurisdictional coordination. Nadine exists to bring structure, transparency, and engineering discipline to capital planning environments where clarity is essential.</p><p style="margin-top:12px;">We do not provide isolated inspection services. We deliver structured infrastructure intelligence frameworks aligned with long-term portfolio performance.</p></div>
+        <div class="sr-3d-up d2">
           <div class="stat-panel">
             <div class="stat-panel-label">Our Mission</div>
             <div style="font-size:16px;font-weight:600;color:var(--white);line-height:1.45;margin-bottom:24px;">"Transform infrastructure data into defensible capital intelligence."</div>
@@ -1932,7 +2527,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <section class="section bg-light">
     <div class="wrap">
-      <div class="sec-head sr"><h2>Engineering-Driven. Governance-Aligned.</h2><p>Our work is guided by three principles that ensure every recommendation is defensible — not subjective.</p></div>
+      <div class="sec-head sr-3d-up"><h2>Engineering-Driven. Governance-Aligned.</h2><p>Our work is guided by three principles that ensure every recommendation is defensible — not subjective.</p></div>
       <div class="diff-grid sr d1">
         <div class="diff-card"><span class="diff-icon">⚙️</span><h4>Engineering Rigor</h4><p>All recommendations are grounded in multi-discipline engineering evaluation and standardized methodology. No assumptions — only evidence.</p></div>
         <div class="diff-card"><span class="diff-icon">📊</span><h4>Structured Modeling</h4><p>Capital planning is built on lifecycle forecasting, FCI benchmarking, and risk-informed prioritization. Every model withstands governance review.</p></div>
@@ -1943,7 +2538,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <section class="section bg-white">
     <div class="wrap">
-      <div class="sec-head sr"><h2>What Differentiates Nadine</h2></div>
+      <div class="sec-head sr-3d-up"><h2>What Differentiates Nadine</h2></div>
       <div class="diff-grid sr d1">
         <div class="diff-card"><span class="diff-icon">🔗</span><h4>Integrated Engineering & Capital Modeling</h4><p>Assessment data flows directly into capital forecasting — not as separate deliverables, but as one unified intelligence system.</p></div>
         <div class="diff-card"><span class="diff-icon">💻</span><h4>Technology-Enabled Portfolio Intelligence</h4><p>Our platform transforms static reports into living data assets with real-time visibility and dynamic scenario modeling.</p></div>
@@ -1975,7 +2570,7 @@ footer { background: #111; padding: 60px 0 0; }
   <section class="section bg-white">
     <div class="wrap">
       <div class="contact-layout">
-        <div class="sr">
+        <div class="sr-3d-depth">
           <span class="eyebrow">Request a Consultation</span>
           <h3 style="margin-bottom:6px;">Tell us about your portfolio</h3>
           <p class="sm" style="margin-bottom:28px;">A member of our infrastructure intelligence team will be in touch within one business day.</p>
@@ -1992,7 +2587,7 @@ footer { background: #111; padding: 60px 0 0; }
             <div class="f-group full" style="margin-bottom:0;"><button type="submit" class="btn btn-red" style="width:100%;justify-content:center;">Submit Consultation Request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
           </div>
         </div>
-        <div class="sr d2">
+        <div class="sr-3d-up d2">
           <div class="contact-aside">
             <h3>Direct Contact</h3>
             <div class="ca-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="ca-text"><strong>Head Office</strong><span>Nadine International Inc.<br>Toronto (headquarters) <br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span></div></div>
@@ -2040,18 +2635,109 @@ footer { background: #111; padding: 60px 0 0; }
 
 
 <script>
+// ─── SCROLL PROGRESS BAR + GO-TO-TOP ───
+(function () {
+  const bar   = document.getElementById('scroll-progress');
+  const goTop = document.getElementById('go-top');
+
+  // Threshold: show button after scrolling 400px down
+  const SHOW_THRESHOLD = 400;
+
+  window.addEventListener('scroll', () => {
+    const y     = window.scrollY;
+    const doc   = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+
+    // Progress bar
+    if (bar) {
+      const pct = total > 0 ? (y / total) * 100 : 0;
+      bar.style.width = pct.toFixed(1) + '%';
+      bar.setAttribute('aria-valuenow', Math.round(pct));
+    }
+
+    // Go-to-top visibility
+    if (goTop) {
+      goTop.classList.toggle('visible', y >= SHOW_THRESHOLD);
+    }
+  }, { passive: true });
+
+  // Click: smooth scroll to top
+  if (goTop) {
+    goTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+
+// ─── PAGE TRANSITION ENGINE ───
+// ─── PAGE TRANSITION — pure opacity crossfade ───
+// Exit page fades out (position:fixed so it overlays during fade).
+// Enter page fades in underneath simultaneously.
+// No display flips mid-animation — both pages visible briefly for a true crossfade.
+
+let isTransitioning = false;
+
+function transitionTo(id) {
+  if (isTransitioning) return;
+
+  const current = document.querySelector('.page.active');
+  const next    = document.getElementById('page-' + id);
+
+  if (!next || (current && current === next)) return;
+
+  isTransitioning = true;
+
+  // ── Step 1: stamp outgoing page as fixed overlay, start fading it out ──
+  if (current) {
+    current.classList.remove('active');
+    current.classList.add('pt-exit');
+
+    // Remove after fade-out completes (380ms)
+    current.addEventListener('animationend', () => {
+      current.classList.remove('pt-exit');
+    }, { once: true });
+  }
+
+  // ── Step 2: instantly scroll to top, activate + fade in the new page ──
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  // Hide go-to-top — every page starts at the top
+  const goTop = document.getElementById('go-top');
+  if (goTop) goTop.classList.remove('visible');
+
+  next.classList.add('active', 'pt-enter');
+
+  // Unlock and clean up after fade-in completes (500ms)
+  next.addEventListener('animationend', () => {
+    next.classList.remove('pt-enter');
+    isTransitioning = false;
+
+    // Kick off page-specific functionality once fully visible
+    resetParallax();
+    initReveal();
+    initCounters();
+    if (id === 'home') setTimeout(runHeroCounters, 400);
+
+  }, { once: true });
+}
+
 // ─── ROUTER ───
 function go(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const t = document.getElementById('page-' + id);
-  if (t) {
-    t.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    resetParallax();   // snap bg back to 0 on every page switch
-    initReveal();
-    initCounters();    // re-arm counters for the new page
-    // Re-run hero counters if navigating back to home
-    if (id === 'home') setTimeout(runHeroCounters, 700);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.remove('active', 'pt-enter', 'pt-exit');
+    });
+    const t = document.getElementById('page-' + id);
+    if (t) {
+      t.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      resetParallax();
+      initReveal();
+      initCounters();
+      if (id === 'home') setTimeout(runHeroCounters, 200);
+    }
+  } else {
+    transitionTo(id);
   }
   return false;
 }
@@ -2151,13 +2837,31 @@ document.getElementById('hbg').addEventListener('click', () => {
 function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
 
 // ─── SCROLL REVEAL ───
+const REVEAL_SELECTOR = [
+  '.sr', '.sr-up', '.sr-down', '.sr-left', '.sr-right', '.sr-scale', '.sr-fade',
+  '.sr-3d-up', '.sr-3d-left', '.sr-3d-right', '.sr-3d-flip', '.sr-3d-scale', '.sr-3d-depth'
+].join(', ');
 let obs;
 function initReveal() {
   if (obs) obs.disconnect();
   obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.page.active .sr').forEach(el => { el.classList.remove('in'); obs.observe(el); });
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.page.active').forEach(page => {
+    page.querySelectorAll(REVEAL_SELECTOR).forEach(el => {
+      el.classList.remove('in');
+      obs.observe(el);
+    });
+  });
+
+  // Re-arm 3D tilt listeners for new page cards
+  setTimeout(init3DTilt, 80);
 }
 
 // ─── COUNTER ANIMATION ENGINE ───
@@ -2292,7 +2996,256 @@ window.addEventListener('load', () => {
   startParallax();   // kick off the rAF parallax loop
   runHeroCounters(); // animate hero stats on page load (staggered after entrance)
   initCounters();    // arm IntersectionObserver for outcomes + other scroll counters
+  init3DTilt();      // activate 3D mouse-tracking on all cards
+  initHeroParallax(); // 3D parallax on home hero
 });
+
+// ─── HERO 3D PARALLAX ENGINE ───
+// Three simultaneous effects:
+// 1. SCROLL — video layer moves slower than content (depth separation)
+// 2. MOUSE  — each layer shifts at different rates based on cursor (X/Y tilt)
+// 3. PARTICLES — floating dots drift upward with varied speeds/sizes
+
+function initHeroParallax() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const hero       = document.getElementById('hero');
+  const videoWrap  = document.getElementById('heroVideoWrap');
+  const overlay    = document.getElementById('heroOverlay');
+  const heroContent = hero ? hero.querySelector('.hero-content') : null;
+  const statsBand  = hero ? hero.querySelector('.hero-stats-band') : null;
+
+  if (!hero || !videoWrap) return;
+
+  // ── SPAWN PARTICLES ──
+  spawnParticles();
+
+  // ── SCROLL PARALLAX — video vs content depth separation ──
+  let scrollRaf = null;
+  let lastHeroScroll = -1;
+
+  function tickHeroScroll() {
+    const y = window.scrollY;
+    if (y !== lastHeroScroll) {
+      lastHeroScroll = y;
+
+      // Only run while hero is partially visible
+      const heroH = hero.offsetHeight;
+      if (y < heroH + 100) {
+        const pct = Math.min(y / heroH, 1); // 0 at top, 1 at bottom of hero
+
+        // Video: moves up slowly (background) — parallax depth effect
+        // Higher translateY = image moves up = parallax
+        const videoShift = y * 0.35;
+        videoWrap.style.transform =
+          `translate3d(var(--mouse-vx, 0px), calc(-12% + ${videoShift}px), -40px) scale(1.06)`;
+
+        // Overlay: barely moves — creates separation from video
+        if (overlay) {
+          overlay.style.transform =
+            `translate3d(var(--mouse-ox, 0px), ${y * 0.08}px, 0)`;
+        }
+
+        // Content: moves up faster than video — text lifts away from background
+        if (heroContent) {
+          heroContent.style.transform =
+            `translate3d(var(--mouse-cx, 0px), ${y * -0.15}px, 0)`;
+        }
+
+        // Stats band fades + lifts as you scroll past
+        if (statsBand) {
+          const fade = Math.max(0, 1 - pct * 2.2);
+          statsBand.style.opacity = fade;
+        }
+      }
+    }
+    scrollRaf = requestAnimationFrame(tickHeroScroll);
+  }
+
+  // ── MOUSE PARALLAX — real-time cursor-driven depth layers ──
+  let mouseRaf = null;
+  let targetMX = 0, targetMY = 0;  // cursor target
+  let currentMX = 0, currentMY = 0; // smoothed position
+
+  const MOUSE_LERP = 0.07; // smoothing factor (lower = slower/smoother)
+  const LAYER = {
+    video:   { x: 14, y: 10 },   // video: most movement (deepest)
+    overlay: { x:  6, y:  4 },   // overlay: medium
+    content: { x: -5, y: -3 },   // content: slight counter-movement (parallax pop)
+  };
+
+  hero.addEventListener('mousemove', e => {
+    const rect = hero.getBoundingClientRect();
+    // Normalise to -1 … +1
+    targetMX = ((e.clientX - rect.left)  / rect.width  - 0.5) * 2;
+    targetMY = ((e.clientY - rect.top)   / rect.height - 0.5) * 2;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    // Ease back to centre
+    targetMX = 0;
+    targetMY = 0;
+  });
+
+  function tickMouse() {
+    // Lerp toward target
+    currentMX += (targetMX - currentMX) * MOUSE_LERP;
+    currentMY += (targetMY - currentMY) * MOUSE_LERP;
+
+    const vx = (currentMX * LAYER.video.x).toFixed(2);
+    const vy = (currentMY * LAYER.video.y).toFixed(2);
+    const ox = (currentMX * LAYER.overlay.x).toFixed(2);
+    const oy = (currentMY * LAYER.overlay.y).toFixed(2);
+    const cx = (currentMX * LAYER.content.x).toFixed(2);
+    const cy = (currentMY * LAYER.content.y).toFixed(2);
+
+    // Store mouse offsets as CSS vars so scroll parallax can combine them
+    videoWrap.style.setProperty('--mouse-vx', `${vx}px`);
+    if (overlay) overlay.style.setProperty('--mouse-ox', `${ox}px`);
+    if (heroContent) heroContent.style.setProperty('--mouse-cx', `${cx}px`);
+
+    // Apply combined transform (scroll + mouse)
+    const scrollY = window.scrollY;
+    const videoShift = scrollY * 0.35;
+    videoWrap.style.transform =
+      `translate3d(${vx}px, calc(-12% + ${vy}px + ${videoShift}px), -40px) scale(1.06)`;
+
+    if (overlay) {
+      overlay.style.transform =
+        `translate3d(${ox}px, calc(${oy}px + ${scrollY * 0.08}px), 0)`;
+    }
+    if (heroContent) {
+      heroContent.style.transform =
+        `translate3d(${cx}px, calc(${cy}px + ${scrollY * -0.15}px), 0)`;
+    }
+
+    mouseRaf = requestAnimationFrame(tickMouse);
+  }
+
+  // Start both rAF loops
+  scrollRaf = requestAnimationFrame(tickHeroScroll);
+  mouseRaf  = requestAnimationFrame(tickMouse);
+
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(scrollRaf);
+      cancelAnimationFrame(mouseRaf);
+      scrollRaf = mouseRaf = null;
+    } else {
+      if (!scrollRaf) scrollRaf = requestAnimationFrame(tickHeroScroll);
+      if (!mouseRaf)  mouseRaf  = requestAnimationFrame(tickMouse);
+    }
+  });
+}
+
+// ── PARTICLE SPAWNER ──
+function spawnParticles() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+
+  const PARTICLE_COUNT = 22;
+  const COLORS = [
+    'rgba(211,47,47,',   // brand red
+    'rgba(255,255,255,', // white
+    'rgba(180,100,100,', // muted rose
+  ];
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    const p = document.createElement('div');
+    p.className = 'hero-particle';
+
+    const size      = Math.random() * 5 + 2;          // 2–7px
+    const left      = Math.random() * 95 + 2.5;       // 2.5%–97.5%
+    const bottom    = Math.random() * 40;              // start in bottom 40%
+    const duration  = Math.random() * 14 + 10;        // 10–24s
+    const delay     = Math.random() * -20;             // stagger
+    const drift     = (Math.random() - 0.5) * 80;     // ±40px horizontal drift
+    const color     = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const opacity   = Math.random() * 0.35 + 0.05;    // 0.05–0.4
+
+    p.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${left}%;
+      bottom: ${bottom}%;
+      background: ${color}${opacity});
+      --drift: ${drift}px;
+      animation-duration: ${duration}s;
+      animation-delay: ${delay}s;
+      filter: blur(${Math.random() < 0.3 ? 1 : 0}px);
+    `;
+
+    container.appendChild(p);
+  }
+}
+
+// ─── 3D MOUSE-TILT ENGINE ───
+// Tracks mouse position within each card and applies a smooth
+// perspective rotateX/rotateY — making cards respond to cursor like real objects.
+// Lift on hover, return to flat on leave.
+
+const TILT_MAX   = 14;    // max degrees of rotation (X or Y axis)
+const TILT_SCALE = 1.04;  // scale up slightly on hover
+const TILT_GLARE = true;  // show specular glare effect
+
+function applyTilt(card, e) {
+  const rect    = card.getBoundingClientRect();
+  const cx      = rect.left + rect.width  / 2;
+  const cy      = rect.top  + rect.height / 2;
+  const dx      = (e.clientX - cx) / (rect.width  / 2); // -1 to +1
+  const dy      = (e.clientY - cy) / (rect.height / 2); // -1 to +1
+
+  // rotateX: mouse above centre → top tilts toward viewer (+ve rotateX)
+  // rotateY: mouse left of centre → left edge tilts back (-ve rotateY)
+  const rotX    = -dy * TILT_MAX;
+  const rotY    =  dx * TILT_MAX;
+
+  card.style.transform =
+    `perspective(700px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale(${TILT_SCALE}) translateZ(6px)`;
+  card.style.transition = 'transform .08s linear, box-shadow .2s, border-color .2s';
+
+  // Move glare highlight
+  if (TILT_GLARE) {
+    let glare = card.querySelector('.card-glare');
+    if (glare) {
+      const gx = ((e.clientX - rect.left) / rect.width)  * 100;
+      const gy = ((e.clientY - rect.top)  / rect.height) * 100;
+      glare.style.background =
+        `radial-gradient(circle at ${gx}% ${gy}%, rgba(255,255,255,.13) 0%, transparent 65%)`;
+    }
+  }
+}
+
+function resetTilt(card) {
+  card.style.transform   = '';
+  card.style.transition  = 'transform .55s cubic-bezier(.16,1,.3,1), box-shadow .55s, border-color .25s, background .25s';
+}
+
+function addGlare(card) {
+  if (!TILT_GLARE) return;
+  if (card.querySelector('.card-glare')) return;
+  const g = document.createElement('div');
+  g.className = 'card-glare';
+  g.style.cssText =
+    'position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:9;transition:background .06s linear;';
+  card.appendChild(g);
+}
+
+function init3DTilt() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(hover: none)').matches) return; // skip on touch devices
+
+  const CARD_SELECTOR = '.svc-card, .tcard, .sec-card, .cs-card, .diff-card';
+
+  document.querySelectorAll(CARD_SELECTOR).forEach(card => {
+    addGlare(card);
+
+    card.addEventListener('mousemove', e => applyTilt(card, e), { passive: true });
+    card.addEventListener('mouseleave', () => resetTilt(card));
+    card.addEventListener('mouseenter', e => applyTilt(card, e));
+  });
+}
 </script>
 </body>
 </html>
