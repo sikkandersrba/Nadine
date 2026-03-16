@@ -387,8 +387,63 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
 }
 .mstep:last-child .mstep-arrow { display: none; }
 
-/* ═══ TECH PLATFORM (dark) ═══ */
-.tech-section { background-color: #1b252a; }
+
+/* ═══ TECH PLATFORM (dark) — parallax image background ═══ */
+.tech-section {
+  position: relative;
+  overflow: hidden;
+  /* No background-color here — handled by .tech-section-bg + overlays */
+}
+
+/* Parallax image layer — extends beyond section so image has travel room */
+.tech-section-bg {
+  position: absolute;
+  top: -100px;
+  bottom: -80px;
+  left: 0; right: 0;
+  z-index: 0;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  will-change: transform;
+  transform: translateY(0px);
+}
+
+/* Layer 1 — deep dark overlay for legibility (replaces old background-color) */
+.tech-section::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15, 22, 27, .88) 0%,
+      rgba(15, 22, 27, .82) 50%,
+      rgba(15, 22, 27, .90) 100%
+    );
+}
+
+/* Layer 2 — red brand tint sweep from left */
+.tech-section::after {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(
+    110deg,
+    rgba(180, 20, 20, .18) 0%,
+    rgba(180, 20, 20, .04) 40%,
+    transparent 65%
+  );
+}
+
+/* Content must sit above both overlay layers */
+.tech-section > .wrap { position: relative; z-index: 3; }
+
+/* Disable parallax for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tech-section-bg {
+    top: 0; bottom: 0;
+    transform: none !important;
+    will-change: auto;
+  }
+}
 .tech-grid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
   margin-top: 48px;
@@ -442,32 +497,95 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
 }
 .ostat-l { font-size: 12px; color: var(--gray-lt); }
 
+
 /* ═══ PAGE HERO (inner pages) ═══ */
 .page-hero {
-  background: var(--ink); padding: calc(var(--nav-h) + 48px) 0 64px;
+  padding: calc(var(--nav-h) + 56px) 0 72px;
   position: relative; overflow: hidden;
+  /* No background here — moved to .page-hero-bg child for parallax */
 }
+
+/* Parallax image layer — scaled up so it has room to travel */
+.page-hero-bg {
+  position: absolute;
+  /* Extend beyond the hero top AND bottom so the image has travel room.
+     The extra 120px is consumed by parallax movement without exposing a gap. */
+  top: -120px;
+  bottom: -60px;
+  left: 0; right: 0;
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 40%;
+  will-change: transform;  /* GPU compositor layer — no repaint on scroll */
+  transform: translateY(0px);
+
+  /* Default image */
+  background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80&auto=format&fit=crop');
+}
+
+/* Layer 1 — deep dark gradient so text always reads clearly */
 .page-hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(211, 47, 47, .06) 0%, #1b252a 60%);
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 14, 18, .72)  0%,
+      rgba(10, 14, 18, .80) 40%,
+      rgba(10, 14, 18, .92) 75%,
+      rgba(10, 14, 18, .98) 100%
+    );
 }
+
+/* Layer 2 — brand red tint from top-left corner */
+.page-hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(180, 20, 20, .22) 0%,
+      rgba(180, 20, 20, .06) 35%,
+      transparent 60%
+    );
+}
+
+/* Per-page hero image overrides on the bg child */
+#page-services    .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop'); background-position: center 50%; }
+#page-fca         .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80&auto=format&fit=crop'); background-position: center 55%; }
+#page-capital     .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80&auto=format&fit=crop'); background-position: center 45%; }
+#page-risk        .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80&auto=format&fit=crop'); background-position: center 60%; }
+#page-industries  .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80&auto=format&fit=crop'); background-position: center 35%; }
+#page-technology  .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80&auto=format&fit=crop'); background-position: center 50%; }
+#page-casestudies .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=1920&q=80&auto=format&fit=crop'); background-position: center 40%; }
+#page-about       .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80&auto=format&fit=crop'); background-position: center 45%; }
+#page-contact     .page-hero-bg { background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop'); background-position: center 60%; }
+
+/* Disable parallax for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .page-hero-bg {
+    top: 0; bottom: 0;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
 .page-hero-wrap {
   max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
-  position: relative; z-index: 1;
+  position: relative; z-index: 3; /* above both overlay layers */
 }
 .breadcrumb {
   display: flex; gap: 8px; align-items: center; margin-bottom: 20px;
-  font-size: 12px; color: rgba(255,255,255,.35);
+  font-size: 12px; color: rgba(255,255,255,.38);
 }
-.breadcrumb a { color: rgba(255,255,255,.35); text-decoration: none; transition: color .15s; }
-.breadcrumb a:hover { color: rgba(255,255,255,.65); }
-.breadcrumb sep { color: rgba(255,255,255,.18); }
-.page-hero h1 { color: var(--white);  }
+.breadcrumb a { color: rgba(255,255,255,.38); text-decoration: none; transition: color .15s; }
+.breadcrumb a:hover { color: rgba(255,255,255,.75); }
+.breadcrumb sep { color: rgba(255,255,255,.2); }
+.page-hero h1 { color: var(--white); max-width: 860px; }
 .page-hero .ph-sub {
-  font-size: clamp(15px,1.3vw,17px); line-height: 1.7;
-  color: rgba(255,255,255,.55);  margin-top: 16px;
+  font-size: clamp(15px, 1.3vw, 18px); line-height: 1.72;
+  color: rgba(255,255,255,.62); margin-top: 18px; max-width: 680px;
 }
-.page-hero .ph-cta { margin-top: 28px; }
+.page-hero .ph-cta { margin-top: 32px; }
 
 /* ═══ TWO-COLUMN CONTENT ═══ */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,5vw,80px); align-items: center; }
@@ -728,8 +846,8 @@ footer { background: #111; padding: 60px 0 0; }
   .ft-cinfo span { font-size: 13.5px; }
 
   /* Page heroes (inner pages) */
-  .page-hero { padding: calc(var(--nav-h) + 56px) 0 80px; }
-  .page-hero .ph-sub { font-size: 19px; }
+  .page-hero { padding: calc(var(--nav-h) + 72px) 0 96px; }
+  .page-hero .ph-sub { font-size: 20px; max-width: 760px; }
 
   /* Two-col gap */
   .two-col { gap: 96px; }
@@ -961,6 +1079,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <!-- TECH PLATFORM -->
   <section class="section tech-section">
+    <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec-head sr" style="text-align:left;">
         <span class="eyebrow" style="color:rgba(211,47,47,.8);">Technology</span>
@@ -1044,6 +1163,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-services">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Services</div>
       <h1>Engineering-Driven Infrastructure Solutions for Complex Portfolios</h1>
@@ -1092,6 +1212,7 @@ footer { background: #111; padding: 60px 0 0; }
   </section>
 
   <section class="section tech-section">
+    <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec-head sr" style="text-align:left;"><h2 style="color:var(--white);">Measurable Capital Impact</h2></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="sr d1">
@@ -1111,6 +1232,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-fca">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep><a href="#" onclick="go('services')">Services</a><sep> / </sep>Facility Condition Assessment</div>
       <h1>Structured Facility Condition Intelligence Across Complex Portfolios</h1>
@@ -1185,6 +1307,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-capital">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep><a href="#" onclick="go('services')">Services</a><sep> / </sep>Capital Planning & Forecasting</div>
       <h1>Turning Infrastructure Data into Defensible Capital Strategy</h1>
@@ -1228,6 +1351,7 @@ footer { background: #111; padding: 60px 0 0; }
   </section>
 
   <section class="section tech-section">
+    <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sr"><span class="eyebrow" style="color:rgba(211,47,47,.8);">Integration</span><h2 style="color:var(--white);">Capital Planning Does Not Operate in Isolation</h2></div>
       <div class="int-flow sr d1">
@@ -1247,6 +1371,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-risk">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep><a href="#" onclick="go('services')">Services</a><sep> / </sep>Risk-Informed Infrastructure Strategy</div>
       <h1>Aligning Capital Investment with Risk Exposure</h1>
@@ -1275,6 +1400,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-industries">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Industries</div>
       <h1>Serving Canada's Critical Infrastructure Environments</h1>
@@ -1320,6 +1446,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <!-- SECTION 1 — HERO -->
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Technology</div>
       <h1>Purpose-Built Infrastructure Intelligence for Complex Portfolios</h1>
@@ -1654,6 +1781,7 @@ footer { background: #111; padding: 60px 0 0; }
 
   <!-- SECTION 8 — INTEGRATION WITH OUR SERVICES -->
   <section class="section tech-section">
+    <div class="tech-section-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sr">
         <span class="eyebrow" style="color:rgba(211,47,47,.8);">Integration</span>
@@ -1746,6 +1874,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-casestudies">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Case Studies</div>
       <h1>Structured Capital Intelligence. <br>Demonstrated Results.</h1>
@@ -1776,6 +1905,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-about">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>About</div>
       <h1>A National Infrastructure Intelligence Partner</h1>
@@ -1834,6 +1964,7 @@ footer { background: #111; padding: 60px 0 0; }
 ████████████████████████████████████████████████████ -->
 <div class="page" id="page-contact">
   <div class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-wrap">
       <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Contact</div>
       <h1>Begin the Conversation</h1>
@@ -1913,11 +2044,99 @@ footer { background: #111; padding: 60px 0 0; }
 function go(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const t = document.getElementById('page-' + id);
-  if (t) { t.classList.add('active'); window.scrollTo({ top: 0, behavior: 'instant' }); initReveal(); }
+  if (t) {
+    t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    resetParallax();   // snap bg back to 0 on every page switch
+    initReveal();
+  }
   return false;
 }
 
-// ─── NAV SCROLL ───
+// ─── PAGE-HERO PARALLAX ───
+// Uses transform: translateY on .page-hero-bg (GPU composited layer)
+// Strength 0.35 = bg moves at 35% of scroll speed (subtle, professional)
+// rAF loop only runs while scrolling, stops when idle
+
+const PARALLAX_STRENGTH = 0.30;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+let parallaxRaf = null;
+let lastScrollY  = -1;
+
+function tickParallax() {
+  const y = window.scrollY;
+
+  // Only update DOM when scroll position actually changes
+  if (y !== lastScrollY) {
+    lastScrollY = y;
+
+    const activePage = document.querySelector('.page.active');
+    if (!activePage) { parallaxRaf = requestAnimationFrame(tickParallax); return; }
+
+    // ── page-hero parallax ──
+    const hero = activePage.querySelector('.page-hero');
+    if (hero) {
+      const bg = hero.querySelector('.page-hero-bg');
+      if (bg) {
+        const rect = hero.getBoundingClientRect();
+        if (rect.bottom > -100 && rect.top < window.innerHeight + 100) {
+          const heroTop = rect.top + y;
+          const shift   = (y - heroTop) * PARALLAX_STRENGTH;
+          const clamped = Math.max(-110, Math.min(60, shift));
+          bg.style.transform = `translateY(${clamped}px)`;
+        }
+      }
+    }
+
+    // ── tech-section parallax — every .tech-section in the active page ──
+    activePage.querySelectorAll('.tech-section').forEach(section => {
+      const bg = section.querySelector('.tech-section-bg');
+      if (!bg) return;
+
+      const rect = section.getBoundingClientRect();
+      // Only animate while section is within or near the viewport
+      if (rect.bottom > -100 && rect.top < window.innerHeight + 100) {
+        // Centre-relative parallax: shift is 0 when section is centred in viewport
+        const sectionMidpoint = rect.top + rect.height / 2;
+        const viewportMid     = window.innerHeight / 2;
+        const offset          = (sectionMidpoint - viewportMid) * PARALLAX_STRENGTH;
+        const clamped         = Math.max(-90, Math.min(90, offset));
+        bg.style.transform    = `translateY(${clamped}px)`;
+      }
+    });
+  }
+
+  parallaxRaf = requestAnimationFrame(tickParallax);
+}
+
+function startParallax() {
+  if (reducedMotion) return;          // respect prefers-reduced-motion
+  if (parallaxRaf) return;            // already running
+  lastScrollY = -1;                   // force a DOM update on first tick
+  parallaxRaf = requestAnimationFrame(tickParallax);
+}
+
+function stopParallax() {
+  if (parallaxRaf) {
+    cancelAnimationFrame(parallaxRaf);
+    parallaxRaf = null;
+  }
+}
+
+// Reset all parallax bg transforms when navigating to a new page
+function resetParallax() {
+  document.querySelectorAll('.page-hero-bg, .tech-section-bg').forEach(bg => {
+    bg.style.transform = 'translateY(0px)';
+  });
+  lastScrollY = -1; // force recalculation on next tick
+}
+
+// Pause rAF when tab is hidden (battery saving)
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { stopParallax(); }
+  else                 { startParallax(); }
+});
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
 }, { passive: true });
@@ -1976,6 +2195,7 @@ window.addEventListener('load', () => {
   }
 
   initReveal();
+  startParallax();   // kick off the rAF parallax loop
 });
 </script>
 </body>
