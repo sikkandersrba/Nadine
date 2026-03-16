@@ -990,10 +990,10 @@ footer { background: #111; padding: 60px 0 0; }
     <!-- Stats band at bottom of hero -->
     <div class="hero-stats-band">
       <div class="hero-stats-inner">
-        <div class="hstat"><div class="hstat-n">30+</div><div class="hstat-l">Years in Operation</div></div>
-        <div class="hstat"><div class="hstat-n">1,200+</div><div class="hstat-l">Facilities Assessed</div></div>
-        <div class="hstat"><div class="hstat-n">15-Year</div><div class="hstat-l">Capital Forecast Models</div></div>
-        <div class="hstat"><div class="hstat-n">95%</div><div class="hstat-l">Client Retention</div></div>
+        <div class="hstat"><div class="hstat-n" data-count="30" data-suffix="+">30+</div><div class="hstat-l">Years in Operation</div></div>
+        <div class="hstat"><div class="hstat-n" data-count="1200" data-suffix="+" data-format="comma">1,200+</div><div class="hstat-l">Facilities Assessed</div></div>
+        <div class="hstat"><div class="hstat-n" data-count="15" data-prefix="" data-suffix="-Year">15-Year</div><div class="hstat-l">Capital Forecast Models</div></div>
+        <div class="hstat"><div class="hstat-n" data-count="95" data-suffix="%">95%</div><div class="hstat-l">Client Retention</div></div>
       </div>
     </div>
   </section>
@@ -1139,15 +1139,15 @@ footer { background: #111; padding: 60px 0 0; }
     <div class="outcomes-inner">
       <div class="outcomes-stats">
         <div class="ostat">
-          <div class="ostat-n">18%</div>
+          <div class="ostat-n" data-count="18" data-suffix="%">18%</div>
           <div class="ostat-l">Avg. Reduction in Reactive Repairs</div>
         </div>
         <div class="ostat">
-          <div class="ostat-n">$2B+</div>
+          <div class="ostat-n" data-count="2" data-prefix="$" data-suffix="B+">$2B+</div>
           <div class="ostat-l">Capital Planned Nationally</div>
         </div>
         <div class="ostat">
-          <div class="ostat-n">40%</div>
+          <div class="ostat-n" data-count="40" data-suffix="%">40%</div>
           <div class="ostat-l">Improvement in Funding Readiness</div>
         </div>
       </div>
@@ -2049,6 +2049,9 @@ function go(id) {
     window.scrollTo({ top: 0, behavior: 'instant' });
     resetParallax();   // snap bg back to 0 on every page switch
     initReveal();
+    initCounters();    // re-arm counters for the new page
+    // Re-run hero counters if navigating back to home
+    if (id === 'home') setTimeout(runHeroCounters, 700);
   }
   return false;
 }
@@ -2157,7 +2160,98 @@ function initReveal() {
   document.querySelectorAll('.page.active .sr').forEach(el => { el.classList.remove('in'); obs.observe(el); });
 }
 
-// ─── HERO ENTRANCE ───
+// ─── COUNTER ANIMATION ENGINE ───
+// Animates any element with data-count="N"
+// Optional: data-prefix="$", data-suffix="%", data-format="comma"
+// Uses cubic-ease-out for a natural deceleration feel
+// IntersectionObserver triggers once per element when it enters viewport
+// Re-arms when the home page is navigated back to
+
+const COUNTER_DURATION = 2000; // ms — total animation time
+const COUNTER_EASE     = t => 1 - Math.pow(1 - t, 3); // cubic ease-out
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    runCounter(entry.target);
+    counterObserver.unobserve(entry.target); // fire only once per view
+  });
+}, { threshold: 0.35 }); // start when 35% of the element is visible
+
+function formatNumber(n, useComma) {
+  if (useComma) return Math.round(n).toLocaleString('en-CA');
+  return Number.isInteger(n) ? String(Math.round(n)) : n.toFixed(1);
+}
+
+function runCounter(el) {
+  const target   = parseFloat(el.dataset.count);
+  const prefix   = el.dataset.prefix  || '';
+  const suffix   = el.dataset.suffix  || '';
+  const useComma = el.dataset.format === 'comma';
+
+  if (isNaN(target)) return;
+
+  // Respect prefers-reduced-motion — snap to final value instantly
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = prefix + formatNumber(target, useComma) + suffix;
+    return;
+  }
+
+  let startTime = null;
+
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed  = timestamp - startTime;
+    const progress = Math.min(elapsed / COUNTER_DURATION, 1);
+    const eased    = COUNTER_EASE(progress);
+    const current  = eased * target;
+
+    el.textContent = prefix + formatNumber(current, useComma) + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      // Guarantee exact final value
+      el.textContent = prefix + formatNumber(target, useComma) + suffix;
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+function initCounters() {
+  // Find all counter elements within the currently active page
+  const activePage = document.querySelector('.page.active');
+  if (!activePage) return;
+
+  activePage.querySelectorAll('[data-count]').forEach(el => {
+    // Reset text to original static value (for re-arm on revisit)
+    const prefix   = el.dataset.prefix  || '';
+    const suffix   = el.dataset.suffix  || '';
+    const target   = parseFloat(el.dataset.count);
+    const useComma = el.dataset.format === 'comma';
+    if (!isNaN(target)) {
+      el.textContent = prefix + formatNumber(0, useComma) + suffix;
+    }
+
+    counterObserver.unobserve(el);  // clear any previous observation
+    counterObserver.observe(el);    // re-arm
+  });
+}
+
+// Hero stats: special case — they animate in with the hero entrance,
+// not via IntersectionObserver (they're visible on load)
+function runHeroCounters() {
+  const statsInner = document.querySelector('.hero-stats-inner');
+  if (!statsInner) return;
+
+  statsInner.querySelectorAll('[data-count]').forEach((el, i) => {
+    // Stagger each counter slightly for a cascading effect
+    setTimeout(() => runCounter(el), 600 + i * 120);
+  });
+}
+
+
 window.addEventListener('load', () => {
   const hc = document.querySelector('.hero-content');
   const hb = document.querySelector('.hero-stats-band');
@@ -2196,6 +2290,8 @@ window.addEventListener('load', () => {
 
   initReveal();
   startParallax();   // kick off the rAF parallax loop
+  runHeroCounters(); // animate hero stats on page load (staggered after entrance)
+  initCounters();    // arm IntersectionObserver for outcomes + other scroll counters
 });
 </script>
 </body>
