@@ -713,7 +713,14 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   box-shadow: 0 2px 12px rgba(0,0,0,.05);
 }
 
-/* Animated red accent bar */
+.mstep-title {
+  font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px;
+  transition: color .2s;
+}
+.mstep:hover .mstep-title { color: var(--red); }
+.mstep-body { font-size: 12.5px; color: var(--gray-lt); line-height: 1.6; }
+
+/* Animated red accent bar on top */
 .svc-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
@@ -723,8 +730,9 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   transform-origin: left;
   transition: transform .4s cubic-bezier(.16, 1, .3, 1);
 }
+.svc-card:hover::before { transform: scaleX(1); }
 
-/* Glow orb — visible on hover */
+/* Glow orb — top-right corner */
 .svc-card::after {
   content: '';
   position: absolute;
@@ -754,14 +762,81 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
 }
 .svc-card:hover h4 { color: var(--red); }
 
+/* ═══════════════════════════════════════════════
+   UNIFIED ICON STYLE — flat red-on-light square
+   Matches client reference: rounded square,
+   light red bg (#FDECEA), clean red SVG stroke.
+═══════════════════════════════════════════════ */
+
+/* Base icon container — shared by all card types */
+.svc-icon,
+.mstep-icon,
+.tcard-icon,
+.sec-icon-wrap,
+.diff-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #FDECEA;
+  border: 1px solid rgba(211,47,47,.12);
+  flex-shrink: 0;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1), background .25s, box-shadow .25s;
+}
+
+/* Service card icon */
 .svc-icon {
-  width: 48px; height: 48px; margin-bottom: 20px;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--bg); border-radius: 12px;
-  transition: transform .4s cubic-bezier(.16, 1, .3, 1), background .25s;
+  width: 44px; height: 44px;
+  margin-bottom: 20px;
   transform-style: preserve-3d;
 }
-.svc-icon svg { width: 26px; height: 26px; color: var(--red); }
+.svc-card:hover .svc-icon {
+  transform: translateZ(12px) scale(1.1);
+  background: #fcd9d9;
+  box-shadow: 0 4px 14px rgba(211,47,47,.18);
+}
+
+/* Methodology step icon — white bg with red border */
+.mstep-icon {
+  width: 46px; height: 46px;
+  background: #fff;
+  border: 1.5px solid rgba(211,47,47,.25);
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+.mstep:hover .mstep-icon {
+  background: #FDECEA;
+  border-color: var(--red);
+  transform: scale(1.12) rotate(-4deg);
+  box-shadow: 0 4px 16px rgba(211,47,47,.2);
+}
+
+/* Tech card icon — dark bg version */
+.tcard-icon {
+  width: 44px; height: 44px;
+  background: rgba(253,236,234,.12);
+  border: 1px solid rgba(211,47,47,.25);
+  border-radius: 10px;
+}
+.tcard:hover .tcard-icon {
+  background: rgba(253,236,234,.22);
+  transform: scale(1.12) rotate(-6deg);
+  box-shadow: 0 4px 18px rgba(211,47,47,.3);
+}
+
+/* All SVG icons inside containers */
+.svc-icon svg,
+.mstep-icon svg,
+.tcard-icon svg,
+.sec-icon-wrap svg,
+.diff-icon-wrap svg {
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.svc-icon svg   { width: 22px; height: 22px; }
+.mstep-icon svg { width: 20px; height: 20px; }
+.tcard-icon svg { width: 21px; height: 21px; }
 .svc-card h4 {
   font-size: 15px; font-weight: 700; margin-bottom: 10px;
   line-height: 1.3; color: var(--ink);
@@ -813,20 +888,6 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   z-index: 1;
 }
 .mstep:hover::before { opacity: 1; }
-.mstep-icon {
-  width: 48px; height: 48px; border-radius: 50%;
-  border: 1.5px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px; background: var(--white);
-  transition: border-color .3s, background .3s, transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .3s;
-}
-.mstep:hover .mstep-icon {
-  border-color: var(--red);
-  background: var(--red-light);
-  transform: scale(1.14) rotate(-5deg);
-  box-shadow: 0 4px 16px rgba(211,47,47,.2);
-}
-.mstep-icon svg { width: 21px; height: 21px; color: var(--red); }
 .mstep-title {
   font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px;
   transition: color .2s;
@@ -958,23 +1019,38 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
     inset 0 1px 0 rgba(255,255,255,.06);
   transform: translateY(-6px) translateZ(0);
 }
-.tcard:hover .tcard-icon {
-  background: rgba(211,47,47,.25);
-  transform: scale(1.15) rotate(-8deg);
-  box-shadow: 0 4px 18px rgba(211,47,47,.3);
-}
-.tcard-icon {
-  width: 46px; height: 46px; border-radius: 10px;
-  background: rgba(211,47,47,.12);
-  display: flex; align-items: center; justify-content: center;
-  transition: background .3s, transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .3s;
-}
-.tcard-icon svg { width: 22px; height: 22px; color: var(--red); }
 .tcard h4 { font-size: 14.5px; color: var(--white); transition: color .2s; }
 .tcard:hover h4 { color: rgba(255,255,255,.95); }
 .tcard p { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.65; }
 
-/* ── SECTOR CARDS ── */
+/* Sector card icon wrapper */
+.sec-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: #FDECEA;
+  border: 1px solid rgba(211,47,47,.12);
+}
+.sec-icon-wrap svg { width: 22px; height: 22px; color: var(--red); }
+.sec-card:hover .sec-icon-wrap {
+  background: #fcd9d9;
+  transform: scale(1.12) rotate(4deg);
+  box-shadow: 0 4px 14px rgba(211,47,47,.2);
+}
+
+/* Diff card icon wrapper */
+.diff-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: #FDECEA;
+  border: 1px solid rgba(211,47,47,.12);
+  margin-bottom: 18px;
+}
+.diff-icon-wrap svg { width: 22px; height: 22px; color: var(--red); }
+.diff-card:hover .diff-icon-wrap {
+  background: #fcd9d9;
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 4px 14px rgba(211,47,47,.18);
+}
 .sectors-row {
   display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
   margin-top: 0;
@@ -1005,12 +1081,6 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
     0 16px 36px rgba(0,0,0,.1),
     0 0 0 1px rgba(211,47,47,.15);
   transform: translateY(-6px) scale(1.02);
-}
-.sec-card:hover .sec-icon { transform: scale(1.22) translateY(-3px) rotate(5deg); }
-.sec-icon {
-  font-size: 34px;
-  transition: transform .4s cubic-bezier(.16, 1, .3, 1);
-  display: block;
 }
 .sec-title {
   font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.3;
@@ -1249,11 +1319,6 @@ p.lg { font-size: clamp(16px, 1.1vw, 18px); }
   transform: translateY(-4px);
 }
 .diff-card:hover::before { transform: scaleX(1); }
-.diff-card:hover .diff-icon { transform: scale(1.15) rotate(-6deg); }
-.diff-icon {
-  font-size: 26px; margin-bottom: 18px; display: block;
-  transition: transform .4s cubic-bezier(.16, 1, .3, 1);
-}
 .diff-card h4 { font-size: 14.5px; margin-bottom: 10px; transition: color .2s; }
 .diff-card:hover h4 { color: var(--red); }
 .diff-card p { font-size: 13.5px; line-height: 1.65; }
@@ -1587,7 +1652,7 @@ footer { background: #111; padding: 60px 0 0; }
       <div class="hero-stats-inner">
         <div class="hstat"><div class="hstat-n" data-count="30" data-suffix="+">30+</div><div class="hstat-l">Years in Operation</div></div>
         <div class="hstat"><div class="hstat-n" data-count="1200" data-suffix="+" data-format="comma">1,200+</div><div class="hstat-l">Facilities Assessed</div></div>
-        <div class="hstat"><div class="hstat-n" data-count="15" data-prefix="" data-suffix="-Year">15-Year</div><div class="hstat-l">Capital Forecast Models</div></div>
+        <div class="hstat"><div class="hstat-n" data-count="15" data-prefix="" data-suffix="+">15+</div><div class="hstat-l">Capital Forecast Models</div></div>
         <div class="hstat"><div class="hstat-n" data-count="95" data-suffix="%">95%</div><div class="hstat-l">Client Retention</div></div>
       </div>
     </div>
@@ -1710,19 +1775,27 @@ footer { background: #111; padding: 60px 0 0; }
       <div class="sec-head sr-3d-up"><h2>Sectors We Serve</h2></div>
       <div class="sectors-row">
         <a class="sec-card sr-3d-flip d1" href="#" onclick="go('industries')">
-          <span class="sec-icon">🏛️</span>
+          <div class="sec-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
           <span class="sec-title">Government</span>
         </a>
         <a class="sec-card sr-3d-flip d2" href="#" onclick="go('industries')">
-          <span class="sec-icon">🚨</span>
+          <div class="sec-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <span class="sec-title">Public Safety</span>
         </a>
         <a class="sec-card sr-3d-flip d3" href="#" onclick="go('industries')">
-          <span class="sec-icon">🏥</span>
+          <div class="sec-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
           <span class="sec-title">Healthcare & Education</span>
         </a>
         <a class="sec-card sr-3d-flip d4" href="#" onclick="go('industries')">
-          <span class="sec-icon">🏢</span>
+          <div class="sec-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
           <span class="sec-title">Commercial & Institutional</span>
         </a>
       </div>
@@ -2007,7 +2080,16 @@ footer { background: #111; padding: 60px 0 0; }
     <div class="wrap">
       <div class="two-col">
         <div class="sr-3d-depth"><span class="eyebrow">Government & Public Sector</span><h2>Multi-Jurisdictional Infrastructure Governance</h2><p style="margin-top:14px;">Federal agencies, provincial ministries, and municipal governments manage diverse asset portfolios under strict governance and funding scrutiny. Nadine provides structured FCA and capital forecasting models aligned with public-sector governance frameworks.</p><ul class="checklist"><li>Multi-year capital planning alignment</li><li>Public accountability and audit oversight support</li><li>Budget transparency and standardized FCI benchmarking</li><li>Funding submissions and board reporting support</li></ul></div>
-        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🏛️</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Government & Public Sector</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Federal · Provincial · Municipal</div></div></div>
+        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;">
+          <div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 35%, rgba(211,47,47,.1),transparent 62%);"></div>
+            <div style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Government & Public Sector</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Federal · Provincial · Municipal</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2016,7 +2098,16 @@ footer { background: #111; padding: 60px 0 0; }
     <div class="wrap">
       <div class="two-col flip">
         <div class="sr-3d-depth"><span class="eyebrow">Public Safety & Emergency Services</span><h2>Mission-Critical Infrastructure Performance</h2><p style="margin-top:14px;">Public safety facilities require uninterrupted operational performance. Nadine integrates structured risk evaluation into capital modeling to ensure prioritization reflects criticality and exposure. Infrastructure reliability cannot be reactive — it must be engineered.</p><ul class="checklist"><li>High system reliability assurance</li><li>Life-safety prioritization frameworks</li><li>Risk-informed capital allocation</li><li>Operational continuity planning</li></ul></div>
-        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🚨</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Public Safety</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Police · Fire · Emergency Services</div></div></div>
+        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;">
+          <div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(211,47,47,.1),transparent 62%);"></div>
+            <div style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Public Safety</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Police · Fire · Emergency Services</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2025,7 +2116,16 @@ footer { background: #111; padding: 60px 0 0; }
     <div class="wrap">
       <div class="two-col">
         <div class="sr-3d-depth"><span class="eyebrow">Healthcare & Education</span><h2>Essential Community Infrastructure</h2><p style="margin-top:14px;">Healthcare and educational institutions operate complex facility networks under funding constraints and regulatory oversight. Nadine supports hospitals, healthcare networks, schools, and post-secondary institutions with structured assessments and long-term capital forecasting.</p><ul class="checklist"><li>Aging infrastructure and deferred maintenance management</li><li>Multi-campus portfolio management</li><li>Lifecycle funding alignment with governance cycles</li></ul></div>
-        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;"><div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 65%);"></div><span style="font-size:56px;position:relative;z-index:1;">🏥</span><div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Healthcare & Education</div><div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Hospitals · Schools · Post-Secondary</div></div></div>
+        <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;">
+          <div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 62%);"></div>
+            <div style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Healthcare & Education</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Hospitals · Schools · Post-Secondary</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2529,9 +2629,18 @@ footer { background: #111; padding: 60px 0 0; }
     <div class="wrap">
       <div class="sec-head sr-3d-up"><h2>Engineering-Driven. Governance-Aligned.</h2><p>Our work is guided by three principles that ensure every recommendation is defensible — not subjective.</p></div>
       <div class="diff-grid sr d1">
-        <div class="diff-card"><span class="diff-icon">⚙️</span><h4>Engineering Rigor</h4><p>All recommendations are grounded in multi-discipline engineering evaluation and standardized methodology. No assumptions — only evidence.</p></div>
-        <div class="diff-card"><span class="diff-icon">📊</span><h4>Structured Modeling</h4><p>Capital planning is built on lifecycle forecasting, FCI benchmarking, and risk-informed prioritization. Every model withstands governance review.</p></div>
-        <div class="diff-card"><span class="diff-icon">🏛️</span><h4>Governance Alignment</h4><p>Reporting and modeling frameworks are designed to support funding justification, audit readiness, and board-level transparency.</p></div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M22.54 6.08a23.6 23.6 0 0 1 0 11.84M1.46 6.08a23.6 23.6 0 0 0 0 11.84"/></svg></div>
+          <h4>Engineering Rigor</h4><p>All recommendations are grounded in multi-discipline engineering evaluation and standardized methodology. No assumptions — only evidence.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h4>Structured Modeling</h4><p>Capital planning is built on lifecycle forecasting, FCI benchmarking, and risk-informed prioritization. Every model withstands governance review.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h4>Governance Alignment</h4><p>Reporting and modeling frameworks are designed to support funding justification, audit readiness, and board-level transparency.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2540,12 +2649,30 @@ footer { background: #111; padding: 60px 0 0; }
     <div class="wrap">
       <div class="sec-head sr-3d-up"><h2>What Differentiates Nadine</h2></div>
       <div class="diff-grid sr d1">
-        <div class="diff-card"><span class="diff-icon">🔗</span><h4>Integrated Engineering & Capital Modeling</h4><p>Assessment data flows directly into capital forecasting — not as separate deliverables, but as one unified intelligence system.</p></div>
-        <div class="diff-card"><span class="diff-icon">💻</span><h4>Technology-Enabled Portfolio Intelligence</h4><p>Our platform transforms static reports into living data assets with real-time visibility and dynamic scenario modeling.</p></div>
-        <div class="diff-card"><span class="diff-icon">🌐</span><h4>National Institutional Experience</h4><p>Deep understanding of the funding, governance, and operational challenges unique to Canadian public and institutional infrastructure.</p></div>
-        <div class="diff-card"><span class="diff-icon">⚠️</span><h4>Risk-Informed Prioritization</h4><p>Capital decisions are weighted by safety exposure, regulatory risk, and operational continuity — not just asset condition scores.</p></div>
-        <div class="diff-card"><span class="diff-icon">📏</span><h4>Measurable Performance Benchmarking</h4><p>Standardized FCI frameworks applied consistently across all portfolios enable true cross-facility comparison.</p></div>
-        <div class="diff-card"><span class="diff-icon">🔄</span><h4>Ongoing Performance Management</h4><p>We partner with organizations for the long term — evolving capital strategies as portfolios grow.</p></div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+          <h4>Integrated Engineering & Capital Modeling</h4><p>Assessment data flows directly into capital forecasting — not as separate deliverables, but as one unified intelligence system.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h4>Technology-Enabled Portfolio Intelligence</h4><p>Our platform transforms static reports into living data assets with real-time visibility and dynamic scenario modeling.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h4>National Institutional Experience</h4><p>Deep understanding of the funding, governance, and operational challenges unique to Canadian public and institutional infrastructure.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <h4>Risk-Informed Prioritization</h4><p>Capital decisions are weighted by safety exposure, regulatory risk, and operational continuity — not just asset condition scores.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h4>Measurable Performance Benchmarking</h4><p>Standardized FCI frameworks applied consistently across all portfolios enable true cross-facility comparison.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.99"/></svg></div>
+          <h4>Ongoing Performance Management</h4><p>We partner with organizations for the long term — evolving capital strategies as portfolios grow.</p>
+        </div>
       </div>
     </div>
   </section>
