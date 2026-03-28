@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadine — Homepage Design Proposals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════
+   PROPOSAL SWITCHER UI
+══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+#switcher {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: 52px;
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+.sw-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  padding: 0 24px 0 16px;
+  white-space: nowrap;
+}
+
+.sw-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 22px;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,.45);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  cursor: pointer;
+  border-left: 1px solid rgba(255,255,255,.07);
+  transition: all .2s;
+  position: relative;
+}
+.sw-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background .2s;
+}
+.sw-btn:hover { color: rgba(255,255,255,.75); }
+.sw-btn.active { color: #fff; }
+.sw-btn.active::after { background: var(--proposal-accent, #D32F2F); }
+
+.sw-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Proposal wrappers */
+.proposal {
+  display: none;
+  margin-top: 52px;
+}
+.proposal.active { display: block; }
+
+/* ══════════════════════════════════════
+   SHARED PRIMITIVES
+══════════════════════════════════════ */
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+
+/* ══════════════════════════════════════
+   PROPOSAL A — "PRECISION DARK"
+   Concept: Authoritative editorial luxury.
+   Deep navy-black with copper-gold accents.
+   DM Serif Display headlines, razor geometry.
+   Sections alternate: full-bleed dark panels
+   with ruled typography and asymmetric layouts.
+══════════════════════════════════════ */
+#proposal-a {
+  --a-ink:     #0B0D11;
+  --a-ink2:    #13161C;
+  --a-mid:     #1C2028;
+  --a-copper:  #C8894A;
+  --a-copper2: #E8A85F;
+  --a-red:     #C0392B;
+  --a-white:   #F5F2EC;
+  --a-gray:    rgba(245,242,236,.45);
+  --a-border:  rgba(200,137,74,.15);
+  font-family: 'DM Sans', sans-serif;
+  background: var(--a-ink);
+  color: var(--a-white);
+  overflow-x: hidden;
+}
+
+/* NAV A */
+.a-nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: rgba(11,13,17,.96);
+  border-bottom: 1px solid var(--a-border);
+  backdrop-filter: blur(12px);
+}
+.a-logo { display: flex; flex-direction: column; gap: 2px; }
+.a-logo-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; letter-spacing: .06em; color: var(--a-white); line-height: 1;
+}
+.a-logo-sub {
+  font-size: 7px; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--a-copper); font-weight: 500;
+}
+.a-nav-links { display: flex; gap: 2px; align-items: center; }
+.a-nav-link {
+  padding: 6px 14px; font-size: 13px; font-weight: 400;
+  color: var(--a-gray); letter-spacing: .02em;
+  text-decoration: none; transition: color .2s;
+}
+.a-nav-link:hover { color: var(--a-white); }
+.a-nav-cta {
+  margin-left: 16px; padding: 9px 22px;
+  border: 1px solid var(--a-copper);
+  color: var(--a-copper); font-size: 12.5px; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none;
+  transition: all .2s;
+}
+.a-nav-cta:hover { background: var(--a-copper); color: var(--a-ink); }
+
+/* HERO A */
+.a-hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: end;
+  position: relative; overflow: hidden;
+  padding: 0;
+}
+.a-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80&auto=format&fit=crop');
+  background-size: cover; background-position: 65% center;
+  filter: brightness(.28) saturate(.6);
+}
+.a-hero-lines {
+  position: absolute; inset: 0; z-index: 1;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(200,137,74,.04) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 119px, rgba(200,137,74,.03) 120px);
+}
+.a-hero-left {
+  position: relative; z-index: 2;
+  padding: 120px 48px 80px 48px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 100vh;
+  border-right: 1px solid rgba(200,137,74,.1);
+}
+.a-hero-eyebrow {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 32px;
+}
+.a-hero-eyebrow span {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--a-copper); font-weight: 500;
+}
+.a-hero-rule { flex: 1; height: 1px; background: var(--a-border); max-width: 60px; }
+.a-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(40px,4.5vw,72px); line-height: 1.02; letter-spacing: -.01em;
+  color: var(--a-white); margin-bottom: 28px;
+  font-weight: 400;
+}
+.a-hero h1 em { font-style: italic; color: var(--a-copper2); }
+.a-hero-sub {
+  font-size: 16px; line-height: 1.7; color: var(--a-gray);
+  max-width: 460px; margin-bottom: 48px;
+}
+.a-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+.a-btn-primary {
+  padding: 14px 28px; background: var(--a-copper);
+  color: var(--a-ink); font-size: 13px; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; transition: all .2s;
+}
+.a-btn-primary:hover { background: var(--a-copper2); }
+.a-btn-ghost {
+  padding: 13px 28px; border: 1px solid rgba(245,242,236,.2);
+  color: var(--a-white); font-size: 13px; font-weight: 500;
+  letter-spacing: .04em; text-decoration: none; transition: all .2s;
+}
+.a-btn-ghost:hover { border-color: var(--a-copper); color: var(--a-copper); }
+
+/* Hero stats — left column bottom */
+.a-hero-stats {
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: 1px; border-top: 1px solid var(--a-border);
+  border-bottom: 1px solid var(--a-border);
+  margin-bottom: 0;
+}
+.a-hstat {
+  padding: 20px 0 20px;
+  border-right: 1px solid var(--a-border);
+}
+.a-hstat:nth-child(even) { border-right: none; padding-left: 24px; }
+.a-hstat-n {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px; color: var(--a-copper); line-height: 1; margin-bottom: 4px;
+}
+.a-hstat-l { font-size: 11px; color: var(--a-gray); letter-spacing: .04em; line-height: 1.4; }
+
+/* Hero right panel */
+.a-hero-right {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 120px 48px 80px 64px; min-height: 100vh;
+}
+.a-trust-label {
+  font-size: 9px; letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(200,137,74,.5); margin-bottom: 24px;
+}
+.a-trust-tiles {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.a-trust-tile {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(200,137,74,.08);
+  transition: border-color .2s, background .2s;
+}
+.a-trust-tile:hover { background: rgba(200,137,74,.04); border-color: rgba(200,137,74,.2); }
+.a-trust-tile-icon { color: var(--a-copper); width: 18px; height: 18px; flex-shrink: 0; }
+.a-trust-tile-name { font-size: 13px; color: var(--a-white); font-weight: 400; }
+.a-trust-tile-sub { font-size: 11px; color: var(--a-gray); margin-left: auto; }
+
+/* SECTION HEADING A */
+.a-sec-head {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: end; margin-bottom: 56px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--a-border);
+}
+.a-sec-eyebrow {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--a-copper); margin-bottom: 16px; display: block;
+}
+.a-sec-h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px,2.5vw,44px); color: var(--a-white);
+  line-height: 1.08; font-weight: 400; letter-spacing: -.01em;
+}
+.a-sec-h2 em { font-style: italic; color: var(--a-copper2); }
+.a-sec-desc { font-size: 15px; line-height: 1.75; color: var(--a-gray); }
+
+/* SERVICES A — full-width asymmetric list */
+.a-services-section { padding: 96px 0; }
+.a-services-list { display: flex; flex-direction: column; gap: 0; }
+.a-svc-row {
+  display: grid; grid-template-columns: 48px 1fr 1fr 120px;
+  align-items: center; gap: 32px; padding: 28px 0;
+  border-bottom: 1px solid var(--a-border);
+  transition: background .2s; cursor: pointer;
+}
+.a-svc-row:hover { background: rgba(200,137,74,.03); }
+.a-svc-num { font-family: 'DM Serif Display', serif; font-size: 18px; color: rgba(200,137,74,.35); }
+.a-svc-name { font-size: 17px; font-weight: 400; color: var(--a-white); letter-spacing: -.01em; }
+.a-svc-desc { font-size: 13.5px; color: var(--a-gray); line-height: 1.6; }
+.a-svc-arrow {
+  color: var(--a-copper); font-size: 20px; text-align: right;
+  opacity: 0; transition: opacity .2s;
+}
+.a-svc-row:hover .a-svc-arrow { opacity: 1; }
+
+.a-svc-cta { margin-top: 40px; }
+
+/* METHODOLOGY A — timeline horizontal */
+.a-method-section { padding: 96px 0; background: var(--a-ink2); }
+.a-method-track {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  position: relative; margin-top: 0;
+}
+.a-method-track::before {
+  content: '';
+  position: absolute; top: 28px; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, var(--a-copper), transparent);
+}
+.a-mstep { padding: 0 24px 0 0; }
+.a-mstep-dot {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 1px solid var(--a-copper);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--a-copper); margin-bottom: 24px;
+  background: var(--a-ink2);
+  position: relative; z-index: 1;
+}
+.a-mstep-dot svg { width: 22px; height: 22px; }
+.a-mstep-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--a-white); margin-bottom: 10px; }
+.a-mstep-body { font-size: 13.5px; color: var(--a-gray); line-height: 1.65; }
+
+/* TECH A — split layout */
+.a-tech-section { padding: 96px 0; background: var(--a-mid); }
+.a-tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.a-tech-visual {
+  aspect-ratio: 4/3; border: 1px solid var(--a-border); border-radius: 2px;
+  background:
+    linear-gradient(135deg, rgba(200,137,74,.06) 0%, transparent 60%),
+    var(--a-ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; position: relative; overflow: hidden;
+}
+.a-tech-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(200,137,74,.05) 30px),
+    repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(200,137,74,.05) 30px);
+}
+.a-tech-kpi {
+  position: absolute;
+  background: rgba(11,13,17,.95);
+  border: 1px solid var(--a-copper);
+  padding: 14px 20px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.a-tech-kpi.k1 { top: 24px; left: 24px; }
+.a-tech-kpi.k2 { bottom: 24px; right: 24px; }
+.a-tech-kpi-n { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--a-copper); line-height: 1; }
+.a-tech-kpi-l { font-size: 10px; color: var(--a-gray); letter-spacing: .08em; text-transform: uppercase; }
+.a-tech-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+.a-tcard {
+  padding: 22px 24px; border: 1px solid var(--a-border);
+  background: rgba(255,255,255,.02); transition: all .2s;
+}
+.a-tcard:hover { border-color: var(--a-copper); background: rgba(200,137,74,.04); }
+.a-tcard h4 { font-size: 14px; color: var(--a-white); margin-bottom: 6px; }
+.a-tcard p { font-size: 13px; color: var(--a-gray); line-height: 1.6; }
+
+/* INDUSTRIES A */
+.a-ind-section { padding: 96px 0; }
+.a-ind-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; border: 1px solid var(--a-border); margin-top: 0; }
+.a-ind-card {
+  padding: 40px 28px; border-right: 1px solid var(--a-border);
+  background: var(--a-ink); transition: background .2s; cursor: pointer;
+}
+.a-ind-card:last-child { border-right: none; }
+.a-ind-card:hover { background: rgba(200,137,74,.04); }
+.a-ind-icon { color: var(--a-copper); margin-bottom: 20px; }
+.a-ind-icon svg { width: 28px; height: 28px; }
+.a-ind-name { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--a-white); margin-bottom: 8px; }
+.a-ind-desc { font-size: 12.5px; color: var(--a-gray); line-height: 1.6; }
+
+/* PROOF A */
+.a-proof-section {
+  padding: 64px 0; background: var(--a-copper);
+}
+.a-proof-inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.a-proof-stats { display: flex; gap: 64px; }
+.a-proof-stat { display: flex; flex-direction: column; gap: 4px; }
+.a-proof-n { font-family: 'DM Serif Display', serif; font-size: 52px; color: var(--a-ink); line-height: 1; letter-spacing: -.02em; }
+.a-proof-l { font-size: 12px; color: rgba(11,13,17,.65); font-weight: 500; letter-spacing: .02em; }
+.a-proof-cta {
+  padding: 15px 32px; background: var(--a-ink);
+  color: var(--a-white); font-size: 13px; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
+  transition: background .2s;
+}
+.a-proof-cta:hover { background: var(--a-ink2); }
+
+/* CTA A */
+.a-cta-section { padding: 120px 0; background: var(--a-ink2); border-top: 1px solid var(--a-border); }
+.a-cta-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center;
+}
+.a-cta-left { }
+.a-cta-left .a-sec-eyebrow { margin-bottom: 24px; }
+.a-cta-left h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px,3vw,52px); color: var(--a-white); line-height: 1.06;
+  font-weight: 400; margin-bottom: 20px;
+}
+.a-cta-left h2 em { font-style: italic; color: var(--a-copper2); }
+.a-cta-left p { font-size: 15px; color: var(--a-gray); line-height: 1.7; margin-bottom: 36px; }
+.a-cta-btns { display: flex; gap: 14px; }
+.a-cta-right { border: 1px solid var(--a-border); padding: 40px; }
+.a-contact-note { font-size: 11.5px; color: var(--a-gray); line-height: 1.7; padding-top: 20px; border-top: 1px solid var(--a-border); margin-top: 24px; }
+
+/* ABOUT A */
+.a-about-section { padding: 96px 0; background: var(--a-ink); }
+.a-about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.a-about-text h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px,2.5vw,42px); color: var(--a-white); line-height: 1.08; font-weight: 400; margin-bottom: 20px;
+}
+.a-about-text h2 em { font-style: italic; color: var(--a-copper2); }
+.a-about-text p { font-size: 14.5px; color: var(--a-gray); line-height: 1.75; margin-bottom: 16px; }
+.a-about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+.a-aval {
+  padding: 16px; border: 1px solid var(--a-border);
+  display: flex; gap: 12px; align-items: flex-start;
+  transition: border-color .2s;
+}
+.a-aval:hover { border-color: var(--a-copper); }
+.a-aval svg { width: 16px; height: 16px; color: var(--a-copper); flex-shrink: 0; margin-top: 2px; }
+.a-aval strong { display: block; font-size: 12.5px; color: var(--a-white); margin-bottom: 2px; }
+.a-aval span { font-size: 11.5px; color: var(--a-gray); line-height: 1.5; }
+.a-about-visual {
+  position: relative; background: var(--a-mid);
+  border: 1px solid var(--a-border); aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.a-about-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(200,137,74,.04) 30px),
+    repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(200,137,74,.04) 30px);
+}
+.a-about-badge {
+  position: absolute; top: 28px; left: 28px;
+  background: var(--a-copper); padding: 16px 20px;
+}
+.a-about-badge .n { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--a-ink); line-height: 1; }
+.a-about-badge .l { font-size: 10px; color: rgba(11,13,17,.7); letter-spacing: .1em; text-transform: uppercase; }
+
+/* FOOTER A */
+.a-footer {
+  background: #060708; padding: 56px 0 28px;
+  border-top: 1px solid var(--a-border);
+}
+.a-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.a-footer-brand .name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--a-white); }
+.a-footer-brand .sub { font-size: 7.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--a-copper); margin-bottom: 16px; display: block; }
+.a-footer-brand p { font-size: 13px; color: rgba(245,242,236,.25); line-height: 1.7; }
+.a-footer-col h5 { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(200,137,74,.5); margin-bottom: 18px; font-weight: 500; }
+.a-footer-col a { display: block; font-size: 13px; color: rgba(245,242,236,.3); text-decoration: none; margin-bottom: 10px; transition: color .15s; }
+.a-footer-col a:hover { color: var(--a-white); }
+.a-footer-bot { border-top: 1px solid rgba(200,137,74,.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+.a-footer-bot span { font-size: 12px; color: rgba(245,242,236,.18); }
+
+
+/* ══════════════════════════════════════
+   PROPOSAL B — "STRUCTURED LIGHT"
+   Concept: Modern Swiss precision.
+   Warm white, charcoal structure, ember red.
+   Syne headlines (bold geometric). Sections
+   use contrasting layout rhythms: full-bleed
+   imagery, ruled grids, diagonal splits, data viz.
+   NOT "another white site with cards."
+══════════════════════════════════════ */
+#proposal-b {
+  --b-white:   #F8F6F1;
+  --b-paper:   #EFECE5;
+  --b-ink:     #1A1614;
+  --b-ink2:    #242220;
+  --b-red:     #C42B2B;
+  --b-red2:    #E03030;
+  --b-gray:    #6B6560;
+  --b-border:  #D9D5CE;
+  --b-accent:  #2C4A2E;
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--b-white);
+  color: var(--b-ink);
+  overflow-x: hidden;
+}
+
+/* NAV B */
+.b-nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: var(--b-white);
+  border-bottom: 2px solid var(--b-ink);
+}
+.b-logo { display: flex; align-items: baseline; gap: 10px; }
+.b-logo-name {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 20px; letter-spacing: .04em; color: var(--b-ink);
+}
+.b-logo-div { width: 1px; height: 18px; background: var(--b-border); }
+.b-logo-sub { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--b-red); font-weight: 500; }
+.b-nav-links { display: flex; gap: 4px; align-items: center; }
+.b-nav-link {
+  padding: 6px 14px; font-size: 13.5px; font-weight: 500;
+  color: var(--b-gray); text-decoration: none; transition: color .15s;
+}
+.b-nav-link:hover { color: var(--b-ink); }
+.b-nav-cta {
+  margin-left: 16px; padding: 9px 22px;
+  background: var(--b-red); color: #fff;
+  font-size: 13px; font-weight: 600; letter-spacing: .02em;
+  text-decoration: none; transition: background .2s;
+}
+.b-nav-cta:hover { background: var(--b-red2); }
+
+/* HERO B — asymmetric split with angled divider */
+.b-hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 55% 45%;
+  position: relative; overflow: hidden;
+}
+.b-hero-left {
+  background: var(--b-ink); padding: 120px 56px 80px 48px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  position: relative; overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+  z-index: 1;
+}
+.b-hero-left::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 80%, rgba(196,43,43,.18) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.025) 40px);
+}
+.b-hero-eyebrow {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--b-red2); margin-bottom: 24px; position: relative; z-index: 1;
+}
+.b-hero h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(38px,4vw,66px); line-height: .98; letter-spacing: -.03em;
+  color: var(--b-white); margin-bottom: 28px;
+  text-transform: uppercase; position: relative; z-index: 1;
+}
+.b-hero h1 .accent { color: var(--b-red2); display: block; }
+.b-hero-sub {
+  font-size: 15.5px; line-height: 1.7; color: rgba(248,246,241,.55);
+  max-width: 440px; margin-bottom: 44px;
+  position: relative; z-index: 1;
+}
+.b-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+.b-btn-primary {
+  padding: 14px 28px; background: var(--b-red);
+  color: #fff; font-size: 13.5px; font-weight: 600;
+  text-decoration: none; transition: background .2s; letter-spacing: .02em;
+}
+.b-btn-primary:hover { background: var(--b-red2); }
+.b-btn-ghost {
+  padding: 13px 28px; border: 1.5px solid rgba(248,246,241,.2);
+  color: var(--b-white); font-size: 13.5px; font-weight: 500;
+  text-decoration: none; transition: all .2s;
+}
+.b-btn-ghost:hover { border-color: rgba(248,246,241,.5); }
+
+.b-hero-right {
+  background: var(--b-paper);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 80px 48px 80px 64px;
+}
+.b-hero-right-label {
+  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--b-gray); margin-bottom: 24px; font-weight: 600;
+}
+.b-cred-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 40px; }
+.b-cred-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 0; border-bottom: 1px solid var(--b-border);
+}
+.b-cred-icon { width: 36px; height: 36px; background: var(--b-ink); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.b-cred-icon svg { width: 16px; height: 16px; color: #fff; }
+.b-cred-text strong { display: block; font-size: 13.5px; color: var(--b-ink); font-weight: 600; }
+.b-cred-text span { font-size: 12px; color: var(--b-gray); }
+/* Stats grid in right panel */
+.b-hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--b-border);
+  border: 1px solid var(--b-border);
+}
+.b-hstat {
+  background: var(--b-white); padding: 20px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.b-hstat-n {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 34px; color: var(--b-red); line-height: 1; letter-spacing: -.02em;
+}
+.b-hstat-l { font-size: 11.5px; color: var(--b-gray); line-height: 1.4; }
+
+/* SERVICES B — large numbered list with horizontal accent */
+.b-services-section { padding: 96px 0; background: var(--b-white); }
+.b-sec-head { margin-bottom: 56px; }
+.b-sec-eyebrow {
+  font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--b-red); font-weight: 600; margin-bottom: 14px; display: block;
+}
+.b-sec-h2 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(28px,2.8vw,46px); color: var(--b-ink);
+  line-height: 1.02; letter-spacing: -.03em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.b-sec-desc { font-size: 15px; color: var(--b-gray); line-height: 1.7; max-width: 560px; }
+
+.b-svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--b-border); border: 1px solid var(--b-border); }
+.b-svc-card {
+  background: var(--b-white); padding: 36px 28px;
+  position: relative; overflow: hidden;
+  transition: background .2s; cursor: pointer;
+}
+.b-svc-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--b-red);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .3s cubic-bezier(.16,1,.3,1);
+}
+.b-svc-card:hover { background: var(--b-paper); }
+.b-svc-card:hover::before { transform: scaleY(1); }
+.b-svc-card-num { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: rgba(26,22,20,.06); line-height: 1; margin-bottom: 16px; letter-spacing: -.04em; }
+.b-svc-icon { width: 36px; height: 36px; background: var(--b-ink); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.b-svc-icon svg { width: 16px; height: 16px; color: #fff; }
+.b-svc-name { font-size: 15px; font-weight: 600; color: var(--b-ink); margin-bottom: 10px; line-height: 1.3; }
+.b-svc-desc-text { font-size: 13px; color: var(--b-gray); line-height: 1.65; }
+.b-svc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 12px; font-weight: 600; color: var(--b-red); text-decoration: none; letter-spacing: .04em; text-transform: uppercase; }
+
+.b-svc-cta-row { margin-top: 32px; text-align: center; }
+.b-btn-red {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; background: var(--b-red); color: #fff;
+  font-size: 13px; font-weight: 600; letter-spacing: .02em;
+  text-decoration: none; transition: background .2s;
+}
+.b-btn-red:hover { background: var(--b-red2); }
+
+/* METHODOLOGY B — horizontal process with full-width dark band */
+.b-method-section { padding: 0; background: var(--b-ink); overflow: hidden; }
+.b-method-top { padding: 80px 48px 56px; max-width: 1280px; margin: 0 auto; }
+.b-method-top .b-sec-eyebrow { color: rgba(196,43,43,.8); }
+.b-method-top .b-sec-h2 { color: var(--b-white); max-width: 480px; }
+.b-method-top .b-sec-desc { color: rgba(248,246,241,.45); }
+.b-method-steps {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.b-mstep {
+  padding: 40px 36px; border-right: 1px solid rgba(255,255,255,.08);
+  transition: background .2s;
+}
+.b-mstep:last-child { border-right: none; }
+.b-mstep:hover { background: rgba(255,255,255,.02); }
+.b-mstep-num {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 48px; color: rgba(196,43,43,.2); line-height: 1;
+  margin-bottom: 16px; letter-spacing: -.04em;
+}
+.b-mstep-icon { color: var(--b-red2); margin-bottom: 16px; }
+.b-mstep-icon svg { width: 24px; height: 24px; }
+.b-mstep-title { font-size: 16px; font-weight: 600; color: var(--b-white); margin-bottom: 10px; }
+.b-mstep-body { font-size: 13px; color: rgba(248,246,241,.4); line-height: 1.65; }
+
+/* TECH B — full-bleed dark with image */
+.b-tech-section {
+  padding: 96px 0; position: relative; overflow: hidden;
+  background: #111;
+}
+.b-tech-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop');
+  background-size: cover; background-position: center;
+  filter: brightness(.2) saturate(.5);
+}
+.b-tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
+.b-tech-head .b-sec-eyebrow { color: rgba(224,48,48,.9); }
+.b-tech-head .b-sec-h2 { color: var(--b-white); margin-bottom: 16px; }
+.b-tech-head .b-sec-desc { color: rgba(248,246,241,.5); margin-bottom: 32px; }
+.b-tech-cards { display: flex; flex-direction: column; gap: 16px; }
+.b-tcard {
+  padding: 24px 28px; background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  display: flex; gap: 18px; align-items: flex-start;
+  transition: border-color .2s, background .2s;
+}
+.b-tcard:hover { border-color: rgba(196,43,43,.4); background: rgba(196,43,43,.04); }
+.b-tcard-icon { width: 36px; height: 36px; background: var(--b-red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.b-tcard-icon svg { width: 16px; height: 16px; color: #fff; }
+.b-tcard h4 { font-size: 14px; color: var(--b-white); margin-bottom: 6px; font-weight: 600; }
+.b-tcard p { font-size: 13px; color: rgba(248,246,241,.4); line-height: 1.6; }
+
+/* INDUSTRIES B — editorial strip */
+.b-ind-section { padding: 96px 0; background: var(--b-paper); }
+.b-ind-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: var(--b-border); border: 1px solid var(--b-border); margin-top: 0; }
+.b-ind-card {
+  background: var(--b-paper); padding: 40px 28px;
+  position: relative; overflow: hidden;
+  transition: background .2s; cursor: pointer;
+  border-bottom: 3px solid transparent; transition: border-color .2s, background .2s;
+}
+.b-ind-card:hover { background: var(--b-white); border-bottom-color: var(--b-red); }
+.b-ind-icon { width: 44px; height: 44px; background: var(--b-ink); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.b-ind-icon svg { width: 20px; height: 20px; color: #fff; }
+.b-ind-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--b-ink); margin-bottom: 8px; text-transform: uppercase; letter-spacing: -.01em; }
+.b-ind-desc { font-size: 12.5px; color: var(--b-gray); line-height: 1.65; }
+
+.b-ind-cta-row { margin-top: 36px; }
+
+/* PROOF B — bold full-width band */
+.b-proof-section { padding: 72px 0; background: var(--b-ink); }
+.b-proof-inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.b-proof-stats { display: flex; gap: 0; }
+.b-proof-stat {
+  padding: 0 48px 0 0; margin-right: 48px;
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+.b-proof-stat:last-child { border-right: none; }
+.b-proof-n {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 56px; color: var(--b-red2); line-height: 1; letter-spacing: -.04em;
+}
+.b-proof-l { font-size: 12px; color: rgba(248,246,241,.35); margin-top: 4px; letter-spacing: .02em; }
+
+/* CTA B */
+.b-cta-section { padding: 100px 0; background: var(--b-red); }
+.b-cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.b-cta-inner h2 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(28px,2.8vw,46px); color: #fff;
+  text-transform: uppercase; letter-spacing: -.03em; line-height: 1.0;
+}
+.b-cta-inner p { font-size: 15px; color: rgba(255,255,255,.7); line-height: 1.7; margin: 20px 0 32px; }
+.b-btn-dark {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; background: var(--b-ink);
+  color: #fff; font-size: 13.5px; font-weight: 600;
+  text-decoration: none; transition: background .2s;
+}
+.b-btn-dark:hover { background: #000; }
+.b-btn-white-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border: 1.5px solid rgba(255,255,255,.4);
+  color: #fff; font-size: 13.5px; font-weight: 500;
+  text-decoration: none; transition: all .2s;
+}
+.b-btn-white-outline:hover { border-color: #fff; }
+.b-cta-right { border-left: 1px solid rgba(255,255,255,.2); padding-left: 80px; }
+.b-cta-right p { font-size: 14.5px; color: rgba(255,255,255,.7); line-height: 1.7; }
+.b-cta-right strong { color: #fff; }
+
+/* ABOUT B */
+.b-about-section { padding: 96px 0; background: var(--b-ink2); }
+.b-about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.b-about-text .b-sec-eyebrow { color: rgba(196,43,43,.8); }
+.b-about-text .b-sec-h2 { color: var(--b-white); }
+.b-about-text p { font-size: 14.5px; color: rgba(248,246,241,.45); line-height: 1.75; margin-bottom: 16px; }
+.b-about-values { display: flex; flex-direction: column; gap: 0; margin-top: 28px; }
+.b-aval {
+  display: flex; gap: 16px; padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  transition: background .2s;
+}
+.b-aval svg { width: 16px; height: 16px; color: var(--b-red2); flex-shrink: 0; margin-top: 2px; }
+.b-aval strong { display: block; font-size: 13.5px; color: var(--b-white); margin-bottom: 3px; }
+.b-aval span { font-size: 12.5px; color: rgba(248,246,241,.35); line-height: 1.5; }
+.b-about-visual { display: flex; flex-direction: column; gap: 2px; margin-top: 8px; }
+.b-about-stat-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.b-about-stat {
+  background: rgba(255,255,255,.03); padding: 28px; border: 1px solid rgba(255,255,255,.07);
+}
+.b-about-stat .n { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 38px; color: var(--b-red2); line-height: 1; }
+.b-about-stat .l { font-size: 12px; color: rgba(248,246,241,.3); margin-top: 6px; }
+
+/* FOOTER B */
+.b-footer {
+  background: var(--b-ink); padding: 56px 0 28px;
+  border-top: 2px solid var(--b-red);
+}
+.b-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+.b-footer-brand .name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; color: var(--b-white); text-transform: uppercase; letter-spacing: .04em; }
+.b-footer-brand .sub { font-size: 8px; letter-spacing: .22em; text-transform: uppercase; color: var(--b-red2); display: block; margin-bottom: 14px; margin-top: 2px; }
+.b-footer-brand p { font-size: 13px; color: rgba(248,246,241,.25); line-height: 1.7; }
+.b-footer-col h5 { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(248,246,241,.3); margin-bottom: 16px; font-weight: 600; }
+.b-footer-col a { display: block; font-size: 13px; color: rgba(248,246,241,.3); text-decoration: none; margin-bottom: 10px; transition: color .15s; }
+.b-footer-col a:hover { color: var(--b-white); }
+.b-footer-bot { border-top: 1px solid rgba(255,255,255,.05); padding-top: 24px; display: flex; justify-content: space-between; }
+.b-footer-bot span { font-size: 12px; color: rgba(248,246,241,.18); }
+
+
+/* ══════════════════════════════════════
+   PROPOSAL C — "MERIDIAN"
+   Concept: Editorial infrastructure — like a
+   premium annual report / institutional publication.
+   Off-white, deep forest green, red accents.
+   Cormorant Garamond headlines (refined serif).
+   Sections use editorial asymmetry: large pull-quotes,
+   image-text interlocks, ruled layouts, margin numbers.
+══════════════════════════════════════ */
+#proposal-c {
+  --c-cream:   #F5F0E8;
+  --c-cream2:  #EDE7DA;
+  --c-ink:     #1A1C14;
+  --c-forest:  #1E3020;
+  --c-forest2: #2D4A30;
+  --c-red:     #C13030;
+  --c-red2:    #D94040;
+  --c-gold:    #8B7355;
+  --c-gray:    #6E6A5E;
+  --c-border:  #D5CFC2;
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--c-cream);
+  color: var(--c-ink);
+  overflow-x: hidden;
+}
+
+/* NAV C */
+.c-nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: var(--c-forest);
+}
+.c-logo { display: flex; flex-direction: column; gap: 2px; }
+.c-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600; letter-spacing: .04em; color: var(--c-cream);
+}
+.c-logo-sub {
+  font-size: 7px; letter-spacing: .26em; text-transform: uppercase;
+  color: rgba(245,240,232,.4); font-weight: 400;
+}
+.c-nav-links { display: flex; gap: 2px; align-items: center; }
+.c-nav-link {
+  padding: 6px 14px; font-size: 13px; font-weight: 400;
+  color: rgba(245,240,232,.55); text-decoration: none; transition: color .2s;
+}
+.c-nav-link:hover { color: var(--c-cream); }
+.c-nav-cta {
+  margin-left: 16px; padding: 9px 22px;
+  background: var(--c-red); color: #fff;
+  font-size: 13px; font-weight: 500; letter-spacing: .03em;
+  text-decoration: none; transition: background .2s;
+}
+.c-nav-cta:hover { background: var(--c-red2); }
+
+/* HERO C — editorial full-bleed with large serif */
+.c-hero {
+  min-height: 100vh; background: var(--c-forest);
+  display: grid; grid-template-rows: 1fr auto;
+  position: relative; overflow: hidden;
+}
+.c-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80&auto=format&fit=crop');
+  background-size: cover; background-position: center 30%;
+  filter: brightness(.18) saturate(.4);
+  mix-blend-mode: luminosity;
+}
+.c-hero-content {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding: 140px 48px 0; gap: 80px; align-items: end;
+  min-height: calc(100vh - 180px);
+}
+.c-hero-left {}
+.c-hero-kicker {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 32px;
+}
+.c-hero-kicker-line { width: 32px; height: 1px; background: var(--c-red); }
+.c-hero-kicker span { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,240,232,.5); }
+.c-hero h1 {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: clamp(44px,5vw,82px); line-height: 1.0; letter-spacing: -.01em;
+  color: var(--c-cream); margin-bottom: 32px;
+}
+.c-hero h1 em { font-style: italic; font-weight: 300; }
+.c-hero h1 strong { font-weight: 600; color: #fff; display: block; }
+.c-hero-sub { font-size: 15px; line-height: 1.75; color: rgba(245,240,232,.5); max-width: 420px; margin-bottom: 40px; }
+.c-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.c-btn-primary {
+  padding: 14px 28px; background: var(--c-red);
+  color: #fff; font-size: 13.5px; font-weight: 500;
+  text-decoration: none; transition: background .2s;
+}
+.c-btn-primary:hover { background: var(--c-red2); }
+.c-btn-ghost {
+  padding: 13px 28px; border: 1px solid rgba(245,240,232,.25);
+  color: var(--c-cream); font-size: 13.5px; font-weight: 400;
+  text-decoration: none; transition: all .2s;
+}
+.c-btn-ghost:hover { border-color: rgba(245,240,232,.55); }
+
+/* Hero right — trust column */
+.c-hero-right { padding-bottom: 8px; }
+.c-hero-right-label { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,240,232,.3); margin-bottom: 20px; }
+.c-client-list { display: flex; flex-direction: column; gap: 0; }
+.c-client-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; border-bottom: 1px solid rgba(245,240,232,.08);
+}
+.c-client-name { font-size: 13px; color: rgba(245,240,232,.55); font-weight: 400; }
+.c-client-type { font-size: 10px; color: rgba(245,240,232,.25); letter-spacing: .1em; text-transform: uppercase; }
+
+/* Hero stats band */
+.c-hero-stats {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid rgba(245,240,232,.08);
+}
+.c-hstat {
+  padding: 28px 48px; border-right: 1px solid rgba(245,240,232,.06);
+  display: flex; gap: 20px; align-items: center;
+}
+.c-hstat:last-child { border-right: none; }
+.c-hstat-n {
+  font-family: 'Cormorant Garamond', serif; font-weight: 600;
+  font-size: 40px; color: var(--c-red); line-height: 1; letter-spacing: -.02em;
+}
+.c-hstat-l { font-size: 12px; color: rgba(245,240,232,.35); line-height: 1.45; }
+
+/* AUTHORITY C */
+.c-auth-section { padding: 0; background: var(--c-cream2); }
+.c-auth-inner { max-width: 1280px; margin: 0 auto; padding: 48px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+.c-auth-label { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--c-gold); white-space: nowrap; }
+.c-auth-rule { flex: 1; height: 1px; background: var(--c-border); }
+.c-auth-tiles { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+.c-auth-tile { display: flex; align-items: center; gap: 8px; }
+.c-auth-tile svg { width: 15px; height: 15px; color: var(--c-gold); }
+.c-auth-tile span { font-size: 12.5px; color: var(--c-gray); }
+
+/* SERVICES C — editorial alternating rows */
+.c-services-section { padding: 96px 0; background: var(--c-cream); }
+.c-sec-head { margin-bottom: 64px; }
+.c-sec-eyebrow { font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--c-red); margin-bottom: 16px; display: block; }
+.c-sec-h2 {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: clamp(30px,3vw,52px); color: var(--c-ink);
+  line-height: 1.06; letter-spacing: -.01em; margin-bottom: 16px;
+}
+.c-sec-h2 em { font-style: italic; }
+.c-sec-desc { font-size: 15px; color: var(--c-gray); line-height: 1.75; max-width: 520px; }
+
+.c-svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--c-border); border: 1px solid var(--c-border); }
+.c-svc-card {
+  background: var(--c-cream); padding: 36px 28px;
+  position: relative; transition: background .2s;
+}
+.c-svc-card:hover { background: var(--c-cream2); }
+.c-svc-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--c-red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s cubic-bezier(.16,1,.3,1);
+}
+.c-svc-card:hover::after { transform: scaleX(1); }
+.c-svc-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: var(--c-gold); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+.c-svc-icon { width: 40px; height: 40px; border: 1px solid var(--c-border); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; transition: border-color .2s, background .2s; }
+.c-svc-card:hover .c-svc-icon { border-color: var(--c-red); background: rgba(193,48,48,.04); }
+.c-svc-icon svg { width: 18px; height: 18px; color: var(--c-ink); }
+.c-svc-name { font-size: 15px; font-weight: 600; color: var(--c-ink); margin-bottom: 10px; line-height: 1.3; }
+.c-svc-desc-text { font-size: 13.5px; color: var(--c-gray); line-height: 1.65; }
+.c-svc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 12px; font-weight: 500; color: var(--c-red); text-decoration: none; }
+.c-svc-cta-row { margin-top: 36px; }
+.c-btn-ink {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; background: var(--c-ink);
+  color: var(--c-cream); font-size: 13px; font-weight: 500;
+  text-decoration: none; transition: background .2s;
+}
+.c-btn-ink:hover { background: var(--c-forest); }
+
+/* METHODOLOGY C — elegant horizontal numbered */
+.c-method-section { padding: 96px 0; background: var(--c-forest); }
+.c-method-section .c-sec-eyebrow { color: rgba(193,48,48,.7); }
+.c-method-section .c-sec-h2 { color: var(--c-cream); }
+.c-method-section .c-sec-desc { color: rgba(245,240,232,.45); }
+.c-method-steps {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+  border: 1px solid rgba(245,240,232,.08); margin-top: 0;
+}
+.c-mstep {
+  padding: 44px 32px; border-right: 1px solid rgba(245,240,232,.06);
+  transition: background .2s;
+}
+.c-mstep:last-child { border-right: none; }
+.c-mstep:hover { background: rgba(245,240,232,.02); }
+.c-mstep-num {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 64px; color: rgba(193,48,48,.2); line-height: 1; letter-spacing: -.03em;
+  margin-bottom: 16px;
+}
+.c-mstep-icon { color: var(--c-red); margin-bottom: 14px; }
+.c-mstep-icon svg { width: 22px; height: 22px; }
+.c-mstep-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--c-cream); margin-bottom: 10px; }
+.c-mstep-body { font-size: 13px; color: rgba(245,240,232,.38); line-height: 1.7; }
+
+/* TECH C — dark, split layout */
+.c-tech-section { padding: 96px 0; background: var(--c-ink); }
+.c-tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.c-tech-head .c-sec-eyebrow { color: rgba(193,48,48,.7); }
+.c-tech-head .c-sec-h2 { color: var(--c-cream); }
+.c-tech-head .c-sec-desc { color: rgba(245,240,232,.4); margin-bottom: 32px; }
+.c-tech-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border: 1px solid rgba(245,240,232,.2);
+  color: var(--c-cream); font-size: 13px; font-weight: 400;
+  text-decoration: none; transition: all .2s;
+}
+.c-tech-btn:hover { border-color: var(--c-red); color: var(--c-red); }
+.c-tech-cards { display: flex; flex-direction: column; gap: 0; }
+.c-tcard {
+  padding: 24px 28px; border-bottom: 1px solid rgba(245,240,232,.07);
+  display: flex; gap: 20px; align-items: flex-start;
+  transition: background .2s;
+}
+.c-tcard:hover { background: rgba(245,240,232,.02); }
+.c-tcard-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: rgba(193,48,48,.25); line-height: 1; flex-shrink: 0; }
+.c-tcard h4 { font-size: 14.5px; color: var(--c-cream); margin-bottom: 6px; font-weight: 500; }
+.c-tcard p { font-size: 13px; color: rgba(245,240,232,.35); line-height: 1.6; }
+
+/* INDUSTRIES C */
+.c-ind-section { padding: 96px 0; background: var(--c-cream2); }
+.c-ind-section .c-sec-head { margin-bottom: 48px; }
+.c-ind-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.c-ind-card {
+  padding: 36px 24px; background: var(--c-cream);
+  border: 1px solid var(--c-border); transition: all .2s; cursor: pointer;
+}
+.c-ind-card:hover { border-color: var(--c-red); background: #fff; }
+.c-ind-icon { color: var(--c-gold); margin-bottom: 20px; }
+.c-ind-icon svg { width: 24px; height: 24px; }
+.c-ind-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--c-ink); margin-bottom: 8px; }
+.c-ind-desc { font-size: 12.5px; color: var(--c-gray); line-height: 1.65; }
+.c-ind-cta-row { margin-top: 36px; }
+
+/* PROOF C */
+.c-proof-section { padding: 72px 0; background: var(--c-cream); border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); }
+.c-proof-inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.c-proof-stats { display: flex; gap: 64px; }
+.c-proof-stat {}
+.c-proof-n { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 60px; color: var(--c-red); line-height: 1; letter-spacing: -.03em; }
+.c-proof-l { font-size: 12px; color: var(--c-gray); margin-top: 4px; }
+.c-proof-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; background: var(--c-red);
+  color: #fff; font-size: 13.5px; font-weight: 500;
+  text-decoration: none; transition: background .2s;
+}
+.c-proof-cta:hover { background: var(--c-red2); }
+
+/* CTA C */
+.c-cta-section { padding: 100px 0; background: var(--c-forest); }
+.c-cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+.c-cta-inner .c-sec-eyebrow { color: rgba(193,48,48,.7); }
+.c-cta-inner h2 {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: clamp(30px,3vw,52px); color: var(--c-cream);
+  line-height: 1.06; letter-spacing: -.01em;
+}
+.c-cta-inner h2 em { font-style: italic; }
+.c-cta-inner p { font-size: 15px; color: rgba(245,240,232,.5); line-height: 1.7; margin: 20px 0 36px; }
+.c-cta-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.c-btn-red {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; background: var(--c-red);
+  color: #fff; font-size: 13.5px; font-weight: 500;
+  text-decoration: none; transition: background .2s;
+}
+.c-btn-red:hover { background: var(--c-red2); }
+.c-btn-cream-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border: 1px solid rgba(245,240,232,.25);
+  color: var(--c-cream); font-size: 13.5px; font-weight: 400;
+  text-decoration: none; transition: all .2s;
+}
+.c-btn-cream-outline:hover { border-color: rgba(245,240,232,.5); }
+.c-cta-right { border-left: 1px solid rgba(245,240,232,.1); padding-left: 96px; }
+.c-cta-aside-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: var(--c-cream); margin-bottom: 20px; }
+.c-process-step { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(245,240,232,.06); }
+.c-process-n { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--c-red); line-height: 1; flex-shrink: 0; }
+.c-process-step strong { display: block; font-size: 13px; color: var(--c-cream); margin-bottom: 2px; }
+.c-process-step span { font-size: 12px; color: rgba(245,240,232,.35); line-height: 1.5; }
+
+/* ABOUT C */
+.c-about-section { padding: 96px 0; background: var(--c-ink); }
+.c-about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
+.c-about-text .c-sec-eyebrow { color: rgba(193,48,48,.7); }
+.c-about-text h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px,2.5vw,44px); color: var(--c-cream); line-height: 1.06; letter-spacing: -.01em; margin-bottom: 20px; }
+.c-about-text h2 em { font-style: italic; }
+.c-about-text p { font-size: 14.5px; color: rgba(245,240,232,.4); line-height: 1.75; margin-bottom: 14px; }
+.c-about-values { display: flex; flex-direction: column; gap: 0; margin-top: 28px; }
+.c-aval {
+  display: flex; gap: 16px; padding: 16px 0;
+  border-bottom: 1px solid rgba(245,240,232,.06);
+}
+.c-aval svg { width: 15px; height: 15px; color: var(--c-red); flex-shrink: 0; margin-top: 2px; }
+.c-aval strong { display: block; font-size: 13px; color: var(--c-cream); margin-bottom: 2px; }
+.c-aval span { font-size: 12px; color: rgba(245,240,232,.3); line-height: 1.5; }
+.c-about-visual { display: flex; flex-direction: column; gap: 16px; }
+.c-about-quote {
+  padding: 32px 36px;
+  border: 1px solid rgba(245,240,232,.08);
+  border-left: 3px solid var(--c-red);
+  background: rgba(245,240,232,.02);
+}
+.c-about-quote blockquote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: rgba(245,240,232,.7); line-height: 1.5; margin-bottom: 12px; }
+.c-about-quote cite { font-size: 11px; color: rgba(245,240,232,.3); letter-spacing: .1em; text-transform: uppercase; }
+.c-about-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(245,240,232,.06); border: 1px solid rgba(245,240,232,.06); }
+.c-about-stat { background: var(--c-ink); padding: 24px; }
+.c-about-stat .n { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: var(--c-red); line-height: 1; }
+.c-about-stat .l { font-size: 11.5px; color: rgba(245,240,232,.28); margin-top: 4px; }
+
+/* FOOTER C */
+.c-footer {
+  background: var(--c-forest); padding: 56px 0 28px;
+  border-top: 1px solid rgba(245,240,232,.08);
+}
+.c-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+.c-footer-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--c-cream); }
+.c-footer-brand .sub { font-size: 7.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,240,232,.3); display: block; margin-bottom: 14px; }
+.c-footer-brand p { font-size: 13px; color: rgba(245,240,232,.25); line-height: 1.7; }
+.c-footer-col h5 { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,.25); margin-bottom: 16px; font-weight: 500; }
+.c-footer-col a { display: block; font-size: 13px; color: rgba(245,240,232,.25); text-decoration: none; margin-bottom: 10px; transition: color .15s; }
+.c-footer-col a:hover { color: var(--c-cream); }
+.c-footer-bot { border-top: 1px solid rgba(245,240,232,.06); padding-top: 24px; display: flex; justify-content: space-between; }
+.c-footer-bot span { font-size: 12px; color: rgba(245,240,232,.18); }
+
+</style>
+</head>
+<body>
+
+<!-- ══ SWITCHER ══ -->
+<div id="switcher">
+  <span class="sw-label">Design Proposals</span>
+  <button class="sw-btn active" onclick="show('a')" id="sw-a" style="--proposal-accent:#C8894A;">
+    <span class="sw-dot" style="background:#C8894A;"></span>
+    Proposal A — Precision Dark
+  </button>
+  <button class="sw-btn" onclick="show('b')" id="sw-b" style="--proposal-accent:#C42B2B;">
+    <span class="sw-dot" style="background:#C42B2B;"></span>
+    Proposal B — Structured Light
+  </button>
+  <button class="sw-btn" onclick="show('c')" id="sw-c" style="--proposal-accent:#2D4A30;">
+    <span class="sw-dot" style="background:#2D4A30;"></span>
+    Proposal C — Meridian
+  </button>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PROPOSAL A — PRECISION DARK
+════════════════════════════════════════ -->
+<div class="proposal active" id="proposal-a">
+
+  <!-- NAV -->
+  <nav class="a-nav">
+    <div class="a-logo">
+      <span class="a-logo-name">NADINE</span>
+      <span class="a-logo-sub">Infrastructure Intelligence</span>
+    </div>
+    <div class="a-nav-links">
+      <a class="a-nav-link" href="#">Services</a>
+      <a class="a-nav-link" href="#">Industries</a>
+      <a class="a-nav-link" href="#">Technology</a>
+      <a class="a-nav-link" href="#">Case Studies</a>
+      <a class="a-nav-link" href="#">About</a>
+    </div>
+    <a class="a-nav-cta" href="#">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="a-hero">
+    <div class="a-hero-bg"></div>
+    <div class="a-hero-lines"></div>
+
+    <!-- Left -->
+    <div class="a-hero-left">
+      <div class="a-hero-eyebrow">
+        <div class="a-hero-rule"></div>
+        <span>Engineering Intelligence</span>
+      </div>
+      <h1>When Capital<br>Decisions<br>Can't Be <em>Wrong,</em><br>We Build<br>the Case.</h1>
+      <p class="a-hero-sub">Nadine delivers structured Facility Condition Assessments and long-term capital forecasts that transform infrastructure data into defensible funding strategy — trusted by Canada's leading public-sector institutions.</p>
+      <div class="a-hero-btns">
+        <a class="a-btn-primary" href="#">Request a Consultation</a>
+        <a class="a-btn-ghost" href="#">Explore Our Approach</a>
+      </div>
+      <div class="a-hero-stats">
+        <div class="a-hstat">
+          <div class="a-hstat-n">30+</div>
+          <div class="a-hstat-l">Years in Operation</div>
+        </div>
+        <div class="a-hstat">
+          <div class="a-hstat-n">1,200+</div>
+          <div class="a-hstat-l">Facilities Assessed</div>
+        </div>
+        <div class="a-hstat">
+          <div class="a-hstat-n">$2B+</div>
+          <div class="a-hstat-l">Capital Planned</div>
+        </div>
+        <div class="a-hstat">
+          <div class="a-hstat-n">95%</div>
+          <div class="a-hstat-l">Client Retention</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right — trust signals -->
+    <div class="a-hero-right">
+      <p class="a-trust-label">Trusted by Canada's Public-Sector Leaders</p>
+      <div class="a-trust-tiles">
+        <div class="a-trust-tile">
+          <svg class="a-trust-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span class="a-trust-tile-name">Federal Agencies</span>
+          <span class="a-trust-tile-sub">Government of Canada</span>
+        </div>
+        <div class="a-trust-tile">
+          <svg class="a-trust-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          <span class="a-trust-tile-name">Provincial Ministries</span>
+          <span class="a-trust-tile-sub">10 Provinces · 3 Territories</span>
+        </div>
+        <div class="a-trust-tile">
+          <svg class="a-trust-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="a-trust-tile-name">Public Safety</span>
+          <span class="a-trust-tile-sub">Police · Fire · EMS</span>
+        </div>
+        <div class="a-trust-tile">
+          <svg class="a-trust-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span class="a-trust-tile-name">Healthcare &amp; Education</span>
+          <span class="a-trust-tile-sub">Hospitals · Universities</span>
+        </div>
+        <div class="a-trust-tile">
+          <svg class="a-trust-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="a-trust-tile-name">Municipal Governments</span>
+          <span class="a-trust-tile-sub">Cities · Counties · Districts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES A -->
+  <section class="a-services-section">
+    <div class="wrap">
+      <div class="a-sec-head">
+        <div>
+          <span class="a-sec-eyebrow">Services</span>
+          <h2 class="a-sec-h2">Structured Solutions for<br><em>Long-Term Capital Performance</em></h2>
+        </div>
+        <p class="a-sec-desc">Nadine's integrated framework delivers structured capital intelligence across six specialised practice areas — from field engineering to board-ready governance reporting.</p>
+      </div>
+      <div class="a-services-list">
+        <div class="a-svc-row">
+          <span class="a-svc-num">01</span>
+          <span class="a-svc-name">Facility Condition Assessment</span>
+          <span class="a-svc-desc">Engineering-grade evaluations &amp; FCI benchmarking across distributed portfolios nationwide.</span>
+          <span class="a-svc-arrow">→</span>
+        </div>
+        <div class="a-svc-row">
+          <span class="a-svc-num">02</span>
+          <span class="a-svc-name">Capital Planning &amp; Forecasting</span>
+          <span class="a-svc-desc">Multi-year capital models &amp; funding scenarios aligned with institutional governance cycles.</span>
+          <span class="a-svc-arrow">→</span>
+        </div>
+        <div class="a-svc-row">
+          <span class="a-svc-num">03</span>
+          <span class="a-svc-name">Risk-Informed Infrastructure Strategy</span>
+          <span class="a-svc-desc">Governance-aligned prioritization ensuring defensible, transparent capital decisions.</span>
+          <span class="a-svc-arrow">→</span>
+        </div>
+        <div class="a-svc-row">
+          <span class="a-svc-num">04</span>
+          <span class="a-svc-name">Asset Management Advisory</span>
+          <span class="a-svc-desc">Strategic lifecycle advisory &amp; ISO 55001-aligned asset register development.</span>
+          <span class="a-svc-arrow">→</span>
+        </div>
+        <div class="a-svc-row">
+          <span class="a-svc-num">05</span>
+          <span class="a-svc-name">Infrastructure Intelligence Platform</span>
+          <span class="a-svc-desc">Cloud-based portfolio dashboards with real-time data sync and scenario modeling.</span>
+          <span class="a-svc-arrow">→</span>
+        </div>
+        <div class="a-svc-row">
+          <span class="a-svc-num">06</span>
+          <span class="a-svc-name">Governance &amp; Reporting Support</span>
+          <span class="a-svc-desc">Board-ready capital reports, treasury submissions, and audit documentation.</span>
+          <span class="a-svc-arrow">→</span>
+        </div>
+      </div>
+      <div class="a-svc-cta">
+        <a class="a-btn-primary" href="#">Explore Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY A -->
+  <section class="a-method-section">
+    <div class="wrap">
+      <div class="a-sec-head">
+        <div>
+          <span class="a-sec-eyebrow">Methodology</span>
+          <h2 class="a-sec-h2">A Repeatable Process That<br><em>Stands Up to Scrutiny</em></h2>
+        </div>
+        <p class="a-sec-desc">Our four-phase methodology produces capital intelligence that is defensible, audit-ready, and aligned with institutional governance standards.</p>
+      </div>
+      <div class="a-method-track">
+        <div class="a-mstep">
+          <div class="a-mstep-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="a-mstep-title">Assess</div>
+          <div class="a-mstep-body">Rigorous field evaluation of all building systems and site infrastructure, condition-rated by licensed engineers.</div>
+        </div>
+        <div class="a-mstep">
+          <div class="a-mstep-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="a-mstep-title">Model</div>
+          <div class="a-mstep-body">Asset lifecycle data transformed into FCI scores and multi-year capital expenditure projections.</div>
+        </div>
+        <div class="a-mstep">
+          <div class="a-mstep-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="a-mstep-title">Prioritize</div>
+          <div class="a-mstep-body">Risk-informed sequencing of capital needs aligned with funding cycles and regulatory requirements.</div>
+        </div>
+        <div class="a-mstep">
+          <div class="a-mstep-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="a-mstep-title">Advise</div>
+          <div class="a-mstep-body">Board-ready capital intelligence reports and governance-aligned recommendations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH A -->
+  <section class="a-tech-section">
+    <div class="wrap">
+      <div class="a-tech-layout">
+        <div>
+          <span class="a-sec-eyebrow">Technology</span>
+          <h2 class="a-sec-h2">Capital Intelligence,<br><em>Delivered in Real Time</em></h2>
+          <p class="a-sec-desc" style="margin-bottom:28px;">Our cloud-based Infrastructure Intelligence Platform transforms field assessment data into live portfolio visibility — enabling institutional decision-makers to model funding scenarios and produce audit-ready capital plans.</p>
+          <a class="a-btn-ghost" href="#">Explore the Platform →</a>
+          <div class="a-tech-cards">
+            <div class="a-tcard"><h4>Live Portfolio Dashboards</h4><p>Real-time field data sync delivers up-to-date FCI scores, condition trends, and asset status across your entire portfolio.</p></div>
+            <div class="a-tcard"><h4>Multi-Year Scenario Modeling</h4><p>Generate 10–20 year capital funding scenarios in minutes, with defensible cost assumptions and governance-ready outputs.</p></div>
+            <div class="a-tcard"><h4>Institutional-Grade Security</h4><p>Role-based access, encrypted data storage, and audit-trail logging built for public-sector compliance requirements.</p></div>
+          </div>
+        </div>
+        <div class="a-tech-visual">
+          <div class="a-tech-kpi k1">
+            <span class="a-tech-kpi-n">FCI</span>
+            <span class="a-tech-kpi-l">Condition Index</span>
+          </div>
+          <svg viewBox="0 0 200 120" style="width:60%;opacity:.4;position:relative;z-index:1;" fill="none">
+            <polyline points="0,100 40,80 80,60 100,40 140,55 160,30 200,20" stroke="#C8894A" stroke-width="2" fill="none"/>
+            <polyline points="0,100 40,80 80,60 100,40 140,55 160,30 200,20 200,120 0,120" fill="rgba(200,137,74,.08)"/>
+          </svg>
+          <div class="a-tech-kpi k2">
+            <span class="a-tech-kpi-n">40%</span>
+            <span class="a-tech-kpi-l">Funding Readiness Lift</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES A -->
+  <section class="a-ind-section">
+    <div class="wrap">
+      <div class="a-sec-head">
+        <div>
+          <span class="a-sec-eyebrow">Industries</span>
+          <h2 class="a-sec-h2">Built for Institutions That<br><em>Can't Afford to Get It Wrong</em></h2>
+        </div>
+        <p class="a-sec-desc">We serve the public-sector organizations and institutional asset owners whose infrastructure decisions carry the greatest consequence.</p>
+      </div>
+      <div class="a-ind-grid">
+        <div class="a-ind-card">
+          <div class="a-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div class="a-ind-name">Government</div>
+          <div class="a-ind-desc">Federal, provincial, and municipal agencies managing large public asset portfolios.</div>
+        </div>
+        <div class="a-ind-card">
+          <div class="a-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="a-ind-name">Public Safety</div>
+          <div class="a-ind-desc">Police services, fire departments, and emergency management facilities.</div>
+        </div>
+        <div class="a-ind-card">
+          <div class="a-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="a-ind-name">Healthcare &amp; Education</div>
+          <div class="a-ind-desc">Hospitals, universities, schools, and community health infrastructure.</div>
+        </div>
+        <div class="a-ind-card">
+          <div class="a-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <div class="a-ind-name">Commercial &amp; Institutional</div>
+          <div class="a-ind-desc">Large commercial portfolios and institutional asset owners requiring structured capital governance.</div>
+        </div>
+      </div>
+      <div style="margin-top:36px;"><a class="a-btn-primary" href="#">Explore Industries We Serve</a></div>
+    </div>
+  </section>
+
+  <!-- PROOF A -->
+  <section class="a-proof-section">
+    <div class="wrap">
+      <div class="a-proof-inner">
+        <div class="a-proof-stats">
+          <div class="a-proof-stat"><div class="a-proof-n">18%</div><div class="a-proof-l">Avg. Reduction in Reactive Capital Repairs</div></div>
+          <div class="a-proof-stat"><div class="a-proof-n">$2B+</div><div class="a-proof-l">In Capital Planned Across Client Portfolios</div></div>
+          <div class="a-proof-stat"><div class="a-proof-n">40%</div><div class="a-proof-l">Improvement in Funding Readiness</div></div>
+        </div>
+        <a class="a-proof-cta" href="#">Request a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA A -->
+  <section class="a-cta-section">
+    <div class="wrap">
+      <div class="a-cta-inner">
+        <div class="a-cta-left">
+          <span class="a-sec-eyebrow">Get Started</span>
+          <h2>Your Infrastructure Decisions<br>Deserve a <em>Stronger Foundation.</em></h2>
+          <p>Partner with Nadine to develop lifecycle-based capital forecasts that are defensible, governance-aligned, and built to perform over the long term.</p>
+          <div class="a-cta-btns">
+            <a class="a-btn-primary" href="#">Request a Consultation</a>
+            <a class="a-btn-ghost" href="#">Explore All Services</a>
+          </div>
+        </div>
+        <div class="a-cta-right">
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;gap:14px;padding:18px 0;border-bottom:1px solid rgba(200,137,74,.12);">
+              <svg style="width:16px;height:16px;color:#C8894A;flex-shrink:0;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:13.5px;color:rgba(245,242,236,.55);">Licensed Professional Engineers on every engagement</span>
+            </div>
+            <div style="display:flex;gap:14px;padding:18px 0;border-bottom:1px solid rgba(200,137,74,.12);">
+              <svg style="width:16px;height:16px;color:#C8894A;flex-shrink:0;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:13.5px;color:rgba(245,242,236,.55);">ISO-aligned frameworks, audit-ready documentation</span>
+            </div>
+            <div style="display:flex;gap:14px;padding:18px 0;border-bottom:1px solid rgba(200,137,74,.12);">
+              <svg style="width:16px;height:16px;color:#C8894A;flex-shrink:0;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:13.5px;color:rgba(245,242,236,.55);">30+ years serving Canada's leading institutions</span>
+            </div>
+            <div style="display:flex;gap:14px;padding:18px 0;">
+              <svg style="width:16px;height:16px;color:#C8894A;flex-shrink:0;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:13.5px;color:rgba(245,242,236,.55);">Board-ready deliverables, governance-aligned reporting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT A -->
+  <section class="a-about-section">
+    <div class="wrap">
+      <div class="a-about-layout">
+        <div class="a-about-text">
+          <span class="a-sec-eyebrow">About Nadine International</span>
+          <h2>30 Years of Doing the Work<br>That <em>Justifies the Funding.</em></h2>
+          <p>Nadine International Inc. was built on a simple conviction: that public institutions deserve capital advice grounded in engineering fact — not assumption, not guesswork, and not generic templates.</p>
+          <p>For over three decades, our team of licensed engineers, planners, and capital strategists has helped governments, universities, hospitals, and municipalities transform complex infrastructure data into clear, defensible funding strategies.</p>
+          <div class="a-about-values">
+            <div class="a-aval">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              <div><strong>Engineering Integrity</strong><span>Every recommendation is grounded in defensible, field-verified data.</span></div>
+            </div>
+            <div class="a-aval">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <div><strong>Client Partnership</strong><span>Long-term relationships built on trust, transparency, and results.</span></div>
+            </div>
+            <div class="a-aval">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div><strong>30+ Years of Practice</strong><span>A track record built across 1,200+ facilities nationwide.</span></div>
+            </div>
+            <div class="a-aval">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <div><strong>Data-Driven Decisions</strong><span>Capital intelligence that replaces assumption with structured analysis.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="a-about-visual">
+          <div class="a-about-badge"><span class="n">30+</span><span class="l">Years of Practice</span></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
+            <svg viewBox="0 0 400 300" style="width:80%;opacity:.06" fill="none">
+              <rect x="20" y="20" width="160" height="120" stroke="#C8894A" stroke-width="1"/>
+              <rect x="220" y="20" width="160" height="120" stroke="#C8894A" stroke-width="1"/>
+              <rect x="20" y="160" width="160" height="120" stroke="#C8894A" stroke-width="1"/>
+              <rect x="220" y="160" width="160" height="120" stroke="#C8894A" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER A -->
+  <footer class="a-footer">
+    <div class="wrap">
+      <div class="a-footer-grid">
+        <div class="a-footer-brand">
+          <div class="name">NADINE</div>
+          <span class="sub">Infrastructure Intelligence</span>
+          <p>Engineering-grade capital intelligence for Canada's leading public-sector institutions and asset owners.</p>
+        </div>
+        <div class="a-footer-col"><h5>Services</h5><a href="#">Facility Condition Assessment</a><a href="#">Capital Planning</a><a href="#">Risk Strategy</a><a href="#">Asset Management</a><a href="#">Technology Platform</a><a href="#">Governance Reporting</a></div>
+        <div class="a-footer-col"><h5>Company</h5><a href="#">About</a><a href="#">Case Studies</a><a href="#">Industries</a><a href="#">Technology</a></div>
+        <div class="a-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#">info@nadineinc.com</a><a href="#">1-800-NADINE</a></div>
+      </div>
+      <div class="a-footer-bot">
+        <span>© 2025 Nadine International Inc. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Use</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /proposal-a -->
+
+
+<!-- ════════════════════════════════════════
+     PROPOSAL B — STRUCTURED LIGHT
+════════════════════════════════════════ -->
+<div class="proposal" id="proposal-b">
+
+  <!-- NAV -->
+  <nav class="b-nav">
+    <div class="b-logo">
+      <span class="b-logo-name">NADINE</span>
+      <div class="b-logo-div"></div>
+      <span class="b-logo-sub">Infrastructure Intelligence</span>
+    </div>
+    <div class="b-nav-links">
+      <a class="b-nav-link" href="#">Services</a>
+      <a class="b-nav-link" href="#">Industries</a>
+      <a class="b-nav-link" href="#">Technology</a>
+      <a class="b-nav-link" href="#">Case Studies</a>
+      <a class="b-nav-link" href="#">About</a>
+    </div>
+    <a class="b-nav-cta" href="#">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="b-hero">
+    <div class="b-hero-left">
+      <p class="b-hero-eyebrow">Engineering Intelligence</p>
+      <h1>WHEN<br>CAPITAL<br><span class="accent">CAN'T</span><br>BE WRONG.</h1>
+      <p class="b-hero-sub">Nadine delivers structured Facility Condition Assessments and long-term capital forecasts that transform infrastructure data into defensible funding strategy — trusted by Canada's leading public-sector institutions.</p>
+      <div class="b-hero-btns">
+        <a class="b-btn-primary" href="#">Request a Consultation</a>
+        <a class="b-btn-ghost" href="#">Explore Our Approach</a>
+      </div>
+    </div>
+    <div class="b-hero-right">
+      <p class="b-hero-right-label">Trusted by Canada's Public-Sector Leaders</p>
+      <div class="b-cred-list">
+        <div class="b-cred-item">
+          <div class="b-cred-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div class="b-cred-text"><strong>Federal Agencies</strong><span>Government of Canada</span></div>
+        </div>
+        <div class="b-cred-item">
+          <div class="b-cred-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <div class="b-cred-text"><strong>Provincial Ministries</strong><span>10 Provinces · 3 Territories</span></div>
+        </div>
+        <div class="b-cred-item">
+          <div class="b-cred-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="b-cred-text"><strong>Public Safety Agencies</strong><span>Police · Fire · EMS</span></div>
+        </div>
+        <div class="b-cred-item">
+          <div class="b-cred-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="b-cred-text"><strong>Healthcare &amp; Education</strong><span>Hospitals · Universities</span></div>
+        </div>
+      </div>
+      <div class="b-hero-stats">
+        <div class="b-hstat"><div class="b-hstat-n">30+</div><div class="b-hstat-l">Years in Operation</div></div>
+        <div class="b-hstat"><div class="b-hstat-n">1,200+</div><div class="b-hstat-l">Facilities Assessed</div></div>
+        <div class="b-hstat"><div class="b-hstat-n">$2B+</div><div class="b-hstat-l">Capital Planned</div></div>
+        <div class="b-hstat"><div class="b-hstat-n">95%</div><div class="b-hstat-l">Client Retention</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES B -->
+  <section class="b-services-section">
+    <div class="wrap">
+      <div class="b-sec-head">
+        <span class="b-sec-eyebrow">Services</span>
+        <h2 class="b-sec-h2">Structured Solutions for<br>Long-Term Capital Performance</h2>
+        <p class="b-sec-desc">Nadine's integrated framework delivers structured capital intelligence across six specialised practice areas — from field engineering to board-ready governance reporting.</p>
+      </div>
+      <div class="b-svc-grid">
+        <div class="b-svc-card">
+          <div class="b-svc-card-num">01</div>
+          <div class="b-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg></div>
+          <div class="b-svc-name">Facility Condition Assessment</div>
+          <div class="b-svc-desc-text">Engineering-grade evaluations &amp; FCI benchmarking across distributed portfolios nationwide.</div>
+          <a class="b-svc-link" href="#">Learn More →</a>
+        </div>
+        <div class="b-svc-card">
+          <div class="b-svc-card-num">02</div>
+          <div class="b-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="b-svc-name">Capital Planning &amp; Forecasting</div>
+          <div class="b-svc-desc-text">Multi-year capital models &amp; funding scenarios aligned with institutional governance cycles.</div>
+          <a class="b-svc-link" href="#">Learn More →</a>
+        </div>
+        <div class="b-svc-card">
+          <div class="b-svc-card-num">03</div>
+          <div class="b-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="b-svc-name">Risk-Informed Infrastructure Strategy</div>
+          <div class="b-svc-desc-text">Governance-aligned prioritization ensuring defensible, transparent capital decisions.</div>
+          <a class="b-svc-link" href="#">Learn More →</a>
+        </div>
+        <div class="b-svc-card">
+          <div class="b-svc-card-num">04</div>
+          <div class="b-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="b-svc-name">Asset Management Advisory</div>
+          <div class="b-svc-desc-text">Strategic lifecycle advisory &amp; ISO 55001-aligned asset register development.</div>
+          <a class="b-svc-link" href="#">Learn More →</a>
+        </div>
+        <div class="b-svc-card">
+          <div class="b-svc-card-num">05</div>
+          <div class="b-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+          <div class="b-svc-name">Infrastructure Intelligence Platform</div>
+          <div class="b-svc-desc-text">Cloud-based portfolio dashboards with real-time data sync and scenario modeling.</div>
+          <a class="b-svc-link" href="#">Learn More →</a>
+        </div>
+        <div class="b-svc-card">
+          <div class="b-svc-card-num">06</div>
+          <div class="b-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="b-svc-name">Governance &amp; Reporting Support</div>
+          <div class="b-svc-desc-text">Board-ready capital reports, treasury submissions, and audit documentation.</div>
+          <a class="b-svc-link" href="#">Learn More →</a>
+        </div>
+      </div>
+      <div class="b-svc-cta-row"><a class="b-btn-red" href="#">Explore Our Services →</a></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY B -->
+  <section class="b-method-section">
+    <div class="b-method-top">
+      <span class="b-sec-eyebrow">Methodology</span>
+      <h2 class="b-sec-h2">A Repeatable Process That<br>Stands Up to Scrutiny</h2>
+      <p class="b-sec-desc">Our four-phase methodology produces capital intelligence that is defensible, audit-ready, and aligned with institutional governance standards.</p>
+    </div>
+    <div class="b-method-steps">
+      <div class="b-mstep">
+        <div class="b-mstep-num">01</div>
+        <div class="b-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="b-mstep-title">Assess</div>
+        <div class="b-mstep-body">Rigorous field evaluation of all building systems and site infrastructure, condition-rated by licensed engineers against industry benchmarks.</div>
+      </div>
+      <div class="b-mstep">
+        <div class="b-mstep-num">02</div>
+        <div class="b-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="b-mstep-title">Model</div>
+        <div class="b-mstep-body">Asset lifecycle data transformed into FCI scores and multi-year capital expenditure projections with defensible cost assumptions.</div>
+      </div>
+      <div class="b-mstep">
+        <div class="b-mstep-num">03</div>
+        <div class="b-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="b-mstep-title">Prioritize</div>
+        <div class="b-mstep-body">Risk-informed sequencing of capital needs aligned with funding cycles, regulatory requirements, and institutional planning horizons.</div>
+      </div>
+      <div class="b-mstep">
+        <div class="b-mstep-num">04</div>
+        <div class="b-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="b-mstep-title">Advise</div>
+        <div class="b-mstep-body">Board-ready capital intelligence reports and governance-aligned recommendations that translate technical findings into strategic decisions.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH B -->
+  <section class="b-tech-section">
+    <div class="b-tech-bg"></div>
+    <div class="wrap">
+      <div class="b-tech-layout">
+        <div class="b-tech-head">
+          <span class="b-sec-eyebrow">Technology</span>
+          <h2 class="b-sec-h2">Capital Intelligence,<br>Delivered in Real Time</h2>
+          <p class="b-sec-desc">Our cloud-based Infrastructure Intelligence Platform transforms field assessment data into live portfolio visibility — enabling institutional decision-makers to model funding scenarios and produce audit-ready capital plans.</p>
+          <a class="b-btn-red" href="#">Explore the Platform</a>
+        </div>
+        <div class="b-tech-cards">
+          <div class="b-tcard">
+            <div class="b-tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/></svg></div>
+            <div><h4>Live Portfolio Dashboards</h4><p>Real-time field data sync delivers up-to-date FCI scores, condition trends, and asset status across your entire portfolio.</p></div>
+          </div>
+          <div class="b-tcard">
+            <div class="b-tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div><h4>Multi-Year Scenario Modeling</h4><p>Generate 10–20 year capital funding scenarios in minutes with defensible cost assumptions and governance-ready outputs.</p></div>
+          </div>
+          <div class="b-tcard">
+            <div class="b-tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div><h4>Institutional-Grade Security</h4><p>Role-based access, encrypted data storage, and audit-trail logging built for public-sector compliance requirements.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES B -->
+  <section class="b-ind-section">
+    <div class="wrap">
+      <div class="b-sec-head">
+        <span class="b-sec-eyebrow">Industries</span>
+        <h2 class="b-sec-h2">Built for Institutions That<br>Can't Afford to Get It Wrong</h2>
+        <p class="b-sec-desc">We serve the public-sector organizations and institutional asset owners whose infrastructure decisions carry the greatest consequence.</p>
+      </div>
+      <div class="b-ind-strip">
+        <div class="b-ind-card">
+          <div class="b-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div class="b-ind-name">Government</div>
+          <div class="b-ind-desc">Federal, provincial, and municipal agencies managing large public asset portfolios.</div>
+        </div>
+        <div class="b-ind-card">
+          <div class="b-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="b-ind-name">Public Safety</div>
+          <div class="b-ind-desc">Police services, fire departments, and emergency management facilities.</div>
+        </div>
+        <div class="b-ind-card">
+          <div class="b-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="b-ind-name">Healthcare &amp; Education</div>
+          <div class="b-ind-desc">Hospitals, universities, schools, and community health infrastructure.</div>
+        </div>
+        <div class="b-ind-card">
+          <div class="b-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <div class="b-ind-name">Commercial &amp; Institutional</div>
+          <div class="b-ind-desc">Large commercial portfolios and institutional asset owners requiring structured capital governance.</div>
+        </div>
+      </div>
+      <div class="b-ind-cta-row"><a class="b-btn-red" href="#">Explore Industries We Serve →</a></div>
+    </div>
+  </section>
+
+  <!-- PROOF B -->
+  <section class="b-proof-section">
+    <div class="wrap">
+      <div class="b-proof-inner">
+        <div class="b-proof-stats">
+          <div class="b-proof-stat"><div class="b-proof-n">18%</div><div class="b-proof-l">Avg. Reduction in Reactive Capital Repairs</div></div>
+          <div class="b-proof-stat"><div class="b-proof-n">$2B+</div><div class="b-proof-l">In Capital Planned Across Client Portfolios</div></div>
+          <div class="b-proof-stat"><div class="b-proof-n">40%</div><div class="b-proof-l">Improvement in Funding Readiness</div></div>
+        </div>
+        <a class="b-btn-red" href="#">Request a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA B -->
+  <section class="b-cta-section">
+    <div class="wrap">
+      <div class="b-cta-inner">
+        <div>
+          <h2>YOUR INFRASTRUCTURE DECISIONS DESERVE A STRONGER FOUNDATION.</h2>
+          <p>Partner with Nadine to develop lifecycle-based capital forecasts that are defensible, governance-aligned, and built to perform over the long term.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a class="b-btn-dark" href="#">Request a Consultation</a>
+            <a class="b-btn-white-outline" href="#">Explore All Services</a>
+          </div>
+        </div>
+        <div class="b-cta-right">
+          <p>We are the firm institutions trust when the stakes are highest. Every engagement is led by a licensed engineer, delivered through a repeatable process, and documented to meet the most demanding governance standards.</p>
+          <p style="margin-top:16px;"><strong>Licensed Professional Engineers. ISO-aligned frameworks. 30+ years of institutional practice.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT B -->
+  <section class="b-about-section">
+    <div class="wrap">
+      <div class="b-about-layout">
+        <div class="b-about-text">
+          <span class="b-sec-eyebrow">About Nadine International</span>
+          <h2 class="b-sec-h2">30 YEARS OF DOING THE<br>WORK THAT JUSTIFIES<br>THE FUNDING.</h2>
+          <p>Nadine International Inc. was built on a simple conviction: that public institutions deserve capital advice grounded in engineering fact — not assumption, not guesswork, and not generic templates.</p>
+          <p>For over three decades, our team of licensed engineers, planners, and capital strategists has helped governments, universities, hospitals, and municipalities transform complex infrastructure data into clear, defensible funding strategies.</p>
+          <div class="b-about-values">
+            <div class="b-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><div><strong>Engineering Integrity</strong><span>Every recommendation grounded in defensible, field-verified data.</span></div></div>
+            <div class="b-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><div><strong>Client Partnership</strong><span>Long-term relationships built on trust, transparency, and results.</span></div></div>
+            <div class="b-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div><strong>30+ Years of Practice</strong><span>A track record built across 1,200+ facilities nationwide.</span></div></div>
+            <div class="b-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><div><strong>Data-Driven Decisions</strong><span>Capital intelligence that replaces assumption with structured analysis.</span></div></div>
+          </div>
+        </div>
+        <div class="b-about-visual">
+          <div class="b-about-stat-row">
+            <div class="b-about-stat"><div class="n">30+</div><div class="l">Years in Operation</div></div>
+            <div class="b-about-stat"><div class="n">1,200+</div><div class="l">Facilities Assessed</div></div>
+          </div>
+          <div class="b-about-stat-row">
+            <div class="b-about-stat"><div class="n">$2B+</div><div class="l">Capital Planned</div></div>
+            <div class="b-about-stat"><div class="n">95%</div><div class="l">Client Retention</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER B -->
+  <footer class="b-footer">
+    <div class="wrap">
+      <div class="b-footer-grid">
+        <div class="b-footer-brand">
+          <div class="name">NADINE</div>
+          <span class="sub">Infrastructure Intelligence</span>
+          <p>Engineering-grade capital intelligence for Canada's leading public-sector institutions and asset owners.</p>
+        </div>
+        <div class="b-footer-col"><h5>Services</h5><a href="#">Facility Condition Assessment</a><a href="#">Capital Planning</a><a href="#">Risk Strategy</a><a href="#">Asset Management</a><a href="#">Technology Platform</a><a href="#">Governance Reporting</a></div>
+        <div class="b-footer-col"><h5>Company</h5><a href="#">About</a><a href="#">Case Studies</a><a href="#">Industries</a><a href="#">Technology</a></div>
+        <div class="b-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#">info@nadineinc.com</a></div>
+      </div>
+      <div class="b-footer-bot">
+        <span>© 2025 Nadine International Inc. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Use</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /proposal-b -->
+
+
+<!-- ════════════════════════════════════════
+     PROPOSAL C — MERIDIAN
+════════════════════════════════════════ -->
+<div class="proposal" id="proposal-c">
+
+  <!-- NAV -->
+  <nav class="c-nav">
+    <div class="c-logo">
+      <span class="c-logo-name">Nadine</span>
+      <span class="c-logo-sub">Infrastructure Intelligence</span>
+    </div>
+    <div class="c-nav-links">
+      <a class="c-nav-link" href="#">Services</a>
+      <a class="c-nav-link" href="#">Industries</a>
+      <a class="c-nav-link" href="#">Technology</a>
+      <a class="c-nav-link" href="#">Case Studies</a>
+      <a class="c-nav-link" href="#">About</a>
+    </div>
+    <a class="c-nav-cta" href="#">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="c-hero">
+    <div class="c-hero-bg"></div>
+    <div class="c-hero-content">
+      <div class="c-hero-left">
+        <div class="c-hero-kicker">
+          <div class="c-hero-kicker-line"></div>
+          <span>Engineering Intelligence</span>
+        </div>
+        <h1>When Capital<br>Decisions<br><em>Can't Be</em><br><strong>Wrong.</strong></h1>
+        <p class="c-hero-sub">Nadine delivers structured Facility Condition Assessments and long-term capital forecasts that transform infrastructure data into defensible funding strategy — trusted by Canada's leading public-sector institutions.</p>
+        <div class="c-hero-btns">
+          <a class="c-btn-primary" href="#">Request a Consultation</a>
+          <a class="c-btn-ghost" href="#">Explore Our Approach</a>
+        </div>
+      </div>
+      <div class="c-hero-right">
+        <p class="c-hero-right-label">Trusted by Canada's Public-Sector Leaders</p>
+        <div class="c-client-list">
+          <div class="c-client-item"><span class="c-client-name">Federal Agencies</span><span class="c-client-type">Government of Canada</span></div>
+          <div class="c-client-item"><span class="c-client-name">Provincial Ministries</span><span class="c-client-type">10 Provinces · 3 Territories</span></div>
+          <div class="c-client-item"><span class="c-client-name">Public Safety Agencies</span><span class="c-client-type">Police · Fire · EMS</span></div>
+          <div class="c-client-item"><span class="c-client-name">Healthcare &amp; Education</span><span class="c-client-type">Hospitals · Universities</span></div>
+          <div class="c-client-item"><span class="c-client-name">Municipal Governments</span><span class="c-client-type">Cities · Counties · Districts</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="c-hero-stats">
+      <div class="c-hstat"><div class="c-hstat-n">30+</div><div class="c-hstat-l">Years in Operation</div></div>
+      <div class="c-hstat"><div class="c-hstat-n">1,200+</div><div class="c-hstat-l">Facilities Assessed</div></div>
+      <div class="c-hstat"><div class="c-hstat-n">$2B+</div><div class="c-hstat-l">Capital Planned</div></div>
+      <div class="c-hstat"><div class="c-hstat-n">95%</div><div class="c-hstat-l">Client Retention</div></div>
+    </div>
+  </section>
+
+  <!-- AUTHORITY C -->
+  <div class="c-auth-section">
+    <div class="c-auth-inner">
+      <span class="c-auth-label">Credentials</span>
+      <div class="c-auth-rule"></div>
+      <div class="c-auth-tiles">
+        <div class="c-auth-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Licensed Professional Engineers</span></div>
+        <div class="c-auth-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>ISO-Aligned Frameworks</span></div>
+        <div class="c-auth-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Audit-Ready Documentation</span></div>
+        <div class="c-auth-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>30+ Years in Operation</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES C -->
+  <section class="c-services-section">
+    <div class="wrap">
+      <div class="c-sec-head">
+        <span class="c-sec-eyebrow">Services</span>
+        <h2 class="c-sec-h2">Structured Solutions for<br><em>Long-Term Capital Performance</em></h2>
+        <p class="c-sec-desc">Nadine's integrated framework delivers structured capital intelligence across six specialised practice areas — from field engineering to board-ready governance reporting.</p>
+      </div>
+      <div class="c-svc-grid">
+        <div class="c-svc-card">
+          <span class="c-svc-num">— 01</span>
+          <div class="c-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg></div>
+          <div class="c-svc-name">Facility Condition Assessment</div>
+          <div class="c-svc-desc-text">Engineering-grade evaluations &amp; FCI benchmarking across distributed portfolios nationwide.</div>
+          <a class="c-svc-link" href="#">Learn more →</a>
+        </div>
+        <div class="c-svc-card">
+          <span class="c-svc-num">— 02</span>
+          <div class="c-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="c-svc-name">Capital Planning &amp; Forecasting</div>
+          <div class="c-svc-desc-text">Multi-year capital models &amp; funding scenarios aligned with institutional governance cycles.</div>
+          <a class="c-svc-link" href="#">Learn more →</a>
+        </div>
+        <div class="c-svc-card">
+          <span class="c-svc-num">— 03</span>
+          <div class="c-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="c-svc-name">Risk-Informed Infrastructure Strategy</div>
+          <div class="c-svc-desc-text">Governance-aligned prioritization ensuring defensible, transparent capital decisions.</div>
+          <a class="c-svc-link" href="#">Learn more →</a>
+        </div>
+        <div class="c-svc-card">
+          <span class="c-svc-num">— 04</span>
+          <div class="c-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="c-svc-name">Asset Management Advisory</div>
+          <div class="c-svc-desc-text">Strategic lifecycle advisory &amp; ISO 55001-aligned asset register development.</div>
+          <a class="c-svc-link" href="#">Learn more →</a>
+        </div>
+        <div class="c-svc-card">
+          <span class="c-svc-num">— 05</span>
+          <div class="c-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+          <div class="c-svc-name">Infrastructure Intelligence Platform</div>
+          <div class="c-svc-desc-text">Cloud-based portfolio dashboards with real-time data sync and scenario modeling.</div>
+          <a class="c-svc-link" href="#">Learn more →</a>
+        </div>
+        <div class="c-svc-card">
+          <span class="c-svc-num">— 06</span>
+          <div class="c-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="c-svc-name">Governance &amp; Reporting Support</div>
+          <div class="c-svc-desc-text">Board-ready capital reports, treasury submissions, and audit documentation.</div>
+          <a class="c-svc-link" href="#">Learn more →</a>
+        </div>
+      </div>
+      <div class="c-svc-cta-row"><a class="c-btn-ink" href="#">Explore Our Services →</a></div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY C -->
+  <section class="c-method-section">
+    <div class="wrap">
+      <div class="c-sec-head">
+        <span class="c-sec-eyebrow">Methodology</span>
+        <h2 class="c-sec-h2">A Repeatable Process That<br><em>Stands Up to Scrutiny</em></h2>
+        <p class="c-sec-desc">Our four-phase methodology produces capital intelligence that is defensible, audit-ready, and aligned with institutional governance standards.</p>
+      </div>
+      <div class="c-method-steps">
+        <div class="c-mstep">
+          <div class="c-mstep-num">01</div>
+          <div class="c-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="c-mstep-title">Assess</div>
+          <div class="c-mstep-body">Rigorous field evaluation of all building systems and site infrastructure, condition-rated by licensed engineers against industry benchmarks.</div>
+        </div>
+        <div class="c-mstep">
+          <div class="c-mstep-num">02</div>
+          <div class="c-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="c-mstep-title">Model</div>
+          <div class="c-mstep-body">Asset lifecycle data transformed into FCI scores and multi-year capital expenditure projections with defensible cost assumptions.</div>
+        </div>
+        <div class="c-mstep">
+          <div class="c-mstep-num">03</div>
+          <div class="c-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="c-mstep-title">Prioritize</div>
+          <div class="c-mstep-body">Risk-informed sequencing of capital needs aligned with funding cycles, regulatory requirements, and institutional planning horizons.</div>
+        </div>
+        <div class="c-mstep">
+          <div class="c-mstep-num">04</div>
+          <div class="c-mstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="c-mstep-title">Advise</div>
+          <div class="c-mstep-body">Board-ready capital intelligence reports and governance-aligned recommendations that translate technical findings into strategic decisions.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH C -->
+  <section class="c-tech-section">
+    <div class="wrap">
+      <div class="c-tech-layout">
+        <div class="c-tech-head">
+          <span class="c-sec-eyebrow">Technology</span>
+          <h2 class="c-sec-h2">Capital Intelligence,<br><em>Delivered in Real Time</em></h2>
+          <p class="c-sec-desc">Our cloud-based Infrastructure Intelligence Platform transforms field assessment data into live portfolio visibility — enabling institutional decision-makers to model funding scenarios and produce audit-ready capital plans.</p>
+          <a class="c-tech-btn" href="#">Explore the Platform →</a>
+        </div>
+        <div class="c-tech-cards">
+          <div class="c-tcard">
+            <div class="c-tcard-num">01</div>
+            <div><h4>Live Portfolio Dashboards</h4><p>Real-time field data sync delivers up-to-date FCI scores, condition trends, and asset status across your entire portfolio.</p></div>
+          </div>
+          <div class="c-tcard">
+            <div class="c-tcard-num">02</div>
+            <div><h4>Multi-Year Scenario Modeling</h4><p>Generate 10–20 year capital funding scenarios in minutes with defensible cost assumptions and governance-ready outputs.</p></div>
+          </div>
+          <div class="c-tcard">
+            <div class="c-tcard-num">03</div>
+            <div><h4>Institutional-Grade Security</h4><p>Role-based access, encrypted data storage, and audit-trail logging built for public-sector compliance requirements.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES C -->
+  <section class="c-ind-section">
+    <div class="wrap">
+      <div class="c-sec-head">
+        <span class="c-sec-eyebrow">Industries</span>
+        <h2 class="c-sec-h2">Built for Institutions That<br><em>Can't Afford to Get It Wrong</em></h2>
+        <p class="c-sec-desc">We serve the public-sector organizations and institutional asset owners whose infrastructure decisions carry the greatest consequence.</p>
+      </div>
+      <div class="c-ind-grid">
+        <div class="c-ind-card">
+          <div class="c-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div class="c-ind-name">Government</div>
+          <div class="c-ind-desc">Federal, provincial, and municipal agencies managing large public asset portfolios.</div>
+        </div>
+        <div class="c-ind-card">
+          <div class="c-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="c-ind-name">Public Safety</div>
+          <div class="c-ind-desc">Police services, fire departments, and emergency management facilities.</div>
+        </div>
+        <div class="c-ind-card">
+          <div class="c-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="c-ind-name">Healthcare &amp; Education</div>
+          <div class="c-ind-desc">Hospitals, universities, schools, and community health infrastructure.</div>
+        </div>
+        <div class="c-ind-card">
+          <div class="c-ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <div class="c-ind-name">Commercial &amp; Institutional</div>
+          <div class="c-ind-desc">Large commercial portfolios and institutional asset owners requiring structured capital governance.</div>
+        </div>
+      </div>
+      <div class="c-ind-cta-row"><a class="c-btn-ink" href="#">Explore Industries We Serve →</a></div>
+    </div>
+  </section>
+
+  <!-- PROOF C -->
+  <section class="c-proof-section">
+    <div class="wrap">
+      <div class="c-proof-inner">
+        <div class="c-proof-stats">
+          <div class="c-proof-stat"><div class="c-proof-n">18%</div><div class="c-proof-l">Avg. Reduction in Reactive Capital Repairs</div></div>
+          <div class="c-proof-stat"><div class="c-proof-n">$2B+</div><div class="c-proof-l">In Capital Planned Across Client Portfolios</div></div>
+          <div class="c-proof-stat"><div class="c-proof-n">40%</div><div class="c-proof-l">Improvement in Funding Readiness</div></div>
+        </div>
+        <a class="c-proof-cta" href="#">Request a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA C -->
+  <section class="c-cta-section">
+    <div class="wrap">
+      <div class="c-cta-inner">
+        <div>
+          <span class="c-sec-eyebrow">Get Started</span>
+          <h2>Your Infrastructure Decisions<br>Deserve a <em>Stronger Foundation.</em></h2>
+          <p>Partner with Nadine to develop lifecycle-based capital forecasts that are defensible, governance-aligned, and built to perform over the long term.</p>
+          <div class="c-cta-btns">
+            <a class="c-btn-red" href="#">Request a Consultation</a>
+            <a class="c-btn-cream-outline" href="#">Explore All Services</a>
+          </div>
+        </div>
+        <div class="c-cta-right">
+          <p class="c-cta-aside-title">Our Engagement Process</p>
+          <div class="c-process-step">
+            <div class="c-process-n">1</div>
+            <div><strong>Initial Consultation</strong><span>We assess your portfolio scope and define engagement objectives.</span></div>
+          </div>
+          <div class="c-process-step">
+            <div class="c-process-n">2</div>
+            <div><strong>Field Assessment</strong><span>Licensed engineers conduct condition evaluations across your facilities.</span></div>
+          </div>
+          <div class="c-process-step">
+            <div class="c-process-n">3</div>
+            <div><strong>Capital Modeling</strong><span>We build your 10–20 year funding forecast and FCI framework.</span></div>
+          </div>
+          <div class="c-process-step">
+            <div class="c-process-n">4</div>
+            <div><strong>Board-Ready Delivery</strong><span>Governance-aligned reports ready for board, treasury, and audit review.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT C -->
+  <section class="c-about-section">
+    <div class="wrap">
+      <div class="c-about-layout">
+        <div class="c-about-text">
+          <span class="c-sec-eyebrow">About Nadine International</span>
+          <h2>30 Years of Doing<br>the Work That<br><em>Justifies the Funding.</em></h2>
+          <p>Nadine International Inc. was built on a simple conviction: that public institutions deserve capital advice grounded in engineering fact — not assumption, not guesswork, and not generic templates.</p>
+          <p>For over three decades, our team of licensed engineers, planners, and capital strategists has helped governments, universities, hospitals, and municipalities transform complex infrastructure data into clear, defensible funding strategies.</p>
+          <div class="c-about-values">
+            <div class="c-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><div><strong>Engineering Integrity</strong><span>Every recommendation grounded in defensible, field-verified data.</span></div></div>
+            <div class="c-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><div><strong>Client Partnership</strong><span>Long-term relationships built on trust, transparency, and results.</span></div></div>
+            <div class="c-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div><strong>30+ Years of Practice</strong><span>A track record built across 1,200+ facilities nationwide.</span></div></div>
+            <div class="c-aval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><div><strong>Data-Driven Decisions</strong><span>Capital intelligence replacing assumption with structured analysis.</span></div></div>
+          </div>
+        </div>
+        <div class="c-about-visual">
+          <div class="c-about-quote">
+            <blockquote>"We are the firm institutions trust when the stakes are highest."</blockquote>
+            <cite>Nadine International Inc. — Founded 1994</cite>
+          </div>
+          <div class="c-about-stat-grid">
+            <div class="c-about-stat"><div class="n">30+</div><div class="l">Years in Operation</div></div>
+            <div class="c-about-stat"><div class="n">1,200+</div><div class="l">Facilities Assessed</div></div>
+            <div class="c-about-stat"><div class="n">$2B+</div><div class="l">Capital Planned</div></div>
+            <div class="c-about-stat"><div class="n">95%</div><div class="l">Client Retention</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER C -->
+  <footer class="c-footer">
+    <div class="wrap">
+      <div class="c-footer-grid">
+        <div class="c-footer-brand">
+          <div class="name">Nadine</div>
+          <span class="sub">Infrastructure Intelligence</span>
+          <p>Engineering-grade capital intelligence for Canada's leading public-sector institutions and asset owners.</p>
+        </div>
+        <div class="c-footer-col"><h5>Services</h5><a href="#">Facility Condition Assessment</a><a href="#">Capital Planning</a><a href="#">Risk Strategy</a><a href="#">Asset Management</a><a href="#">Technology Platform</a><a href="#">Governance Reporting</a></div>
+        <div class="c-footer-col"><h5>Company</h5><a href="#">About</a><a href="#">Case Studies</a><a href="#">Industries</a><a href="#">Technology</a></div>
+        <div class="c-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#">info@nadineinc.com</a></div>
+      </div>
+      <div class="c-footer-bot">
+        <span>© 2025 Nadine International Inc. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Use</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /proposal-c -->
+
+
+<script>
+function show(id) {
+  document.querySelectorAll('.proposal').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sw-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('proposal-' + id).classList.add('active');
+  document.getElementById('sw-' + id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
