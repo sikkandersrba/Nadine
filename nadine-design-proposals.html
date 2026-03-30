@@ -1132,6 +1132,420 @@ html { scroll-behavior: smooth; }
 .c-footer-bot { border-top: 1px solid rgba(245,240,232,.06); padding-top: 24px; display: flex; justify-content: space-between; }
 .c-footer-bot span { font-size: 12px; color: rgba(245,240,232,.18); }
 
+
+/* ══════════════════════════════════════
+   RESPONSIVE — SHARED
+══════════════════════════════════════ */
+
+/* Hamburger menu button (shared across all proposals) */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 36px; height: 36px; background: none; border: none;
+  cursor: pointer; padding: 4px; flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block; height: 1.5px; border-radius: 2px;
+  transition: all .25s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed; top: 52px; left: 0; right: 0;
+  z-index: 9000; flex-direction: column;
+  padding: 16px 0 24px;
+  max-height: calc(100vh - 52px); overflow-y: auto;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  display: block; padding: 13px 24px;
+  font-size: 15px; text-decoration: none;
+  transition: opacity .15s;
+}
+.mobile-nav a:hover { opacity: .7; }
+.mobile-nav .mobile-cta {
+  margin: 16px 24px 0; padding: 13px 24px;
+  text-align: center; display: block;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .wrap { padding: 0 32px; }
+
+  /* ── PROPOSAL A ── */
+  .a-nav { padding: 0 32px; }
+  .a-nav-links { display: none; }
+  .a-nav-cta { display: none; }
+  .a-hamburger { display: flex; }
+  .a-hamburger span { background: var(--a-copper); }
+
+  .a-hero { grid-template-columns: 1fr; }
+  .a-hero-right { display: none; }
+  .a-hero-left { padding: 100px 32px 64px; min-height: 100vh; }
+
+  .a-sec-head { grid-template-columns: 1fr; gap: 20px; }
+  .a-svc-row { grid-template-columns: 36px 1fr; gap: 16px; }
+  .a-svc-desc { display: none; }
+  .a-svc-arrow { display: none; }
+
+  .a-method-track { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .a-method-track::before { display: none; }
+  .a-mstep { padding: 0; }
+
+  .a-tech-layout { grid-template-columns: 1fr; gap: 48px; }
+
+  .a-ind-grid { grid-template-columns: 1fr 1fr; }
+
+  .a-proof-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .a-proof-stats { gap: 40px; flex-wrap: wrap; }
+
+  .a-cta-inner { grid-template-columns: 1fr; gap: 48px; }
+
+  .a-about-layout { grid-template-columns: 1fr; gap: 48px; }
+  .a-about-visual { display: none; }
+
+  .a-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* ── PROPOSAL B ── */
+  .b-nav { padding: 0 32px; }
+  .b-nav-links { display: none; }
+  .b-nav-cta { display: none; }
+  .b-hamburger { display: flex; }
+  .b-hamburger span { background: var(--b-ink); }
+
+  .b-hero { grid-template-columns: 1fr; }
+  .b-hero-left {
+    clip-path: none;
+    padding: 100px 32px 64px;
+    min-height: 100vh;
+  }
+  .b-hero-right { display: none; }
+
+  .b-svc-grid { grid-template-columns: 1fr 1fr; }
+
+  .b-method-steps { grid-template-columns: 1fr 1fr; }
+  .b-method-top { padding: 64px 32px 48px; }
+
+  .b-tech-layout { grid-template-columns: 1fr; gap: 48px; }
+
+  .b-ind-strip { grid-template-columns: 1fr 1fr; }
+
+  .b-proof-inner { flex-direction: column; align-items: flex-start; }
+  .b-proof-stats { flex-wrap: wrap; gap: 0; }
+  .b-proof-stat { padding: 0 32px 24px 0; margin-right: 32px; }
+
+  .b-cta-inner { grid-template-columns: 1fr; gap: 48px; }
+  .b-cta-right { border-left: none; border-top: 1px solid rgba(255,255,255,.2); padding-left: 0; padding-top: 40px; }
+
+  .b-about-layout { grid-template-columns: 1fr; gap: 48px; }
+
+  .b-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* ── PROPOSAL C ── */
+  .c-nav { padding: 0 32px; }
+  .c-nav-links { display: none; }
+  .c-nav-cta { display: none; }
+  .c-hamburger { display: flex; }
+  .c-hamburger span { background: var(--c-cream); }
+
+  .c-hero-content { grid-template-columns: 1fr; padding: 120px 32px 0; gap: 48px; }
+  .c-hero-right { display: none; }
+  .c-hero-stats { grid-template-columns: 1fr 1fr; }
+  .c-hstat { padding: 20px 32px; }
+
+  .c-svc-grid { grid-template-columns: 1fr 1fr; }
+
+  .c-method-steps { grid-template-columns: 1fr 1fr; }
+
+  .c-tech-layout { grid-template-columns: 1fr; gap: 48px; }
+
+  .c-ind-grid { grid-template-columns: 1fr 1fr; }
+
+  .c-proof-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .c-proof-stats { gap: 40px; flex-wrap: wrap; }
+
+  .c-cta-inner { grid-template-columns: 1fr; gap: 48px; }
+  .c-cta-right { border-left: none; border-top: 1px solid rgba(245,240,232,.1); padding-left: 0; padding-top: 40px; }
+
+  .c-about-layout { grid-template-columns: 1fr; gap: 48px; }
+  .c-about-visual { display: none; }
+
+  .c-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .wrap { padding: 0 20px; }
+
+  /* Switcher — collapse labels */
+  #switcher { gap: 0; height: 48px; }
+  .sw-label { display: none; }
+  .sw-btn { padding: 0 14px; font-size: 11px; gap: 7px; }
+  .sw-dot { width: 7px; height: 7px; }
+  .proposal { margin-top: 48px; }
+
+  /* ── PROPOSAL A ── */
+  .a-nav { padding: 0 20px; height: 60px; }
+  .a-hero-left { padding: 80px 20px 52px; }
+  .a-hero-stats { grid-template-columns: 1fr 1fr; }
+
+  .a-services-section { padding: 64px 0; }
+  .a-svc-row { grid-template-columns: 32px 1fr; gap: 12px; padding: 20px 0; }
+
+  .a-method-section { padding: 64px 0; }
+  .a-method-track { grid-template-columns: 1fr; gap: 32px; }
+
+  .a-tech-section { padding: 64px 0; }
+
+  .a-ind-section { padding: 64px 0; }
+  .a-ind-grid { grid-template-columns: 1fr; }
+  .a-ind-card { border-right: none; border-bottom: 1px solid var(--a-border); }
+
+  .a-proof-section { padding: 48px 0; }
+  .a-proof-stats { flex-direction: column; gap: 24px; }
+
+  .a-cta-section { padding: 72px 0; }
+  .a-cta-right { padding: 28px; }
+  .a-cta-btns { flex-direction: column; }
+  .a-cta-btns a { text-align: center; }
+
+  .a-about-section { padding: 64px 0; }
+  .a-about-values { grid-template-columns: 1fr; }
+
+  .a-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .a-footer-bot { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+
+  /* ── PROPOSAL B ── */
+  .b-nav { padding: 0 20px; height: 60px; }
+  .b-hero-left { padding: 80px 20px 52px; }
+  .b-hero-btns { flex-direction: column; }
+  .b-hero-btns a { text-align: center; }
+
+  .b-services-section { padding: 64px 0; }
+  .b-svc-grid { grid-template-columns: 1fr; }
+
+  .b-method-section { padding: 0; }
+  .b-method-top { padding: 56px 20px 40px; }
+  .b-method-steps { grid-template-columns: 1fr; }
+  .b-mstep { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .b-mstep:last-child { border-bottom: none; }
+
+  .b-tech-section { padding: 64px 0; }
+
+  .b-ind-section { padding: 64px 0; }
+  .b-ind-strip { grid-template-columns: 1fr; }
+
+  .b-proof-section { padding: 48px 0; }
+  .b-proof-stats { flex-direction: column; gap: 0; }
+  .b-proof-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 0 0 20px; margin: 0 0 20px; }
+  .b-proof-stat:last-child { border-bottom: none; }
+
+  .b-cta-section { padding: 64px 0; }
+  .b-cta-inner h2 { font-size: clamp(26px, 7vw, 38px); }
+  .b-cta-btns { flex-direction: column; }
+  .b-cta-btns a { text-align: center; }
+
+  .b-about-section { padding: 64px 0; }
+
+  .b-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .b-footer-bot { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+
+  /* ── PROPOSAL C ── */
+  .c-nav { padding: 0 20px; height: 60px; }
+  .c-hero-content { padding: 100px 20px 0; gap: 32px; min-height: calc(100vh - 140px); }
+  .c-hero-btns { flex-direction: column; }
+  .c-hero-btns a { text-align: center; }
+
+  .c-hero-stats { grid-template-columns: 1fr 1fr; }
+  .c-hstat { padding: 18px 20px; gap: 12px; }
+  .c-hstat-n { font-size: 28px; }
+
+  .c-auth-inner { padding: 32px 20px; gap: 16px; }
+  .c-auth-rule { display: none; }
+  .c-auth-tiles { gap: 16px; }
+
+  .c-services-section { padding: 64px 0; }
+  .c-svc-grid { grid-template-columns: 1fr; }
+
+  .c-method-section { padding: 64px 0; }
+  .c-method-steps { grid-template-columns: 1fr; }
+  .c-mstep { border-right: none; border-bottom: 1px solid rgba(245,240,232,.06); }
+  .c-mstep:last-child { border-bottom: none; }
+
+  .c-tech-section { padding: 64px 0; }
+
+  .c-ind-section { padding: 64px 0; }
+  .c-ind-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  .c-proof-section { padding: 48px 0; }
+  .c-proof-stats { flex-direction: column; gap: 24px; }
+
+  .c-cta-section { padding: 64px 0; }
+  .c-cta-btns { flex-direction: column; }
+  .c-cta-btns a { text-align: center; }
+  .c-process-step strong { margin-bottom: 4px; }
+
+  .c-about-section { padding: 64px 0; }
+
+  .c-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .c-footer-bot { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE OVERFLOW / PADDING FIXES
+══════════════════════════════════════ */
+
+/* Ensure nothing causes horizontal scroll */
+#proposal-a, #proposal-b, #proposal-c { overflow-x: hidden; }
+
+/* B hero clip-path causes overflow on narrow screens — flatten it */
+@media (max-width: 768px) {
+  .b-hero-left { clip-path: none !important; }
+}
+
+/* A hero button row — stack on mobile */
+@media (max-width: 600px) {
+  .a-hero-btns { flex-direction: column; align-items: flex-start; }
+  .a-hero-btns a { width: 100%; text-align: center; }
+}
+
+/* B CTA inline-styled button row */
+@media (max-width: 768px) {
+  .b-cta-inner > div > div[style*="display:flex"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .b-cta-inner > div > div[style*="display:flex"] a {
+    text-align: center;
+  }
+}
+
+/* B about visual — hide stat grid on small mobile, keep on tablet */
+@media (max-width: 768px) {
+  .b-about-visual { display: none; }
+}
+
+/* A services section — re-show desc on tablet, hide only on mobile */
+@media (max-width: 768px) {
+  .a-svc-desc { display: none; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .a-svc-desc { display: block; }
+  .a-svc-row { grid-template-columns: 36px 1fr 1fr; }
+}
+
+/* C hero stats — 2-col on small screens */
+@media (max-width: 600px) {
+  .c-hero-stats { grid-template-columns: 1fr 1fr; }
+  .c-hstat { padding: 16px; gap: 10px; flex-direction: column; }
+  .c-hstat-n { font-size: 26px; }
+}
+
+/* Section padding reduction on mobile */
+@media (max-width: 768px) {
+  .a-services-section,
+  .a-method-section,
+  .a-tech-section,
+  .a-ind-section,
+  .a-cta-section,
+  .a-about-section { padding: 56px 0; }
+
+  .b-services-section,
+  .b-tech-section,
+  .b-ind-section,
+  .b-cta-section,
+  .b-about-section { padding: 56px 0; }
+
+  .c-services-section,
+  .c-method-section,
+  .c-tech-section,
+  .c-ind-section,
+  .c-cta-section,
+  .c-about-section { padding: 56px 0; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤480px)
+══════════════════════════════════════ */
+@media (max-width: 480px) {
+  .sw-btn { padding: 0 10px; font-size: 10px; gap: 6px; }
+
+  /* ── PROPOSAL A ── */
+  .a-hstat-n { font-size: 26px; }
+  .a-proof-n { font-size: 38px; }
+  .a-about-values { grid-template-columns: 1fr; }
+
+  /* ── PROPOSAL B ── */
+  .b-hero h1 { font-size: clamp(30px, 9vw, 46px); }
+  .b-proof-n { font-size: 40px; }
+  .b-method-steps { grid-template-columns: 1fr; }
+
+  /* ── PROPOSAL C ── */
+  .c-hero h1 { font-size: clamp(34px, 10vw, 54px); }
+  .c-proof-n { font-size: 44px; }
+  .c-cta-inner { gap: 36px; }
+  .c-cta-right { padding-top: 32px; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE NAV — PER-PROPOSAL THEMING
+══════════════════════════════════════ */
+.mobile-nav.theme-a {
+  background: rgba(11,13,17,.98);
+  border-bottom: 1px solid rgba(200,137,74,.12);
+  backdrop-filter: blur(12px);
+}
+.mobile-nav.theme-a a {
+  color: rgba(245,242,236,.65);
+  border-bottom: 1px solid rgba(200,137,74,.06);
+}
+.mobile-nav.theme-a .mobile-cta {
+  background: var(--a-copper, #C8894A);
+  color: #0B0D11;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.mobile-nav.theme-b {
+  background: #F8F6F1;
+  border-bottom: 2px solid #1A1614;
+}
+.mobile-nav.theme-b a {
+  color: #1A1614;
+  border-bottom: 1px solid #D9D5CE;
+}
+.mobile-nav.theme-b .mobile-cta {
+  background: #C42B2B;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.mobile-nav.theme-c {
+  background: #1E3020;
+  border-bottom: 1px solid rgba(245,240,232,.08);
+}
+.mobile-nav.theme-c a {
+  color: rgba(245,240,232,.65);
+  border-bottom: 1px solid rgba(245,240,232,.06);
+}
+.mobile-nav.theme-c .mobile-cta {
+  background: #C13030;
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+}
+
 </style>
 </head>
 <body>
@@ -1173,7 +1587,18 @@ html { scroll-behavior: smooth; }
       <a class="a-nav-link" href="#">About</a>
     </div>
     <a class="a-nav-cta" href="#">Contact</a>
+    <button class="nav-hamburger a-hamburger" onclick="toggleMobileNav('a')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-nav theme-a" id="mobile-nav-a">
+    <a href="#">Services</a>
+    <a href="#">Industries</a>
+    <a href="#">Technology</a>
+    <a href="#">Case Studies</a>
+    <a href="#">About</a>
+    <a class="mobile-cta" href="#">Contact</a>
+  </div>
 
   <!-- HERO -->
   <section class="a-hero">
@@ -1508,7 +1933,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="a-footer-col"><h5>Services</h5><a href="#">Facility Condition Assessment</a><a href="#">Capital Planning</a><a href="#">Risk Strategy</a><a href="#">Asset Management</a><a href="#">Technology Platform</a><a href="#">Governance Reporting</a></div>
         <div class="a-footer-col"><h5>Company</h5><a href="#">About</a><a href="#">Case Studies</a><a href="#">Industries</a><a href="#">Technology</a></div>
-        <div class="a-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#">info@nadineinc.com</a><a href="#">1-800-NADINE</a></div>
+        <div class="a-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#"><span class="__cf_email__" data-cfemail="2a43444c456a444b4e43444f43444904494547">[email&#160;protected]</span></a><a href="#">1-800-NADINE</a></div>
       </div>
       <div class="a-footer-bot">
         <span>© 2025 Nadine International Inc. All rights reserved.</span>
@@ -1540,7 +1965,18 @@ html { scroll-behavior: smooth; }
       <a class="b-nav-link" href="#">About</a>
     </div>
     <a class="b-nav-cta" href="#">Contact</a>
+    <button class="nav-hamburger b-hamburger" onclick="toggleMobileNav('b')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-nav theme-b" id="mobile-nav-b">
+    <a href="#">Services</a>
+    <a href="#">Industries</a>
+    <a href="#">Technology</a>
+    <a href="#">Case Studies</a>
+    <a href="#">About</a>
+    <a class="mobile-cta" href="#">Contact</a>
+  </div>
 
   <!-- HERO -->
   <section class="b-hero">
@@ -1811,7 +2247,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="b-footer-col"><h5>Services</h5><a href="#">Facility Condition Assessment</a><a href="#">Capital Planning</a><a href="#">Risk Strategy</a><a href="#">Asset Management</a><a href="#">Technology Platform</a><a href="#">Governance Reporting</a></div>
         <div class="b-footer-col"><h5>Company</h5><a href="#">About</a><a href="#">Case Studies</a><a href="#">Industries</a><a href="#">Technology</a></div>
-        <div class="b-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#">info@nadineinc.com</a></div>
+        <div class="b-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#"><span class="__cf_email__" data-cfemail="51383f373e113f3035383f34383f327f323e3c">[email&#160;protected]</span></a></div>
       </div>
       <div class="b-footer-bot">
         <span>© 2025 Nadine International Inc. All rights reserved.</span>
@@ -1842,7 +2278,18 @@ html { scroll-behavior: smooth; }
       <a class="c-nav-link" href="#">About</a>
     </div>
     <a class="c-nav-cta" href="#">Contact</a>
+    <button class="nav-hamburger c-hamburger" onclick="toggleMobileNav('c')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-nav theme-c" id="mobile-nav-c">
+    <a href="#">Services</a>
+    <a href="#">Industries</a>
+    <a href="#">Technology</a>
+    <a href="#">Case Studies</a>
+    <a href="#">About</a>
+    <a class="mobile-cta" href="#">Contact</a>
+  </div>
 
   <!-- HERO -->
   <section class="c-hero">
@@ -2141,7 +2588,7 @@ html { scroll-behavior: smooth; }
         </div>
         <div class="c-footer-col"><h5>Services</h5><a href="#">Facility Condition Assessment</a><a href="#">Capital Planning</a><a href="#">Risk Strategy</a><a href="#">Asset Management</a><a href="#">Technology Platform</a><a href="#">Governance Reporting</a></div>
         <div class="c-footer-col"><h5>Company</h5><a href="#">About</a><a href="#">Case Studies</a><a href="#">Industries</a><a href="#">Technology</a></div>
-        <div class="c-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#">info@nadineinc.com</a></div>
+        <div class="c-footer-col"><h5>Contact</h5><a href="#">Request a Consultation</a><a href="#"><span class="__cf_email__" data-cfemail="a2cbccc4cde2ccc3c6cbccc7cbccc18cc1cdcf">[email&#160;protected]</span></a></div>
       </div>
       <div class="c-footer-bot">
         <span>© 2025 Nadine International Inc. All rights reserved.</span>
@@ -2159,8 +2606,38 @@ function show(id) {
   document.querySelectorAll('.sw-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('proposal-' + id).classList.add('active');
   document.getElementById('sw-' + id).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Close any open mobile navs when switching proposals
+  closeAllMobileNavs();
 }
+
+function toggleMobileNav(theme) {
+  const nav = document.getElementById('mobile-nav-' + theme);
+  const btn = document.querySelector('.' + theme + '-hamburger') ||
+              document.querySelector('.nav-hamburger[onclick*="' + theme + '"]');
+  const isOpen = nav.classList.contains('open');
+  closeAllMobileNavs();
+  if (!isOpen) {
+    nav.classList.add('open');
+    if (btn) btn.classList.add('open');
+  }
+}
+
+function closeAllMobileNavs() {
+  document.querySelectorAll('.mobile-nav').forEach(n => n.classList.remove('open'));
+  document.querySelectorAll('.nav-hamburger').forEach(b => b.classList.remove('open'));
+}
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.mobile-nav') && !e.target.closest('.nav-hamburger')) {
+    closeAllMobileNavs();
+  }
+});
+
+// Close on resize to desktop
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 1024) closeAllMobileNavs();
+});
 </script>
 </body>
 </html>
