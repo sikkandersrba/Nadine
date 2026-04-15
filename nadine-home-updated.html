@@ -6,12 +6,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nadine International Inc. — Engineering Intelligence That Drives Smarter Capital Decisions</title>
-  <meta name="description"
-    content="Nadine delivers structured Facility Condition Assessments and long-term capital forecasting that transforms infrastructure data into defensible funding strategy.">
+  <meta name="description" content="Nadine delivers structured Facility Condition Assessments and long-term capital forecasting that transforms infrastructure data into defensible funding strategy.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
     /* ═══ RESET & TOKENS ═══ */
     *,
@@ -1897,7 +1895,7 @@
 
     .cta-text-side p {
       font-size: 18px;
-      color: var(--gray);
+      color: #ffffff;
       margin-bottom: 48px;
       line-height: 1.6;
       max-width: 520px;
@@ -2716,7 +2714,7 @@
 
     /* Section alternation */
     .bg-white {
-      background: #25C0BE;
+      background: #cde7e7;
     }
 
     .bg-light {
@@ -3022,7 +3020,7 @@
       }
 
       .mstep-body {
-        font-size: 13.5px;
+        font-size: 16px;
       }
 
       /* Tech section */
@@ -3744,7 +3742,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: #25C0BE;
+      background: #cde7e7;
       pointer-events: none;
       z-index: 0;
     }
@@ -3757,7 +3755,7 @@
       left: 0;
       right: 0;
       height: 80px;
-      background: linear-gradient(to bottom, transparent, rgba(17, 17, 17, .18));
+     
       pointer-events: none;
       z-index: 0;
     }
@@ -4593,18 +4591,17 @@
 <body>
 
   <!-- Scroll progress indicator -->
-  <div id="scroll-progress" aria-hidden="true" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-    aria-valuemax="100"></div>
+  <div id="scroll-progress" aria-hidden="true" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5.2%;"></div>
 
   <!-- Go-to-top floating button -->
-  <button id="go-top" aria-label="Scroll back to top" title="Back to top">
+  <button id="go-top" aria-label="Scroll back to top" title="Back to top" class="">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15" />
+      <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
   <!-- ═══ NAVIGATION ═══ -->
-  <nav id="nav">
+  <nav id="nav" class="scrolled">
     <div class="nav-inner">
       <a class="nav-logo" href="#" onclick="go('home')">
         <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
@@ -4613,14 +4610,14 @@
       <div class="nav-links">
         <div class="nav-dd">
           <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="6 9 12 15 18 9" />
+              <polyline points="6 9 12 15 18 9"></polyline>
             </svg></span>
           <div class="dropdown">
             <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
                 infrastructure framework</span></a>
             <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
                 Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
-            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &amp;
                 Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
             <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
                 Strategy</strong><span>Governance-aligned prioritization</span></a>
@@ -4643,7 +4640,7 @@
     <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
     <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
     <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
-    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning &amp; Forecasting</a>
     <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
     <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
     <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
@@ -4662,13 +4659,13 @@
     <!-- HERO -->
     <section id="hero">
       <div class="hero-video-wrap">
-        <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+        <video id="heroVideo" autoplay="" muted="" loop="" playsinline="" preload="auto">
           <source src="https://sikkandersrba.github.io/Nadine/banner_video25.mp4" type="video/mp4">
         </video>
       </div>
       <div class="hero-overlay"></div>
 
-      <div class="hero-content sr-up">
+      <div class="hero-content sr-up in" style="transition: opacity 0.9s, transform 0.9s; opacity: 1; transform: none;">
         <div class="v-line left red" style="height: 60px; margin-bottom: 32px; background: var(--red);"></div>
         <h1 style="color: var(--white);"><b style="color:#25c0be;">Engineering Intelligence.</b><br>Defensible Capital Strategy.</h1>
         <p style="color: rgba(255,255,255,0.85);">Nadine delivers structured Facility Condition Assessments and
@@ -4684,21 +4681,21 @@
     <!-- STATS BAR (NEW DESIGN) -->
     <section id="stats-bar">
       <div class="wrap">
-        <div class="stats-grid sr-up">
+        <div class="stats-grid sr-up in">
           <div class="stat-item">
-            <span class="stat-num"><span class="stat-count" data-target="30">0</span>+</span>
+            <span class="stat-num"><span class="stat-count" data-target="30">30</span>+</span>
             <span class="stat-label">Years Experience</span>
           </div>
           <div class="stat-item">
-            <span class="stat-num"><span class="stat-count" data-target="1200">0</span>+</span>
+            <span class="stat-num"><span class="stat-count" data-target="1200">1,200</span>+</span>
             <span class="stat-label">Facilities Evaluated</span>
           </div>
           <div class="stat-item">
-            <span class="stat-num"><span class="stat-count" data-target="15">0</span>+</span>
+            <span class="stat-num"><span class="stat-count" data-target="15">15</span>+</span>
             <span class="stat-label">Forecast Models</span>
           </div>
           <div class="stat-item">
-            <span class="stat-num"><span class="stat-count" data-target="95">0</span>%</span>
+            <span class="stat-num"><span class="stat-count" data-target="95">95</span>%</span>
             <span class="stat-label">Client Retention</span>
           </div>
         </div>
@@ -4708,30 +4705,29 @@
     <!-- AUTHORITY — Trust signals -->
     <section class="authority-band">
       <div class="wrap">
-        <div class="sec-head sr-up" style="text-align: center; margin-bottom: 40px;">
+        <div class="sec-head sr-up in" style="text-align: center; margin-bottom: 40px;">
           <span class="eyebrow">Institutional Trust</span>
-          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 300;">Trusted by Canada's </br><span
-              style="font-weight: 800;">Leading Organizations</span></h2>
+          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 300;">Trusted by Canada's <br><span style="font-weight: 800;">Leading Organizations</span></h2>
         </div>
 
-        <div class="auth-grid sr-up">
+        <div class="auth-grid sr-up in">
           <div class="auth-card d1">
             <div class="auth-icon-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
             </div>
             <span class="auth-title">Federal Agencies</span>
-            <p class="auth-desc">Strategic compliance & capital planning for Government of Canada portfolios.</p>
+            <p class="auth-desc">Strategic compliance &amp; capital planning for Government of Canada portfolios.</p>
           </div>
 
           <div class="auth-card d2">
             <div class="auth-icon-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="2" y="7" width="20" height="14" rx="2" />
-                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                <line x1="12" y1="12" x2="12" y2="16" />
+                <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                <line x1="12" y1="12" x2="12" y2="16"></line>
               </svg>
             </div>
             <span class="auth-title">Provincial Ministries</span>
@@ -4742,7 +4738,7 @@
           <div class="auth-card d3">
             <div class="auth-icon-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
             </div>
             <span class="auth-title">Public Safety</span>
@@ -4752,7 +4748,7 @@
           <div class="auth-card d4">
             <div class="auth-icon-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
               </svg>
             </div>
             <span class="auth-title">Healthcare</span>
@@ -4776,9 +4772,8 @@
 
         <div class="hz-accordion-container sr-up in">
 
-          <div class="hz-item active" onmouseenter="activateHz(0)">
-            <div class="hz-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&auto=format&fit=crop');">
+          <div class="hz-item" onmouseenter="activateHz(0)">
+            <div class="hz-bg" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="hz-title-vert">01 / FCA</div>
 
@@ -4793,13 +4788,12 @@
                 </div>
                 <h3>Facility Condition Assessment</h3>
               </div>
-              <p>Engineering-grade evaluations & FCI benchmarking across distributed portfolios nationwide.</p>
+              <p>Engineering-grade evaluations &amp; FCI benchmarking across distributed portfolios nationwide.</p>
             </div>
           </div>
 
           <div class="hz-item" onmouseenter="activateHz(1)">
-            <div class="hz-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop');">
+            <div class="hz-bg" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="hz-title-vert">02 / CAP</div>
 
@@ -4810,15 +4804,14 @@
                     <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                   </svg>
                 </div>
-                <h3>Capital Planning & Forecasting</h3>
+                <h3>Capital Planning &amp; Forecasting</h3>
               </div>
-              <p>Multi-year capital models & funding scenarios perfectly aligned with governance cycles.</p>
+              <p>Multi-year capital models &amp; funding scenarios perfectly aligned with governance cycles.</p>
             </div>
           </div>
 
           <div class="hz-item" onmouseenter="activateHz(2)">
-            <div class="hz-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=1200&auto=format&fit=crop');">
+            <div class="hz-bg" style="background-image: url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="hz-title-vert">03 / RISK</div>
 
@@ -4837,8 +4830,7 @@
 
           <!-- Card 4 -->
           <div class="hz-item" onmouseenter="activateHz(3)">
-            <div class="hz-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop');">
+            <div class="hz-bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="hz-title-vert">04 / ASSET</div>
 
@@ -4856,9 +4848,8 @@
             </div>
           </div>
           <!-- Card 5 -->
-          <div class="hz-item" onmouseenter="activateHz(4)">
-            <div class="hz-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop');">
+          <div class="hz-item active" onmouseenter="activateHz(4)">
+            <div class="hz-bg" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="hz-title-vert">05 / TECH</div>
 
@@ -4868,8 +4859,7 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
                     </path>
                   </svg>
                 </div>
@@ -4881,8 +4871,7 @@
 
           <!-- Card 6 -->
           <div class="hz-item" onmouseenter="activateHz(5)">
-            <div class="hz-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1577412647305-991150c7d163?w=1200&auto=format&fit=crop');">
+            <div class="hz-bg" style="background-image: url('https://images.unsplash.com/photo-1577412647305-991150c7d163?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="hz-title-vert">06 / GOV</div>
 
@@ -4905,11 +4894,10 @@
         </div>
 
         <!-- EXPLORE ALL SERVICES CTA -->
-        <div style="text-align:center; margin-top:32px;" class="sr-up">
+        <div style="text-align:center; margin-top:32px;" class="sr-up in">
           <a class="btn btn-red" href="#" onclick="go('services')">
             Explore All Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              style="width:15px;height:15px; margin-left:8px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:15px;height:15px; margin-left:8px;">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -4952,16 +4940,15 @@
     <!-- METHODOLOGY INFOGRAPHIC -->
     <section class="meth-section" id="methodology">
       <div class="wrap">
-        <div class="sec-head sr-up" style="text-align: center; margin-bottom: 56px;">
+        <div class="sec-head sr-up in" style="text-align: center; margin-bottom: 56px;">
           <span class="eyebrow" style="color: var(--red);">Our Methodology</span>
-          <h2 style="font-weight: 300; font-size: clamp(32px, 4vw, 48px);">A Repeatable Process <br><span
-              style="font-weight: 800;">Built on Engineering Logic</span></h2>
+          <h2 style="font-weight: 300; font-size: clamp(32px, 4vw, 48px);">A Repeatable Process <br><span style="font-weight: 800;">Built on Engineering Logic</span></h2>
         </div>
 
         <div class="method-steps">
 
           <!-- Step 01 -->
-          <div class="mstep sr-up d1">
+          <div class="mstep sr-up d1 in">
             <div class="mstep-icon-box">
               <span class="mstep-num">01</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -4975,7 +4962,7 @@
           </div>
 
           <!-- Step 02 -->
-          <div class="mstep sr-up d2">
+          <div class="mstep sr-up d2 in">
             <div class="mstep-icon-box">
               <span class="mstep-num">02</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -4990,7 +4977,7 @@
           </div>
 
           <!-- Step 03 -->
-          <div class="mstep sr-up d3">
+          <div class="mstep sr-up d3 in">
             <div class="mstep-icon-box">
               <span class="mstep-num">03</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -5003,7 +4990,7 @@
           </div>
 
           <!-- Step 04 -->
-          <div class="mstep sr-up d4">
+          <div class="mstep sr-up d4 in">
             <div class="mstep-icon-box">
               <span class="mstep-num">04</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -5025,7 +5012,7 @@
       <div class="wrap">
         <div class="tech-grid-new">
 
-          <div class="tech-content sr-up">
+          <div class="tech-content sr-up in">
             <div class="sec-head left" style="margin-bottom: 0;">
               <span class="eyebrow" style="color: var(--red);">Proprietary Technology</span>
               <h2 style="font-size: clamp(32px, 4vw, 44px); margin-bottom: 32px; line-height: 1.1;">Infrastructure
@@ -5038,7 +5025,7 @@
 
             <div class="tech-feature-group">
               <!-- Feature 01 -->
-              <div class="feat-item sr-up d1">
+              <div class="feat-item sr-up d1 in">
                 <div class="feat-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="4"></circle>
@@ -5054,7 +5041,7 @@
               </div>
 
               <!-- Feature 02 -->
-              <div class="feat-item sr-up d2">
+              <div class="feat-item sr-up d2 in">
                 <div class="feat-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
@@ -5068,7 +5055,7 @@
               </div>
 
               <!-- Feature 03 -->
-              <div class="feat-item sr-up d3">
+              <div class="feat-item sr-up d3 in">
                 <div class="feat-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="11" width="18" height="11" rx="2"></rect>
@@ -5083,9 +5070,8 @@
               </div>
             </div>
 
-            <div style="margin-top: 56px;" class="sr-up d4">
-              <a class="btn btn-red" href="#" onclick="go('technology')">Explore the Platform <svg viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;margin-left:8px;">
+            <div style="margin-top: 56px;" class="sr-up d4 in">
+              <a class="btn btn-red" href="#" onclick="go('technology')">Explore the Platform <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;margin-left:8px;">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
@@ -5094,9 +5080,7 @@
 
           <div class="tech-visual">
             <div class="visual-glow"></div>
-            <img
-              src="https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_tech_enterprise_dashboard_4k_1775589699521.jpg"
-              class="dashboard-mockup sr-3d-right" alt="Enterprise Platform Dashboard Mockup">
+            <img src="https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_tech_enterprise_dashboard_4k_1775589699521.jpg" class="dashboard-mockup sr-3d-right in" alt="Enterprise Platform Dashboard Mockup">
           </div>
 
         </div>
@@ -5107,18 +5091,17 @@
     <!-- SECTORS / INDUSTRIES -->
     <section class="section bg-white">
       <div class="wrap">
-        <div class="sec-head sr-3d-up">
+        <div class="sec-head sr-3d-up in">
           <span class="eyebrow">Industries</span>
           <h2>Built for Institutional Scale</h2>
-          <p STYLE="color:white;">Providing independent engineering counsel to the public-sector organizations whose infrastructure decisions
+          <p style="color: #1f4444;">Providing independent engineering counsel to the public-sector organizations whose infrastructure decisions
             carry the greatest consequence.</p>
         </div>
         <div class="ind-grid">
 
           <!-- Government -->
-          <a href="#" class="ind-card sr-up d1" onclick="go('industries')">
-            <div class="ind-bg"
-              style="background-image: url('https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_government_sector_visual_1775590156375.jpg');">
+          <a href="#" class="ind-card sr-up d1 in" onclick="go('industries')">
+            <div class="ind-bg" style="background-image: url('https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_government_sector_visual_1775590156375.jpg');">
             </div>
             <div class="ind-overlay"></div>
             <div class="ind-content">
@@ -5133,9 +5116,8 @@
           </a>
 
           <!-- Public Safety -->
-          <a href="#" class="ind-card sr-up d2" onclick="go('industries')">
-            <div class="ind-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1590487988256-9ed24133863e?w=1200&auto=format&fit=crop');">
+          <a href="#" class="ind-card sr-up d2 in" onclick="go('industries')">
+            <div class="ind-bg" style="background-image: url('https://images.unsplash.com/photo-1590487988256-9ed24133863e?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="ind-overlay"></div>
             <div class="ind-content">
@@ -5150,9 +5132,8 @@
           </a>
 
           <!-- Healthcare -->
-          <a href="#" class="ind-card sr-up d3" onclick="go('industries')">
-            <div class="ind-bg"
-              style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&auto=format&fit=crop');">
+          <a href="#" class="ind-card sr-up d3 in" onclick="go('industries')">
+            <div class="ind-bg" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&amp;auto=format&amp;fit=crop');">
             </div>
             <div class="ind-overlay"></div>
             <div class="ind-content">
@@ -5167,9 +5148,8 @@
           </a>
 
           <!-- Education -->
-          <a href="#" class="ind-card sr-up d4" onclick="go('industries')">
-            <div class="ind-bg"
-              style="background-image: url('https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_education_sector_visual_1775590071755.jpg');">
+          <a href="#" class="ind-card sr-up d4 in" onclick="go('industries')">
+            <div class="ind-bg" style="background-image: url('https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_education_sector_visual_1775590071755.jpg');">
             </div>
             <div class="ind-overlay"></div>
             <div class="ind-content">
@@ -5189,7 +5169,7 @@
     </section>
 
     <!-- OUTCOMES BAND (Proof) -->
-    <div class="outcomes-band sr-3d-depth">
+    <div class="outcomes-band sr-3d-depth in">
       <div class="outcomes-inner">
         <div class="outcomes-stats">
           <div class="ostat">
@@ -5213,7 +5193,7 @@
       <div class="wrap">
         <div class="cta-container">
 
-          <div class="cta-text-side sr-up">
+          <div class="cta-text-side sr-up in">
             <span class="eyebrow" style="color: var(--red);">Get Started</span>
             <h2>Your Infrastructure Decisions <br>Deserve a <span style="color: #0dfffc;">Stronger Foundation.</span>
             </h2>
@@ -5221,8 +5201,7 @@
               and built to perform over the long term.</p>
 
             <div class="cta-btns" style="display: flex; gap: 16px;">
-              <a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;margin-left:8px;">
+              <a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;margin-left:8px;">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
@@ -5230,10 +5209,8 @@
             </div>
           </div>
 
-          <div class="cta-visual-side sr-3d-right">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1661340695541-ee1ca7efedd0?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="cta-main-image" alt="Stronger Foundation Visual">
+          <div class="cta-visual-side sr-3d-right in">
+            <img src="https://plus.unsplash.com/premium_photo-1661340695541-ee1ca7efedd0?q=80&amp;w=869&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="cta-main-image" alt="Stronger Foundation Visual">
           </div>
 
         </div>
@@ -5245,7 +5222,7 @@
     <section class="section about-section" style="background: var(--white); border-top: 1px solid var(--border);">
       <div class="wrap">
         <div class="about-layout" style="grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center;">
-          <div class="about-text sr-3d-right">
+          <div class="about-text sr-3d-right in">
             <span class="eyebrow" style="color: var(--red);">The Nadine Difference</span>
             <h2 style="color: var(--ink); margin-bottom: 24px; font-weight: 800;">Independent Engineering Counsel for
               Public Institutions</h2>
@@ -5256,46 +5233,35 @@
               field engineering with financial capital modeling to ensure decision-makers have the defensible data
               needed to secure funding and manage infrastructure risk.</p>
 
-            <div class="about-values"
-              style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;">
+            <div class="about-values" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;">
               <div class="about-val" style="display: flex; gap: 16px; align-items: flex-start;">
                 <div class="about-val-icon" style="background: var(--red-light); padding: 10px; border-radius: 12px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"
-                    style="width:24px; height:24px;">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" style="width:24px; height:24px;">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   </svg>
                 </div>
-                <div class="about-val-text"><strong
-                    style="display: block; color: var(--ink); margin-bottom: 4px;">Independence</strong><span
-                    style="font-size: 14px; color: var(--gray-lt);">Objective advisory free from conflicts of
+                <div class="about-val-text"><strong style="display: block; color: var(--ink); margin-bottom: 4px;">Independence</strong><span style="font-size: 14px; color: var(--gray-lt);">Objective advisory free from conflicts of
                     interest.</span></div>
               </div>
               <div class="about-val" style="display: flex; gap: 16px; align-items: flex-start;">
                 <div class="about-val-icon" style="background: var(--red-light); padding: 10px; border-radius: 12px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"
-                    style="width:24px; height:24px;">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" style="width:24px; height:24px;">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                   </svg>
                 </div>
-                <div class="about-val-text"><strong
-                    style="display: block; color: var(--ink); margin-bottom: 4px;">Precision</strong><span
-                    style="font-size: 14px; color: var(--gray-lt);">Engineering-grade data and audit-ready
+                <div class="about-val-text"><strong style="display: block; color: var(--ink); margin-bottom: 4px;">Precision</strong><span style="font-size: 14px; color: var(--gray-lt);">Engineering-grade data and audit-ready
                     reporting.</span></div>
               </div>
             </div>
             <a class="btn btn-red" href="#" onclick="go('about')">Our Full Story</a>
           </div>
 
-          <div class="about-visual sr-3d-left">
+          <div class="about-visual sr-3d-left in">
             <div class="about-photo-stack" style="position: relative;">
-              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1170&auto=format&fit=crop"
-                alt="Engineering Leadership" class="about-photo-main"
-                style="width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); border: 1px solid var(--border);">
-              <div class="about-stat-badge"
-                style="position: absolute; left: -40px; background: #25c0be; color: white; padding: 24px; border-radius: 20px; box-shadow: 0px 5px 20px 0px rgb(45 46 46 / 50%);">
+              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&amp;w=1170&amp;auto=format&amp;fit=crop" alt="Engineering Leadership" class="about-photo-main" style="width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); border: 1px solid var(--border);">
+              <div class="about-stat-badge" style="position: absolute; left: -40px; background: #25c0be; color: white; padding: 24px; border-radius: 20px; box-shadow: 0px 5px 20px 0px rgb(45 46 46 / 50%);">
                 <span class="num" style="font-size: 40px; font-weight: 800; display: block;">30+</span>
-                <span class="lbl"
-                  style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Years
+                <span class="lbl" style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Years
                   of Excellence</span>
               </div>
             </div>
@@ -5342,7 +5308,7 @@
           </div>
           <div class="int-step">
             <div class="int-lbl">Step 02</div>
-            <h4>Capital Planning & Forecasting</h4>
+            <h4>Capital Planning &amp; Forecasting</h4>
             <p>Lifecycle intelligence translating assessment data into 10–20 year capital models.</p>
           </div>
           <div class="int-step">
@@ -5367,16 +5333,13 @@
         <div class="svc-filter-bar sr d1" id="svcFilterBar">
           <button class="svc-filter-btn active" data-filter="all" onclick="filterServices('all',this)">All
             Services</button>
-          <button class="svc-filter-btn" data-filter="assessment"
-            onclick="filterServices('assessment',this)">Assessment</button>
+          <button class="svc-filter-btn" data-filter="assessment" onclick="filterServices('assessment',this)">Assessment</button>
           <button class="svc-filter-btn" data-filter="capital" onclick="filterServices('capital',this)">Capital
             Planning</button>
-          <button class="svc-filter-btn" data-filter="risk" onclick="filterServices('risk',this)">Risk &
+          <button class="svc-filter-btn" data-filter="risk" onclick="filterServices('risk',this)">Risk &amp;
             Strategy</button>
-          <button class="svc-filter-btn" data-filter="technology"
-            onclick="filterServices('technology',this)">Technology</button>
-          <button class="svc-filter-btn" data-filter="advisory"
-            onclick="filterServices('advisory',this)">Advisory</button>
+          <button class="svc-filter-btn" data-filter="technology" onclick="filterServices('technology',this)">Technology</button>
+          <button class="svc-filter-btn" data-filter="advisory" onclick="filterServices('advisory',this)">Advisory</button>
         </div>
 
         <!-- Accordion -->
@@ -5386,17 +5349,16 @@
           <div class="svc-acc-item" data-category="assessment">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">01</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <rect x="3" y="3" width="7" height="7" />
-                  <rect x="14" y="3" width="7" height="7" />
-                  <rect x="3" y="14" width="7" height="7" />
-                  <path d="M14 17h7m-3.5-3.5v7" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                  <path d="M14 17h7m-3.5-3.5v7"></path>
                 </svg></div>
               <span class="svc-acc-title">Facility Condition Assessment (FCA)</span>
               <span class="svc-acc-category">Assessment</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5407,13 +5369,10 @@
                     documentation — the foundational layer of any defensible capital strategy.</p>
                   <p>Conducted by licensed engineers across all major building systems including structural, mechanical,
                     electrical, and life-safety.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">FCI Benchmarking</span><span
-                      class="svc-acc-tag">Asset Inventory</span><span class="svc-acc-tag">Lifecycle
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">FCI Benchmarking</span><span class="svc-acc-tag">Asset Inventory</span><span class="svc-acc-tag">Lifecycle
                       Documentation</span><span class="svc-acc-tag">Multi-Discipline</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('fca')"
-                    style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#"
-                    onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('fca')" style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div>
               </div>
             </div>
           </div>
@@ -5422,15 +5381,14 @@
           <div class="svc-acc-item" data-category="assessment">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">02</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <rect x="3" y="9" width="18" height="13" rx="2" />
-                  <path d="M8 9V7a4 4 0 0 1 8 0v2" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="9" width="18" height="13" rx="2"></rect>
+                  <path d="M8 9V7a4 4 0 0 1 8 0v2"></path>
                 </svg></div>
               <span class="svc-acc-title">Structural Systems Assessment</span>
               <span class="svc-acc-category">Assessment</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5439,12 +5397,10 @@
                   <p>In-depth evaluation of foundations, framing, roofing assemblies, and building envelope integrity
                     across all facility types and ages. Identifies structural deficiencies, priority repair
                     requirements, and long-term capital needs with defensible documentation.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Foundations & Framing</span><span
-                      class="svc-acc-tag">Roofing Systems</span><span class="svc-acc-tag">Envelope Integrity</span>
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Foundations &amp; Framing</span><span class="svc-acc-tag">Roofing Systems</span><span class="svc-acc-tag">Envelope Integrity</span>
                   </div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')"
-                    style="font-size:13px;padding:9px 18px;">Enquire</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div>
               </div>
             </div>
           </div>
@@ -5453,14 +5409,13 @@
           <div class="svc-acc-item" data-category="assessment">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">03</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
                 </svg></div>
-              <span class="svc-acc-title">Mechanical, Electrical & Life-Safety Evaluation</span>
+              <span class="svc-acc-title">Mechanical, Electrical &amp; Life-Safety Evaluation</span>
               <span class="svc-acc-category">Assessment</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5469,12 +5424,10 @@
                   <p>Comprehensive assessment of HVAC systems, plumbing, electrical distribution, and life-safety
                     systems. Our engineers evaluate remaining useful life, condition scoring, and regulatory compliance
                     for all building systems across complex institutional portfolios.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">HVAC Systems</span><span
-                      class="svc-acc-tag">Electrical Distribution</span><span class="svc-acc-tag">Life
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">HVAC Systems</span><span class="svc-acc-tag">Electrical Distribution</span><span class="svc-acc-tag">Life
                       Safety</span><span class="svc-acc-tag">Plumbing</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')"
-                    style="font-size:13px;padding:9px 18px;">Enquire</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div>
               </div>
             </div>
           </div>
@@ -5483,14 +5436,13 @@
           <div class="svc-acc-item" data-category="capital">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">04</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                 </svg></div>
-              <span class="svc-acc-title">Capital Planning & Multi-Year Forecasting</span>
+              <span class="svc-acc-title">Capital Planning &amp; Multi-Year Forecasting</span>
               <span class="svc-acc-category">Capital Planning</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5499,13 +5451,10 @@
                   <p>Structured 10–20 year capital forecasting models aligned with institutional funding cycles and
                     governance frameworks. Transforms FCA data into defensible multi-year capital roadmaps — from
                     lifecycle cost projections to board-ready reporting packages.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">10–20 yr Forecasting</span><span
-                      class="svc-acc-tag">Lifecycle Modeling</span><span class="svc-acc-tag">Board-Ready Reports</span>
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">10–20 yr Forecasting</span><span class="svc-acc-tag">Lifecycle Modeling</span><span class="svc-acc-tag">Board-Ready Reports</span>
                   </div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('capital')"
-                    style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#"
-                    onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('capital')" style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div>
               </div>
             </div>
           </div>
@@ -5514,16 +5463,15 @@
           <div class="svc-acc-item" data-category="capital">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">05</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <line x1="18" y1="20" x2="18" y2="10" />
-                  <line x1="12" y1="20" x2="12" y2="4" />
-                  <line x1="6" y1="20" x2="6" y2="14" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
                 </svg></div>
-              <span class="svc-acc-title">Funding Scenario Modeling & Trade-Off Analysis</span>
+              <span class="svc-acc-title">Funding Scenario Modeling &amp; Trade-Off Analysis</span>
               <span class="svc-acc-category">Capital Planning</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5532,12 +5480,10 @@
                   <p>Leadership can simulate baseline projections, accelerated reinvestment, deferred-spending impacts,
                     and target FCI timelines — all before committing capital. Nadine generates multiple funding
                     scenarios in parallel so decision-makers can see true cost implications at the portfolio level.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Scenario Simulation</span><span
-                      class="svc-acc-tag">Deferral Impact Analysis</span><span class="svc-acc-tag">Target FCI
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Scenario Simulation</span><span class="svc-acc-tag">Deferral Impact Analysis</span><span class="svc-acc-tag">Target FCI
                       Optimization</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')"
-                    style="font-size:13px;padding:9px 18px;">Enquire</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div>
               </div>
             </div>
           </div>
@@ -5546,16 +5492,15 @@
           <div class="svc-acc-item" data-category="capital">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">06</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
                 </svg></div>
-              <span class="svc-acc-title">Governance & Board Reporting Support</span>
+              <span class="svc-acc-title">Governance &amp; Board Reporting Support</span>
               <span class="svc-acc-category">Capital Planning</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5564,12 +5509,10 @@
                   <p>Audit-ready capital documentation, treasury submissions, board briefing packages, and long-term
                     strategic planning cycle support. Our reports are structured to satisfy governance scrutiny at all
                     institutional levels — from department heads to audit committees.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Audit Documentation</span><span
-                      class="svc-acc-tag">Treasury Submissions</span><span class="svc-acc-tag">Board Briefing
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Audit Documentation</span><span class="svc-acc-tag">Treasury Submissions</span><span class="svc-acc-tag">Board Briefing
                       Packages</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')"
-                    style="font-size:13px;padding:9px 18px;">Enquire</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div>
               </div>
             </div>
           </div>
@@ -5578,15 +5521,14 @@
           <div class="svc-acc-item" data-category="risk">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">07</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <polyline points="9 12 11 14 15 10" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
                 </svg></div>
               <span class="svc-acc-title">Risk-Informed Infrastructure Strategy</span>
-              <span class="svc-acc-category">Risk & Strategy</span>
+              <span class="svc-acc-category">Risk &amp; Strategy</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5596,13 +5538,10 @@
                     regulatory compliance requirements, and operational continuity impact to produce risk-weighted
                     capital prioritization — ensuring the most critical assets receive investment when it matters most.
                   </p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Critical System Identification</span><span
-                      class="svc-acc-tag">Safety Exposure Mapping</span><span class="svc-acc-tag">Risk-Weighted
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Critical System Identification</span><span class="svc-acc-tag">Safety Exposure Mapping</span><span class="svc-acc-tag">Risk-Weighted
                       Prioritization</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('risk')"
-                    style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#"
-                    onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('risk')" style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div>
               </div>
             </div>
           </div>
@@ -5611,16 +5550,15 @@
           <div class="svc-acc-item" data-category="risk">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">08</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                  <line x1="12" y1="9" x2="12" y2="13" />
-                  <line x1="12" y1="17" x2="12.01" y2="17" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
                 </svg></div>
-              <span class="svc-acc-title">Criticality & Prioritization Modeling</span>
-              <span class="svc-acc-category">Risk & Strategy</span>
+              <span class="svc-acc-title">Criticality &amp; Prioritization Modeling</span>
+              <span class="svc-acc-category">Risk &amp; Strategy</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5630,12 +5568,10 @@
                     exposure, and institutional risk tolerance. Delivers a risk-weighted capital ranking that
                     prioritizes investment where failure consequences are highest — not merely where condition scores
                     are lowest.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Operational Criticality</span><span
-                      class="svc-acc-tag">Regulatory Exposure</span><span class="svc-acc-tag">Risk-Weighted
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Operational Criticality</span><span class="svc-acc-tag">Regulatory Exposure</span><span class="svc-acc-tag">Risk-Weighted
                       Ranking</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')"
-                    style="font-size:13px;padding:9px 18px;">Enquire</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div>
               </div>
             </div>
           </div>
@@ -5644,17 +5580,16 @@
           <div class="svc-acc-item" data-category="advisory">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">09</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
                 </svg></div>
               <span class="svc-acc-title">Asset Management Advisory (ISO 55001)</span>
               <span class="svc-acc-category">Advisory</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5664,12 +5599,10 @@
                     long-term portfolio performance goals. Nadine helps institutions transition from reactive
                     maintenance to structured, proactive asset management programs with measurable KPIs and governance
                     integration.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">ISO 55001 Alignment</span><span
-                      class="svc-acc-tag">Asset Register Development</span><span class="svc-acc-tag">KPI
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">ISO 55001 Alignment</span><span class="svc-acc-tag">Asset Register Development</span><span class="svc-acc-tag">KPI
                       Frameworks</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')"
-                    style="font-size:13px;padding:9px 18px;">Enquire</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div>
               </div>
             </div>
           </div>
@@ -5678,16 +5611,15 @@
           <div class="svc-acc-item" data-category="advisory">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">10</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg></div>
-              <span class="svc-acc-title">Stakeholder Engagement & Workshop Facilitation</span>
+              <span class="svc-acc-title">Stakeholder Engagement &amp; Workshop Facilitation</span>
               <span class="svc-acc-category">Advisory</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5697,12 +5629,10 @@
                     cross-department alignment meetings. Nadine bridges the gap between engineering data and
                     institutional decision-making — translating technical findings into language that resonates with
                     executives, trustees, and elected officials.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Executive Briefings</span><span
-                      class="svc-acc-tag">Budget Workshops</span><span class="svc-acc-tag">Cross-Department
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Executive Briefings</span><span class="svc-acc-tag">Budget Workshops</span><span class="svc-acc-tag">Cross-Department
                       Alignment</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')"
-                    style="font-size:13px;padding:9px 18px;">Enquire</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div>
               </div>
             </div>
           </div>
@@ -5711,16 +5641,15 @@
           <div class="svc-acc-item" data-category="technology">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">11</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
                 </svg></div>
               <span class="svc-acc-title">Infrastructure Intelligence Platform</span>
               <span class="svc-acc-category">Technology</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5730,12 +5659,10 @@
                     predictive analytics, and multi-scenario modeling. Built for institutional decision-makers who need
                     portfolio-level visibility, not fragmented spreadsheets. Integrates directly with Nadine FCA field
                     collection tools.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Real-Time Dashboards</span><span
-                      class="svc-acc-tag">FCI Portfolio Tracking</span><span class="svc-acc-tag">Predictive
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Real-Time Dashboards</span><span class="svc-acc-tag">FCI Portfolio Tracking</span><span class="svc-acc-tag">Predictive
                       Analytics</span><span class="svc-acc-tag">Secure Cloud</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('technology')"
-                    style="font-size:13px;padding:9px 18px;">Explore Platform</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('technology')" style="font-size:13px;padding:9px 18px;">Explore Platform</a></div>
               </div>
             </div>
           </div>
@@ -5744,15 +5671,14 @@
           <div class="svc-acc-item" data-category="technology">
             <div class="svc-acc-header" onclick="toggleAcc(this)">
               <span class="svc-acc-num">12</span>
-              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8">
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
                 </svg></div>
-              <span class="svc-acc-title">Digitized Field Data Collection & Integration</span>
+              <span class="svc-acc-title">Digitized Field Data Collection &amp; Integration</span>
               <span class="svc-acc-category">Technology</span>
               <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
             <div class="svc-acc-body">
@@ -5762,11 +5688,9 @@
                     forms, reducing data entry errors, and enabling real-time sync to portfolio dashboards. All field
                     data flows directly into FCI modeling engines and capital planning modules, creating a seamless
                     chain from site to strategy.</p>
-                  <div class="svc-acc-tags"><span class="svc-acc-tag">Mobile Field Tools</span><span
-                      class="svc-acc-tag">Real-Time Sync</span><span class="svc-acc-tag">API Integration</span></div>
+                  <div class="svc-acc-tags"><span class="svc-acc-tag">Mobile Field Tools</span><span class="svc-acc-tag">Real-Time Sync</span><span class="svc-acc-tag">API Integration</span></div>
                 </div>
-                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('technology')"
-                    style="font-size:13px;padding:9px 18px;">Explore Platform</a></div>
+                <div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('technology')" style="font-size:13px;padding:9px 18px;">Explore Platform</a></div>
               </div>
             </div>
           </div>
@@ -5785,26 +5709,26 @@
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="sr-3d-up d1">
           <div class="tcard">
             <div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
               </svg></div>
             <h4>1,200+</h4>
             <p>Facility portfolio assessments delivered nationwide across all major sectors.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="tcard">
             <div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
               </svg></div>
             <h4>18% Reduction</h4>
             <p>In reactive repair expenditures following structured capital planning implementation.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="tcard">
             <div class="tcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
               </svg></div>
             <h4>15-Year Forecasts</h4>
             <p>Capital roadmaps developed with standardized FCI modeling aligned with governance cycles.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -5812,8 +5736,8 @@
     <section class="section bg-white">
       <div class="wrap" style="text-align:center;"><a class="btn btn-red sr" href="#" onclick="go('contact')">Request a
           Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
           </svg></a></div>
     </section>
   </div>
@@ -5862,8 +5786,7 @@
               </div>
               <div class="sp-row"><span class="sp-label">FCI Scoring Accuracy</span><span class="sp-val">99.2%</span>
               </div>
-              <div class="sp-row"><span class="sp-label">Reactive Repair Reduction</span><span
-                  class="sp-val">–18%</span></div>
+              <div class="sp-row"><span class="sp-label">Reactive Repair Reduction</span><span class="sp-val">–18%</span></div>
               <div class="sp-row"><span class="sp-label">Capital Forecast Horizon</span><span class="sp-val">15
                   yr</span></div>
               <div class="sp-row"><span class="sp-label">Client Retention Rate</span><span class="sp-val">95%</span>
@@ -5883,28 +5806,28 @@
         <div class="services-grid sr d1">
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="3" y="9" width="18" height="13" rx="2" />
-                <path d="M8 9V7a4 4 0 0 1 8 0v2" />
+                <rect x="3" y="9" width="18" height="13" rx="2"></rect>
+                <path d="M8 9V7a4 4 0 0 1 8 0v2"></path>
               </svg></div>
             <h4>Structural Systems</h4>
             <p>Foundation, framing, roofing, and envelope integrity assessment across all facility types and ages.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
               </svg></div>
-            <h4>Mechanical & Electrical</h4>
+            <h4>Mechanical &amp; Electrical</h4>
             <p>HVAC, plumbing, electrical distribution, and life safety system evaluation and lifecycle assessment.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <polyline points="9 11 12 14 22 4" />
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
               </svg></div>
-            <h4>FCI Modeling & Scoring</h4>
+            <h4>FCI Modeling &amp; Scoring</h4>
             <p>Standardized Facility Condition Index scoring aligned with best-practice frameworks for portfolio-wide
               comparability.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -5967,10 +5890,9 @@
           <h2>Build Capital Strategy on Structured Engineering Insight</h2>
           <p>Partner with Nadine to implement a defensible, engineering-driven Facility Condition Assessment program
             aligned with long-term capital performance.</p>
-          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg></a><a class="btn btn-white-outline" href="#" onclick="go('capital')">Explore Capital Planning</a>
           </div>
         </div>
@@ -5988,7 +5910,7 @@
       <div class="page-hero-wrap">
         <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a>
           <sep> / </sep><a href="#" onclick="go('services')">Services</a>
-          <sep> / </sep>Capital Planning & Forecasting
+          <sep> / </sep>Capital Planning &amp; Forecasting
         </div>
         <h1>Turning Infrastructure Data into Defensible Capital Strategy</h1>
         <p class="ph-sub">Capital planning requires more than identifying deficiencies. It requires structured
@@ -6020,12 +5942,10 @@
               <div class="stat-panel-label">Capital Intelligence Framework</div>
               <div class="sp-row"><span class="sp-label">Forecast Horizon</span><span class="sp-val">10–20 yr</span>
               </div>
-              <div class="sp-row"><span class="sp-label">Reactive Repair Reduction</span><span
-                  class="sp-val">15–20%</span></div>
+              <div class="sp-row"><span class="sp-label">Reactive Repair Reduction</span><span class="sp-val">15–20%</span></div>
               <div class="sp-row"><span class="sp-label">Scenario Turnaround</span><span class="sp-val">&lt;1 day</span>
               </div>
-              <div class="sp-row"><span class="sp-label">Governance Alignment</span><span
-                  class="sp-val">Board-Ready</span></div>
+              <div class="sp-row"><span class="sp-label">Governance Alignment</span><span class="sp-val">Board-Ready</span></div>
             </div>
           </div>
         </div>
@@ -6042,33 +5962,33 @@
         <div class="services-grid sr d1">
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <line x1="18" y1="20" x2="18" y2="10" />
-                <line x1="12" y1="20" x2="12" y2="4" />
-                <line x1="6" y1="20" x2="6" y2="14" />
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
               </svg></div>
             <h4>Scenario Modeling</h4>
             <p>Compare baseline vs optimized funding, simulate deferral impacts, and visualize risk implications across
               multiple timelines.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
               </svg></div>
             <h4>Target FCI Optimization</h4>
             <p>Establish measurable portfolio targets, quantify funding requirements, and track performance improvement
               over time.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
               </svg></div>
             <h4>Governance Alignment</h4>
             <p>Budget submissions, treasury and board reporting, audit readiness, and long-term strategic planning cycle
               support.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -6105,10 +6025,9 @@
           <h2>Engineer Your Capital Strategy with Confidence</h2>
           <p>Partner with Nadine to develop lifecycle-based capital forecasts aligned with governance standards and
             long-term infrastructure performance.</p>
-          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg></a></div>
         </div>
       </div>
@@ -6144,32 +6063,32 @@
         <div class="services-grid sr d1">
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
               </svg></div>
             <h4>Critical System Identification</h4>
             <p>Structured classification of systems by operational criticality, life-safety impact, and regulatory
               exposure.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 8 12 12 14 14" />
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 8 12 12 14 14"></polyline>
               </svg></div>
-            <h4>Criticality & Prioritization Modeling</h4>
+            <h4>Criticality &amp; Prioritization Modeling</h4>
             <p>Risk-weighted capital prioritization that weighs life-safety consequences, operational continuity, and
               funding alignment.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <polyline points="9 12 11 14 15 10" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
               </svg></div>
-            <h4>Governance & Compliance Alignment</h4>
+            <h4>Governance &amp; Compliance Alignment</h4>
             <p>Audit readiness, regulatory review, board reporting, and structured documentation for every capital
               decision.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -6180,10 +6099,9 @@
           <h2>Prioritize with Confidence</h2>
           <p>Implement governance-aligned, risk-informed infrastructure strategy that strengthens capital defensibility
             and long-term portfolio performance.</p>
-          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg></a></div>
         </div>
       </div>
@@ -6210,7 +6128,7 @@
     <section class="section bg-white">
       <div class="wrap">
         <div class="two-col">
-          <div class="sr-3d-depth"><span class="eyebrow">Government & Public Sector</span>
+          <div class="sr-3d-depth"><span class="eyebrow">Government &amp; Public Sector</span>
             <h2>Multi-Jurisdictional Infrastructure Governance</h2>
             <p style="margin-top:14px;">Federal agencies, provincial ministries, and municipal governments manage
               diverse asset portfolios under strict governance and funding scrutiny. Nadine provides structured FCA and
@@ -6223,20 +6141,16 @@
             </ul>
           </div>
           <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;">
-            <div
-              style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
-              <div
-                style="position:absolute;inset:0;background:radial-gradient(circle at 60% 35%, rgba(211,47,47,.1),transparent 62%);">
+            <div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
+              <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 35%, rgba(211,47,47,.1),transparent 62%);">
               </div>
-              <div
-                style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
+              <div style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
               </div>
-              <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Government &
+              <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Government &amp;
                 Public Sector</div>
               <div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Federal · Provincial ·
                 Municipal</div>
@@ -6249,7 +6163,7 @@
     <section class="section bg-light">
       <div class="wrap">
         <div class="two-col flip">
-          <div class="sr-3d-depth"><span class="eyebrow">Public Safety & Emergency Services</span>
+          <div class="sr-3d-depth"><span class="eyebrow">Public Safety &amp; Emergency Services</span>
             <h2>Mission-Critical Infrastructure Performance</h2>
             <p style="margin-top:14px;">Public safety facilities require uninterrupted operational performance. Nadine
               integrates structured risk evaluation into capital modeling to ensure prioritization reflects criticality
@@ -6262,16 +6176,12 @@
             </ul>
           </div>
           <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;">
-            <div
-              style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
-              <div
-                style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(211,47,47,.1),transparent 62%);">
+            <div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
+              <div style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(211,47,47,.1),transparent 62%);">
               </div>
-              <div
-                style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <div style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 </svg>
               </div>
               <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Public Safety
@@ -6287,7 +6197,7 @@
     <section class="section bg-white">
       <div class="wrap">
         <div class="two-col">
-          <div class="sr-3d-depth"><span class="eyebrow">Healthcare & Education</span>
+          <div class="sr-3d-depth"><span class="eyebrow">Healthcare &amp; Education</span>
             <h2>Essential Community Infrastructure</h2>
             <p style="margin-top:14px;">Healthcare and educational institutions operate complex facility networks under
               funding constraints and regulatory oversight. Nadine supports hospitals, healthcare networks, schools, and
@@ -6299,19 +6209,15 @@
             </ul>
           </div>
           <div class="sr-3d-up d2" style="display:flex;align-items:center;justify-content:center;">
-            <div
-              style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
-              <div
-                style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 62%);">
+            <div style="width:100%;max-width:360px;height:260px;background:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;position:relative;overflow:hidden;border:1px solid rgba(211,47,47,.15);">
+              <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(211,47,47,.1),transparent 62%);">
               </div>
-              <div
-                style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              <div style="width:72px;height:72px;border-radius:16px;background:rgba(253,236,234,.1);border:1px solid rgba(211,47,47,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                 </svg>
               </div>
-              <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Healthcare &
+              <div style="font-size:16px;font-weight:700;color:var(--white);position:relative;z-index:1;">Healthcare &amp;
                 Education</div>
               <div style="font-size:12px;color:rgba(255,255,255,.4);position:relative;z-index:1;">Hospitals · Schools ·
                 Post-Secondary</div>
@@ -6327,10 +6233,9 @@
           <h2>Infrastructure Intelligence Tailored to Your Sector</h2>
           <p>Implement structured, defensible capital planning aligned with your operational and governance environment.
           </p>
-          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg></a></div>
         </div>
       </div>
@@ -6380,15 +6285,11 @@
           <div class="sr-3d-up d2">
             <div class="stat-panel">
               <div class="stat-panel-label">Platform vs. Traditional Reporting</div>
-              <div class="sp-row"><span class="sp-label">Scenario Evaluation Time</span><span
-                  class="sp-val">Minutes</span></div>
+              <div class="sp-row"><span class="sp-label">Scenario Evaluation Time</span><span class="sp-val">Minutes</span></div>
               <div class="sp-row"><span class="sp-label">Data Currency</span><span class="sp-val">Real-Time</span></div>
-              <div class="sp-row"><span class="sp-label">Manual Spreadsheet Reliance</span><span
-                  class="sp-val">Eliminated</span></div>
-              <div class="sp-row"><span class="sp-label">Governance Defensibility</span><span
-                  class="sp-val">Enhanced</span></div>
-              <div class="sp-row"><span class="sp-label">Portfolio Tracking</span><span
-                  class="sp-val">Standardized</span></div>
+              <div class="sp-row"><span class="sp-label">Manual Spreadsheet Reliance</span><span class="sp-val">Eliminated</span></div>
+              <div class="sp-row"><span class="sp-label">Governance Defensibility</span><span class="sp-val">Enhanced</span></div>
+              <div class="sp-row"><span class="sp-label">Portfolio Tracking</span><span class="sp-val">Standardized</span></div>
             </div>
           </div>
         </div>
@@ -6415,11 +6316,9 @@
           <div class="sr-3d-up d2">
             <!-- Dashboard visualization -->
             <div style="background:var(--ink);border-radius:10px;padding:28px;overflow:hidden;position:relative;">
-              <div
-                style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(211,47,47,.12),transparent 70%);">
+              <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(211,47,47,.12),transparent 70%);">
               </div>
-              <div
-                style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
+              <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
                 Portfolio FCI Overview</div>
               <!-- Bar chart rows -->
               <div style="display:flex;flex-direction:column;gap:10px;">
@@ -6427,8 +6326,7 @@
                   <div style="font-size:11px;color:rgba(255,255,255,.4);width:110px;flex-shrink:0;">Portfolio A — Gov
                   </div>
                   <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;">
-                    <div
-                      style="width:84%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
+                    <div style="width:84%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
                     </div>
                   </div>
                   <div style="font-size:11px;font-weight:600;color:var(--red);width:32px;text-align:right;">0.84</div>
@@ -6437,8 +6335,7 @@
                   <div style="font-size:11px;color:rgba(255,255,255,.4);width:110px;flex-shrink:0;">Portfolio B — Safety
                   </div>
                   <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;">
-                    <div
-                      style="width:71%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
+                    <div style="width:71%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
                     </div>
                   </div>
                   <div style="font-size:11px;font-weight:600;color:var(--red);width:32px;text-align:right;">0.71</div>
@@ -6447,8 +6344,7 @@
                   <div style="font-size:11px;color:rgba(255,255,255,.4);width:110px;flex-shrink:0;">Portfolio C — Health
                   </div>
                   <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;">
-                    <div
-                      style="width:58%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
+                    <div style="width:58%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
                     </div>
                   </div>
                   <div style="font-size:11px;font-weight:600;color:var(--red);width:32px;text-align:right;">0.58</div>
@@ -6457,8 +6353,7 @@
                   <div style="font-size:11px;color:rgba(255,255,255,.4);width:110px;flex-shrink:0;">Portfolio D — Edu
                   </div>
                   <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;">
-                    <div
-                      style="width:67%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
+                    <div style="width:67%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
                     </div>
                   </div>
                   <div style="font-size:11px;font-weight:600;color:var(--red);width:32px;text-align:right;">0.67</div>
@@ -6467,15 +6362,13 @@
                   <div style="font-size:11px;color:rgba(255,255,255,.4);width:110px;flex-shrink:0;">Portfolio E — Muni
                   </div>
                   <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;">
-                    <div
-                      style="width:79%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
+                    <div style="width:79%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:4px;">
                     </div>
                   </div>
                   <div style="font-size:11px;font-weight:600;color:var(--red);width:32px;text-align:right;">0.79</div>
                 </div>
               </div>
-              <div
-                style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;">
+              <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;">
                 <div style="font-size:10px;color:rgba(255,255,255,.2);">FCI Range: 0.0 (Critical) → 1.0 (Excellent)
                 </div>
                 <div style="font-size:10px;color:rgba(255,255,255,.2);">Updated: Real-Time</div>
@@ -6509,25 +6402,21 @@
           <div class="sr-3d-up d2">
             <!-- Heatmap visualization -->
             <div style="background:var(--ink);border-radius:10px;padding:28px;">
-              <div
-                style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
+              <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
                 Criticality Heatmap — Sample Portfolio</div>
               <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:12px;">
                 <!-- Row 1 -->
-                <div
-                  style="height:40px;border-radius:4px;background:rgba(211,47,47,.9);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
+                <div style="height:40px;border-radius:4px;background:rgba(211,47,47,.9);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
                   HIGH</div>
                 <div style="height:40px;border-radius:4px;background:rgba(211,47,47,.5);"></div>
                 <div style="height:40px;border-radius:4px;background:rgba(255,193,7,.4);"></div>
-                <div
-                  style="height:40px;border-radius:4px;background:rgba(211,47,47,.7);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
+                <div style="height:40px;border-radius:4px;background:rgba(211,47,47,.7);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
                   HIGH</div>
                 <div style="height:40px;border-radius:4px;background:rgba(255,255,255,.07);"></div>
                 <div style="height:40px;border-radius:4px;background:rgba(255,193,7,.3);"></div>
                 <!-- Row 2 -->
                 <div style="height:40px;border-radius:4px;background:rgba(255,255,255,.07);"></div>
-                <div
-                  style="height:40px;border-radius:4px;background:rgba(211,47,47,.85);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
+                <div style="height:40px;border-radius:4px;background:rgba(211,47,47,.85);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
                   CRIT</div>
                 <div style="height:40px;border-radius:4px;background:rgba(255,193,7,.5);"></div>
                 <div style="height:40px;border-radius:4px;background:rgba(255,255,255,.07);"></div>
@@ -6536,8 +6425,7 @@
                 <!-- Row 3 -->
                 <div style="height:40px;border-radius:4px;background:rgba(255,193,7,.35);"></div>
                 <div style="height:40px;border-radius:4px;background:rgba(255,255,255,.07);"></div>
-                <div
-                  style="height:40px;border-radius:4px;background:rgba(211,47,47,.6);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
+                <div style="height:40px;border-radius:4px;background:rgba(211,47,47,.6);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:white;">
                   HIGH</div>
                 <div style="height:40px;border-radius:4px;background:rgba(76,175,80,.25);"></div>
                 <div style="height:40px;border-radius:4px;background:rgba(255,193,7,.4);"></div>
@@ -6545,20 +6433,16 @@
               </div>
               <div style="display:flex;gap:14px;flex-wrap:wrap;">
                 <div style="display:flex;align-items:center;gap:5px;">
-                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(211,47,47,.9);"></div><span
-                    style="font-size:10px;color:rgba(255,255,255,.35);">Critical</span>
+                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(211,47,47,.9);"></div><span style="font-size:10px;color:rgba(255,255,255,.35);">Critical</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;">
-                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(211,47,47,.55);"></div><span
-                    style="font-size:10px;color:rgba(255,255,255,.35);">High</span>
+                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(211,47,47,.55);"></div><span style="font-size:10px;color:rgba(255,255,255,.35);">High</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;">
-                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(255,193,7,.5);"></div><span
-                    style="font-size:10px;color:rgba(255,255,255,.35);">Medium</span>
+                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(255,193,7,.5);"></div><span style="font-size:10px;color:rgba(255,255,255,.35);">Medium</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;">
-                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(76,175,80,.35);"></div><span
-                    style="font-size:10px;color:rgba(255,255,255,.35);">Low</span>
+                  <div style="width:10px;height:10px;border-radius:2px;background:rgba(76,175,80,.35);"></div><span style="font-size:10px;color:rgba(255,255,255,.35);">Low</span>
                 </div>
               </div>
             </div>
@@ -6589,8 +6473,7 @@
           <div class="sr-3d-up d2">
             <!-- Scenario chart visualization -->
             <div style="background:var(--ink);border-radius:10px;padding:28px;">
-              <div
-                style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
+              <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
                 Scenario Comparison — 15-Year Capital Horizon</div>
               <!-- Scenario bars -->
               <div style="display:flex;flex-direction:column;gap:14px;">
@@ -6609,8 +6492,7 @@
                     <span style="font-size:11.5px;font-weight:600;color:var(--red);">FCI: 0.82</span>
                   </div>
                   <div style="height:10px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden;">
-                    <div
-                      style="width:82%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:5px;">
+                    <div style="width:82%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:5px;">
                     </div>
                   </div>
                 </div>
@@ -6621,8 +6503,7 @@
                     <span style="font-size:11.5px;font-weight:600;color:var(--red);">FCI: 0.91</span>
                   </div>
                   <div style="height:10px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden;">
-                    <div
-                      style="width:91%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:5px;">
+                    <div style="width:91%;height:100%;background:linear-gradient(90deg,#B71C1C,#D32F2F);border-radius:5px;">
                     </div>
                   </div>
                 </div>
@@ -6636,8 +6517,7 @@
                   </div>
                 </div>
               </div>
-              <div
-                style="margin-top:18px;padding:12px;background:rgba(211,47,47,.08);border:1px solid rgba(211,47,47,.2);border-radius:6px;">
+              <div style="margin-top:18px;padding:12px;background:rgba(211,47,47,.08);border:1px solid rgba(211,47,47,.2);border-radius:6px;">
                 <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;">Scenario comparisons generated
                   in <strong style="color:rgba(255,255,255,.8);">minutes</strong> — enabling leadership to evaluate
                   trade-offs before committing funding.</div>
@@ -6671,30 +6551,25 @@
           </div>
           <div class="sr-3d-up d2">
             <div style="background:var(--ink);border-radius:10px;padding:28px;">
-              <div
-                style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
+              <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
                 Target FCI Achievement — 10-Year Trajectory</div>
               <!-- Area chart simulation -->
               <div style="position:relative;height:120px;margin-bottom:12px;">
                 <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
                   <!-- Target line -->
-                  <line x1="0" y1="24" x2="300" y2="24" stroke="rgba(255,255,255,.1)" stroke-width="1"
-                    stroke-dasharray="4,3" />
+                  <line x1="0" y1="24" x2="300" y2="24" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="4,3"></line>
                   <text x="240" y="20" font-size="9" fill="rgba(255,255,255,.25)" font-family="Inter,sans-serif">Target
                     0.85</text>
                   <!-- Current trajectory area -->
-                  <path d="M0,100 C30,95 60,88 90,78 C120,68 150,60 180,50 C210,40 240,34 300,28" fill="none"
-                    stroke="#D32F2F" stroke-width="2" />
-                  <path d="M0,100 C30,95 60,88 90,78 C120,68 150,60 180,50 C210,40 240,34 300,28 L300,120 L0,120 Z"
-                    fill="rgba(211,47,47,.1)" />
+                  <path d="M0,100 C30,95 60,88 90,78 C120,68 150,60 180,50 C210,40 240,34 300,28" fill="none" stroke="#D32F2F" stroke-width="2"></path>
+                  <path d="M0,100 C30,95 60,88 90,78 C120,68 150,60 180,50 C210,40 240,34 300,28 L300,120 L0,120 Z" fill="rgba(211,47,47,.1)"></path>
                   <!-- Deferred scenario -->
-                  <path d="M0,100 C30,100 60,102 90,105 C120,108 150,110 180,112 C210,114 240,115 300,116" fill="none"
-                    stroke="rgba(180,20,20,.4)" stroke-width="1.5" stroke-dasharray="4,3" />
+                  <path d="M0,100 C30,100 60,102 90,105 C120,108 150,110 180,112 C210,114 240,115 300,116" fill="none" stroke="rgba(180,20,20,.4)" stroke-width="1.5" stroke-dasharray="4,3"></path>
                   <!-- Data points -->
-                  <circle cx="0" cy="100" r="3" fill="#D32F2F" />
-                  <circle cx="90" cy="78" r="3" fill="#D32F2F" />
-                  <circle cx="180" cy="50" r="3" fill="#D32F2F" />
-                  <circle cx="300" cy="28" r="3" fill="#D32F2F" />
+                  <circle cx="0" cy="100" r="3" fill="#D32F2F"></circle>
+                  <circle cx="90" cy="78" r="3" fill="#D32F2F"></circle>
+                  <circle cx="180" cy="50" r="3" fill="#D32F2F"></circle>
+                  <circle cx="300" cy="28" r="3" fill="#D32F2F"></circle>
                 </svg>
               </div>
               <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.2);">
@@ -6702,17 +6577,14 @@
               </div>
               <div style="margin-top:14px;display:flex;gap:16px;">
                 <div style="display:flex;align-items:center;gap:5px;">
-                  <div style="width:16px;height:2px;background:var(--red);border-radius:1px;"></div><span
-                    style="font-size:10px;color:rgba(255,255,255,.35);">Optimized</span>
+                  <div style="width:16px;height:2px;background:var(--red);border-radius:1px;"></div><span style="font-size:10px;color:rgba(255,255,255,.35);">Optimized</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;">
-                  <div
-                    style="width:16px;height:2px;background:rgba(180,20,20,.4);border-radius:1px;border-top:1px dashed rgba(180,20,20,.6);">
+                  <div style="width:16px;height:2px;background:rgba(180,20,20,.4);border-radius:1px;border-top:1px dashed rgba(180,20,20,.6);">
                   </div><span style="font-size:10px;color:rgba(255,255,255,.35);">Deferred</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:5px;">
-                  <div
-                    style="width:16px;height:1px;background:rgba(255,255,255,.15);border-top:1px dashed rgba(255,255,255,.2);">
+                  <div style="width:16px;height:1px;background:rgba(255,255,255,.15);border-top:1px dashed rgba(255,255,255,.2);">
                   </div><span style="font-size:10px;color:rgba(255,255,255,.35);">Target</span>
                 </div>
               </div>
@@ -6727,7 +6599,7 @@
       <div class="wrap">
         <div class="two-col flip">
           <div class="sr-3d-depth">
-            <span class="eyebrow">Secure & Scalable Cloud Infrastructure</span>
+            <span class="eyebrow">Secure &amp; Scalable Cloud Infrastructure</span>
             <h2>Built for Institutional Environments</h2>
             <p style="margin-top:14px;">The platform is designed to support multi-jurisdictional portfolios and
               distributed facility networks at any scale. Role-based access control ensures that the right stakeholders
@@ -6743,10 +6615,8 @@
             </ul>
           </div>
           <div class="sr-3d-up d2">
-            <div
-              style="background:var(--ink);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:0;">
-              <div
-                style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
+            <div style="background:var(--ink);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:0;">
+              <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);font-weight:600;margin-bottom:20px;">
                 Access Control Architecture</div>
               <!-- Role tiers -->
               <div style="border-bottom:1px solid rgba(255,255,255,.06);padding:14px 0;">
@@ -6756,14 +6626,12 @@
                     <div style="font-size:11.5px;color:rgba(255,255,255,.35);margin-top:2px;">Portfolio dashboards ·
                       Board reports · Scenario outputs</div>
                   </div>
-                  <div
-                    style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2"
-                      style="width:14px;height:14px;">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  <div style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2" style="width:14px;height:14px;">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     </svg>
                   </div>
                 </div>
@@ -6775,13 +6643,11 @@
                     <div style="font-size:11.5px;color:rgba(255,255,255,.35);margin-top:2px;">Full scenario modeling ·
                       FCI tools · Budget alignment</div>
                   </div>
-                  <div
-                    style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2"
-                      style="width:14px;height:14px;">
-                      <rect x="3" y="3" width="18" height="18" rx="2" />
-                      <polyline points="3 9 21 9" />
-                      <polyline points="9 21 9 9" />
+                  <div style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2" style="width:14px;height:14px;">
+                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                      <polyline points="3 9 21 9"></polyline>
+                      <polyline points="9 21 9 9"></polyline>
                     </svg>
                   </div>
                 </div>
@@ -6793,11 +6659,9 @@
                     <div style="font-size:11.5px;color:rgba(255,255,255,.35);margin-top:2px;">Asset data · Condition
                       records · Work orders</div>
                   </div>
-                  <div
-                    style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2"
-                      style="width:14px;height:14px;">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <div style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2" style="width:14px;height:14px;">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     </svg>
                   </div>
                 </div>
@@ -6809,12 +6673,10 @@
                     <div style="font-size:11.5px;color:rgba(255,255,255,.35);margin-top:2px;">Data capture · Photo
                       upload · Field forms</div>
                   </div>
-                  <div
-                    style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2"
-                      style="width:14px;height:14px;">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
+                  <div style="width:28px;height:28px;border-radius:50%;background:rgba(211,47,47,.15);display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#D32F2F" stroke-width="2" style="width:14px;height:14px;">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   </div>
                 </div>
@@ -6845,7 +6707,7 @@
           </div>
           <div class="int-step">
             <div class="int-lbl">Capital Intelligence</div>
-            <h4>Capital Planning & Forecasting</h4>
+            <h4>Capital Planning &amp; Forecasting</h4>
             <p>Leverages platform scenario modeling, FCI optimization tools, and dashboard visualization for lifecycle
               strategy.</p>
           </div>
@@ -6871,59 +6733,58 @@
         <div class="services-grid sr d1">
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
               </svg></div>
             <h4>Faster Scenario Evaluation</h4>
             <p>Capital scenario comparisons that previously required weeks of manual spreadsheet work are now generated
               in minutes. Leadership can evaluate multiple trade-offs in a single session.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <line x1="18" y1="20" x2="18" y2="10" />
-                <line x1="12" y1="20" x2="12" y2="4" />
-                <line x1="6" y1="20" x2="6" y2="14" />
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
               </svg></div>
             <h4>Improved Funding Transparency</h4>
             <p>Portfolio-level dashboards provide clear, auditable documentation of capital allocation decisions —
               strengthening funding submissions and board reporting credibility.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <polyline points="9 12 11 14 15 10" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
               </svg></div>
             <h4>Increased Governance Defensibility</h4>
             <p>Structured, repeatable capital decision-making with standardized portfolio performance tracking enables
               every recommendation to withstand governance scrutiny and audit review.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
               </svg></div>
             <h4>Reduced Manual Spreadsheet Reliance</h4>
             <p>Organizations eliminate fragmented, version-controlled spreadsheets in favour of a single, authoritative
               platform — reducing errors and ensuring all stakeholders work from the same data.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <polyline points="3 9 21 9" />
-                <polyline points="9 21 9 9" />
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <polyline points="3 9 21 9"></polyline>
+                <polyline points="9 21 9 9"></polyline>
               </svg></div>
             <h4>Standardized Portfolio Tracking</h4>
             <p>Consistent FCI measurement methodology across all portfolios enables true benchmarking, cross-facility
               comparison, and meaningful year-over-year performance tracking.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="svc-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
               </svg></div>
             <h4>Living Data Assets</h4>
             <p>Assessments are not static reports — they become continuously updated, scenario-ready portfolio
               intelligence. Every new assessment cycle feeds directly into existing capital models.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -6937,10 +6798,9 @@
           <p>Partner with Nadine to implement a purpose-built infrastructure intelligence platform aligned with
             governance standards and long-term portfolio performance.</p>
           <div class="cta-btns">
-            <a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+            <a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg></a>
             <a class="btn btn-white-outline" href="#" onclick="go('services')">Explore Our Services</a>
           </div>
@@ -6981,57 +6841,49 @@
                 aligned with multi-year funding cycles and governance reporting.</p>
               <div class="cs-metrics"><span class="cs-metric">1,200+ Facilities</span><span class="cs-metric">15-Year
                   Forecast</span><span class="cs-metric">18% Cost Reduction</span></div><a class="cs-link" href="#">View
-                Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  style="width:12px;height:12px">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+                Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
             </div>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="cs-card sr d1">
             <div class="cs-top"></div>
             <div class="cs-body"><span class="cs-tag">Municipal Government</span>
               <h4>Capital Prioritization Framework for Distributed Public Facilities</h4>
               <p>Municipal infrastructure portfolio requiring deferred maintenance quantification and risk-based
                 prioritization across multiple departments and asset classes.</p>
-              <div class="cs-metrics"><span class="cs-metric">Deferred Maintenance Quantified</span><span
-                  class="cs-metric">Risk-Based Priority</span></div><a class="cs-link" href="#">View Case Study <svg
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  style="width:12px;height:12px">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+              <div class="cs-metrics"><span class="cs-metric">Deferred Maintenance Quantified</span><span class="cs-metric">Risk-Based Priority</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
             </div>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="cs-card sr d2">
             <div class="cs-top"></div>
             <div class="cs-body"><span class="cs-tag">Public Safety</span>
               <h4>Lifecycle Capital Modeling for Mission-Critical Facility Network</h4>
               <p>Public safety facility network requiring criticality heatmap implementation, lifecycle-based capital
                 modeling, and enhanced governance documentation.</p>
-              <div class="cs-metrics"><span class="cs-metric">Criticality Heatmaps</span><span
-                  class="cs-metric">Lifecycle Modeling</span></div><a class="cs-link" href="#">View Case Study <svg
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  style="width:12px;height:12px">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+              <div class="cs-metrics"><span class="cs-metric">Criticality Heatmaps</span><span class="cs-metric">Lifecycle Modeling</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
             </div>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="cs-card sr-3d-flip">
             <div class="cs-top"></div>
             <div class="cs-body"><span class="cs-tag">Healthcare</span>
-              <h4>FCA & Capital Forecasting for Regional Healthcare Network</h4>
+              <h4>FCA &amp; Capital Forecasting for Regional Healthcare Network</h4>
               <p>Multi-campus healthcare institution with aging infrastructure requiring standardized FCI scoring and a
                 defensible 15-year capital roadmap aligned with funding cycles.</p>
               <div class="cs-metrics"><span class="cs-metric">Multi-Campus</span><span class="cs-metric">15-yr
-                  Roadmap</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+                  Roadmap</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
             </div>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="cs-card sr d1">
             <div class="cs-top"></div>
             <div class="cs-body"><span class="cs-tag">Education</span>
@@ -7039,27 +6891,25 @@
               <p>School board with 200+ facilities requiring structured asset visibility, FCI benchmarking, and
                 technology-enabled capital scenario modeling.</p>
               <div class="cs-metrics"><span class="cs-metric">200+ Facilities</span><span class="cs-metric">Platform
-                  Integration</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+                  Integration</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
             </div>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="cs-card sr d2">
             <div class="cs-top"></div>
             <div class="cs-body"><span class="cs-tag">Federal Agency</span>
-              <h4>National Portfolio Assessment & Risk-Informed Capital Strategy</h4>
+              <h4>National Portfolio Assessment &amp; Risk-Informed Capital Strategy</h4>
               <p>Federal agency with distributed national infrastructure requiring risk-weighted capital prioritization
                 aligned with federal budget submission cycles.</p>
               <div class="cs-metrics"><span class="cs-metric">National Scope</span><span class="cs-metric">Federal
-                  Compliance</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+                  Compliance</span></div><a class="cs-link" href="#">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
             </div>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -7070,10 +6920,9 @@
           <h2>Implement Structured Capital Intelligence in Your Portfolio</h2>
           <p>Partner with Nadine to develop measurable, defensible infrastructure strategy aligned with governance
             standards.</p>
-          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg></a></div>
         </div>
       </div>
@@ -7132,37 +6981,34 @@
         </div>
         <div class="diff-grid sr d1">
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3" />
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
-                <path d="M22.54 6.08a23.6 23.6 0 0 1 0 11.84M1.46 6.08a23.6 23.6 0 0 0 0 11.84" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path>
+                <path d="M22.54 6.08a23.6 23.6 0 0 1 0 11.84M1.46 6.08a23.6 23.6 0 0 0 0 11.84"></path>
               </svg></div>
             <h4>Engineering Rigor</h4>
             <p>All recommendations are grounded in multi-discipline engineering evaluation and standardized methodology.
               No assumptions — only evidence.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10" />
-                <line x1="12" y1="20" x2="12" y2="4" />
-                <line x1="6" y1="20" x2="6" y2="14" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
               </svg></div>
             <h4>Structured Modeling</h4>
             <p>Capital planning is built on lifecycle forecasting, FCI benchmarking, and risk-informed prioritization.
               Every model withstands governance review.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg></div>
             <h4>Governance Alignment</h4>
             <p>Reporting and modeling frameworks are designed to support funding justification, audit readiness, and
               board-level transparency.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -7174,66 +7020,60 @@
         </div>
         <div class="diff-grid sr d1">
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
               </svg></div>
-            <h4>Integrated Engineering & Capital Modeling</h4>
+            <h4>Integrated Engineering &amp; Capital Modeling</h4>
             <p>Assessment data flows directly into capital forecasting — not as separate deliverables, but as one
               unified intelligence system.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
               </svg></div>
             <h4>Technology-Enabled Portfolio Intelligence</h4>
             <p>Our platform transforms static reports into living data assets with real-time visibility and dynamic
               scenario modeling.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
               </svg></div>
             <h4>National Institutional Experience</h4>
             <p>Deep understanding of the funding, governance, and operational challenges unique to Canadian public and
               institutional infrastructure.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
               </svg></div>
             <h4>Risk-Informed Prioritization</h4>
             <p>Capital decisions are weighted by safety exposure, regulatory risk, and operational continuity — not just
               asset condition scores.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
               </svg></div>
             <h4>Measurable Performance Benchmarking</h4>
             <p>Standardized FCI frameworks applied consistently across all portfolios enable true cross-facility
               comparison.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
           <div class="diff-card">
-            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="1 4 1 10 7 10" />
-                <path d="M3.51 15a9 9 0 1 0 .49-3.99" />
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 .49-3.99"></path>
               </svg></div>
             <h4>Ongoing Performance Management</h4>
             <p>We partner with organizations for the long term — evolving capital strategies as portfolios grow.</p>
-          </div>
+          <div class="card-glare" style="position: absolute; inset: 0px; border-radius: inherit; pointer-events: none; z-index: 9; transition: background 0.06s linear;"></div></div>
         </div>
       </div>
     </section>
@@ -7244,10 +7084,9 @@
           <h2>Partner with a Structured Infrastructure Intelligence Firm</h2>
           <p>Nadine combines engineering discipline, capital modeling expertise, and governance alignment to deliver
             measurable infrastructure performance improvement.</p>
-          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
+          <div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg></a></div>
         </div>
       </div>
@@ -7286,28 +7125,23 @@
               <div class="f-group"><label>Organization *</label><input type="text" placeholder="Organization name">
               </div>
               <div class="f-group"><label>Title / Role *</label><input type="text" placeholder="Your role"></div>
-              <div class="f-group"><label>Email Address *</label><input type="email"
-                  placeholder="email@organization.ca"></div>
+              <div class="f-group"><label>Email Address *</label><input type="email" placeholder="email@organization.ca"></div>
               <div class="f-group"><label>Phone Number</label><input type="tel" placeholder="+1 (000) 000-0000"></div>
               <div class="f-group"><label>Sector *</label><select>
                   <option value="">Select your sector</option>
-                  <option>Government & Public Sector</option>
-                  <option>Public Safety & Emergency Services</option>
+                  <option>Government &amp; Public Sector</option>
+                  <option>Public Safety &amp; Emergency Services</option>
                   <option>Healthcare</option>
                   <option>Education</option>
-                  <option>Commercial & Institutional</option>
+                  <option>Commercial &amp; Institutional</option>
                   <option>Other</option>
                 </select></div>
-              <div class="f-group"><label>Portfolio Size</label><input type="text"
-                  placeholder="Approx. number of facilities"></div>
-              <div class="f-group full"><label>Message</label><textarea
-                  placeholder="Describe your infrastructure challenge or capital planning objective..."></textarea>
+              <div class="f-group"><label>Portfolio Size</label><input type="text" placeholder="Approx. number of facilities"></div>
+              <div class="f-group full"><label>Message</label><textarea placeholder="Describe your infrastructure challenge or capital planning objective..."></textarea>
               </div>
-              <div class="f-group full" style="margin-bottom:0;"><button type="submit" class="btn btn-red"
-                  style="width:100%;justify-content:center;">Submit Consultation Request <svg viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2.5">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
+              <div class="f-group full" style="margin-bottom:0;"><button type="submit" class="btn btn-red" style="width:100%;justify-content:center;">Submit Consultation Request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
                   </svg></button></div>
             </div>
           </div>
@@ -7315,34 +7149,31 @@
             <div class="contact-aside">
               <h3>Direct Contact</h3>
               <div class="ca-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
                 </svg>
                 <div class="ca-text"><strong>Head Office</strong><span>Nadine International Inc.<br>Toronto
                     (headquarters) <br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span></div>
               </div>
               <div class="ca-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
                 <div class="ca-text"><strong>Phone</strong><span>(905) 602-1850</span></div>
               </div>
               <div class="ca-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
                 <div class="ca-text"><strong>Email</strong><span>[Insert email]</span></div>
               </div>
-              <div class="ca-row" style="padding-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
+              <div class="ca-row" style="padding-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
                 </svg>
                 <div class="ca-text"><strong>LinkedIn</strong><span>Nadine International Inc.</span></div>
               </div>
-              <div
-                style="margin-top:12px;padding:12px;background:rgba(255,255,255,.04);border-radius:6px;font-size:12px;color:rgba(255,255,255,.28);text-align:center;border: 1px solid #d32f2f;">
+              <div style="margin-top:12px;padding:12px;background:rgba(255,255,255,.04);border-radius:6px;font-size:12px;color:rgba(255,255,255,.28);text-align:center;border: 1px solid #d32f2f;">
                 National Operations Supporting Portfolios Across Canada</div>
               <div class="process-head">What to Expect</div>
               <div class="p-step">
@@ -7408,24 +7239,23 @@
         <ul class="ft-links">
           <li><a href="#" onclick="go('industries')">Government</a></li>
           <li><a href="#" onclick="go('industries')">Public Safety</a></li>
-          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare &amp; Education</a></li>
           <li><a href="#" onclick="go('industries')">Commercial</a></li>
         </ul>
       </div>
       <div class="ft-col">
         <h5>Contact</h5>
         <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
           </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
         </div>
         <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg><span> (905) 602-1850</span></div>
         <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-            <polyline points="22,6 12,13 2,6" />
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
           </svg><span>(905) 602-1853</span></div>
       </div>
     </div>
@@ -8119,6 +7949,9 @@
       init3DTilt();
     });
   </script>
+
+
+
 </body>
 
 </html>
