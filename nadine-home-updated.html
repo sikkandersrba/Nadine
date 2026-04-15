@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,7 +173,7 @@
     }
 
     .nav-a:hover {
-      color: var(--white);
+      color: #0dfffc;
       opacity: 0.8;
     }
 
@@ -238,7 +239,7 @@
     }
 
     .nav-cta {
-      background: var(--red);
+      background: #25c0be;
       color: var(--white);
       padding: 9px 20px;
       border-radius: 5px;
@@ -251,7 +252,8 @@
     }
 
     .nav-cta:hover {
-      background: var(--red-dark);
+      background: #0dfffc;
+	  color:black;
     }
 
     .hamburger {
@@ -508,12 +510,14 @@
     }
 
     .btn-red {
-      background: var(--red);
-      color: var(--white);
+      background: #25c0be;
+      color: #ffffff;
+	  border: 1px solid #0dfffc;
     }
 
     .btn-red:hover {
-      background: var(--red-dark);
+      background: #0dfffc;
+	  color: #0a141a;
       transform: translateY(-1px);
       box-shadow: 0 6px 18px rgba(211, 47, 47, .28);
     }
@@ -525,7 +529,7 @@
     }
 
     .btn-outline:hover {
-      background: #d32f2f;
+      background: #0dfffc;
       color: var(--white);
       border-color: var(--ink);
     }
@@ -965,7 +969,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(to bottom, rgba(10, 20, 30, 0.2) 0%, rgba(10, 20, 30, 0.8) 100%);
+      
     }
 
     .hero-content {
@@ -991,7 +995,7 @@
       font-size: clamp(18px, 1.3vw, 24px);
       color: rgba(255, 255, 255, 0.9) !important;
       /* Force visibility */
-      max-width: 700px;
+      max-width: 980px;
       line-height: 1.4;
       margin-bottom: 48px;
     }
@@ -1209,7 +1213,7 @@
     }
 
     .mstep:hover .mstep-title {
-      color: var(--red);
+      color: #0dfffc;
     }
 
     .mstep-body {
@@ -1498,7 +1502,7 @@
 
     .mstep-body {
       font-size: 14px;
-      color: #096261;
+      color: #ffffff;
       line-height: 1.6;
       max-width: 240px;
       margin: 0 auto;
@@ -2031,12 +2035,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background:
-        linear-gradient(to bottom,
-          rgba(10, 14, 18, .72) 0%,
-          rgba(10, 14, 18, .80) 40%,
-          rgba(10, 14, 18, .92) 75%,
-          rgba(10, 14, 18, .98) 100%);
+      background:#25c0be54;
     }
 
     /* Layer 2 — brand red tint from top-left corner */
@@ -2944,7 +2943,7 @@
       /* Hero */
       .hero-content h1 {
         font-size: 64px;
-        max-width: 700px;
+        max-width: 750px;
       }
 
       .hero-pill {
@@ -3342,7 +3341,7 @@
       position: absolute;
       top: 28px;
       left: -24px;
-      background: var(--red);
+      background: #25c0be;
       border-radius: 12px;
       padding: 16px 20px;
       min-width: 140px;
@@ -4671,7 +4670,7 @@
 
       <div class="hero-content sr-up">
         <div class="v-line left red" style="height: 60px; margin-bottom: 32px; background: var(--red);"></div>
-        <h1 style="color: var(--white);">Engineering Intelligence.<br>Defensible Capital Strategy.</h1>
+        <h1 style="color: var(--white);"><b style="color:#25c0be;">Engineering Intelligence.</b><br>Defensible Capital Strategy.</h1>
         <p style="color: rgba(255,255,255,0.85);">Nadine delivers structured Facility Condition Assessments and
           long-term capital forecasts that transform complex infrastructure data into confident funding strategy.</p>
 
@@ -4711,7 +4710,7 @@
       <div class="wrap">
         <div class="sec-head sr-up" style="text-align: center; margin-bottom: 40px;">
           <span class="eyebrow">Institutional Trust</span>
-          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 300;">Trusted by Canada's <span
+          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 300;">Trusted by Canada's </br><span
               style="font-weight: 800;">Leading Organizations</span></h2>
         </div>
 
@@ -5111,7 +5110,7 @@
         <div class="sec-head sr-3d-up">
           <span class="eyebrow">Industries</span>
           <h2>Built for Institutional Scale</h2>
-          <p>Providing independent engineering counsel to the public-sector organizations whose infrastructure decisions
+          <p STYLE="color:white;">Providing independent engineering counsel to the public-sector organizations whose infrastructure decisions
             carry the greatest consequence.</p>
         </div>
         <div class="ind-grid">
@@ -5216,7 +5215,7 @@
 
           <div class="cta-text-side sr-up">
             <span class="eyebrow" style="color: var(--red);">Get Started</span>
-            <h2>Your Infrastructure Decisions <br>Deserve a <span style="color: var(--red);">Stronger Foundation.</span>
+            <h2>Your Infrastructure Decisions <br>Deserve a <span style="color: #0dfffc;">Stronger Foundation.</span>
             </h2>
             <p>Partner with Nadine to develop lifecycle-based capital forecasts that are defensible, governance-aligned,
               and built to perform over the long term.</p>
@@ -5227,7 +5226,7 @@
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg></a>
-              <a class="btn btn-outline" href="#" onclick="go('services')">Explore All Services</a>
+              <a class="btn btn-white-outline" href="#" onclick="go('services')">Explore All Services</a>
             </div>
           </div>
 
@@ -5293,7 +5292,7 @@
                 alt="Engineering Leadership" class="about-photo-main"
                 style="width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); border: 1px solid var(--border);">
               <div class="about-stat-badge"
-                style="position: absolute; left: -40px; background: var(--red); color: white; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(211,47,47,0.3);">
+                style="position: absolute; left: -40px; background: #25c0be; color: white; padding: 24px; border-radius: 20px; box-shadow: 0px 5px 20px 0px rgb(45 46 46 / 50%);">
                 <span class="num" style="font-size: 40px; font-weight: 800; display: block;">30+</span>
                 <span class="lbl"
                   style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Years
