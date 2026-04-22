@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Nadine International Inc.</title>
+  <meta name="description" content="A national infrastructure intelligence partner delivering engineering-grade capital planning expertise.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-about">
+    <div class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-wrap">
+        <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>About</div>
+        <h1>A National Infrastructure Intelligence Partner</h1>
+        <p class="ph-sub">Founded on engineering rigor and governance alignment, Nadine delivers measurable infrastructure performance insight designed to withstand public accountability and funding scrutiny.</p>
+      </div>
+    </div>
+
+    <section class="about-manifesto">
+      <div class="wrap">
+        <div class="about-manifesto-grid">
+          <div class="sr-3d-depth">
+            <span class="eyebrow">Our Purpose</span>
+            <h2>Bringing Structure to Capital Planning</h2>
+            <p style="margin-top:14px;font-size:16px;line-height:1.75;">Infrastructure portfolios face increasing complexity — aging facilities, funding constraints, governance oversight, risk exposure, and multi-jurisdictional coordination. Nadine exists to bring structure, transparency, and engineering discipline to capital planning environments where clarity is essential.</p>
+            <p style="margin-top:12px;">We do not provide isolated inspection services. We deliver structured infrastructure intelligence frameworks aligned with long-term portfolio performance.</p>
+            <a class="btn btn-red" href="#" onclick="go('contact')" style="margin-top:32px;">Partner With Nadine</a>
+          </div>
+          <div class="about-stat-column sr-3d-up d2">
+            <div class="about-stat-item"><div class="about-stat-num">30+</div><div class="about-stat-lbl">Years of Institutional Infrastructure Experience</div></div>
+            <div class="about-stat-item"><div class="about-stat-num">95%</div><div class="about-stat-lbl">Client Retention Rate Across All Engagements</div></div>
+            <div class="about-stat-item"><div class="about-stat-num">National</div><div class="about-stat-lbl">Canada-Wide Portfolio Coverage and Presence</div></div>
+            <div class="about-stat-item"><div class="about-stat-num">$1B+</div><div class="about-stat-lbl">Capital Need Identified and Modeled for Clients</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-principles">
+      <div class="wrap" style="position:relative;z-index:10;">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;"><span class="eyebrow">Guiding Principles</span><h2>Engineering-Driven. Governance-Aligned.</h2><p style="color:rgba(232,244,248,0.5);">Three principles that ensure every recommendation is defensible — not subjective.</p></div>
+        <div class="about-principle-list sr-3d-flip d1">
+          <div class="about-principle-row"><div class="about-principle-idx"><span>01</span></div><div class="about-principle-term"><h4>Engineering Rigor</h4></div><div class="about-principle-def"><p>All recommendations are grounded in multi-discipline engineering evaluation and standardized methodology. No assumptions — only evidence collected by licensed engineers using consistent frameworks applied across every portfolio we serve.</p></div></div>
+          <div class="about-principle-row"><div class="about-principle-idx"><span>02</span></div><div class="about-principle-term"><h4>Structured Modeling</h4></div><div class="about-principle-def"><p>Capital planning is built on lifecycle forecasting, FCI benchmarking, and risk-informed prioritization. Every model we build is designed to withstand governance review — not simplify decisions, but make them defensible.</p></div></div>
+          <div class="about-principle-row"><div class="about-principle-idx"><span>03</span></div><div class="about-principle-term"><h4>Governance Alignment</h4></div><div class="about-principle-def"><p>Reporting and modeling frameworks are designed to support funding justification, audit readiness, and board-level transparency. We build for the scrutiny our clients face — not for internal convenience.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-diff-section">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up"><span class="eyebrow">What Differentiates Nadine</span><h2>Integrated Intelligence, Not Isolated Services</h2><p>Six attributes that distinguish Nadine's infrastructure intelligence approach from conventional assessment and consulting providers.</p></div>
+        <div class="about-diff-asymmetric sr d1">
+          <div class="about-diff-small">
+            <div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+            <h4>Integrated Engineering &amp; Capital Modeling</h4>
+            <p>Assessment data flows directly into capital forecasting — not as separate deliverables, but as one unified intelligence system. This integration is what makes our capital recommendations defensible.</p>
+          </div>
+          <div class="about-diff-small"><div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>Technology-Enabled Portfolio Intelligence</h4><p>Our platform transforms static reports into living data assets with real-time visibility and dynamic scenario modeling.</p></div>
+          <div class="about-diff-small"><div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h4>National Institutional Experience</h4><p>Deep understanding of the funding, governance, and operational challenges unique to Canadian public institutional infrastructure.</p></div>
+          <div class="about-diff-small"><div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h4>Risk-Informed Prioritization</h4><p>Capital decisions are weighted by safety exposure, regulatory risk, and operational continuity — not just condition scores.</p></div>
+          <div class="about-diff-small"><div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>Measurable Performance Benchmarking</h4><p>Standardized FCI frameworks applied consistently enable true cross-facility comparison and trend tracking over time.</p></div>
+          <div class="about-diff-small"><div class="diff-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.99"/></svg></div><h4>Ongoing Performance Management</h4><p>We partner with organizations for the long term — evolving capital strategies as portfolios grow and conditions change.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="wrap"><div class="cta-inner sr"><span class="eyebrow" style="color:rgba(211,47,47,.8);">Partner With Us</span><h2>Partner with a Structured Infrastructure Intelligence Firm</h2><p>Nadine combines engineering discipline, capital modeling expertise, and governance alignment to deliver measurable infrastructure performance improvement.</p><div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div></div>
+    </section>
+  </div>
+
+
+  <!-- CONTACT PAGE -->
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>(905) 602-1853</span></div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

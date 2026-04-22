@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies | Nadine International Inc.</title>
+  <meta name="description" content="Real client engagements demonstrating measurable infrastructure intelligence outcomes across sectors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-casestudies">
+    <div class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-wrap">
+        <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Case Studies</div>
+        <h1>Measurable Infrastructure Intelligence, Delivered</h1>
+        <p class="ph-sub">Real engagements. Quantifiable outcomes. Documented results that demonstrate how engineering-grade assessment and structured capital modeling deliver defensible infrastructure strategy.</p>
+      </div>
+    </div>
+
+    <section class="casestudies-intro">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:600px;"><span class="eyebrow">Featured Engagement</span><h2>Representative Client Outcomes</h2></div>
+        <div class="cs-featured sr-3d-flip d1">
+          <div class="cs-featured-img">
+            <img src="https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=800&q=80&auto=format&fit=crop" alt="Case Study">
+            <div class="cs-featured-img-overlay"></div>
+            <div class="cs-featured-badge">Featured</div>
+          </div>
+          <div class="cs-featured-content">
+            <div class="cs-featured-sector">Provincial Government &middot; 47 Facilities</div>
+            <h3>Portfolio-Wide FCA and 15-Year Capital Strategy for a Provincial Ministry</h3>
+            <p>A provincial government ministry engaged Nadine to conduct a comprehensive FCA across 47 facilities and develop a 15-year capital investment strategy aligned with treasury board submission requirements.</p>
+            <div class="cs-featured-kpis">
+              <div><div class="cs-kpi-num">$142M</div><div class="cs-kpi-lbl">Capital Need Identified</div></div>
+              <div><div class="cs-kpi-num">15yr</div><div class="cs-kpi-lbl">Forecast Horizon</div></div>
+              <div><div class="cs-kpi-num">47</div><div class="cs-kpi-lbl">Facilities Assessed</div></div>
+            </div>
+            <a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13.5px;">Discuss Similar Engagement</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-grid-editorial">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;"><span class="eyebrow">Client Engagements</span><h2>Cross-Sector Capital Intelligence Delivery</h2></div>
+        <div class="cs-editorial-grid">
+          <div class="cs-editorial-card sr-3d-up d1"><div class="cs-editorial-sidebar"></div><div class="cs-editorial-body"><div class="cs-editorial-meta"><span class="cs-editorial-tag">Healthcare</span></div><h4>Hospital Campus FCA — 12 Buildings, 1.2M sq ft</h4><p>Multi-building healthcare campus assessment covering HVAC, electrical, life-safety, and building envelope systems. Delivered risk-weighted capital prioritization for board approval.</p><div class="cs-editorial-results"><div><div class="cs-editorial-result-num">$38M</div><div class="cs-editorial-result-lbl">5yr Capital Need</div></div><div><div class="cs-editorial-result-num">12</div><div class="cs-editorial-result-lbl">Buildings Assessed</div></div><div><div class="cs-editorial-result-num">92%</div><div class="cs-editorial-result-lbl">Board Approval Rate</div></div></div></div></div>
+          <div class="cs-editorial-card sr-3d-up d2"><div class="cs-editorial-sidebar"></div><div class="cs-editorial-body"><div class="cs-editorial-meta"><span class="cs-editorial-tag">Education</span></div><h4>School Board Portfolio — 63 Schools, 20-Year Plan</h4><p>Comprehensive FCA and 20-year capital forecasting for a large school board's aging facility portfolio. Ministry-aligned reporting formats and renewal program prioritization.</p><div class="cs-editorial-results"><div><div class="cs-editorial-result-num">63</div><div class="cs-editorial-result-lbl">Schools Assessed</div></div><div><div class="cs-editorial-result-num">$215M</div><div class="cs-editorial-result-lbl">20yr Capital Need</div></div><div><div class="cs-editorial-result-num">20yr</div><div class="cs-editorial-result-lbl">Forecast</div></div></div></div></div>
+          <div class="cs-editorial-card sr-3d-up d3"><div class="cs-editorial-sidebar"></div><div class="cs-editorial-body"><div class="cs-editorial-meta"><span class="cs-editorial-tag">Public Safety</span></div><h4>Police &amp; Fire Facility Assessment — Regional Multi-Jurisdiction</h4><p>Multi-jurisdiction assessment of police stations and fire halls. Life-safety system prioritization and operational continuity risk modeling delivered across three regional municipalities.</p><div class="cs-editorial-results"><div><div class="cs-editorial-result-num">28</div><div class="cs-editorial-result-lbl">Facilities</div></div><div><div class="cs-editorial-result-num">$22M</div><div class="cs-editorial-result-lbl">Near-Term Need</div></div><div><div class="cs-editorial-result-num">3</div><div class="cs-editorial-result-lbl">Jurisdictions</div></div></div></div></div>
+          <div class="cs-editorial-card sr-3d-up d4"><div class="cs-editorial-sidebar"></div><div class="cs-editorial-body"><div class="cs-editorial-meta"><span class="cs-editorial-tag">Government</span></div><h4>Municipal Portfolio Capital Strategy — 31 Assets</h4><p>Full portfolio FCA and capital planning engagement for a mid-size municipality. Risk-informed prioritization framework and multi-year capital investment roadmap for council approval.</p><div class="cs-editorial-results"><div><div class="cs-editorial-result-num">31</div><div class="cs-editorial-result-lbl">Assets</div></div><div><div class="cs-editorial-result-num">$61M</div><div class="cs-editorial-result-lbl">10yr Capital Need</div></div><div><div class="cs-editorial-result-num">95%</div><div class="cs-editorial-result-lbl">Council Approval</div></div></div></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="wrap"><div class="cta-inner sr"><span class="eyebrow" style="color:rgba(211,47,47,.8);">Your Engagement</span><h2>Deliver Measurable Capital Intelligence for Your Portfolio</h2><p>Contact Nadine to discuss your infrastructure challenge and how we can deliver structured, defensible capital strategy for your organization.</p><div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Start the Conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div></div>
+    </section>
+  </div>
+
+
+  <!-- ABOUT PAGE -->
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>(905) 602-1853</span></div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

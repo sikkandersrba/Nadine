@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk Strategy | Nadine International Inc.</title>
+  <meta name="description" content="Risk-informed infrastructure strategy integrating safety, regulatory, and operational continuity into capital prioritization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-risk">
+    <div class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-wrap">
+        <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep>/</sep><a href="#" onclick="go('services')">Services</a><sep> / </sep>Risk Strategy</div>
+        <h1>Risk-Informed Infrastructure Strategy</h1>
+        <p class="ph-sub">Capital decisions weighted by safety exposure, regulatory risk, and operational continuity — not just asset condition scores. Ensuring the most critical assets receive investment when it matters most.</p>
+        <div class="ph-cta"><a class="btn btn-red" href="#" onclick="go('contact')">Assess Your Risk Exposure</a></div>
+      </div>
+    </div>
+
+    <section class="risk-overview">
+      <div class="wrap">
+        <div class="risk-two-col">
+          <div class="sr-3d-depth">
+            <span class="eyebrow">Risk Intelligence</span>
+            <h2>Prioritize by Consequence, Not Condition</h2>
+            <p style="margin-top:14px;font-size:16px;line-height:1.75;">Condition scores tell you what is deteriorating. Risk scores tell you what you cannot afford to let fail. Nadine integrates both into a unified capital prioritization framework.</p>
+            <ul class="checklist" style="margin-top:28px;">
+              <li>Life-safety impact assessment for all critical systems</li>
+              <li>Regulatory exposure and compliance gap identification</li>
+              <li>Operational continuity risk scoring per facility</li>
+              <li>Risk-weighted capital prioritization matrix</li>
+              <li>Defensible documentation for governance review</li>
+            </ul>
+          </div>
+          <div class="sr-3d-left d2">
+            <div class="risk-matrix-visual">
+              <div class="risk-matrix-title">Risk Prioritization Matrix — Likelihood vs. Impact</div>
+              <div style="display:flex;gap:8px;align-items:flex-start;">
+                <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.1em;padding-right:8px;flex-shrink:0;">Impact</div>
+                <div style="flex:1;">
+                  <div class="risk-matrix-grid">
+                    <div class="risk-cell med">M</div><div class="risk-cell high">H</div><div class="risk-cell high">H</div><div class="risk-cell critical">C</div>
+                    <div class="risk-cell low">L</div><div class="risk-cell med">M</div><div class="risk-cell high">H</div><div class="risk-cell high">H</div>
+                    <div class="risk-cell low">L</div><div class="risk-cell low">L</div><div class="risk-cell med">M</div><div class="risk-cell high">H</div>
+                    <div class="risk-cell low">L</div><div class="risk-cell low">L</div><div class="risk-cell low">L</div><div class="risk-cell med">M</div>
+                  </div>
+                  <div style="font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.1em;text-align:center;margin-top:8px;">Likelihood</div>
+                </div>
+              </div>
+              <div class="risk-matrix-legend"><div class="risk-legend-item"><div class="risk-legend-dot" style="background:rgba(37,192,190,0.4);"></div>Low</div><div class="risk-legend-item"><div class="risk-legend-dot" style="background:rgba(255,165,0,0.45);"></div>Medium</div><div class="risk-legend-item"><div class="risk-legend-dot" style="background:rgba(211,47,47,0.5);"></div>High</div><div class="risk-legend-item"><div class="risk-legend-dot" style="background:rgba(211,47,47,0.85);"></div>Critical</div></div>
+              <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);">
+                <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:12px;font-weight:600;">Typical Portfolio Distribution</div>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                  <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,0.4);">Critical Priority Assets</span><span style="color:var(--red);font-weight:700;">8%</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,0.4);">High Priority Assets</span><span style="color:#FF8C00;font-weight:700;">24%</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,0.4);">Moderate Priority</span><span style="color:#25C0BE;font-weight:700;">41%</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,0.4);">Routine Maintenance</span><span style="color:rgba(255,255,255,0.45);font-weight:700;">27%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="risk-priorities">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:600px;"><span class="eyebrow">Prioritization Dimensions</span><h2>Four Dimensions of Risk Assessment</h2><p>Nadine evaluates infrastructure risk across four interconnected dimensions — producing a defensible prioritization framework that aligns with governance standards.</p></div>
+        <div class="risk-priority-list">
+          <div class="risk-priority-item sr-3d-right d1"><div class="risk-priority-rank">01</div><div class="risk-priority-content"><h4>Life-Safety Exposure</h4><p>Systems whose failure could directly endanger building occupants, emergency responders, or adjacent communities receive the highest risk weight in all prioritization models.</p></div><div class="risk-badge rbadge-critical">Critical</div></div>
+          <div class="risk-priority-item sr-3d-right d2"><div class="risk-priority-rank">02</div><div class="risk-priority-content"><h4>Regulatory &amp; Compliance Risk</h4><p>Assets where deferred maintenance creates legal liability, code non-compliance, or insurance coverage risk are weighted for priority capital attention before enforcement action.</p></div><div class="risk-badge rbadge-high">High</div></div>
+          <div class="risk-priority-item sr-3d-right d3"><div class="risk-priority-rank">03</div><div class="risk-priority-content"><h4>Operational Continuity Impact</h4><p>Systems whose failure would disrupt essential public services, healthcare delivery, or institutional operations are prioritized for reinvestment ahead of purely cosmetic considerations.</p></div><div class="risk-badge rbadge-high">High</div></div>
+          <div class="risk-priority-item sr-3d-right d4"><div class="risk-priority-rank">04</div><div class="risk-priority-content"><h4>Institutional Risk Tolerance</h4><p>Capital recommendations are calibrated to each organization's documented risk tolerance, governance appetite, and public accountability obligations.</p></div><div class="risk-badge rbadge-moderate">Moderate</div></div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="wrap"><div class="cta-inner sr"><span class="eyebrow" style="color:rgba(211,47,47,.8);">Manage Your Risk</span><h2>Risk-Informed Capital Decisions Start Here</h2><p>Partner with Nadine to develop a risk-weighted capital prioritization framework that withstands governance scrutiny.</p><div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Assess Your Risk Exposure <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div></div>
+    </section>
+  </div>
+
+
+  <!-- INDUSTRIES PAGE -->
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>(905) 602-1853</span></div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
