@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study | Nadine International Inc.</title>
+  <meta name="description" content="Detailed case study showcasing Nadine's structured infrastructure intelligence and capital planning outcomes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+        <a class="nav-a" href="#" onclick="go('careers')">Careers</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('careers');closeMob()">Careers</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-case-detail">
+
+    <!-- HERO with case-specific image -->
+    <div class="cs-detail-hero">
+      <div class="cs-detail-hero-bg" id="csHeroBg"></div>
+      <div class="cs-detail-hero-overlay"></div>
+      <div class="cs-detail-hero-wrap">
+        <div class="breadcrumb light"><a href="#" onclick="go('home')">Home</a><sep> / </sep><a href="#" onclick="go('casestudies')">Case Studies</a><sep> / </sep><span id="csCrumb">Case Study</span></div>
+        <div class="cs-detail-tag" id="csSector">Sector</div>
+        <h1 id="csTitle">Loading…</h1>
+        <p class="cs-detail-lede" id="csLede"></p>
+      </div>
+    </div>
+
+    <!-- Section 1: Client Overview -->
+    <section class="cs-section">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:680px;">
+          <span class="eyebrow">01 — Client Overview</span>
+          <h2 id="csOverviewTitle">Engagement Context</h2>
+        </div>
+        <div class="cs-overview-grid sr-up d1">
+          <div class="cs-overview-item"><span class="cs-overview-lbl">Sector</span><span class="cs-overview-val" id="csOvSector">—</span></div>
+          <div class="cs-overview-item"><span class="cs-overview-lbl">Portfolio Size</span><span class="cs-overview-val" id="csOvPortfolio">—</span></div>
+          <div class="cs-overview-item"><span class="cs-overview-lbl">Geographic Scope</span><span class="cs-overview-val" id="csOvGeo">—</span></div>
+          <div class="cs-overview-item"><span class="cs-overview-lbl">Asset Types</span><span class="cs-overview-val" id="csOvAssets">—</span></div>
+          <div class="cs-overview-item"><span class="cs-overview-lbl">Capital Horizon</span><span class="cs-overview-val" id="csOvHorizon">—</span></div>
+          <div class="cs-overview-item"><span class="cs-overview-lbl">Engagement Type</span><span class="cs-overview-val" id="csOvType">—</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: The Challenge -->
+    <section class="cs-section alt">
+      <div class="wrap">
+        <div class="cs-twocol">
+          <div class="sr-3d-up">
+            <span class="eyebrow">02 — The Challenge</span>
+            <h2 id="csChallengeTitle">Engagement Drivers</h2>
+          </div>
+          <div class="sr-up d2">
+            <p class="cs-section-lead" id="csChallengeLead"></p>
+            <ul class="cs-bullets" id="csChallengeBullets"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Nadine's Approach -->
+    <section class="cs-section">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:680px;">
+          <span class="eyebrow">03 — Nadine's Approach</span>
+          <h2>Structured Engineering Methodology</h2>
+        </div>
+        <div class="cs-approach-grid sr-up d1" id="csApproachGrid"></div>
+      </div>
+    </section>
+
+    <!-- Section 4: Technology Integration -->
+    <section class="cs-section alt">
+      <div class="wrap">
+        <div class="cs-twocol">
+          <div class="sr-3d-up">
+            <span class="eyebrow">04 — Technology Integration</span>
+            <h2>Platform-Enabled Delivery</h2>
+          </div>
+          <div class="sr-up d2">
+            <p class="cs-section-lead" id="csTechLead"></p>
+            <ul class="cs-bullets" id="csTechBullets"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Measurable Outcomes -->
+    <section class="cs-section cs-section-dark">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:680px;">
+          <span class="eyebrow" style="color:var(--red);">05 — Measurable Outcomes</span>
+          <h2 style="color:#fff;">Quantified Impact</h2>
+          <p style="color:rgba(255,255,255,0.6);">Documented outcomes delivered through structured methodology — not isolated inspection work.</p>
+        </div>
+        <div class="cs-outcomes-grid sr-up d1" id="csOutcomesGrid"></div>
+      </div>
+    </section>
+
+    <!-- Section 6: Long-Term Impact -->
+    <section class="cs-section">
+      <div class="wrap">
+        <div class="cs-twocol">
+          <div class="sr-3d-up">
+            <span class="eyebrow">06 — Long-Term Impact</span>
+            <h2>Sustained Performance Benefits</h2>
+          </div>
+          <div class="sr-up d2">
+            <p class="cs-section-lead" id="csImpactLead"></p>
+            <ul class="cs-bullets" id="csImpactBullets"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: CTA -->
+    <section class="cta-section">
+      <div class="wrap">
+        <div class="cta-inner sr">
+          <span class="eyebrow" style="color:rgba(211,47,47,.8);">07 — Begin Your Engagement</span>
+          <h2>Implement Structured Capital Intelligence in Your Portfolio</h2>
+          <p>Partner with Nadine to develop measurable, defensible infrastructure strategy aligned with governance standards.</p>
+          <div class="cta-btns">
+            <a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="btn btn-outline" href="#" onclick="go('casestudies')">View All Case Studies</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('careers')">Careers</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <a class="ft-cinfo ft-cinfo-link" href="#" onclick="go('contact');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>info@nadineintl.com</span>
+        </a>
+        <div class="ft-socials">
+          <a href="https://www.linkedin.com/company/nadine-international-inc-" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Visit our international site" title="International site (coming soon)" class="ft-social-link ft-social-region">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Case Study Data ───
+    // To add a new case study: add a new object below using the same shape.
+    const CASE_DATA = {
+      provincial: {
+        sector: "Provincial Government",
+        crumb: "Provincial Capital Strategy",
+        title: "Multi-Year Capital Strategy for a Provincial Infrastructure Portfolio",
+        lede: "A provincial ministry engaged Nadine to deliver standardized portfolio visibility across 1,200+ distributed facilities and align capital planning with multi-year funding cycles and governance reporting requirements.",
+        image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&auto=format&fit=crop",
+        overview: {
+          sector: "Provincial Government",
+          portfolio: "1,200+ Facilities",
+          geo: "Multi-Region",
+          assets: "Administrative, Operational, Public-Facing",
+          horizon: "15 Years",
+          type: "Full-Portfolio FCA + Capital Strategy"
+        },
+        challengeLead: "The client required standardized portfolio visibility across distributed facilities while aligning capital planning with multi-year funding cycles and governance reporting requirements.",
+        challengeBullets: [
+          "Inconsistent condition data across regions",
+          "Limited lifecycle forecasting capability",
+          "Significant deferred maintenance accumulation",
+          "Treasury board funding-transparency requirements",
+          "Audit-ready documentation for public accountability"
+        ],
+        approach: [
+          { n: "01", title: "Comprehensive FCA", desc: "Engineering-grade multi-discipline assessment across the portfolio — structural, mechanical, electrical, life-safety." },
+          { n: "02", title: "Standardized FCI Modeling", desc: "Repeatable scoring methodology applied consistently to enable cross-facility comparison." },
+          { n: "03", title: "15-Year Capital Forecast", desc: "Lifecycle projections aligned to provincial budget cycles with funding scenario modeling." },
+          { n: "04", title: "Risk-Informed Prioritization", desc: "Capital sequenced by safety exposure, regulatory requirements, and operational continuity." },
+          { n: "05", title: "Executive Reporting", desc: "Treasury-ready capital intelligence supporting funding submission and audit review." }
+        ],
+        techLead: "Assessment data was integrated directly into Nadine's Infrastructure Intelligence Platform, providing the ministry with live portfolio visibility long after engagement delivery.",
+        techBullets: [
+          "Live portfolio dashboards across all regions",
+          "Multi-scenario funding modeling",
+          "Criticality heatmapping for visual prioritization",
+          "Portfolio-level FCI benchmarking and trend tracking"
+        ],
+        outcomes: [
+          { num: "1,200+", lbl: "Facilities Assessed" },
+          { num: "15yr", lbl: "Capital Forecast Established" },
+          { num: "18%", lbl: "Reactive Repair Reduction" },
+          { num: "100%", lbl: "Standardized FCI Coverage" },
+          { num: "Audit-Ready", lbl: "Documentation Delivered" }
+        ],
+        impactLead: "The engagement delivered sustained benefits well beyond the initial assessment cycle.",
+        impactBullets: [
+          "Ongoing portfolio performance tracking through the platform",
+          "Improved capital planning discipline across departments",
+          "Enhanced governance confidence in funding submissions",
+          "Structured, repeatable risk mitigation framework"
+        ]
+      },
+
+      municipal: {
+        sector: "Municipal Government",
+        crumb: "Municipal Portfolio Strategy",
+        title: "Municipal Infrastructure Portfolio — Distributed Public Facilities",
+        lede: "A mid-size municipality engaged Nadine to deliver a full portfolio FCA and capital planning engagement, including a risk-informed prioritization framework and a multi-year capital investment roadmap for council approval.",
+        image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1800&q=80&auto=format&fit=crop",
+        overview: {
+          sector: "Municipal Government",
+          portfolio: "31 Facilities",
+          geo: "Single Municipality",
+          assets: "Public Works, Recreation, Administrative",
+          horizon: "10 Years",
+          type: "FCA + Capital Roadmap"
+        },
+        challengeLead: "The municipality needed a transparent, defensible capital plan to support council approval and align engineering recommendations with available funding capacity.",
+        challengeBullets: [
+          "Aging infrastructure across distributed sites",
+          "Limited visibility into deferred maintenance exposure",
+          "Council requirement for documented prioritization rationale",
+          "Funding capacity constraints requiring trade-off analysis"
+        ],
+        approach: [
+          { n: "01", title: "Asset Inventory & Classification", desc: "Comprehensive catalog of all municipal facilities by type, function, and criticality." },
+          { n: "02", title: "Multi-Discipline FCA", desc: "Engineering evaluation across all major systems and asset classes." },
+          { n: "03", title: "Risk-Based Prioritization", desc: "Capital sequenced by operational impact and life-safety exposure." },
+          { n: "04", title: "Capital Roadmap", desc: "10-year investment plan structured around council-approved funding levels." }
+        ],
+        techLead: "The platform provided council members with on-demand visibility into capital scenarios and trade-off analysis.",
+        techBullets: [
+          "Council-facing portfolio dashboard",
+          "Funding scenario comparison tools",
+          "Per-facility condition records with photo documentation"
+        ],
+        outcomes: [
+          { num: "31", lbl: "Assets Documented" },
+          { num: "$61M", lbl: "10-Year Capital Need Identified" },
+          { num: "95%", lbl: "Council Approval on Plan" },
+          { num: "100%", lbl: "Risk-Weighted Prioritization Coverage" }
+        ],
+        impactLead: "The municipality moved from reactive capital management to a structured, multi-year planning discipline.",
+        impactBullets: [
+          "Council confidence in capital prioritization rationale",
+          "Quantified deferred-maintenance backlog enables future funding submissions",
+          "Standardized framework supports future re-assessments",
+          "Improved transparency in public budget reporting"
+        ]
+      },
+
+      publicsafety: {
+        sector: "Public Safety",
+        crumb: "Public Safety Network",
+        title: "Public Safety Facility Network — Mission-Critical Environment",
+        lede: "Nadine delivered a multi-jurisdictional FCA and capital strategy across 28 police stations and fire halls, including criticality heatmap implementation and lifecycle-based modeling for three regional municipalities.",
+        image: "https://images.unsplash.com/photo-1590487988256-9ed24133863e?w=1800&q=80&auto=format&fit=crop",
+        overview: {
+          sector: "Public Safety",
+          portfolio: "28 Facilities",
+          geo: "3 Regional Municipalities",
+          assets: "Police Stations, Fire Halls, Emergency Operations",
+          horizon: "10 Years",
+          type: "FCA + Risk Modeling + Capital Planning"
+        },
+        challengeLead: "Public safety facilities require uninterrupted operational performance. The client needed a defensible, risk-prioritized capital roadmap reflecting life-safety and operational continuity exposure.",
+        challengeBullets: [
+          "Mission-critical operational continuity requirements",
+          "Multi-jurisdictional governance coordination",
+          "Inconsistent assessment history across municipalities",
+          "Need for standardized criticality classification"
+        ],
+        approach: [
+          { n: "01", title: "Critical System Identification", desc: "Classified every facility system by life-safety, operational, and continuity criticality." },
+          { n: "02", title: "Multi-Discipline FCA", desc: "Detailed engineering assessment with explicit attention to back-up power, life-safety, and emergency systems." },
+          { n: "03", title: "Criticality Heatmap", desc: "Visual prioritization matrix mapping facility-level risk exposure for executive review." },
+          { n: "04", title: "Lifecycle Capital Modeling", desc: "Multi-year forecast aligned with operational continuity requirements." }
+        ],
+        techLead: "Criticality heatmaps and dashboards gave regional leadership a unified, real-time view of risk exposure across jurisdictions.",
+        techBullets: [
+          "Cross-jurisdiction criticality dashboard",
+          "Life-safety system condition tracking",
+          "Funding-scenario simulations for risk reduction",
+          "Audit-ready governance reporting exports"
+        ],
+        outcomes: [
+          { num: "28", lbl: "Facilities Across 3 Jurisdictions" },
+          { num: "$22M", lbl: "Near-Term Capital Need" },
+          { num: "100%", lbl: "Critical System Coverage" },
+          { num: "↓ Risk", lbl: "Quantified Exposure Reduction" }
+        ],
+        impactLead: "The engagement transformed how the regional partners govern shared mission-critical infrastructure.",
+        impactBullets: [
+          "Standardized criticality framework adopted across all three municipalities",
+          "Improved life-safety system reinvestment prioritization",
+          "Joint governance reporting framework now in operational use",
+          "Foundation for future joint funding submissions"
+        ]
+      },
+
+      healthcare: {
+        sector: "Healthcare",
+        crumb: "Hospital Campus FCA",
+        title: "Hospital Campus FCA — 12 Buildings, 1.2M sq ft",
+        lede: "A multi-building healthcare campus engaged Nadine for a comprehensive condition assessment covering HVAC, electrical, life-safety, and envelope systems — and a risk-weighted capital prioritization for board approval.",
+        image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1800&q=80&auto=format&fit=crop",
+        overview: {
+          sector: "Healthcare",
+          portfolio: "12 Buildings (1.2M sq ft)",
+          geo: "Single Campus",
+          assets: "Acute Care, Outpatient, Support Services",
+          horizon: "5 Years",
+          type: "Campus FCA + Capital Plan"
+        },
+        challengeLead: "Healthcare infrastructure assessments require specialized expertise across complex building systems where failure consequences are measured in patient safety outcomes.",
+        challengeBullets: [
+          "Complex multi-building campus with interconnected systems",
+          "Continuous-operations constraints during assessment",
+          "Specialized medical-gas and life-safety system requirements",
+          "Board-level capital justification required"
+        ],
+        approach: [
+          { n: "01", title: "Coordinated Field Program", desc: "Phased multi-discipline assessment scheduled around clinical operations." },
+          { n: "02", title: "Specialized System Evaluation", desc: "HVAC, medical gas, life-safety, electrical, envelope, and structural review." },
+          { n: "03", title: "Risk-Weighted Prioritization", desc: "Capital sequencing aligned with patient-safety and operational continuity exposure." },
+          { n: "04", title: "Board-Ready Reporting", desc: "Executive-level capital intelligence translating engineering findings into funding strategy." }
+        ],
+        techLead: "Assessment results were integrated into a campus-wide dashboard enabling facility leadership to track condition trends and capital execution.",
+        techBullets: [
+          "Building-by-building dashboard with FCI trends",
+          "Capital scenario comparisons for board review",
+          "Photo-documented deficiency tracking"
+        ],
+        outcomes: [
+          { num: "12", lbl: "Buildings Assessed" },
+          { num: "$38M", lbl: "5-Year Capital Need" },
+          { num: "92%", lbl: "Board Approval on Capital Plan" },
+          { num: "100%", lbl: "Life-Safety Systems Documented" }
+        ],
+        impactLead: "The engagement delivered structured capital intelligence enabling proactive infrastructure management at the campus level.",
+        impactBullets: [
+          "Board confidence in 5-year capital strategy",
+          "Documented life-safety baseline for accreditation review",
+          "Reduced reliance on reactive emergency repairs",
+          "Foundation for ongoing portfolio performance management"
+        ]
+      },
+
+      education: {
+        sector: "Education",
+        crumb: "School Board Portfolio",
+        title: "School Board Portfolio — 63 Schools, 20-Year Plan",
+        lede: "A large school board engaged Nadine for a comprehensive FCA and 20-year capital forecasting program across an aging facility portfolio — with ministry-aligned reporting and renewal program prioritization.",
+        image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1800&q=80&auto=format&fit=crop",
+        overview: {
+          sector: "Education (K–12)",
+          portfolio: "63 Schools",
+          geo: "Single School Board",
+          assets: "Elementary &amp; Secondary School Buildings",
+          horizon: "20 Years",
+          type: "Portfolio FCA + Renewal Plan"
+        },
+        challengeLead: "Educational institutions manage large, aging building portfolios under significant funding pressure. The client needed a structured renewal plan aligned with provincial Ministry of Education reporting frameworks.",
+        challengeBullets: [
+          "Aging building stock across 63 schools",
+          "Provincial ministry reporting alignment requirements",
+          "Multi-decade renewal funding cycle",
+          "Accessibility and code compliance integration"
+        ],
+        approach: [
+          { n: "01", title: "Standardized FCA Across All Schools", desc: "Repeatable methodology enabling cross-portfolio comparison and benchmarking." },
+          { n: "02", title: "20-Year Capital Forecast", desc: "Lifecycle projections aligned with provincial renewal program funding cycles." },
+          { n: "03", title: "Renewal Program Prioritization", desc: "School-level prioritization aligned with ministry funding criteria." },
+          { n: "04", title: "Ministry-Aligned Reporting", desc: "Documentation formatted for provincial submission and audit review." }
+        ],
+        techLead: "The platform gave the school board long-term visibility into portfolio performance and renewal program execution.",
+        techBullets: [
+          "Per-school condition records with deficiency photos",
+          "Portfolio-wide FCI benchmarking and trends",
+          "Renewal funding scenario modeling",
+          "Ministry-aligned reporting exports"
+        ],
+        outcomes: [
+          { num: "63", lbl: "Schools Assessed" },
+          { num: "$215M", lbl: "20-Year Capital Need" },
+          { num: "20yr", lbl: "Forecast Horizon" },
+          { num: "100%", lbl: "Ministry-Aligned Reporting" }
+        ],
+        impactLead: "The school board moved from year-by-year repair budgeting to a structured, defensible, multi-decade renewal strategy.",
+        impactBullets: [
+          "Improved alignment with provincial renewal funding cycles",
+          "Documented prioritization rationale supports trustee decisions",
+          "Enhanced transparency in capital allocation across communities",
+          "Foundation for future ministry funding submissions"
+        ]
+      }
+    };
+
+    function el(id) { return document.getElementById(id); }
+    function setText(id, text) { var e = el(id); if (e) e.textContent = text; }
+
+    function renderCase() {
+      var params = new URLSearchParams(window.location.search);
+      var id = params.get('id') || 'provincial';
+      var data = CASE_DATA[id] || CASE_DATA.provincial;
+
+      document.title = data.title + ' | Nadine International Inc.';
+
+      // Hero
+      var bg = el('csHeroBg');
+      if (bg) bg.style.backgroundImage = 'url("' + data.image + '")';
+      setText('csCrumb', data.crumb);
+      setText('csSector', data.sector);
+      setText('csTitle', data.title);
+      setText('csLede', data.lede);
+
+      // Overview
+      setText('csOvSector', data.overview.sector);
+      setText('csOvPortfolio', data.overview.portfolio);
+      setText('csOvGeo', data.overview.geo);
+      var ovAssets = el('csOvAssets');
+      if (ovAssets) ovAssets.innerHTML = data.overview.assets;
+      setText('csOvHorizon', data.overview.horizon);
+      setText('csOvType', data.overview.type);
+
+      // Challenge
+      setText('csChallengeLead', data.challengeLead);
+      var chB = el('csChallengeBullets');
+      if (chB) {
+        chB.innerHTML = '';
+        data.challengeBullets.forEach(function (b) {
+          var li = document.createElement('li');
+          li.textContent = b;
+          chB.appendChild(li);
+        });
+      }
+
+      // Approach grid
+      var ap = el('csApproachGrid');
+      if (ap) {
+        ap.innerHTML = '';
+        data.approach.forEach(function (item) {
+          var card = document.createElement('div');
+          card.className = 'cs-approach-card';
+          card.innerHTML = '<span class="cs-approach-num">' + item.n + '</span>'
+            + '<h5>' + item.title + '</h5>'
+            + '<p>' + item.desc + '</p>';
+          ap.appendChild(card);
+        });
+      }
+
+      // Tech
+      setText('csTechLead', data.techLead);
+      var tB = el('csTechBullets');
+      if (tB) {
+        tB.innerHTML = '';
+        data.techBullets.forEach(function (b) {
+          var li = document.createElement('li');
+          li.textContent = b;
+          tB.appendChild(li);
+        });
+      }
+
+      // Outcomes
+      var og = el('csOutcomesGrid');
+      if (og) {
+        og.innerHTML = '';
+        data.outcomes.forEach(function (o) {
+          var card = document.createElement('div');
+          card.className = 'cs-outcome-card';
+          card.innerHTML = '<div class="cs-outcome-num">' + o.num + '</div><div class="cs-outcome-lbl">' + o.lbl + '</div>';
+          og.appendChild(card);
+        });
+      }
+
+      // Impact
+      setText('csImpactLead', data.impactLead);
+      var iB = el('csImpactBullets');
+      if (iB) {
+        iB.innerHTML = '';
+        data.impactBullets.forEach(function (b) {
+          var li = document.createElement('li');
+          li.textContent = b;
+          iB.appendChild(li);
+        });
+      }
+    }
+
+    // Run before main.js scroll-reveal observer
+    renderCase();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
