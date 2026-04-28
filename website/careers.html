@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | Nadine International Inc.</title>
+  <meta name="description" content="Build engineering-grade infrastructure intelligence with Nadine. Explore careers in facility condition assessment, capital planning, and risk-informed strategy across Canada.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+        <a class="nav-a active" href="#" onclick="go('careers')">Careers</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('careers');closeMob()">Careers</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-careers">
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-wrap">
+        <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Careers</div>
+        <h1>Careers at Nadine</h1>
+        <p class="ph-sub">Build engineering-grade infrastructure intelligence alongside a national team supporting federal, provincial, municipal, and institutional portfolios across Canada.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
+          <a class="btn btn-red" href="#openings">See Current Opportunities</a>
+          <a class="btn btn-outline" href="#" onclick="go('about');return false;">Learn About Nadine</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRO / PURPOSE -->
+    <section class="careers-intro">
+      <div class="wrap">
+        <div class="careers-intro-grid">
+          <div class="sr-3d-depth">
+            <span class="eyebrow">Why Nadine</span>
+            <h2>We're here to help you reach your full potential</h2>
+            <p style="margin-top:14px;font-size:17px;line-height:1.75;color:var(--ink);">At Nadine, careers are built on engineering rigor, structured methodology, and meaningful impact. Our people support critical public and institutional infrastructure portfolios — work that shapes how Canada plans, funds, and protects its built environment.</p>
+            <p style="margin-top:12px;font-size:16px;line-height:1.75;">We invest in our team through professional development, competitive compensation, and a collaborative culture grounded in technical excellence and governance discipline.</p>
+          </div>
+          <div class="careers-intro-stats sr-3d-up d2">
+            <div class="careers-stat-item">
+              <div class="careers-stat-num">30+</div>
+              <div class="careers-stat-lbl">Years of Institutional Infrastructure Experience</div>
+            </div>
+            <div class="careers-stat-item">
+              <div class="careers-stat-num">National</div>
+              <div class="careers-stat-lbl">Project Coverage Across Canadian Jurisdictions</div>
+            </div>
+            <div class="careers-stat-item">
+              <div class="careers-stat-num">Multi-Discipline</div>
+              <div class="careers-stat-lbl">Engineering, Capital Planning, Risk &amp; Technology Teams</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES / WHAT IT'S LIKE -->
+    <section class="careers-values">
+      <div class="wrap">
+        <div style="text-align:center;max-width:780px;margin:0 auto 56px;">
+          <span class="eyebrow">What It's Like Here</span>
+          <h2 class="sr-up">A culture built on structure, clarity, and engineering integrity</h2>
+          <p class="sr-up d1" style="margin-top:14px;font-size:17px;line-height:1.7;color:var(--ink);">Nadine teams operate with discipline and purpose. We work on portfolios where the stakes are real — public safety facilities, healthcare campuses, government infrastructure — and we hold ourselves to standards that match.</p>
+        </div>
+        <div class="careers-values-grid">
+          <div class="careers-value-card sr-3d-up">
+            <div class="careers-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3>Engineering Integrity</h3>
+            <p>Every recommendation is grounded in multi-discipline assessment and standardized methodology. We do work that withstands governance scrutiny.</p>
+          </div>
+          <div class="careers-value-card sr-3d-up d1">
+            <div class="careers-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Collaborative Teams</h3>
+            <p>Engineers, planners, and technologists work side by side. Knowledge moves freely; decisions are explained, documented, and shared.</p>
+          </div>
+          <div class="careers-value-card sr-3d-up d2">
+            <div class="careers-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <h3>Meaningful Impact</h3>
+            <p>Our work supports the facilities communities depend on. Capital strategies we develop protect long-term performance for the public good.</p>
+          </div>
+          <div class="careers-value-card sr-3d-up d3">
+            <div class="careers-value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"/>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+            <h3>Continuous Growth</h3>
+            <p>We support credentials, mentorship, and exposure to portfolios across sectors and jurisdictions. Careers here build capability over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="careers-benefits">
+      <div class="wrap">
+        <div style="text-align:center;max-width:780px;margin:0 auto 56px;">
+          <span class="eyebrow" style="color:#fff;opacity:.85;">Benefits &amp; Programs</span>
+          <h2 class="sr-up" style="color:#1e1d1d;">Investing in the people who do the work</h2>
+          <p class="sr-up d1" style="margin-top:14px;font-size:17px;line-height:1.7;color:rgba(255,255,255,0.78);">Our compensation and benefits programs are structured to support long-term wellbeing, professional growth, and balance — both at work and at home.</p>
+        </div>
+        <div class="careers-benefits-grid">
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h4>Competitive Compensation</h4>
+            <p>Salaries calibrated to industry benchmarks, with annual reviews tied to performance and capability growth.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h4>Group RRSP &amp; Retirement</h4>
+            <p>Employer-matched group retirement savings program to help you plan for the long term.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h4>Flexible Working</h4>
+            <p>Hybrid scheduling and flexible hours where roles allow, with site work coordinated around project needs.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h4>Comprehensive Benefits</h4>
+            <p>Extended health, dental, and vision coverage for you and eligible dependents from day one.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <h4>Employee Assistance Program</h4>
+            <p>Confidential support resources for mental health, financial wellness, and life transitions.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <h4>Professional Development</h4>
+            <p>Tuition support, certification reimbursement, and structured mentorship for credentials and growth.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h4>Paid Holiday Break</h4>
+            <p>Full office closure during the December–January holiday period, in addition to standard vacation entitlement.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                <line x1="6" y1="1" x2="6" y2="4"/>
+                <line x1="10" y1="1" x2="10" y2="4"/>
+                <line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <h4>Wellness &amp; Social Events</h4>
+            <p>Regular team events, wellness initiatives, and a culture that values connection beyond the project deliverable.</p>
+          </div>
+          <div class="careers-benefit-item">
+            <div class="careers-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <h4>Recognition &amp; Referral</h4>
+            <p>Employee recognition programs and referral bonuses for helping us grow with the right people.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT OPPORTUNITIES -->
+    <section class="careers-openings" id="openings">
+      <div class="wrap">
+        <div style="text-align:center;max-width:780px;margin:0 auto 56px;">
+          <span class="eyebrow">Current Opportunities</span>
+          <h2 class="sr-up">Open roles across our practice</h2>
+          <p class="sr-up d1" style="margin-top:14px;font-size:17px;line-height:1.7;color:var(--ink);">We're always interested in connecting with experienced professionals across engineering, capital planning, and infrastructure technology. Explore the roles below or send us your résumé directly.</p>
+        </div>
+        <div class="careers-openings-list">
+
+          <div class="careers-opening-card sr-up">
+            <div class="careers-opening-meta">
+             
+              <span class="careers-opening-loc">Toronto, ON · Hybrid</span>
+            </div>
+            <h3>Facility Condition Assessment Engineer</h3>
+            <p>Lead multi-discipline condition assessments across distributed portfolios. Apply engineering judgment to structural, mechanical, electrical, and life-safety systems and produce defensible, FCI-aligned scoring.</p>
+            <div class="careers-opening-skills">
+              <span>P.Eng. or eligibility</span>
+              <span>5+ years experience</span>
+              <span>Multi-site portfolios</span>
+            </div>
+            <a class="careers-opening-apply" href="mailto:careers@nadineintl.com?subject=Application%20%E2%80%94%20FCA%20Engineer">Apply Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="careers-opening-card sr-up d1">
+            <div class="careers-opening-meta">
+              
+              <span class="careers-opening-loc">Toronto, ON · Hybrid</span>
+            </div>
+            <h3>Capital Planning Analyst</h3>
+            <p>Develop multi-year lifecycle cost forecasts, funding scenario models, and target FCI optimization plans for federal, provincial, and institutional clients.</p>
+            <div class="careers-opening-skills">
+              <span>Engineering or finance background</span>
+              <span>Modeling experience</span>
+              <span>Public-sector exposure preferred</span>
+            </div>
+            <a class="careers-opening-apply" href="mailto:careers@nadineintl.com?subject=Application%20%E2%80%94%20Capital%20Planning%20Analyst">Apply Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="careers-opening-card sr-up d2">
+            <div class="careers-opening-meta">
+              
+              <span class="careers-opening-loc">Remote · Canada</span>
+            </div>
+            <h3>Risk-Informed Strategy Lead</h3>
+            <p>Apply structured risk frameworks to capital prioritization across mission-critical environments. Work directly with public-sector leadership on governance-aligned recommendations.</p>
+            <div class="careers-opening-skills">
+              <span>10+ years experience</span>
+              <span>Governance &amp; audit fluency</span>
+              <span>Regulatory familiarity</span>
+            </div>
+            <a class="careers-opening-apply" href="mailto:careers@nadineintl.com?subject=Application%20%E2%80%94%20Risk-Informed%20Strategy%20Lead">Apply Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="careers-opening-card sr-up d3">
+            <div class="careers-opening-meta">
+            
+              <span class="careers-opening-loc">Toronto, ON · Hybrid</span>
+            </div>
+            <h3>Infrastructure Intelligence Platform Developer</h3>
+            <p>Build and extend our cloud-based platform — dashboards, criticality heatmaps, scenario modeling — supporting institutional portfolios across Canada.</p>
+            <div class="careers-opening-skills">
+              <span>Full-stack web development</span>
+              <span>Data visualization</span>
+              <span>Cloud architecture</span>
+            </div>
+            <a class="careers-opening-apply" href="mailto:careers@nadineintl.com?subject=Application%20%E2%80%94%20Platform%20Developer">Apply Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="careers-opening-card sr-up d4">
+            <div class="careers-opening-meta">
+             
+              <span class="careers-opening-loc">Multiple Locations · Canada</span>
+            </div>
+            <h3>Mechanical / Electrical Field Assessor</h3>
+            <p>Conduct structured field assessments of mechanical and electrical systems across institutional and public-sector facilities. Capture data digitally for portfolio-level integration.</p>
+            <div class="careers-opening-skills">
+              <span>Mech. or Elec. Eng. background</span>
+              <span>Field assessment experience</span>
+              <span>Travel within province</span>
+            </div>
+            <a class="careers-opening-apply" href="mailto:careers@nadineintl.com?subject=Application%20%E2%80%94%20Field%20Assessor">Apply Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="careers-opening-card sr-up d5">
+            <div class="careers-opening-meta">
+           
+              <span class="careers-opening-loc">Open Application</span>
+            </div>
+            <h3>Don't see the right role?</h3>
+            <p>We're always interested in connecting with structured, capable professionals across engineering, planning, technology, and operations. Send us your résumé and a note about where you'd contribute.</p>
+            <div class="careers-opening-skills">
+              <span>Any discipline</span>
+              <span>Any seniority</span>
+              <span>Year-round</span>
+            </div>
+            <a class="careers-opening-apply" href="mailto:careers@nadineintl.com?subject=Open%20Application">Send Résumé
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="careers-cta">
+      <div class="wrap">
+        <div class="careers-cta-card sr-3d-up">
+          <h2>Ready to build infrastructure intelligence with us?</h2>
+          <p>Reach out to learn about open roles, share your background, or start a conversation about what you'd bring to our team.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:32px;">
+            <a class="btn btn-red" href="mailto:careers@nadineintl.com">Email careers@nadineintl.com</a>
+            <a class="btn btn-outline" href="#" onclick="go('contact');return false;">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('careers')">Careers</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <a class="ft-cinfo ft-cinfo-link" href="#" onclick="go('contact');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>info@nadineintl.com</span>
+        </a>
+        <div class="ft-socials">
+          <a href="https://www.linkedin.com/company/nadine-international-inc-" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- Future regional site placeholder. When ready, replace href with regional URL. -->
+          <a href="#" aria-label="Visit our international site" title="International site (coming soon)" class="ft-social-link ft-social-region">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

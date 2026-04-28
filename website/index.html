@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nadine International Inc. — Engineering Intelligence That Drives Smarter Capital Decisions</title>
+  <meta name="description" content="Nadine delivers structured Facility Condition Assessments and long-term capital forecasting that transforms infrastructure data into defensible funding strategy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+        <a class="nav-a" href="#" onclick="go('careers')">Careers</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('careers');closeMob()">Careers</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-video-wrap">
+        <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+          <source src="https://sikkandersrba.github.io/Nadine/banner_video25.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content sr-up">
+        <div class="v-line left red" style="height: 60px; margin-bottom: 32px; background: var(--red);"></div>
+        <h1 style="color: var(--white);"><b style="color:#d32f2f;">Engineering Intelligence.</b><br>Defensible Capital Strategy.</h1>
+        <p style="color: rgba(255,255,255,0.85);">Nadine delivers structured Facility Condition Assessments and
+          long-term capital forecasts that transform complex infrastructure data into confident funding strategy.</p>
+
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a class="btn btn-red" href="#" onclick="go('contact')">Request Consultation</a>
+          <a class="btn btn-white-outline" href="#" onclick="go('services')">Our Approach</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR (NEW DESIGN) -->
+    <section id="stats-bar">
+      <div class="wrap">
+        <div class="stats-grid sr-up">
+          <div class="stat-item">
+            <span class="stat-num"><span class="stat-count" data-target="30">0</span>+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num"><span class="stat-count" data-target="1200">0</span>+</span>
+            <span class="stat-label">Facilities Evaluated</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num"><span class="stat-count" data-target="15">0</span>+</span>
+            <span class="stat-label">Forecast Models</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num"><span class="stat-count" data-target="95">0</span>%</span>
+            <span class="stat-label">Client Retention</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHORITY — Trust signals -->
+    <section class="authority-band">
+      <div class="wrap">
+        <div class="sec-head sr-up" style="text-align: center; margin-bottom: 40px;">
+          <span class="eyebrow">Institutional Trust</span>
+          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 300;">Trusted by Canada's <span
+              style="font-weight: 800;"></br>Leading Organizations</span></h2>
+        </div>
+
+        <div class="auth-grid sr-up">
+          <div class="auth-card d1">
+            <div class="auth-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <span class="auth-title">Federal Agencies</span>
+            <p class="auth-desc">Strategic compliance & capital planning for Government of Canada portfolios.</p>
+          </div>
+
+          <div class="auth-card d2">
+            <div class="auth-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                <line x1="12" y1="12" x2="12" y2="16" />
+              </svg>
+            </div>
+            <span class="auth-title">Provincial Ministries</span>
+            <p class="auth-desc">National infrastructure advisory supporting multi-year funding cycles across all 10
+              provinces.</p>
+          </div>
+
+          <div class="auth-card d3">
+            <div class="auth-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <span class="auth-title">Public Safety</span>
+            <p class="auth-desc">Mission-critical condition intelligence for Police, Fire, and Emergency Services.</p>
+          </div>
+
+          <div class="auth-card d4">
+            <div class="auth-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </div>
+            <span class="auth-title">Healthcare</span>
+            <p class="auth-desc">Risk-weighted prioritization for regional hospitals and institutional health networks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CORE SERVICES (HORIZONTAL ACCORDION DESIGN) -->
+    <section class="services-hz-accordion bg-white" id="services-section">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up in" style="text-align:center; max-width: 800px; margin: 0 auto 32px;">
+          <span class="eyebrow" style="color: var(--red);">Services</span>
+          <h2 style="font-weight: 300; font-size: clamp(24px, 3vw, 36px); line-height: 1.1;">Structured Solutions for
+            <br><span style="font-weight: 700;">Capital Performance</span>
+          </h2>
+        </div>
+
+        <div class="hz-accordion-container sr-up in">
+
+          <div class="hz-item active" onmouseenter="activateHz(0)">
+            <div class="hz-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="hz-title-vert">01 / FCA</div>
+
+            <div class="hz-content">
+              <div class="hz-header">
+                <div class="hz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                  </svg>
+                </div>
+                <h3>Facility Condition Assessment</h3>
+              </div>
+              <p>Engineering-grade evaluations & FCI benchmarking across distributed portfolios nationwide.</p>
+            </div>
+          </div>
+
+          <div class="hz-item" onmouseenter="activateHz(1)">
+            <div class="hz-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="hz-title-vert">02 / CAP</div>
+
+            <div class="hz-content">
+              <div class="hz-header">
+                <div class="hz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </div>
+                <h3>Capital Planning & Forecasting</h3>
+              </div>
+              <p>Multi-year capital models & funding scenarios perfectly aligned with governance cycles.</p>
+            </div>
+          </div>
+
+          <div class="hz-item" onmouseenter="activateHz(2)">
+            <div class="hz-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="hz-title-vert">03 / RISK</div>
+
+            <div class="hz-content">
+              <div class="hz-header">
+                <div class="hz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <h3>Risk-Informed Strategy</h3>
+              </div>
+              <p>Governance-aligned prioritization ensuring defensible, transparent capital decisions.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="hz-item" onmouseenter="activateHz(3)">
+            <div class="hz-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="hz-title-vert">04 / ASSET</div>
+
+            <div class="hz-content">
+              <div class="hz-header">
+                <div class="hz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <h3>Asset Management Advisory</h3>
+              </div>
+              <p>Strategic lifecycle advisory and asset register development aligned with ISO 55001.</p>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="hz-item" onmouseenter="activateHz(4)">
+            <div class="hz-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="hz-title-vert">05 / TECH</div>
+
+            <div class="hz-content">
+              <div class="hz-header">
+                <div class="hz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                  </svg>
+                </div>
+                <h3>Intelligence Platform</h3>
+              </div>
+              <p>Cloud-based portfolio dashboards with real-time field-data sync and scenario modeling.</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="hz-item" onmouseenter="activateHz(5)">
+            <div class="hz-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1577412647305-991150c7d163?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="hz-title-vert">06 / GOV</div>
+
+            <div class="hz-content">
+              <div class="hz-header">
+                <div class="hz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                </div>
+                <h3>Governance Support</h3>
+              </div>
+              <p>Board-ready capital reports, treasury submissions, and regulatory compliance support.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- EXPLORE ALL SERVICES CTA -->
+        <div style="text-align:center; margin-top:32px;" class="sr-up">
+          <a class="btn btn-red" href="#" onclick="go('services')">
+            Explore All Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              style="width:15px;height:15px; margin-left:8px;">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let hzInterval;
+      let currentHzIndex = 0;
+
+      function activateHz(index, auto = false) {
+        const items = document.querySelectorAll('#services-section .hz-item');
+        if (!items.length) return;
+        items.forEach(i => i.classList.remove('active'));
+        if (items[index]) items[index].classList.add('active');
+        currentHzIndex = index;
+
+        if (!auto) {
+          startHzAutoplay();
+        }
+      }
+
+      function startHzAutoplay() {
+        clearInterval(hzInterval);
+        hzInterval = setInterval(() => {
+          const items = document.querySelectorAll('#services-section .hz-item');
+          if (!items.length) return;
+          let nextIndex = (currentHzIndex + 1) % items.length;
+          activateHz(nextIndex, true);
+        }, 3500);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        startHzAutoplay();
+      });
+    </script>
+
+    <!-- METHODOLOGY INFOGRAPHIC -->
+    <section class="meth-section" id="methodology">
+      <div class="wrap">
+        <div class="sec-head sr-up" style="text-align: center; margin-bottom: 56px;">
+          <span class="eyebrow" style="color: var(--red);">Our Methodology</span>
+          <h2 style="font-weight: 300; font-size: clamp(32px, 4vw, 48px);">A Repeatable Process <br><span
+              style="font-weight: 800;">Built on Engineering Logic</span></h2>
+        </div>
+
+        <div class="method-steps">
+
+          <!-- Step 01 -->
+          <div class="mstep sr-up d1">
+            <div class="mstep-icon-box">
+              <span class="mstep-num">01</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            <div class="mstep-title">Assess</div>
+            <p class="mstep-body">Rigorous field evaluation of building systems condition-rated against industry
+              benchmarks.</p>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="mstep sr-up d2">
+            <div class="mstep-icon-box">
+              <span class="mstep-num">02</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <div class="mstep-title">Model</div>
+            <p class="mstep-body">Lifecycle data transformed into multi-year capital projections with defensible
+              assumptions.</p>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="mstep sr-up d3">
+            <div class="mstep-icon-box">
+              <span class="mstep-num">03</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="mstep-title">Prioritize</div>
+            <p class="mstep-body">Risk-informed sequencing aligned with funding cycles and planning horizons.</p>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="mstep sr-up d4">
+            <div class="mstep-icon-box">
+              <span class="mstep-num">04</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="mstep-title">Advise</div>
+            <p class="mstep-body">Board-ready capital intelligence that translates technical findings into strategy.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH PLATFORM -->
+    <!-- TECH PLATFORM SHOWCASE -->
+    <section class="tech-section" id="technology">
+      <div class="wrap">
+        <div class="tech-grid-new">
+
+          <div class="tech-content sr-up">
+            <div class="sec-head left" style="margin-bottom: 0;">
+              <span class="eyebrow" style="color: var(--red);">Proprietary Technology</span>
+              <h2 style="font-size: clamp(32px, 4vw, 44px); margin-bottom: 32px; line-height: 1.1;">Infrastructure
+                Intelligence <br><span style="font-weight: 800;">Realized.</span></h2>
+              <p style="color: var(--gray); font-size: 16px; max-width: 500px;">Our cloud-native Infrastructure
+                Intelligence Platform transforms field assessment data into live portfolio visibility — enabling
+                institutional decision-makers to model funding scenarios, track condition trends, and produce
+                audit-ready capital plans from a single secure environment.</p>
+            </div>
+
+            <div class="tech-feature-group">
+              <!-- Feature 01 -->
+              <div class="feat-item sr-up d1">
+                <div class="feat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                    </path>
+                  </svg>
+                </div>
+                <div class="feat-text">
+                  <h4>Live Portfolio Dashboards</h4>
+                  <p>Real-time field data sync delivers up-to-date FCI scores and condition trends across your entire
+                    portfolio.</p>
+                </div>
+              </div>
+
+              <!-- Feature 02 -->
+              <div class="feat-item sr-up d2">
+                <div class="feat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </div>
+                <div class="feat-text">
+                  <h4>Multi-Year Scenario Modeling</h4>
+                  <p>Generate 10–20 year capital funding scenarios in minutes with defensible, engineering-grade cost
+                    assumptions.</p>
+                </div>
+              </div>
+
+              <!-- Feature 03 -->
+              <div class="feat-item sr-up d3">
+                <div class="feat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <div class="feat-text">
+                  <h4>Institutional-Grade Security</h4>
+                  <p>Role-based access, encrypted data storage, and audit-trail logging meeting public-sector compliance
+                    standards.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 56px;" class="sr-up d4">
+              <a class="btn btn-red" href="#" onclick="go('technology')">Explore the Platform <svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;margin-left:8px;">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg></a>
+            </div>
+          </div>
+
+          <div class="tech-visual">
+            <div class="visual-glow"></div>
+            <img
+              src="https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_tech_enterprise_dashboard_4k_1775589699521.jpg"
+              class="dashboard-mockup sr-3d-right" alt="Enterprise Platform Dashboard Mockup">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTORS / INDUSTRIES -->
+    <section class="section bg-white">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up">
+          <span class="eyebrow">Industries</span>
+          <h2>Built for Institutional Scale</h2>
+          <p>Providing independent engineering counsel to the public-sector organizations whose infrastructure decisions
+            carry the greatest consequence.</p>
+        </div>
+        <div class="ind-grid">
+
+          <!-- Government -->
+          <a href="#" class="ind-card sr-up d1" onclick="go('industries')">
+            <div class="ind-bg"
+              style="background-image: url('https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_government_sector_visual_1775590156375.jpg');">
+            </div>
+            <div class="ind-overlay"></div>
+            <div class="ind-content">
+              <div class="ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                </svg>
+              </div>
+              <h4>Government</h4>
+              <p>Municipal, Provincial, and National infrastructure portfolios.</p>
+            </div>
+          </a>
+
+          <!-- Public Safety -->
+          <a href="#" class="ind-card sr-up d2" onclick="go('industries')">
+            <div class="ind-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1590487988256-9ed24133863e?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="ind-overlay"></div>
+            <div class="ind-content">
+              <div class="ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h4>Public Safety</h4>
+              <p>Critical response facilities and strategic security assets.</p>
+            </div>
+          </a>
+
+          <!-- Healthcare -->
+          <a href="#" class="ind-card sr-up d3" onclick="go('industries')">
+            <div class="ind-bg"
+              style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&auto=format&fit=crop');">
+            </div>
+            <div class="ind-overlay"></div>
+            <div class="ind-content">
+              <div class="ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <h4>Healthcare</h4>
+              <p>Hospital networks and specialized medical infrastructure.</p>
+            </div>
+          </a>
+
+          <!-- Education -->
+          <a href="#" class="ind-card sr-up d4" onclick="go('industries')">
+            <div class="ind-bg"
+              style="background-image: url('https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_education_sector_visual_1775590071755.jpg');">
+            </div>
+            <div class="ind-overlay"></div>
+            <div class="ind-content">
+              <div class="ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                  <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                </svg>
+              </div>
+              <h4>Education</h4>
+              <p>Higher education campuses and public school boards.</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES BAND (Proof) -->
+    <div class="outcomes-band sr-3d-depth">
+      <div class="outcomes-inner">
+        <div class="outcomes-stats">
+          <div class="ostat">
+            <div class="ostat-n" data-count="18" data-suffix="%">18%</div>
+            <div class="ostat-l">Average Reduction in Reactive Capital Repairs</div>
+          </div>
+          <div class="ostat">
+            <div class="ostat-n" data-count="2" data-prefix="$" data-suffix="B+">$2B+</div>
+            <div class="ostat-l">In Capital Planned Across Client Portfolios</div>
+          </div>
+          <div class="ostat">
+            <div class="ostat-n" data-count="40" data-suffix="%">40%</div>
+            <div class="ostat-l">Improvement in Funding Readiness &amp; Approval Rates</div>
+          </div>
+        </div>
+        <a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation</a>
+      </div>
+    </div>
+    <!-- FINAL CTA (Bright Redesign) -->
+    <section class="cta-section-new">
+      <div class="wrap">
+        <div class="cta-container">
+
+          <div class="cta-text-side sr-up">
+            <span class="eyebrow" style="color: var(--red);">Get Started</span>
+            <h2>Your Infrastructure Decisions <br>Deserve a <span style="color: var(--red);">Stronger Foundation.</span>
+            </h2>
+            <p>Partner with Nadine to develop lifecycle-based capital forecasts that are defensible, governance-aligned,
+              and built to perform over the long term.</p>
+
+            <div class="cta-btns" style="display: flex; gap: 16px;">
+              <a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;margin-left:8px;">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg></a>
+              <a class="btn btn-outline" href="#" onclick="go('services')">Explore All Services</a>
+            </div>
+          </div>
+
+          <div class="cta-visual-side sr-3d-right">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1661340695541-ee1ca7efedd0?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="cta-main-image" alt="Stronger Foundation Visual">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT US -->
+    <section class="section about-section" style="background: var(--white); border-top: 1px solid var(--border);">
+      <div class="wrap">
+        <div class="about-layout" style="grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center;">
+          <div class="about-text sr-3d-right">
+            <span class="eyebrow" style="color: var(--red);">The Nadine Difference</span>
+            <h2 style="color: var(--ink); margin-bottom: 24px; font-weight: 800;">Independent Engineering Counsel for
+              Public Institutions</h2>
+            <p style="color: var(--gray); font-size: 17px; line-height: 1.7; margin-bottom: 24px;">Since 1994, Nadine
+              International has provided independent engineering advisory and capital forecasting to Canada’s most
+              complex public sector portfolios.</p>
+            <p style="color: var(--gray); font-size: 17px; line-height: 1.7; margin-bottom: 32px;">We combine rigorous
+              field engineering with financial capital modeling to ensure decision-makers have the defensible data
+              needed to secure funding and manage infrastructure risk.</p>
+
+            <div class="about-values"
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;">
+              <div class="about-val" style="display: flex; gap: 16px; align-items: flex-start;">
+                <div class="about-val-icon" style="background: var(--red-light); padding: 10px; border-radius: 12px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"
+                    style="width:24px; height:24px;">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="about-val-text"><strong
+                    style="display: block; color: var(--ink); margin-bottom: 4px;">Independence</strong><span
+                    style="font-size: 14px; color: var(--gray-lt);">Objective advisory free from conflicts of
+                    interest.</span></div>
+              </div>
+              <div class="about-val" style="display: flex; gap: 16px; align-items: flex-start;">
+                <div class="about-val-icon" style="background: var(--red-light); padding: 10px; border-radius: 12px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"
+                    style="width:24px; height:24px;">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+                <div class="about-val-text"><strong
+                    style="display: block; color: var(--ink); margin-bottom: 4px;">Precision</strong><span
+                    style="font-size: 14px; color: var(--gray-lt);">Engineering-grade data and audit-ready
+                    reporting.</span></div>
+              </div>
+            </div>
+            <a class="btn btn-red" href="#" onclick="go('about')">Our Full Story</a>
+          </div>
+
+          <div class="about-visual sr-3d-left">
+            <div class="about-photo-stack" style="position: relative;">
+              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1170&auto=format&fit=crop"
+                alt="Engineering Leadership" class="about-photo-main"
+                style="width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); border: 1px solid var(--border);">
+              <div class="about-stat-badge"
+                style="position: absolute; left: -40px; background: var(--red); color: white; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(211,47,47,0.3);">
+                <span class="num" style="font-size: 40px; font-weight: 800; display: block;">30+</span>
+                <span class="lbl"
+                  style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8;">Years
+                  of Excellence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </div><!-- /page-home -->
+
+
+  <!-- SERVICES PAGE -->
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('careers')">Careers</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <a class="ft-cinfo ft-cinfo-link" href="#" onclick="go('contact');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>info@nadineintl.com</span>
+        </a>
+        <div class="ft-socials">
+          <a href="https://www.linkedin.com/company/nadine-international-inc-" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- Future regional site placeholder. When ready, replace href with regional URL. -->
+          <a href="#" aria-label="Visit our international site" title="International site (coming soon)" class="ft-social-link ft-social-region">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

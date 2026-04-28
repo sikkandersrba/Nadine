@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Nadine International Inc.</title>
+  <meta name="description" content="Comprehensive infrastructure intelligence services: Facility Condition Assessment, Capital Planning, and Risk Strategy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+        <a class="nav-a" href="#" onclick="go('careers')">Careers</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('careers');closeMob()">Careers</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-services">
+    <div class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-wrap">
+        <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Services</div>
+        <h1>Engineering-Driven Infrastructure Solutions for Complex Portfolios</h1>
+        <p class="ph-sub">Effective capital planning requires more than condition data. Nadine delivers integrated infrastructure intelligence that transforms facility data into defensible capital strategy.</p>
+        <div class="ph-cta"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation</a></div>
+      </div>
+    </div>
+
+    <section class="svcs-framework-section">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="max-width:680px;text-align:left;margin-left:0;">
+          <span class="eyebrow">Integrated Framework</span>
+          <h2>Three Pillars of Infrastructure Intelligence</h2>
+          <p>Assessment to Modeling to Risk-Informed Capital Strategy. Each pillar builds upon the next to create a complete infrastructure intelligence system.</p>
+        </div>
+        <div class="svcs-flow-row sr-3d-flip d1">
+          <div class="svcs-flow-step">
+            <div class="svcs-flow-num">Step 01</div>
+            <h4>Facility Condition Assessment</h4>
+            <p>Engineering-grade portfolio visibility with standardized FCI scoring across all asset classes and building systems.</p>
+          </div>
+          <div class="svcs-flow-step">
+            <div class="svcs-flow-num">Step 02</div>
+            <h4>Capital Planning &amp; Forecasting</h4>
+            <p>Lifecycle intelligence translating assessment data into 10–20 year capital models aligned with institutional funding cycles.</p>
+          </div>
+          <div class="svcs-flow-step">
+            <div class="svcs-flow-num">Step 03</div>
+            <h4>Risk-Informed Strategy</h4>
+            <p>Governance-aligned prioritization ensuring defensible, transparent capital decisions that withstand public scrutiny.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-bottom:32px;margin-left:0;">
+          <span class="eyebrow">Full Service Offering</span>
+          <h2>Everything Nadine Delivers</h2>
+          <p>Browse all services below. Click any row to expand details, deliverables, and next steps.</p>
+        </div>
+        <div class="svc-filter-bar sr d1" id="svcFilterBar">
+          <button class="svc-filter-btn active" onclick="filterServices('all',this)">All Services</button>
+          <button class="svc-filter-btn" onclick="filterServices('assessment',this)">Assessment</button>
+          <button class="svc-filter-btn" onclick="filterServices('capital',this)">Capital Planning</button>
+          <button class="svc-filter-btn" onclick="filterServices('risk',this)">Risk &amp; Strategy</button>
+          <button class="svc-filter-btn" onclick="filterServices('technology',this)">Technology</button>
+          <button class="svc-filter-btn" onclick="filterServices('advisory',this)">Advisory</button>
+        </div>
+        <div class="svc-accordion sr d2" id="svcAccordion">
+          <div class="svc-acc-item" data-category="assessment">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">01</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7m-3.5-3.5v7"/></svg></div>
+              <span class="svc-acc-title">Facility Condition Assessment (FCA)</span>
+              <span class="svc-acc-category">Assessment</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>Comprehensive multi-discipline engineering assessments across distributed facility portfolios. Our FCA program delivers standardized FCI scoring, asset inventory, system classification, and lifecycle documentation — the foundational layer of any defensible capital strategy.</p><div class="svc-acc-tags"><span class="svc-acc-tag">FCI Benchmarking</span><span class="svc-acc-tag">Asset Inventory</span><span class="svc-acc-tag">Lifecycle Documentation</span><span class="svc-acc-tag">Multi-Discipline</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('fca')" style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div></div></div>
+          </div>
+          <div class="svc-acc-item" data-category="assessment">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">02</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="9" width="18" height="13" rx="2"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/></svg></div>
+              <span class="svc-acc-title">Structural Systems Assessment</span>
+              <span class="svc-acc-category">Assessment</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>In-depth evaluation of foundations, framing, roofing assemblies, and building envelope integrity across all facility types and ages.</p><div class="svc-acc-tags"><span class="svc-acc-tag">Foundations &amp; Framing</span><span class="svc-acc-tag">Roofing Systems</span><span class="svc-acc-tag">Envelope Integrity</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div></div></div>
+          </div>
+          <div class="svc-acc-item" data-category="assessment">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">03</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+              <span class="svc-acc-title">Mechanical, Electrical &amp; Life-Safety Evaluation</span>
+              <span class="svc-acc-category">Assessment</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>Comprehensive assessment of HVAC, plumbing, electrical distribution, and life-safety systems across complex institutional portfolios.</p><div class="svc-acc-tags"><span class="svc-acc-tag">HVAC Systems</span><span class="svc-acc-tag">Electrical Distribution</span><span class="svc-acc-tag">Life Safety</span><span class="svc-acc-tag">Plumbing</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div></div></div>
+          </div>
+          <div class="svc-acc-item" data-category="capital">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">04</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <span class="svc-acc-title">Capital Planning &amp; Multi-Year Forecasting</span>
+              <span class="svc-acc-category">Capital Planning</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>Structured 10–20 year capital forecasting models aligned with institutional funding cycles and governance frameworks.</p><div class="svc-acc-tags"><span class="svc-acc-tag">10–20 yr Forecasting</span><span class="svc-acc-tag">Lifecycle Modeling</span><span class="svc-acc-tag">Board-Ready Reports</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('capital')" style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div></div></div>
+          </div>
+          <div class="svc-acc-item" data-category="capital">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">05</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+              <span class="svc-acc-title">Funding Scenario Modeling &amp; Trade-Off Analysis</span>
+              <span class="svc-acc-category">Capital Planning</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>Simulate baseline projections, accelerated reinvestment, deferred-spending impacts, and target FCI timelines before committing capital.</p><div class="svc-acc-tags"><span class="svc-acc-tag">Scenario Simulation</span><span class="svc-acc-tag">Deferral Impact Analysis</span><span class="svc-acc-tag">Target FCI Optimization</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div></div></div>
+          </div>
+          <div class="svc-acc-item" data-category="capital">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">06</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
+              <span class="svc-acc-title">Governance &amp; Board Reporting Support</span>
+              <span class="svc-acc-category">Capital Planning</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>Audit-ready capital documentation, treasury submissions, board briefing packages, and long-term strategic planning cycle support.</p><div class="svc-acc-tags"><span class="svc-acc-tag">Audit Documentation</span><span class="svc-acc-tag">Treasury Submissions</span><span class="svc-acc-tag">Board Briefing Packages</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Enquire</a></div></div></div>
+          </div>
+          <div class="svc-acc-item" data-category="risk">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">07</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+              <span class="svc-acc-title">Risk-Informed Infrastructure Strategy</span>
+              <span class="svc-acc-category">Risk &amp; Strategy</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>Risk evaluation integrated into capital modeling frameworks combining life-safety exposure, regulatory compliance requirements, and operational continuity impact.</p><div class="svc-acc-tags"><span class="svc-acc-tag">Critical System Identification</span><span class="svc-acc-tag">Safety Exposure Mapping</span><span class="svc-acc-tag">Risk-Weighted Prioritization</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('risk')" style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div></div></div>
+          </div>
+          <div class="svc-acc-item" data-category="technology">
+            <div class="svc-acc-header" onclick="toggleAcc(this)">
+              <span class="svc-acc-num">08</span>
+              <div class="svc-acc-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+              <span class="svc-acc-title">Technology-Enabled Portfolio Intelligence Platform</span>
+              <span class="svc-acc-category">Technology</span>
+              <svg class="svc-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="svc-acc-body"><div class="svc-acc-content"><div class="svc-acc-desc"><p>Our proprietary platform transforms static assessment reports into living data assets — enabling real-time portfolio visibility, dynamic scenario modeling, and automated governance reporting.</p><div class="svc-acc-tags"><span class="svc-acc-tag">Real-Time Dashboards</span><span class="svc-acc-tag">Scenario Engine</span><span class="svc-acc-tag">Automated Reporting</span></div></div><div class="svc-acc-cta"><a class="btn btn-red" href="#" onclick="go('technology')" style="font-size:13px;padding:9px 18px;">Full Details</a><a class="btn btn-outline" href="#" onclick="go('contact')" style="font-size:13px;padding:9px 18px;">Get a Quote</a></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section" style="background:#25c0be;border-top:1px solid rgba(37,192,190,0.15);">
+      <div class="wrap"><div class="cta-inner sr"><span class="eyebrow" style="color:#d32f2f;">Get Started</span><h2 style="color:#2b2d2e;">Implement Structured Capital Intelligence</h2><p style="color:rgba(255,255,255,0.8);">Partner with Nadine to develop measurable, defensible infrastructure strategy aligned with governance standards.</p><div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div></div>
+    </section>
+  </div>
+
+
+  <!-- FCA PAGE -->
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('careers')">Careers</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <a class="ft-cinfo ft-cinfo-link" href="#" onclick="go('contact');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>info@nadineintl.com</span>
+        </a>
+        <div class="ft-socials">
+          <a href="https://www.linkedin.com/company/nadine-international-inc-" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- Future regional site placeholder. When ready, replace href with regional URL. -->
+          <a href="#" aria-label="Visit our international site" title="International site (coming soon)" class="ft-social-link ft-social-region">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

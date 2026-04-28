@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industries | Nadine International Inc.</title>
+  <meta name="description" content="Infrastructure intelligence across government, healthcare, education, public safety, and commercial sectors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+        <a class="nav-a" href="#" onclick="go('careers')">Careers</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('careers');closeMob()">Careers</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-industries">
+    <div class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-wrap">
+        <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Industries</div>
+        <h1>Serving Canada's Critical Infrastructure Sectors</h1>
+        <p class="ph-sub">Nadine supports federal, provincial, municipal, and institutional organizations across Canada — delivering structured infrastructure intelligence aligned with sector-specific governance, funding, and operational complexity.</p>
+        <div class="ph-cta"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation</a></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: SECTOR LOGOS GRID (matches homepage style) -->
+    <section class="ind-sectors-section">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up">
+          <span class="eyebrow">Sectors We Serve</span>
+          <h2>Four Primary Sectors. One Structured Methodology.</h2>
+          <p>Nadine provides infrastructure intelligence across the public and institutional environments where governance, accountability, and capital transparency matter most.</p>
+        </div>
+
+        <div class="ind-sectors-grid">
+          <a href="#sec-government" class="ind-sector-tile sr-up d1">
+            <div class="ind-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <path d="M9 22V12h6v10"/>
+              </svg>
+            </div>
+            <h4>Government &amp; Public Sector</h4>
+            <p>Federal, provincial, and municipal portfolios.</p>
+          </a>
+
+          <a href="#sec-publicsafety" class="ind-sector-tile sr-up d2">
+            <div class="ind-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h4>Public Safety &amp; Emergency Services</h4>
+            <p>Mission-critical infrastructure performance.</p>
+          </a>
+
+          <a href="#sec-healthed" class="ind-sector-tile sr-up d3">
+            <div class="ind-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <h4>Healthcare &amp; Education</h4>
+            <p>Essential community infrastructure.</p>
+          </a>
+
+          <a href="#sec-commercial" class="ind-sector-tile sr-up d4">
+            <div class="ind-sector-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="1.5"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+            </div>
+            <h4>Commercial &amp; Institutional</h4>
+            <p>Complex distributed asset portfolios.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3-5: PER-SECTOR DEEP CONTENT (no repetition with hero) -->
+    <section class="ind-deep-section">
+      <div class="wrap">
+
+        <!-- 1. Government -->
+        <article class="ind-deep-row sr-up" id="sec-government">
+          <div class="ind-deep-media">
+            <img src="https://raw.githubusercontent.com/sikkandersrba/Nadine/refs/heads/main/nadine_government_sector_visual_1775590156375.jpg" alt="Government &amp; Public Sector facilities">
+            <div class="ind-deep-media-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <path d="M9 22V12h6v10"/>
+              </svg>
+              <span>Government &amp; Public Sector</span>
+            </div>
+          </div>
+          <div class="ind-deep-body">
+            <span class="ind-deep-num">01</span>
+            <h3>Multi-Jurisdictional Infrastructure Governance</h3>
+            <p class="ind-deep-lead">Federal agencies, provincial ministries, and municipal governments manage diverse asset portfolios under strict governance, audit, and funding scrutiny.</p>
+            <div class="ind-deep-grid">
+              <div>
+                <h5>Common Sector Challenges</h5>
+                <ul class="ind-deep-bullets">
+                  <li>Multi-year capital planning alignment</li>
+                  <li>Public accountability and audit oversight</li>
+                  <li>Budget transparency requirements</li>
+                  <li>Distributed facility networks</li>
+                  <li>Regulatory compliance</li>
+                </ul>
+              </div>
+              <div>
+                <h5>How Nadine Supports You</h5>
+                <ul class="ind-deep-bullets">
+                  <li>Treasury board and funding submissions</li>
+                  <li>Audit-ready capital documentation</li>
+                  <li>Multi-year infrastructure strategies</li>
+                  <li>Standardized FCI benchmarking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Public Safety -->
+        <article class="ind-deep-row reverse sr-up" id="sec-publicsafety">
+          <div class="ind-deep-media">
+            <img src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?w=1200&q=80&auto=format&fit=crop" alt="Public Safety facilities">
+            <div class="ind-deep-media-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Public Safety &amp; Emergency Services</span>
+            </div>
+          </div>
+          <div class="ind-deep-body">
+            <span class="ind-deep-num">02</span>
+            <h3>Mission-Critical Infrastructure Performance</h3>
+            <p class="ind-deep-lead">Public safety facilities require uninterrupted operational performance. Risk-informed prioritization is not optional — it is the foundation of every assessment.</p>
+            <div class="ind-deep-grid">
+              <div>
+                <h5>Sector Priorities</h5>
+                <ul class="ind-deep-bullets">
+                  <li>High system reliability</li>
+                  <li>Life-safety prioritization</li>
+                  <li>Risk-informed capital allocation</li>
+                  <li>Operational continuity planning</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Engagement Outcomes</h5>
+                <ul class="ind-deep-bullets">
+                  <li>Criticality classification of every system</li>
+                  <li>Response-readiness documentation</li>
+                  <li>Capital sequencing aligned to exposure</li>
+                  <li>Defensible governance reporting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Healthcare & Education -->
+        <article class="ind-deep-row sr-up" id="sec-healthed">
+          <div class="ind-deep-media">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80&auto=format&fit=crop" alt="Healthcare and Education campuses">
+            <div class="ind-deep-media-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+              <span>Healthcare &amp; Education</span>
+            </div>
+          </div>
+          <div class="ind-deep-body">
+            <span class="ind-deep-num">03</span>
+            <h3>Essential Community Infrastructure</h3>
+            <p class="ind-deep-lead">Healthcare and educational institutions operate complex facility networks under funding constraints, regulatory oversight, and uninterrupted operational expectations.</p>
+            <div class="ind-deep-grid">
+              <div>
+                <h5>Common Sector Challenges</h5>
+                <ul class="ind-deep-bullets">
+                  <li>Aging infrastructure stock</li>
+                  <li>Deferred maintenance accumulation</li>
+                  <li>Lifecycle funding alignment</li>
+                  <li>Operational continuity requirements</li>
+                  <li>Multi-campus portfolio management</li>
+                </ul>
+              </div>
+              <div>
+                <h5>How Nadine Supports You</h5>
+                <ul class="ind-deep-bullets">
+                  <li>Hospital and long-term care campus FCA</li>
+                  <li>School board and post-secondary programs</li>
+                  <li>Ministry-aligned reporting frameworks</li>
+                  <li>Accreditation and accessibility readiness</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Commercial & Institutional -->
+        <article class="ind-deep-row reverse sr-up" id="sec-commercial">
+          <div class="ind-deep-media">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80&auto=format&fit=crop" alt="Commercial and Institutional portfolios">
+            <div class="ind-deep-media-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="1.5"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+              <span>Commercial &amp; Institutional</span>
+            </div>
+          </div>
+          <div class="ind-deep-body">
+            <span class="ind-deep-num">04</span>
+            <h3>Complex Distributed Asset Portfolios</h3>
+            <p class="ind-deep-lead">Institutional and commercial asset owners manage large, multi-site portfolios requiring structured performance visibility and capital prioritization at scale.</p>
+            <div class="ind-deep-grid">
+              <div>
+                <h5>Key Sector Challenges</h5>
+                <ul class="ind-deep-bullets">
+                  <li>Capital prioritization across distributed assets</li>
+                  <li>Risk exposure mitigation</li>
+                  <li>Long-term asset lifecycle optimization</li>
+                  <li>Funding strategy alignment</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Engagement Outcomes</h5>
+                <ul class="ind-deep-bullets">
+                  <li>Engineering-grade portfolio assessments</li>
+                  <li>Lifecycle-based forecasting models</li>
+                  <li>Standardized FCI across asset classes</li>
+                  <li>Proactive (vs reactive) management</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: NATIONAL EXPERIENCE -->
+    <section class="ind-national-section">
+      <div class="wrap">
+        <div class="ind-national-grid">
+          <div class="sr-3d-depth">
+            <span class="eyebrow">National Experience</span>
+            <h2>One Methodology. Every Jurisdiction.</h2>
+            <p>Nadine's structured methodology is designed to scale across jurisdictions while maintaining standardized, repeatable performance modeling. We understand the operational, regulatory, and governance expectations unique to Canadian public and institutional environments.</p>
+          </div>
+          <div class="ind-national-list sr-up d2">
+            <div class="ind-national-item"><span></span>Federal agencies</div>
+            <div class="ind-national-item"><span></span>Provincial ministries</div>
+            <div class="ind-national-item"><span></span>Municipal governments</div>
+            <div class="ind-national-item"><span></span>Public safety organizations</div>
+            <div class="ind-national-item"><span></span>Healthcare and educational institutions</div>
+            <div class="ind-national-item"><span></span>Institutional asset owners</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: HOW WE SUPPORT YOUR SECTOR -->
+    <section class="ind-support-section">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:640px;">
+          <span class="eyebrow">How We Support Your Sector</span>
+          <h2>Sector challenges vary. Structured intelligence remains constant.</h2>
+        </div>
+        <div class="ind-support-grid">
+          <div class="ind-support-card sr-up d1">
+            <h5>Engineering-Grade FCA</h5>
+            <p>Multi-discipline, standardized condition assessments aligned with FCI principles.</p>
+          </div>
+          <div class="ind-support-card sr-up d2">
+            <h5>Lifecycle Capital Forecasting</h5>
+            <p>10–20 year capital projections aligned with institutional funding cycles.</p>
+          </div>
+          <div class="ind-support-card sr-up d3">
+            <h5>Risk-Informed Prioritization</h5>
+            <p>Safety, regulatory, and operational continuity weighted into every recommendation.</p>
+          </div>
+          <div class="ind-support-card sr-up d4">
+            <h5>Governance-Ready Reporting</h5>
+            <p>Documentation built for treasury, board, and audit review.</p>
+          </div>
+          <div class="ind-support-card sr-up d5">
+            <h5>Technology-Enabled Visibility</h5>
+            <p>Live portfolio dashboards, scenario modeling, and criticality heatmaps.</p>
+          </div>
+          <div class="ind-support-card sr-up d6">
+            <h5>National Coordination</h5>
+            <p>Multi-jurisdictional engagements supported by a single integrated methodology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: FINAL CTA -->
+    <section class="cta-section">
+      <div class="wrap"><div class="cta-inner sr"><span class="eyebrow" style="color:rgba(211,47,47,.8);">Your Sector</span><h2>Infrastructure Intelligence Tailored to Your Sector</h2><p>Partner with Nadine to implement structured, defensible capital planning aligned with your operational and governance environment.</p><div class="cta-btns"><a class="btn btn-red" href="#" onclick="go('contact')">Request a Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div></div>
+    </section>
+  </div>
+
+
+  <!-- TECHNOLOGY PAGE -->
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('careers')">Careers</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <a class="ft-cinfo ft-cinfo-link" href="#" onclick="go('contact');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>info@nadineintl.com</span>
+        </a>
+        <div class="ft-socials">
+          <a href="https://www.linkedin.com/company/nadine-international-inc-" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- Future regional site placeholder. When ready, replace href with regional URL. -->
+          <a href="#" aria-label="Visit our international site" title="International site (coming soon)" class="ft-social-link ft-social-region">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

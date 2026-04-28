@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology Platform | Nadine International Inc.</title>
+  <meta name="description" content="Technology-enabled portfolio intelligence platform with real-time dashboards and dynamic scenario modeling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- Go to Top Button -->
+  <button id="go-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#" onclick="go('home')">
+        <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine International Logo" class="nav-logo-img">
+
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <span class="nav-a">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg></span>
+          <div class="dropdown">
+            <a class="dd-item" href="#" onclick="go('services')"><strong>All Services</strong><span>Integrated
+                infrastructure framework</span></a>
+            <a class="dd-item" href="#" onclick="go('fca')"><strong>Facility Condition
+                Assessment</strong><span>Engineering-grade portfolio visibility</span></a>
+            <a class="dd-item" href="#" onclick="go('capital')"><strong>Capital Planning &
+                Forecasting</strong><span>Lifecycle-based capital intelligence</span></a>
+            <a class="dd-item" href="#" onclick="go('risk')"><strong>Risk-Informed Infrastructure
+                Strategy</strong><span>Governance-aligned prioritization</span></a>
+          </div>
+        </div>
+        <a class="nav-a" href="#" onclick="go('industries')">Industries</a>
+        <a class="nav-a" href="#" onclick="go('technology')">Technology</a>
+        <a class="nav-a" href="#" onclick="go('casestudies')">Case Studies</a>
+        <a class="nav-a" href="#" onclick="go('about')">About</a>
+        <a class="nav-a" href="#" onclick="go('careers')">Careers</a>
+
+      </div>
+      <a class="nav-cta" href="#" onclick="go('contact')">Contact</a>
+      <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a class="mob-a" href="#" onclick="go('home');closeMob()">Home</a>
+    <a class="mob-a" href="#" onclick="go('services');closeMob()">Services</a>
+    <a class="mob-a sub" href="#" onclick="go('fca');closeMob()">— Facility Condition Assessment</a>
+    <a class="mob-a sub" href="#" onclick="go('capital');closeMob()">— Capital Planning & Forecasting</a>
+    <a class="mob-a sub" href="#" onclick="go('risk');closeMob()">— Risk-Informed Strategy</a>
+    <a class="mob-a" href="#" onclick="go('industries');closeMob()">Industries</a>
+    <a class="mob-a" href="#" onclick="go('technology');closeMob()">Technology</a>
+    <a class="mob-a" href="#" onclick="go('casestudies');closeMob()">Case Studies</a>
+    <a class="mob-a" href="#" onclick="go('about');closeMob()">About</a>
+    <a class="mob-a" href="#" onclick="go('careers');closeMob()">Careers</a>
+    <a class="mob-a" href="#" onclick="go('contact');closeMob()">Contact</a>
+    <a class="mob-cta" href="#" onclick="go('contact');closeMob()">Request Consultation</a>
+  </div>
+
+
+  <div class="page active" id="page-technology">
+
+    <!-- ═══ HERO (UNCHANGED — same hero section as the rest of the site) ═══ -->
+    <div class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="page-hero-wrap">
+        <div class="breadcrumb"><a href="#" onclick="go('home')">Home</a><sep> / </sep>Technology</div>
+        <h1>Technology-Enabled Portfolio Intelligence</h1>
+        <p class="ph-sub">Our proprietary platform transforms static assessment reports into living data assets — enabling real-time portfolio visibility, dynamic scenario modeling, and automated reporting outputs.</p>
+      </div>
+    </div>
+
+    <!-- ═══ §1 PLATFORM CAPABILITIES (DARK + TEAL) ═══ -->
+    <section class="tech-page-intro">
+      <div class="wrap" style="position:relative;z-index:10;">
+        <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:720px;">
+          <span class="eyebrow">Platform Capabilities</span>
+          <h2>Where Engineering Data Becomes Capital Intelligence</h2>
+          <p>Nadine's technology platform closes the gap between field assessment and boardroom decision-making — transforming raw condition data into defensible, governance-aligned intelligence.</p>
+        </div>
+        <div class="tech-platform-cards">
+          <div class="tech-plat-card sr-3d-up d1">
+            <div class="tech-plat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h4>Real-Time Portfolio Dashboard</h4>
+            <p>Live FCI scores, system condition trends, and capital need projections — accessible to leadership at any time, from any device.</p>
+            <div class="tech-plat-features">
+              <div class="tech-plat-feat">FCI tracking across all facilities</div>
+              <div class="tech-plat-feat">System-level condition drill-down</div>
+              <div class="tech-plat-feat">Executive summary views</div>
+            </div>
+          </div>
+          <div class="tech-plat-card sr-3d-up d2">
+            <div class="tech-plat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <h4>Dynamic Scenario Engine</h4>
+            <p>Model multiple capital investment scenarios simultaneously — visualizing how different funding levels affect FCI trajectories and deferred liability over 20 years.</p>
+            <div class="tech-plat-features">
+              <div class="tech-plat-feat">Multi-scenario parallel modeling</div>
+              <div class="tech-plat-feat">FCI trajectory visualization</div>
+              <div class="tech-plat-feat">Deferral impact analysis</div>
+            </div>
+          </div>
+          <div class="tech-plat-card sr-3d-up d3">
+            <div class="tech-plat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+            </div>
+            <h4>Automated Governance Reporting</h4>
+            <p>Board packages, treasury submissions, and audit documentation generated automatically from live portfolio data — eliminating manual report compilation cycles.</p>
+            <div class="tech-plat-features">
+              <div class="tech-plat-feat">Auto-generated board packages</div>
+              <div class="tech-plat-feat">Treasury submission formats</div>
+              <div class="tech-plat-feat">Audit trail documentation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ §2 PLATFORM SHOWCASE (LIGHT — split + dashboard mock) ═══ -->
+    <section class="tech-showcase">
+      <div class="wrap">
+        <div class="tech-showcase-grid">
+          <div class="sr-3d-depth">
+            <span class="eyebrow">A Single Source of Truth</span>
+            <h2 style="margin-bottom:18px;">Your Entire Portfolio. One Living Dashboard.</h2>
+            <p style="font-size:16px;line-height:1.75;color:var(--gray);">No more chasing PDFs across email threads. The Nadine platform consolidates every facility assessment, every capital line item, and every governance metric into one continuously-updated workspace — purpose-built for the way infrastructure decisions actually get made.</p>
+            <div class="tsc-feat-list">
+              <div class="tsc-feat">
+                <div class="tsc-feat-num">01</div>
+                <div>
+                  <h4>Filter, drill, and slice on demand</h4>
+                  <p>Move from portfolio-level FCI to a single mechanical room in three clicks — no analyst required.</p>
+                </div>
+              </div>
+              <div class="tsc-feat">
+                <div class="tsc-feat-num">02</div>
+                <div>
+                  <h4>Stakeholder-ready visualizations</h4>
+                  <p>Executive views, technical views, and audit views — all rendered from the same underlying data.</p>
+                </div>
+              </div>
+              <div class="tsc-feat">
+                <div class="tsc-feat-num">03</div>
+                <div>
+                  <h4>Built for non-technical leadership</h4>
+                  <p>Designed alongside CFOs, facility directors, and treasury staff — clarity over complexity, always.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tsc-mock sr-3d-right d2" aria-hidden="true">
+            <div class="tsc-mock-frame">
+              <div class="tsc-mock-bar">
+                <i></i><i></i><i></i>
+                <span>portfolio.nadineintl.com / overview</span>
+              </div>
+              <div class="tsc-mock-body">
+                <div class="tsc-mock-head">
+                  <div class="tsc-mock-title">Portfolio Overview — FY 2026</div>
+                  <div class="tsc-mock-pill">Live</div>
+                </div>
+                <div class="tsc-mock-kpis">
+                  <div class="tsc-mock-kpi">
+                    <div class="tsc-mock-kpi-lbl">Avg. FCI</div>
+                    <div class="tsc-mock-kpi-val ok">0.18</div>
+                  </div>
+                  <div class="tsc-mock-kpi">
+                    <div class="tsc-mock-kpi-lbl">Facilities</div>
+                    <div class="tsc-mock-kpi-val">142</div>
+                  </div>
+                  <div class="tsc-mock-kpi">
+                    <div class="tsc-mock-kpi-lbl">5-yr Need</div>
+                    <div class="tsc-mock-kpi-val warn">$284M</div>
+                  </div>
+                </div>
+                <div class="tsc-mock-chart">
+                  <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="tscGradT" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#25C0BE" stop-opacity=".35" />
+                        <stop offset="100%" stop-color="#25C0BE" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="tscGradR" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#D32F2F" stop-opacity=".25" />
+                        <stop offset="100%" stop-color="#D32F2F" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <line x1="0" y1="25" x2="400" y2="25" stroke="#eef0f2" stroke-dasharray="2 4" />
+                    <line x1="0" y1="50" x2="400" y2="50" stroke="#eef0f2" stroke-dasharray="2 4" />
+                    <line x1="0" y1="75" x2="400" y2="75" stroke="#eef0f2" stroke-dasharray="2 4" />
+                    <path d="M0,70 L40,55 L80,62 L120,40 L160,48 L200,30 L240,42 L280,28 L320,38 L360,22 L400,32 L400,100 L0,100 Z" fill="url(#tscGradT)" />
+                    <path d="M0,80 L40,76 L80,82 L120,72 L160,78 L200,68 L240,74 L280,66 L320,72 L360,62 L400,68 L400,100 L0,100 Z" fill="url(#tscGradR)" />
+                    <path d="M0,70 L40,55 L80,62 L120,40 L160,48 L200,30 L240,42 L280,28 L320,38 L360,22 L400,32" fill="none" stroke="#25C0BE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M0,80 L40,76 L80,82 L120,72 L160,78 L200,68 L240,74 L280,66 L320,72 L360,62 L400,68" fill="none" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ §3 PLATFORM ARCHITECTURE (TINTED LIGHT — layered stack) ═══ -->
+    <section class="tech-arch">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:center;">
+          <span class="eyebrow">Platform Architecture</span>
+          <h2>Built on Engineering Discipline, Layer by Layer</h2>
+          <p style="color:var(--gray);">Each layer of the Nadine platform serves a specific role in the infrastructure intelligence lifecycle — from raw data capture at the asset level all the way to defensible, auditable outputs in the boardroom.</p>
+        </div>
+
+        <div class="arch-stack sr-3d-up d1">
+          <div class="arch-layer">
+            <div class="arch-layer-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div>
+              <h4>Field Data Capture Layer</h4>
+              <p>Standardized digital forms, geo-tagged photographs, and condition coding feed directly into the central asset registry — no spreadsheet handoffs, no transcription error.</p>
+            </div>
+            <div class="arch-layer-tag">L1 · Capture</div>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <div>
+              <h4>Normalization &amp; Validation Layer</h4>
+              <p>Raw inputs are validated against asset hierarchy rules, FCI scoring standards, and engineering taxonomies — producing one consistent, defensible portfolio record.</p>
+            </div>
+            <div class="arch-layer-tag">L2 · Process</div>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </div>
+            <div>
+              <h4>Modeling &amp; Simulation Layer</h4>
+              <p>Lifecycle projections, risk weighting, and parallel scenario simulation run on top of the validated dataset — enabling 10–20 year capital strategy modeling.</p>
+            </div>
+            <div class="arch-layer-tag">L3 · Model</div>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div>
+              <h4>Visualization &amp; Reporting Layer</h4>
+              <p>Live dashboards, executive views, and auto-generated board packages render directly from the model layer — every output traceable back to source assessment data.</p>
+            </div>
+            <div class="arch-layer-tag">L4 · Deliver</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ §4 MODULE EXPLORER (DARK — tabbed module showcase) ═══ -->
+    <section class="tech-modules">
+      <div class="wrap" style="position:relative;z-index:2;">
+        <div class="sec-head sr-3d-up" style="text-align:center;max-width:780px;">
+          <span class="eyebrow">Module Explorer</span>
+          <h2>Three Modules. One Connected Workspace.</h2>
+          <p>Switch between the modules below to explore how each one shapes a different stage of the capital decision lifecycle.</p>
+        </div>
+
+        <div class="mod-tabs sr d1" role="tablist">
+          <button class="mod-tab active" data-mod="dashboard" role="tab" aria-selected="true">Dashboard</button>
+          <button class="mod-tab" data-mod="scenario" role="tab" aria-selected="false">Scenario Engine</button>
+          <button class="mod-tab" data-mod="reports" role="tab" aria-selected="false">Reporting Suite</button>
+        </div>
+
+        <div class="mod-panels sr d2">
+
+          <!-- Module 1 -->
+          <div class="mod-panel active" id="mod-dashboard" role="tabpanel">
+            <div class="mod-text">
+              <span class="mod-eyebrow">Module 01 — Dashboard</span>
+              <h3>Portfolio condition, at a glance</h3>
+              <p>Track FCI scores, system-level condition, and capital pressure across every facility in your portfolio — refreshed continuously as new assessment data flows in.</p>
+              <ul class="mod-bullets">
+                <li>Portfolio-wide FCI distribution with drill-down to system level</li>
+                <li>Condition heatmaps across facility groups, regions, and asset types</li>
+                <li>Configurable executive views — one click to filter by stakeholder</li>
+                <li>Mobile-friendly leadership dashboards for board and treasury access</li>
+              </ul>
+            </div>
+            <div class="mod-visual" aria-hidden="true">
+              <h5>FCI Distribution · By Building Group</h5>
+              <div class="mod-bars">
+                <div class="mod-bar" style="height:30%;"></div>
+                <div class="mod-bar" style="height:55%;"></div>
+                <div class="mod-bar mid" style="height:70%;"></div>
+                <div class="mod-bar" style="height:42%;"></div>
+                <div class="mod-bar warn" style="height:88%;"></div>
+                <div class="mod-bar mid" style="height:62%;"></div>
+                <div class="mod-bar" style="height:38%;"></div>
+                <div class="mod-bar" style="height:48%;"></div>
+                <div class="mod-bar warn" style="height:78%;"></div>
+                <div class="mod-bar mid" style="height:58%;"></div>
+              </div>
+              <div class="mod-bar-row">
+                <span>HQ</span><span>Ops</span><span>Lab</span><span>Wh-A</span><span>Wh-B</span><span>Med</span><span>Edu</span><span>Civ</span><span>Util</span><span>Fac</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="mod-panel" id="mod-scenario" role="tabpanel">
+            <div class="mod-text">
+              <span class="mod-eyebrow">Module 02 — Scenario Engine</span>
+              <h3>Test funding strategies before you commit capital</h3>
+              <p>Run baseline, accelerated, and deferred funding scenarios in parallel — see the FCI trajectory and deferred liability impact of each one before any board decision is made.</p>
+              <ul class="mod-bullets">
+                <li>Multi-scenario simulation across 10–20 year horizons</li>
+                <li>Deferred-spending impact and renewal-backlog visualization</li>
+                <li>Target FCI optimization aligned to funding cycles</li>
+                <li>Side-by-side scenario comparisons exportable to board format</li>
+              </ul>
+            </div>
+            <div class="mod-visual" aria-hidden="true">
+              <h5>FCI Trajectory · 20-Year Outlook</h5>
+              <svg class="mod-lines" viewBox="0 0 400 180" preserveAspectRatio="none">
+                <line x1="0" y1="40" x2="400" y2="40" stroke="rgba(255,255,255,.05)" />
+                <line x1="0" y1="80" x2="400" y2="80" stroke="rgba(255,255,255,.05)" />
+                <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(255,255,255,.05)" />
+                <line x1="0" y1="160" x2="400" y2="160" stroke="rgba(255,255,255,.05)" />
+                <path d="M0,60 L50,72 L100,86 L150,100 L200,118 L250,132 L300,146 L350,158 L400,168" fill="none" stroke="#D32F2F" stroke-width="2" stroke-linecap="round" />
+                <path d="M0,60 L50,68 L100,76 L150,84 L200,94 L250,102 L300,112 L350,120 L400,128" fill="none" stroke="#f4a02e" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3" />
+                <path d="M0,60 L50,56 L100,52 L150,46 L200,40 L250,34 L300,30 L350,26 L400,22" fill="none" stroke="#25C0BE" stroke-width="2.2" stroke-linecap="round" />
+                <circle cx="400" cy="168" r="3" fill="#D32F2F" />
+                <circle cx="400" cy="128" r="3" fill="#f4a02e" />
+                <circle cx="400" cy="22" r="3" fill="#25C0BE" />
+              </svg>
+              <div class="mod-legend">
+                <span><i style="background:#25C0BE;"></i>Accelerated reinvestment</span>
+                <span><i style="background:#f4a02e;"></i>Deferred funding</span>
+                <span><i style="background:#D32F2F;"></i>Baseline — no action</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="mod-panel" id="mod-reports" role="tabpanel">
+            <div class="mod-text">
+              <span class="mod-eyebrow">Module 03 — Reporting Suite</span>
+              <h3>Board-ready output, generated automatically</h3>
+              <p>Skip the manual compilation cycle. Treasury submissions, board briefing packages, and audit documentation are generated on demand from live portfolio data — fully traceable and version-controlled.</p>
+              <ul class="mod-bullets">
+                <li>Auto-generated board packages aligned to your governance template</li>
+                <li>Treasury submission formats matched to funding-cycle calendars</li>
+                <li>Audit-ready documentation with full data lineage</li>
+                <li>Version control and change tracking built into every deliverable</li>
+              </ul>
+            </div>
+            <div class="mod-visual" aria-hidden="true">
+              <h5>Generated · Last 30 Days</h5>
+              <div class="mod-docs">
+                <div class="mod-doc">
+                  <div class="mod-doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                    </svg>
+                  </div>
+                  <div class="mod-doc-info">
+                    <div class="mod-doc-title">Q4 Board Capital Briefing — FY26</div>
+                    <div class="mod-doc-meta">PDF · 38 pages · auto-compiled</div>
+                  </div>
+                  <div class="mod-doc-stat">Final</div>
+                </div>
+                <div class="mod-doc">
+                  <div class="mod-doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <line x1="9" y1="9" x2="15" y2="9" />
+                      <line x1="9" y1="13" x2="15" y2="13" />
+                      <line x1="9" y1="17" x2="13" y2="17" />
+                    </svg>
+                  </div>
+                  <div class="mod-doc-info">
+                    <div class="mod-doc-title">Treasury Submission · 5-Yr Capital</div>
+                    <div class="mod-doc-meta">XLSX + PDF · gov-template format</div>
+                  </div>
+                  <div class="mod-doc-stat">Sent</div>
+                </div>
+                <div class="mod-doc">
+                  <div class="mod-doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <div class="mod-doc-info">
+                    <div class="mod-doc-title">Audit Trail Export · FCA Cycle 04</div>
+                    <div class="mod-doc-meta">CSV · 1,284 line items · tamper-evident</div>
+                  </div>
+                  <div class="mod-doc-stat">Ready</div>
+                </div>
+                <div class="mod-doc">
+                  <div class="mod-doc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                  </div>
+                  <div class="mod-doc-info">
+                    <div class="mod-doc-title">Scenario Comparison · A vs B vs C</div>
+                    <div class="mod-doc-meta">PDF · executive summary view</div>
+                  </div>
+                  <div class="mod-doc-stat">Draft</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ §5 DATA PIPELINE (WHITE — horizontal flow) ═══ -->
+    <section class="tech-integration">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up">
+          <span class="eyebrow">Data Pipeline</span>
+          <h2>From Field Assessment to Board-Ready Intelligence</h2>
+          <p>Every stage of the infrastructure intelligence lifecycle is connected — ensuring data integrity from the first inspection to the final capital recommendation.</p>
+        </div>
+        <div class="tech-int-flow sr-3d-flip d1">
+          <div class="tech-int-node">
+            <div class="tech-int-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <h4>Field Assessment</h4>
+            <p>Engineers capture condition data on-site using standardized digital forms</p>
+          </div>
+          <div class="tech-int-arrow">&#8594;</div>
+          <div class="tech-int-node">
+            <div class="tech-int-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <h4>Data Processing</h4>
+            <p>Raw field data normalized, validated, and classified against FCI standards</p>
+          </div>
+          <div class="tech-int-arrow">&#8594;</div>
+          <div class="tech-int-node">
+            <div class="tech-int-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </div>
+            <h4>Capital Modeling</h4>
+            <p>Lifecycle projections, risk weighting, and scenario simulation applied</p>
+          </div>
+          <div class="tech-int-arrow">&#8594;</div>
+          <div class="tech-int-node">
+            <div class="tech-int-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h4>Dashboard &amp; Reports</h4>
+            <p>Live portfolio intelligence and automated governance reporting outputs</p>
+          </div>
+        </div>
+        <div class="diff-grid sr d2" style="margin-top:64px;">
+          <div class="diff-card">
+            <div class="diff-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h4>Data Security &amp; Integrity</h4>
+            <p>All portfolio data is secured, auditable, and maintained with version control — ensuring assessment integrity for governance review.</p>
+          </div>
+          <div class="diff-card">
+            <div class="diff-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10" />
+                <path d="M3.51 15a9 9 0 1 0 .49-3.99" />
+              </svg>
+            </div>
+            <h4>Continuous Updates</h4>
+            <p>Portfolio data updated as facilities are reassessed or capital projects completed — keeping intelligence current across the full lifecycle.</p>
+          </div>
+          <div class="diff-card">
+            <div class="diff-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </div>
+            <h4>System Integration</h4>
+            <p>Connects with existing CMMS, ERP, and financial reporting systems — no isolated data silos, full portfolio visibility from one source.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ §6 BEFORE / AFTER COMPARISON (WHITE) ═══ -->
+    <section class="tech-compare">
+      <div class="wrap">
+        <div class="sec-head sr-3d-up" style="text-align:center;">
+          <span class="eyebrow">The Difference</span>
+          <h2>Before Nadine. With Nadine.</h2>
+          <p style="color:var(--gray);">How institutional capital planning changes once your portfolio data lives inside a connected intelligence platform.</p>
+        </div>
+        <div class="compare-grid sr-3d-up d1">
+          <div class="compare-col before">
+            <span class="compare-tag">Before</span>
+            <h3>Static reports. Disconnected files. Manual cycles.</h3>
+            <ul class="compare-list">
+              <li>FCA reports stored as PDFs across email threads and shared drives</li>
+              <li>Capital plans rebuilt from scratch every funding cycle</li>
+              <li>Scenario comparisons done in disconnected spreadsheets</li>
+              <li>Board packages compiled manually — weeks of analyst time</li>
+              <li>Audit trail reconstructed retroactively under deadline pressure</li>
+              <li>Limited visibility for non-technical stakeholders and leadership</li>
+            </ul>
+          </div>
+          <div class="compare-col after">
+            <span class="compare-tag">With Nadine</span>
+            <h3>Living data. Connected workflows. Continuous intelligence.</h3>
+            <ul class="compare-list">
+              <li>Portfolio assessments live as continuously-refreshed data assets</li>
+              <li>Capital plans evolve automatically as new condition data flows in</li>
+              <li>Multi-scenario simulation runs in parallel, comparable side-by-side</li>
+              <li>Board packages generated on demand from current portfolio state</li>
+              <li>Full data lineage and version control maintained automatically</li>
+              <li>Stakeholder-ready visualizations — clarity for every audience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ §7 CTA — Schedule a Demo (TEAL band) ═══ -->
+    <section class="cta-section" style="background:#25c0be;border-top:1px solid rgba(37,192,190,0.15);">
+      <div class="wrap">
+        <div class="cta-inner sr">
+          <span class="eyebrow" style="color:#d32f2f;">See It in Action</span>
+          <h2 style="color:#0F161B;">Schedule a Platform Demonstration</h2>
+          <p style="color:rgba(15,22,27,0.75);">See how Nadine's technology platform transforms your portfolio assessment data into governance-ready capital intelligence — typically in under 30 minutes.</p>
+          <div class="cta-btns">
+            <a class="btn btn-red" href="#" onclick="go('contact')">Schedule a Demo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- CASE STUDIES PAGE -->
+
+
+  <footer id="site-footer">
+    <div class="footer-grid">
+      <div class="ft-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="https://www.nadineintl.com/wp-content/uploads/2021/04/logo@2x.png" alt="Nadine Logo" style="height:44px; width:auto;">
+
+        </div>
+        <p>A National Infrastructure Intelligence Partner supporting long-term capital performance across complex
+          portfolios nationwide.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('casestudies')">Case Studies</a></li>
+          <li><a href="#" onclick="go('careers')">Careers</a></li>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('services')">All Services</a></li>
+          <li><a href="#" onclick="go('fca')">Facility Condition Assessment</a></li>
+          <li><a href="#" onclick="go('capital')">Capital Planning</a></li>
+          <li><a href="#" onclick="go('risk')">Risk Strategy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Industries</h5>
+        <ul class="ft-links">
+          <li><a href="#" onclick="go('industries')">Government</a></li>
+          <li><a href="#" onclick="go('industries')">Public Safety</a></li>
+          <li><a href="#" onclick="go('industries')">Healthcare & Education</a></li>
+          <li><a href="#" onclick="go('industries')">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg><span>Toronto (headquarters)<br>2325 Skymark Avenue<br>Mississauga, Ontario<br>L4W 5A9, Canada</span>
+        </div>
+        <div class="ft-cinfo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg><span> (905) 602-1850</span></div>
+        <a class="ft-cinfo ft-cinfo-link" href="#" onclick="go('contact');return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg><span>info@nadineintl.com</span>
+        </a>
+        <div class="ft-socials">
+          <a href="https://www.linkedin.com/company/nadine-international-inc-" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="ft-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <!-- Future regional site placeholder. When ready, replace href with regional URL. -->
+          <a href="#" aria-label="Visit our international site" title="International site (coming soon)" class="ft-social-link ft-social-region">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© 2026 Nadine International Inc. All rights reserved.</span>
+      <div class="footer-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+
+  <!-- Module tab switcher (page-scoped) -->
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('#page-technology .mod-tab');
+      var panels = document.querySelectorAll('#page-technology .mod-panel');
+      if (!tabs.length) return;
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var key = tab.getAttribute('data-mod');
+          tabs.forEach(function (t) {
+            var active = t === tab;
+            t.classList.toggle('active', active);
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          panels.forEach(function (p) {
+            p.classList.toggle('active', p.id === 'mod-' + key);
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
