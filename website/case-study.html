@@ -106,7 +106,20 @@
         </div>
       </div>
     </section>
-
+<!-- Editorial Photo: project imagery between Tech Integration and Outcomes -->
+    <section class="cs-photo-section">
+      <div class="wrap">
+        <figure class="cs-photo-figure sr-up">
+          <div class="cs-photo-frame">
+            <img id="csPhoto" alt="" loading="lazy">
+          </div>
+          <figcaption class="cs-photo-caption">
+            <span class="cs-photo-caption-bar" aria-hidden="true"></span>
+            <span id="csPhotoCaption">Project imagery — engagement context.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
     <!-- Section 2: The Challenge -->
     <section class="cs-section alt">
       <div class="wrap">
@@ -150,6 +163,8 @@
       </div>
     </section>
 
+    
+
     <!-- Section 5: Measurable Outcomes -->
     <section class="cs-section cs-section-dark">
       <div class="wrap">
@@ -178,11 +193,25 @@
       </div>
     </section>
 
-    <!-- Section 7: CTA -->
+    <!-- Section 7: Other Projects -->
+    <section class="cs-related">
+      <div class="wrap">
+        <div class="cs-related-head">
+          <div class="sec-head sr-3d-up" style="text-align:left;margin-left:0;max-width:680px;">
+            <span class="eyebrow">07 — Other Projects</span>
+            <h2>Related Engagements</h2>
+          </div>
+          <a class="cs-related-all" href="#" onclick="go('casestudies')">View all case studies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="cs-related-grid" id="csRelatedGrid"></div>
+      </div>
+    </section>
+
+    <!-- Section 8: CTA -->
     <section class="cta-section">
       <div class="wrap">
         <div class="cta-inner sr">
-          <span class="eyebrow" style="color:rgba(211,47,47,.8);">07 — Begin Your Engagement</span>
+          <span class="eyebrow" style="color:rgba(211,47,47,.8);">08 — Begin Your Engagement</span>
           <h2>Implement Structured Capital Intelligence in Your Portfolio</h2>
           <p>Partner with Nadine to develop measurable, defensible infrastructure strategy aligned with governance standards.</p>
           <div class="cta-btns">
@@ -250,7 +279,7 @@
           </svg><span>info@nadineintl.com</span>
         </a>
         <div class="ft-socials">
-          <a href="https://www.linkedin.com/company/nadine-international-inc./" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
+          <a href="https://www.linkedin.com/company/nadine-international-inc-" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-social-link">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
             </svg>
@@ -288,7 +317,14 @@
         crumb: "Provincial Capital Strategy",
         title: "Multi-Year Capital Strategy for a Provincial Infrastructure Portfolio",
         lede: "A provincial ministry engaged Nadine to deliver standardized portfolio visibility across 1,200+ distributed facilities and align capital planning with multi-year funding cycles and governance reporting requirements.",
-        image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1170&auto=format&fit=crop",
+        imageCaption: "Distributed provincial facilities under standardized FCA assessment — multi-region portfolio coverage.",
+        summary: "1,200+ facility provincial portfolio. Standardized FCA, 15-year forecast, and treasury-aligned capital prioritization across multiple regions.",
+        cardStats: [
+          { num: "1,200+", lbl: "Facilities" },
+          { num: "15yr", lbl: "Forecast" },
+          { num: "18%", lbl: "Reactive Repair Reduction" }
+        ],
         overview: {
           sector: "Provincial Government",
           portfolio: "1,200+ Facilities",
@@ -339,8 +375,15 @@
         sector: "Municipal Government",
         crumb: "Municipal Portfolio Strategy",
         title: "Municipal Infrastructure Portfolio — Distributed Public Facilities",
-        lede: "A mid-size municipality engaged Nadine to deliver a full portfolio FCA and capital planning engagement, including a risk-informed prioritization framework and a multi-year capital investment roadmap for council approval.",
+        lede: "A mid-size municipality engaged Nadine for a full portfolio FCA and capital planning engagement, including a risk-informed prioritization framework and a multi-year capital investment roadmap for council approval.",
         image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1800&q=80&auto=format&fit=crop",
+        imageCaption: "Municipal civic facility — one of 31 distributed assets reviewed under the portfolio engagement.",
+        summary: "Mid-size municipality FCA and capital strategy. Deferred maintenance quantified and risk-based prioritization delivered for council approval.",
+        cardStats: [
+          { num: "31", lbl: "Assets" },
+          { num: "$61M", lbl: "10yr Capital Need" },
+          { num: "95%", lbl: "Council Approval" }
+        ],
         overview: {
           sector: "Municipal Government",
           portfolio: "31 Facilities",
@@ -389,6 +432,13 @@
         title: "Public Safety Facility Network — Mission-Critical Environment",
         lede: "Nadine delivered a multi-jurisdictional FCA and capital strategy across 28 police stations and fire halls, including criticality heatmap implementation and lifecycle-based modeling for three regional municipalities.",
         image: "https://images.unsplash.com/photo-1590487988256-9ed24133863e?w=1800&q=80&auto=format&fit=crop",
+        imageCaption: "Mission-critical public safety facility — assessment focused on operational continuity and life-safety systems.",
+        summary: "Multi-jurisdiction police and fire facility assessment. Criticality heatmap and lifecycle-based capital modeling across three regional municipalities.",
+        cardStats: [
+          { num: "28", lbl: "Facilities" },
+          { num: "$22M", lbl: "Near-Term Need" },
+          { num: "3", lbl: "Jurisdictions" }
+        ],
         overview: {
           sector: "Public Safety",
           portfolio: "28 Facilities",
@@ -438,6 +488,13 @@
         title: "Hospital Campus FCA — 12 Buildings, 1.2M sq ft",
         lede: "A multi-building healthcare campus engaged Nadine for a comprehensive condition assessment covering HVAC, electrical, life-safety, and envelope systems — and a risk-weighted capital prioritization for board approval.",
         image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1800&q=80&auto=format&fit=crop",
+        imageCaption: "Healthcare campus building — one of twelve assessed under continuous-operation clinical conditions.",
+        summary: "Multi-building healthcare campus assessment covering HVAC, electrical, life-safety, and envelope systems. Risk-weighted capital prioritization delivered for board approval.",
+        cardStats: [
+          { num: "$38M", lbl: "5yr Capital Need" },
+          { num: "12", lbl: "Buildings" },
+          { num: "92%", lbl: "Board Approval" }
+        ],
         overview: {
           sector: "Healthcare",
           portfolio: "12 Buildings (1.2M sq ft)",
@@ -486,6 +543,13 @@
         title: "School Board Portfolio — 63 Schools, 20-Year Plan",
         lede: "A large school board engaged Nadine for a comprehensive FCA and 20-year capital forecasting program across an aging facility portfolio — with ministry-aligned reporting and renewal program prioritization.",
         image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1800&q=80&auto=format&fit=crop",
+        imageCaption: "Educational facility — one of 63 schools assessed under the standardized FCA program.",
+        summary: "Comprehensive FCA and 20-year capital forecasting for a large school board's aging facility portfolio. Ministry-aligned reporting and renewal program prioritization.",
+        cardStats: [
+          { num: "63", lbl: "Schools" },
+          { num: "$215M", lbl: "20yr Capital Need" },
+          { num: "20yr", lbl: "Forecast" }
+        ],
         overview: {
           sector: "Education (K–12)",
           portfolio: "63 Schools",
@@ -547,6 +611,14 @@
       setText('csSector', data.sector);
       setText('csTitle', data.title);
       setText('csLede', data.lede);
+
+      // Inline editorial photo
+      var photo = el('csPhoto');
+      if (photo) {
+        photo.src = data.image;
+        photo.alt = data.title + ' — project imagery';
+      }
+      setText('csPhotoCaption', data.imageCaption || (data.sector + ' — project imagery from the engagement.'));
 
       // Overview
       setText('csOvSector', data.overview.sector);
@@ -616,6 +688,33 @@
           var li = document.createElement('li');
           li.textContent = b;
           iB.appendChild(li);
+        });
+      }
+
+      // Other Projects (related case studies — exclude current, show up to 3)
+      var rg = el('csRelatedGrid');
+      if (rg) {
+        rg.innerHTML = '';
+        var others = Object.keys(CASE_DATA).filter(function (k) { return k !== id; }).slice(0, 3);
+        others.forEach(function (key, i) {
+          var d = CASE_DATA[key];
+          var card = document.createElement('a');
+          card.className = 'cs-editorial-card cs-related-card sr-3d-up d' + (i + 1);
+          card.href = 'case-study.html?id=' + key;
+          var stats = (d.cardStats || []).map(function (s) {
+            return '<div><div class="cs-editorial-result-num">' + s.num + '</div><div class="cs-editorial-result-lbl">' + s.lbl + '</div></div>';
+          }).join('');
+          card.innerHTML =
+            '<div class="cs-editorial-img" style="background-image:url(\'' + d.image + '\');">' +
+              '<span class="cs-editorial-tag">' + d.sector + '</span>' +
+            '</div>' +
+            '<div class="cs-editorial-body">' +
+              '<h4>' + d.title + '</h4>' +
+              '<p>' + (d.summary || d.lede) + '</p>' +
+              '<div class="cs-editorial-results">' + stats + '</div>' +
+              '<span class="cs-editorial-cta">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>' +
+            '</div>';
+          rg.appendChild(card);
         });
       }
     }
