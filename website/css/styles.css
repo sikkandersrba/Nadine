@@ -5334,7 +5334,7 @@
 }
 .leader-card {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 265px 1fr;
   gap: 32px;
   background: var(--white);
   border-radius: 16px;
