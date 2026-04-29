@@ -6864,7 +6864,7 @@
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .gp-eyebrow {
-  color: #25C0BE;
+  color: #d32f2f;
   font-size: 12px;
   letter-spacing: 0.18em;
   font-weight: 700;
@@ -6875,7 +6875,7 @@
 .gp-eyebrow::before {
   content: "";
   width: 28px; height: 1px;
-  background: #25C0BE;
+  background: #d32f2f;
 }
 .gp-title {
   color: #eaf6f7;
@@ -6886,7 +6886,7 @@
   margin-top: 18px;
 }
 .gp-title-accent {
-  background: linear-gradient(135deg, #25C0BE 0%, #5fe5e3 60%, #ffffff 110%);
+  background: #d32f2f;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -6918,7 +6918,7 @@
 .gp-meta-num {
   font-size: 22px;
   font-weight: 800;
-  color: #25C0BE;
+  color: #d32f2f;
   letter-spacing: -0.02em;
 }
 .gp-meta-lbl {
@@ -6989,7 +6989,7 @@
 .gp-card-num {
   font-size: 13px;
   font-weight: 700;
-  color: rgba(37,192,190,0.85);
+  color: #d32f2f;
   letter-spacing: 0.18em;
   margin-bottom: 28px;
   position: relative;
