@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Portfolio — Our Work &amp; Events &mdash; Wideview Innovation</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}:root{--pink:#ff2d78;--violet:#6d28d9;--cyan:#00d4ff;--gold:#f59e0b;--lime:#84cc16;--orange:#f97316;--teal:#0d9488;--dark:#0d0d14;--off:#faf9ff;--text:#1e1b30;--muted:#6b7280}body{font-family:'Outfit',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:linear-gradient(var(--violet),var(--pink))}
+#nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;transition:background .4s,box-shadow .4s}#nav.scrolled,#nav.solid{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 2px 30px rgba(0,0,0,.08)}.nlogo{display:flex;align-items:center;text-decoration:none;height:56px;flex-shrink:0}.nlogo-img{height:48px;width:auto;display:block;filter:invert(1) hue-rotate(180deg) brightness(1.1);transition:filter .4s,transform .3s}#nav.scrolled .nlogo-img,#nav.solid .nlogo-img{filter:none}.nlogo:hover .nlogo-img{transform:scale(1.04)}.nlinks{display:flex;gap:22px;list-style:none;margin:0;padding:0}.nlinks a{color:rgba(255,255,255,.88);text-decoration:none;font-size:12.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;position:relative;transition:color .25s;white-space:nowrap;padding-bottom:3px}.nlinks a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--cyan);border-radius:2px;transition:width .3s}.nlinks a:hover::after,.nlinks a.active::after{width:100%}.nlinks a:hover,.nlinks a.active{color:#fff}#nav.scrolled .nlinks a,#nav.solid .nlinks a{color:var(--text)}#nav.scrolled .nlinks a::after,#nav.solid .nlinks a::after{background:var(--violet)}#nav.scrolled .nlinks a:hover,#nav.solid .nlinks a:hover,#nav.scrolled .nlinks a.active,#nav.solid .nlinks a.active{color:var(--violet)}.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}.ncta{background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;border:none;padding:9px 22px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(255,45,120,.3);text-decoration:none;display:inline-block}.ncta:hover{transform:scale(1.06);box-shadow:0 8px 28px rgba(255,45,120,.45)}.nham{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;width:32px;height:32px;flex-shrink:0;padding:2px}.nham span{width:24px;height:2px;background:rgba(255,255,255,.9);border-radius:2px;display:block;transition:transform .35s,opacity .35s,background .4s}#nav.scrolled .nham span,#nav.solid .nham span{background:var(--text)}.nham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.nham.open span:nth-child(2){opacity:0;transform:scaleX(0)}.nham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobmenu{display:flex;flex-direction:column;position:fixed;inset:0;background:linear-gradient(150deg,#050010,#0e0820,#120535);z-index:9998;transform:translateX(100%);transition:transform .42s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:76px 40px 40px}.mobmenu.open{transform:translateX(0)}.mobclose{position:absolute;top:18px;right:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s;line-height:1}.mobclose:hover{background:rgba(255,255,255,.16);transform:rotate(90deg)}.mob-logo{display:block;margin-bottom:36px}.mob-logo img{height:36px;width:auto;filter:invert(1) hue-rotate(180deg) brightness(1.1)}.mob-nav{display:flex;flex-direction:column}.mob-link{color:rgba(255,255,255,.65);text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:4px;line-height:1;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);display:block;transition:color .25s,padding-left .3s;position:relative}.mob-link::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--cyan),var(--violet));transform:scaleY(0);transition:transform .3s}.mob-link:hover{color:#fff;padding-left:16px}.mob-link:hover::before{transform:scaleY(1)}.mobmenu.open .mob-link:nth-child(1){animation:mobIn .4s .04s both}.mobmenu.open .mob-link:nth-child(2){animation:mobIn .4s .10s both}.mobmenu.open .mob-link:nth-child(3){animation:mobIn .4s .16s both}.mobmenu.open .mob-link:nth-child(4){animation:mobIn .4s .22s both}.mobmenu.open .mob-link:nth-child(5){animation:mobIn .4s .28s both}.mobmenu.open .mob-link:nth-child(6){animation:mobIn .4s .34s both}.mobmenu.open .mob-link:nth-child(7){animation:mobIn .4s .40s both}@keyframes mobIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}.mob-cta{margin-top:28px;width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:transform .25s;text-decoration:none;text-align:center;display:block;animation:mobIn .4s .46s both}.mob-cta:hover{transform:translateY(-2px)}
+.marqwrap{padding:14px 0;overflow:hidden;background:linear-gradient(90deg,#6d28d9,#db2777,#f97316,#f59e0b,#0d9488,#6d28d9)}.marqi{display:flex;width:max-content;animation:mq 32s linear infinite}.mqi{padding:0 22px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:#fff;white-space:nowrap;display:flex;align-items:center;gap:14px}.mqi::after{content:'\2736';font-size:8px;opacity:.5}@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+footer{background:#0d0d14;padding:70px 5% 32px;position:relative;overflow:hidden}footer::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(109,40,217,.06),transparent 65%);bottom:-200px;left:-150px;pointer-events:none}.ft-top{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--violet),var(--cyan),var(--gold),var(--lime))}.ft-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px;position:relative;z-index:1}.ft-logo-img{height:42px;width:auto;display:block;margin-bottom:14px;filter:invert(1) hue-rotate(180deg) brightness(1.15);opacity:.9;transition:opacity .3s,transform .3s}.ft-logo-img:hover{opacity:1;transform:scale(1.04)}.ft-tag{font-size:13px;color:rgba(255,255,255,.36);line-height:1.8;max-width:270px;margin-bottom:18px}.socials{display:flex;gap:8px}.soc{width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:15px;color:rgba(255,255,255,.34);transition:all .3s;text-decoration:none}.soc:hover{background:linear-gradient(135deg,var(--violet),var(--pink));border-color:transparent;color:#fff;transform:translateY(-3px)}.ft-col h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:14px;font-weight:700}.ft-ul{list-style:none;display:flex;flex-direction:column;gap:8px}.ft-ul a{font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s,transform .2s;display:inline-block}.ft-ul a:hover{color:var(--cyan);transform:translateX(4px)}.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap;gap:10px;position:relative;z-index:1}.ft-bot p{font-size:12px;color:rgba(255,255,255,.22)}.ft-bot span{color:var(--pink)}
+.gtt{position:fixed;bottom:96px;right:24px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;z-index:8997;box-shadow:0 6px 22px rgba(109,40,217,.38);opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s}.gtt.show{opacity:1;transform:none}.gtt:hover{box-shadow:0 12px 36px rgba(109,40,217,.55);transform:translateY(-3px)}.wa-ring{position:fixed;bottom:22px;right:22px;width:54px;height:54px;background:rgba(37,211,102,.18);border-radius:50%;z-index:8998;animation:war 2.2s infinite;pointer-events:none}@keyframes war{0%{transform:scale(1);opacity:.8}100%{transform:scale(2);opacity:0}}.wa-btn{position:fixed;bottom:22px;right:22px;width:54px;height:54px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:8999;box-shadow:0 8px 28px rgba(37,211,102,.38);transition:transform .3s;text-decoration:none}.wa-btn:hover{transform:scale(1.1)}
+.sec-tag{display:inline-block;padding:6px 20px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}.sec-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,72px);letter-spacing:2px;color:var(--text);line-height:1}.sec-h.wh{color:#fff}.sec-sub{font-size:16px;color:var(--muted);margin-top:12px;line-height:1.72}.sec-ctr{text-align:center;margin-bottom:60px}.sec-ctr .sec-sub{max-width:560px;margin-left:auto;margin-right:auto}.btn{display:inline-block;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;color:#fff;text-decoration:none;transition:transform .25s,box-shadow .3s;position:relative;overflow:hidden}.btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-100%);transition:transform .4s}.btn:hover::before{transform:translateX(0)}.btn:hover{transform:translateY(-3px)}.btn-o{display:inline-block;padding:12px 30px;border-radius:50px;font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:2px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);color:#fff;text-decoration:none;transition:all .3s}.btn-o:hover{background:rgba(255,255,255,.2);border-color:#fff;transform:translateY(-3px)}
+.page-hero{padding:148px 5% 76px;position:relative;overflow:hidden;min-height:360px;display:flex;align-items:flex-end}.ph-bg{position:absolute;inset:0;background-size:cover;background-position:center}.ph-ov{position:absolute;inset:0}.ph-ct{position:relative;z-index:2}.bc{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:16px}.bc a{color:rgba(255,255,255,.48);text-decoration:none;transition:color .2s}.bc a:hover{color:var(--cyan)}.bc-s{opacity:.3}.ph-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,10vw,110px);letter-spacing:2px;color:#fff;line-height:.88;margin-bottom:14px}.ph-h span{display:block;-webkit-text-stroke:2px rgba(255,255,255,.48);color:transparent}.ph-p{font-size:clamp(14px,1.8vw,17px);color:rgba(255,255,255,.72);max-width:580px;line-height:1.75}
+.sec{padding:100px 5%}.sec.off{background:#faf9ff}.sec.wh{background:#fff}.sec.dk{background:linear-gradient(135deg,#0d0520,#1e0845,#0a1628);position:relative;overflow:hidden}
+.spl{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}.spl.rev{direction:rtl}.spl.rev>*{direction:ltr}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{border-radius:18px;padding:26px;border:1.5px solid #ede9fe;background:#fff;transition:all .35s}.card:hover{border-color:var(--violet);transform:translateY(-6px);box-shadow:0 20px 50px rgba(109,40,217,.1)}.dcard{border-radius:18px;padding:26px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);transition:all .35s}.dcard:hover{background:rgba(255,255,255,.07);border-color:rgba(0,212,255,.22);transform:translateY(-4px)}
+.pill{display:inline-block;padding:5px 14px;border-radius:50px;font-size:11px;font-weight:600;margin:3px}
+.imgb{border-radius:22px;overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.12)}.imgb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}.imgb:hover img{transform:scale(1.04)}
+.chk{list-style:none;display:flex;flex-direction:column;gap:10px}.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted);line-height:1.6}.chk li::before{content:'\2713';color:var(--lime);font-weight:800;font-size:12px;flex-shrink:0;margin-top:2px}.chk.wh li{color:rgba(255,255,255,.68)}.chk.wh li::before{color:var(--cyan)}
+.div{height:1px;background:linear-gradient(90deg,transparent,rgba(109,40,217,.18),transparent)}
+.ey{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}.ey::before{content:'';width:24px;height:2px;background:var(--violet);border-radius:2px}
+.bh{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);line-height:1.1;color:var(--text);margin-bottom:18px;font-weight:600}.bh em{color:var(--pink);font-style:italic}
+.bp{color:var(--muted);font-size:15px;line-height:1.9;margin-bottom:14px}
+.rv{opacity:0;transform:translateY(44px);transition:opacity .75s,transform .75s}.rv.vis{opacity:1;transform:none}.rl{opacity:0;transform:translateX(-48px);transition:opacity .78s,transform .78s}.rl.vis{opacity:1;transform:none}.rr{opacity:0;transform:translateX(48px);transition:opacity .78s,transform .78s}.rr.vis{opacity:1;transform:none}.stag>*{opacity:0;transform:translateY(32px);transition:opacity .6s,transform .6s}.stag.vis>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}.stag.vis>*:nth-child(2){opacity:1;transform:none;transition-delay:.13s}.stag.vis>*:nth-child(3){opacity:1;transform:none;transition-delay:.21s}.stag.vis>*:nth-child(4){opacity:1;transform:none;transition-delay:.29s}.stag.vis>*:nth-child(5){opacity:1;transform:none;transition-delay:.37s}.stag.vis>*:nth-child(6){opacity:1;transform:none;transition-delay:.45s}
+@media(max-width:960px){.nlinks,.ncta{display:none}.nham{display:flex}#nav{padding:0 4%}.spl,.spl.rev,.g2{grid-template-columns:1fr}.spl.rev{direction:ltr}.g3{grid-template-columns:1fr 1fr}.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g3,.g4{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}.ft-bot{flex-direction:column;text-align:center}}
+
+.page-hero{padding:148px 5% 76px;position:relative;overflow:hidden;min-height:360px;display:flex;align-items:flex-end}
+.ph-bg{position:absolute;inset:0;background-size:cover;background-position:center}.ph-ov{position:absolute;inset:0}.ph-ct{position:relative;z-index:2}
+.bc{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:16px}.bc a{color:rgba(255,255,255,.48);text-decoration:none;transition:color .2s}.bc a:hover{color:var(--cyan)}.bcs{opacity:.3}
+.ph-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,10vw,110px);letter-spacing:2px;color:#fff;line-height:.88;margin-bottom:14px}
+.ph-h span{display:block;-webkit-text-stroke:2px rgba(255,255,255,.48);color:transparent}
+.ph-p{font-size:clamp(14px,1.8vw,17px);color:rgba(255,255,255,.72);max-width:580px;line-height:1.75}
+.sec{padding:100px 5%}.sec.off{background:#faf9ff}.sec.wh{background:#fff}
+.spl{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border-radius:18px;padding:26px;border:1.5px solid #ede9fe;background:#fff;transition:all .35s}.card:hover{border-color:var(--violet);transform:translateY(-6px);box-shadow:0 20px 50px rgba(109,40,217,.1)}
+.imgb{border-radius:22px;overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.12)}.imgb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}.imgb:hover img{transform:scale(1.04)}
+.chk{list-style:none;display:flex;flex-direction:column;gap:10px}.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted);line-height:1.6}.chk li::before{content:'\2713';color:var(--lime);font-weight:800;font-size:12px;flex-shrink:0;margin-top:2px}
+.div{height:1px;background:linear-gradient(90deg,transparent,rgba(109,40,217,.18),transparent)}
+.bh{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);line-height:1.1;color:var(--text);margin-bottom:18px;font-weight:600}.bh em{color:var(--pink);font-style:italic}
+.bp{color:var(--muted);font-size:15px;line-height:1.9;margin-bottom:14px}
+.sec-ctr{text-align:center;margin-bottom:60px}.sec-ctr .sec-sub{max-width:560px;margin-left:auto;margin-right:auto}
+.pill{display:inline-block;padding:5px 14px;border-radius:50px;font-size:11px;font-weight:600;margin:3px}
+.btn{display:inline-block;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;color:#fff;text-decoration:none;transition:transform .25s,box-shadow .3s;position:relative;overflow:hidden}.btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-100%);transition:transform .4s}.btn:hover::before{transform:translateX(0)}.btn:hover{transform:translateY(-3px)}
+@media(max-width:960px){.spl,.g2{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g3{grid-template-columns:1fr}}
+
+.filt-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.fb{padding:9px 22px;border-radius:50px;border:1.5px solid #e5e7eb;background:#fff;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .35s}
+.fb.on,.fb:hover{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;border-color:transparent;box-shadow:0 5px 18px rgba(109,40,217,.25);transform:translateY(-2px)}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pi{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;transition:transform .38s cubic-bezier(.34,1.56,.64,1),box-shadow .38s}
+.pi:hover{transform:scale(1.022);box-shadow:0 24px 58px rgba(0,0,0,.2)}
+.pi.pw{grid-column:span 2}.pi.pt{grid-row:span 2}
+.pin{overflow:hidden;height:224px}.pi.pt .pin{height:100%;min-height:462px}.pi.pw .pin{height:224px}
+.pin img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}.pi:hover .pin img{transform:scale(1.08)}
+.piov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.04) 52%,transparent);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:22px}.pi:hover .piov{opacity:1}
+.pi-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.62);margin-bottom:4px}
+.pi-tit{font-size:16px;font-weight:700;color:#fff;line-height:1.3}
+.part-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prt{border-radius:16px;padding:24px;border:1.5px solid #ede9fe;background:#fff;transition:all .35s;text-align:center}
+.prt:hover{border-color:var(--violet);transform:translateY(-4px);box-shadow:0 14px 40px rgba(109,40,217,.1)}
+@media(max-width:960px){.bento{grid-template-columns:1fr 1fr}.pi.pw{grid-column:span 1}.part-g{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.bento{grid-template-columns:1fr}.pi.pt .pin{min-height:240px}.part-g{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wa-ring"></div>
+<a href="https://wa.me/919876543210" class="wa-btn" target="_blank">&#128172;</a>
+<button class="gtt" id="gtt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+<nav id="nav" class="solid">
+  <a href="index.html" class="nlogo"><img class="nlogo-img" src="assets/logo.png" alt="Wideview Innovation"></a>
+  <ul class="nlinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html" class="active">Portfolio</a></li><li><a href="team.html">Team</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <div class="nav-right"><a class="ncta" href="contact.html">Get Quote</a><div class="nham" id="ham"><span></span><span></span><span></span></div></div>
+</nav>
+<div class="mobmenu" id="mob">
+  <button class="mobclose" id="mobclose">&#10005;</button>
+  <a href="index.html" class="mob-logo"><img src="assets/logo.png" alt="Wideview Innovation"></a>
+  <div class="mob-nav"><a href="index.html" class="mob-link">Home</a><a href="about.html" class="mob-link">About</a><a href="services.html" class="mob-link">Services</a><a href="portfolio.html" class="mob-link">Portfolio</a><a href="team.html" class="mob-link">Team</a><a href="gallery.html" class="mob-link">Gallery</a><a href="contact.html" class="mob-link">Contact</a></div>
+  <a href="contact.html" class="mob-cta">Get a Free Quote</a>
+</div>
+<div class="page-hero"><div class="ph-bg" style="background-image:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80&fit=crop')"></div><div class="ph-ov" style="background:linear-gradient(105deg,rgba(30,8,0,.88) 40%,rgba(249,115,22,.35))"></div><div class="ph-ct"><div class="bc"><a href="index.html">Home</a><span class="bcs">/</span><span>Portfolio</span></div><h1 class="ph-h"><span>OUR</span>PORTFOLIO</h1><p class="ph-p">9+ years of extraordinary events, cultural productions, corporate functions, brand campaigns, and community initiatives across Tamil Nadu and South India.</p></div></div><div class="marqwrap"><div class="marqi"><div class="mqi">Legends of Dance</div><div class="mqi">koneX Awards</div><div class="mqi">Caterpillar MOU</div><div class="mqi">Talents of Tamil Nadu</div><div class="mqi">Artistry Festival</div><div class="mqi">Google Campaign</div><div class="mqi">Himalaya Promotions</div><div class="mqi">Texvalley Events</div><div class="mqi">Wedding Management</div><div class="mqi">Celebrity Events</div><div class="mqi">Cultural Programs</div><div class="mqi">South India</div><div class="mqi">Legends of Dance</div><div class="mqi">koneX Awards</div><div class="mqi">Caterpillar MOU</div><div class="mqi">Talents of Tamil Nadu</div><div class="mqi">Artistry Festival</div><div class="mqi">Google Campaign</div><div class="mqi">Himalaya Promotions</div><div class="mqi">Texvalley Events</div><div class="mqi">Wedding Management</div><div class="mqi">Celebrity Events</div><div class="mqi">Cultural Programs</div><div class="mqi">South India</div></div></div><section class="sec off">
+  <div class="sec-ctr rv">
+    <div class="sec-tag" style="background:rgba(245,158,11,.1);color:#b45309;border:1px solid rgba(245,158,11,.22)">Our Work</div>
+    <h2 class="sec-h">EVENTS &amp; PRODUCTIONS</h2>
+    <p class="sec-sub">From intimate celebrations to South India&apos;s largest cultural festivals &mdash; every project crafted with passion and executed with precision.</p>
+  </div>
+  <div class="filt-row">
+    <button class="fb on" onclick="filterPort(this,'all')">All Work</button>
+    <button class="fb" onclick="filterPort(this,'wedding')">Weddings</button>
+    <button class="fb" onclick="filterPort(this,'corporate')">Corporate</button>
+    <button class="fb" onclick="filterPort(this,'cultural')">Cultural</button>
+    <button class="fb" onclick="filterPort(this,'brand')">Brand Promos</button>
+    <button class="fb" onclick="filterPort(this,'college')">College Events</button>
+  </div>
+  <div class="bento rv" id="portGrid">
+    <div class="pi pw pt" data-cat="cultural">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&q=80&fit=crop" alt="Legends of Dance" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Cultural &mdash; Texvalley, Erode</div><div class="pi-tit">Legends of Dance (LOD) &mdash; 8,000+ Participants</div></div></div>
+    </div>
+    <div class="pi" data-cat="corporate">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&q=75&fit=crop" alt="Caterpillar Corporate" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Corporate &mdash; SIPCOT Erode</div><div class="pi-tit">Caterpillar MOU Function</div></div></div>
+    </div>
+    <div class="pi" data-cat="cultural">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=500&q=75&fit=crop" alt="Film Festival" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Cultural &mdash; 5 Consecutive Years</div><div class="pi-tit">South Indian Short Film Festival &amp; koneX Awards</div></div></div>
+    </div>
+    <div class="pi pw" data-cat="wedding">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&fit=crop" alt="Wedding" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Wedding Management</div><div class="pi-tit">Grand Wedding Celebrations — Tamil Nadu</div></div></div>
+    </div>
+    <div class="pi" data-cat="brand">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&q=75&fit=crop" alt="Brand Promotion" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Brand Promotion &mdash; E3 Innovations Salem</div><div class="pi-tit">Google, Himalaya, Lenovo National Brand Campaigns</div></div></div>
+    </div>
+    <div class="pi" data-cat="corporate">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500&q=75&fit=crop" alt="Texvalley Events" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Corporate &mdash; Texvalley Preferred Partner</div><div class="pi-tit">Fashion Shows, Product Launches &amp; Conferences</div></div></div>
+    </div>
+    <div class="pi" data-cat="cultural">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&q=75&fit=crop" alt="Artistry Festival" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Cultural Festival &mdash; Multiple Editions</div><div class="pi-tit">Artistry — Music, Dance, Art &amp; Youth Talent</div></div></div>
+    </div>
+    <div class="pi" data-cat="college">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=75&fit=crop" alt="College Events" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">College Events &mdash; KSR, Amman College</div><div class="pi-tit">Celebrity Appearances &amp; College Programs</div></div></div>
+    </div>
+    <div class="pi pw" data-cat="brand">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop" alt="Talents of TN" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Talent Platform &mdash; 2023</div><div class="pi-tit">Talents of Tamil Nadu &mdash; Grand Fashion &amp; Talent Showcase</div></div></div>
+    </div>
+    <div class="pi" data-cat="brand">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500&q=75&fit=crop" alt="Tata Gold" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Brand Activation &mdash; Texvalley Franchise</div><div class="pi-tit">Tata Gold Plus Jewellery Year-Long Campaign</div></div></div>
+    </div>
+    <div class="pi" data-cat="cultural">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&q=75&fit=crop" alt="Pattimandram" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Public Events &mdash; Suriyan FM</div><div class="pi-tit">Pattimandrams, Comedy Shows &amp; Community Programs</div></div></div>
+    </div>
+    <div class="pi" data-cat="corporate">
+      <div class="pin"><img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=500&q=75&fit=crop" alt="Temple Festival" loading="lazy"></div>
+      <div class="piov"><div><div class="pi-tag">Cultural &mdash; Erode</div><div class="pi-tit">Erode Periya Mariamman Temple Festival</div></div></div>
+    </div>
+  </div>
+</section>
+<div class="div"></div>
+<section class="sec wh">
+  <div class="sec-ctr rv">
+    <div class="sec-tag" style="background:rgba(13,148,136,.1);color:#0d9488;border:1px solid rgba(13,148,136,.2)">Strategic Alliances</div>
+    <h2 class="sec-h">PARTNERS &amp; COLLABORATIONS</h2>
+    <p class="sec-sub">Throughout our journey, Wideview Innovation has actively collaborated with leading organizations across Tamil Nadu, strengthening our capabilities and expanding our reach.</p>
+  </div>
+  <div class="part-g stag">
+    <div class="prt"><div style="font-size:40px;margin-bottom:14px">&#127897;</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text);margin-bottom:8px">RTV &amp; Bharani Silks</h3><p style="font-size:13px;color:var(--muted);line-height:1.7">Our very first collaboration — a large-scale Drawing Competition that launched Wideview Innovation's event management journey in Tamil Nadu and established our credibility.</p></div>
+    <div class="prt"><div style="font-size:40px;margin-bottom:14px">&#127981;</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text);margin-bottom:8px">Texvalley, Erode</h3><p style="font-size:13px;color:var(--muted);line-height:1.7">Preferred event partner for fashion shows, corporate events, product launches, conferences, entertainment programs, and Tata Gold Plus year-long promotional campaigns.</p></div>
+    <div class="prt"><div style="font-size:40px;margin-bottom:14px">&#128101;</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text);margin-bottom:8px">E3 Innovations, Salem</h3><p style="font-size:13px;color:var(--muted);line-height:1.7">Executed promotional campaigns for Google, Himalaya, Lenovo, Axis, Lava, Navaratna Oil, ITC, and other leading national &amp; international brands across Tamil Nadu.</p></div>
+    <div class="prt"><div style="font-size:40px;margin-bottom:14px">&#127897;</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text);margin-bottom:8px">Suriyan FM</h3><p style="font-size:13px;color:var(--muted);line-height:1.7">Active participation in pattimandrams, cultural festivals, entertainment events, and public engagement activities — volunteer coordination, audience management, and on-ground execution.</p></div>
+    <div class="prt"><div style="font-size:40px;margin-bottom:14px">&#127909;</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text);margin-bottom:8px">RCN TV &amp; Bava TV</h3><p style="font-size:13px;color:var(--muted);line-height:1.7">Long-standing media collaborations for cultural programs, talent shows, and public engagement events broadcast across Tamil Nadu — supporting our signature events.</p></div>
+    <div class="prt"><div style="font-size:40px;margin-bottom:14px">&#127794;</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text);margin-bottom:8px">Arun Creations, Erode</h3><p style="font-size:13px;color:var(--muted);line-height:1.7">Strategic partnership for promotional campaigns, brand activations, public engagement programs, and large-scale cultural and corporate initiatives across Tamil Nadu.</p></div>
+  </div>
+</section>
+<section class="sec off" style="text-align:center">
+  <div class="rv">
+    <div class="sec-tag" style="background:rgba(219,39,119,.1);color:#9d174d;border:1px solid rgba(219,39,119,.2);margin-bottom:16px">Your Event Next?</div>
+    <h2 class="sec-h" style="margin-bottom:16px">LET&apos;S CREATE YOUR STORY</h2>
+    <p style="color:var(--muted);font-size:17px;max-width:560px;margin:0 auto 36px;line-height:1.8">Join hundreds of satisfied clients who trusted Wideview Innovation to bring their vision to life. Your story begins with a single conversation.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn" style="background:linear-gradient(135deg,var(--violet),var(--pink));box-shadow:0 8px 26px rgba(109,40,217,.28)">Plan Your Event</a>
+      <a href="gallery.html" class="btn" style="background:linear-gradient(135deg,var(--gold),var(--orange));color:#000">View Gallery</a>
+    </div>
+  </div>
+</section>
+<footer><div class="ft-top"></div><div class="ft-grid"><div><img class="ft-logo-img" src="assets/logo.png" alt="Wideview Innovation"><p class="ft-tag">Creating Experiences. Building Opportunities.<br>Transforming Lives. &mdash; Est. 2016, Erode, Tamil Nadu</p><div class="socials"><a class="soc" href="#">&#128247;</a><a class="soc" href="#">&#128218;</a><a class="soc" href="#">&#9654;</a><a class="soc" href="#">&#128188;</a></div></div><div class="ft-col"><h4>Company</h4><ul class="ft-ul"><li><a href="about.html">Our Story</a></li><li><a href="team.html">Leadership</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="gallery.html">Gallery</a></li></ul></div><div class="ft-col"><h4>Services</h4><ul class="ft-ul"><li><a href="services.html">Event Management</a></li><li><a href="services.html">Corporate Events</a></li><li><a href="services.html">Media &amp; Digital</a></li><li><a href="services.html">Brand Promotions</a></li><li><a href="services.html">Adorez Products</a></li><li><a href="services.html">Jeeviyam Education</a></li></ul></div><div class="ft-col"><h4>Contact</h4><ul class="ft-ul"><li><a href="tel:+919876543210">+91 98765 43210</a></li><li><a href="mailto:info@wideviewinnovation.com">Email Us</a></li><li><a href="#">Erode, Tamil Nadu</a></li><li><a href="#">Coimbatore, Tamil Nadu</a></li></ul></div></div><div class="ft-bot"><p>&copy; 2025 Wideview Innovation. All rights reserved. Made with <span>&#9829;</span> in Tamil Nadu.</p><p>&quot;Your Vision, Our Innovation.&quot;</p></div></footer>
+<script>const gtt=document.getElementById('gtt');window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>60);if(gtt)gtt.classList.toggle('show',scrollY>380);});const ham=document.getElementById('ham'),mob=document.getElementById('mob'),mbc=document.getElementById('mobclose');function closeMob(){mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow='';}if(ham)ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});if(mbc)mbc.addEventListener('click',closeMob);document.querySelectorAll('.mob-link,.mob-cta').forEach(el=>el.addEventListener('click',closeMob));mob.addEventListener('click',e=>{if(e.target===mob)closeMob();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob();});const rob=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rob.unobserve(e.target);}});},{threshold:.07,rootMargin:'0px 0px -36px 0px'});document.querySelectorAll('.rv,.rl,.rr,.stag').forEach(el=>rob.observe(el));const cob=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const t=+e.target.dataset.target,suf=e.target.dataset.suf||'';let s=0;const iv=setInterval(()=>{s=Math.min(s+Math.ceil(t/80),t);e.target.textContent=s.toLocaleString()+suf;if(s>=t)clearInterval(iv);},18);cob.unobserve(e.target);}});},{threshold:.5});document.querySelectorAll('[data-target]').forEach(el=>cob.observe(el));
+function filterPort(btn,cat){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.pi').forEach(pi=>{
+    const show=cat==='all'||pi.dataset.cat===cat;
+    pi.style.display=show?'':'none';
+    if(cat!=='all'){pi.classList.remove('pw','pt');}
+    else{
+      if(pi.id==='pi0'){pi.classList.add('pw','pt');}
+    }
+  });
+}
+</script>
+</body>
+</html>
